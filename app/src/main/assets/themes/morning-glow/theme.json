@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "id": "morning-glow",
+  "name": "Morning Glow",
+  "author": "Hearth",
+  "description": "Golden morning light across a quiet valley",
+  "dayparts": ["morning"],
+  "palette": {
+    "ink": "#FFF8F5EA",
+    "inkMuted": "#B8F8F5EA",
+    "accent": "#FFFFC86B",
+    "glow": "#66FFC86B",
+    "shade": "#E00D2831",
+    "shadeMid": "#730D2831",
+    "window": "#FF0D2831"
+  },
+  "preview": "preview.webp",
+  "motion": { "sway": { "amplitude": 5, "period": 150 } },
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "clouds.webp", "y": 58, "parallax": 0.12, "wrap": true,
+      "drift": { "x": 72, "period": 210 } },
+    { "image": "mountains.webp", "y": 170, "parallax": 0.24 },
+    { "image": "haze.webp", "y": 270, "parallax": 0.38, "wrap": true,
+      "drift": { "x": 36, "period": 210 },
+      "opacity": { "min": 0.52, "max": 0.64, "period": 100, "phase": 0.25 } },
+    { "image": "hills.webp", "y": 300, "parallax": 1.0 }
+  ]
+}

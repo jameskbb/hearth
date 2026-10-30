@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="-11.2 0 982.4 450.2667">
+  <!-- Hearth theme "Aurora", layer 01: the curtain and its glow, on transparent. Rendered by
+       scripts/render-theme.sh aurora. The same curtain as design/art/aurora.svg, in its coordinates. The view
+       is the strip from y 0, widened by the layer's overscan (11.2 dp a side: drift 10 plus sway 4 x parallax
+       0.3), so at rest the curtain lands where the original has it. The filter's last step divides the
+       curtain's alpha by 0.9, the layer's resting opacity, so the composite at rest matches the original. -->
+  <defs>
+    <linearGradient id="curtain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8E7CFF" stop-opacity="0"/>
+      <stop offset=".18" stop-color="#8E7CFF" stop-opacity=".45"/>
+      <stop offset=".42" stop-color="#4BE3A8" stop-opacity=".9"/>
+      <stop offset=".75" stop-color="#22C08F" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#22C08F" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Vertical ray texture inside the curtain. -->
+    <filter id="rays" x="-30%" y="-60%" width="160%" height="220%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .0015" numOctaves="3" seed="5" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 0 0 0 -0.9" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in" result="striped"/>
+      <feGaussianBlur in="striped" stdDeviation="3 9" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="16 26" result="b2"/>
+      <feMerge result="c"><feMergeNode in="b2"/><feMergeNode in="b1"/></feMerge>
+      <feComponentTransfer in="c"><feFuncA type="linear" slope="1.1111"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <g filter="url(#rays)">
+    <path d="M-60 268 C80 178 200 140 330 168 C470 198 560 118 700 98 C820 82 900 118 1020 104 L1020 196 C910 214 830 196 720 214 C590 236 500 292 360 280 C230 270 110 312 -60 352Z" fill="url(#curtain)"/>
+    <path d="M330 296 C420 228 500 188 600 178 C680 170 740 196 820 176 L830 200 C750 224 690 204 600 214 C510 226 440 268 350 326Z" fill="url(#curtain)" opacity=".75"/>
+  </g>
+</svg>

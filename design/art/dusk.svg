@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" preserveAspectRatio="xMidYMid slice">
+  <!-- Hearth wallpaper "Dusk". Reference art, kept as the original single-file wallpaper; the theme pack in design/art/dusk/ is split from it.
+       Horizon sits at ~55% so the light stays above the dock; ridges carry the deep blue shadows. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#080D2A"/>
+      <stop offset=".22" stop-color="#151B4A"/>
+      <stop offset=".38" stop-color="#352663"/>
+      <stop offset=".47" stop-color="#7A3565"/>
+      <stop offset=".52" stop-color="#C8524E"/>
+      <stop offset=".555" stop-color="#F08A44"/>
+      <stop offset=".58" stop-color="#FFC06A"/>
+      <stop offset=".6" stop-color="#FFDDA0"/>
+    </linearGradient>
+    <radialGradient id="bloom" cx="652" cy="312" r="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE9B8" stop-opacity=".95"/>
+      <stop offset=".06" stop-color="#FFC977" stop-opacity=".8"/>
+      <stop offset=".22" stop-color="#FF8F4A" stop-opacity=".38"/>
+      <stop offset=".55" stop-color="#C9466A" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#C9466A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cloudLit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7B3E78" stop-opacity=".0"/>
+      <stop offset=".55" stop-color="#C45C78" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#FFB07A" stop-opacity=".85"/>
+    </linearGradient>
+    <filter id="wisp" x="-20%" y="-200%" width="140%" height="500%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .06" numOctaves="3" seed="7" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="26" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="2.2 1.4"/>
+    </filter>
+    <filter id="ridge" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".02 .05" numOctaves="4" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <linearGradient id="r0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7B4A78"/><stop offset="1" stop-color="#4B3266"/></linearGradient>
+    <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3E2C66"/><stop offset="1" stop-color="#262257"/></linearGradient>
+    <linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#211F4E"/><stop offset="1" stop-color="#151739"/></linearGradient>
+    <linearGradient id="r3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#11143A"/><stop offset="1" stop-color="#090C26"/></linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="11" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#bloom)"/>
+  <circle cx="652" cy="314" r="17" fill="#FFF3D6"/>
+
+  <!-- Clouds: thin, displaced wisps lit from below. -->
+  <g filter="url(#wisp)">
+    <path d="M-20 196 C140 186 300 200 470 190 C600 182 700 194 780 188 L780 197 C690 205 600 196 470 203 C300 212 150 200 -20 206Z" fill="url(#cloudLit)" opacity=".75"/>
+    <path d="M380 236 C500 230 610 240 720 233 C820 227 900 236 990 230 L990 238 C900 245 820 238 720 243 C610 249 500 242 380 245Z" fill="url(#cloudLit)" opacity=".9"/>
+    <path d="M60 262 C180 258 260 266 360 261 L360 266 C260 271 180 266 60 268Z" fill="url(#cloudLit)" opacity=".6"/>
+    <path d="M560 128 C660 122 760 130 900 124 L900 129 C760 136 660 129 560 132Z" fill="#9B4D86" opacity=".35"/>
+  </g>
+
+  <!-- Ridges, far to near: haze-tinted to deep blue. -->
+  <g filter="url(#ridge)">
+    <path d="M-40 322 C60 310 110 300 170 306 C230 312 270 292 330 296 C400 300 440 314 520 308 C600 302 640 318 720 312 C800 306 860 296 960 304 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#r0)"/>
+    <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#r1)"/>
+    <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#r2)"/>
+    <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#r3)"/>
+  </g>
+
+  <rect width="960" height="540" filter="url(#grain)" opacity=".06" style="mix-blend-mode:overlay"/>
+</svg>

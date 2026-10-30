@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "id": "misty-forest",
+  "name": "Misty Forest",
+  "author": "Hearth",
+  "description": "Pine ridges in drifting morning fog",
+  "dayparts": ["morning"],
+  "palette": {
+    "ink": "#FFEEF4F0",
+    "inkMuted": "#B8EEF4F0",
+    "accent": "#FF9BD8B6",
+    "glow": "#669BD8B6",
+    "shade": "#E0071217",
+    "shadeMid": "#73071217",
+    "window": "#FF071217"
+  },
+  "preview": "preview.webp",
+  "motion": { "sway": { "amplitude": 10, "period": 100 } },
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "mountains.webp", "y": 160, "parallax": 0.15 },
+    { "image": "fog-far.webp", "y": 210, "parallax": 0.25, "wrap": true,
+      "drift": { "x": 60, "period": 180 },
+      "opacity": { "min": 0.5, "max": 0.8, "period": 50 } },
+    { "image": "pines-mid.webp", "y": 280, "parallax": 0.5 },
+    { "image": "fog-near.webp", "y": 330, "parallax": 0.7, "wrap": true,
+      "drift": { "x": 90, "period": 140 },
+      "opacity": { "min": 0.35, "max": 0.7, "period": 35, "phase": 0.5 } },
+    { "image": "pines-near.webp", "y": 170, "parallax": 1.0 }
+  ]
+}

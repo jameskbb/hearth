@@ -1,0 +1,19 @@
+Original Hearth artwork, authored as editable SVG layers for the Christmas pack.
+No third-party artwork or imagery is used.
+
+The scene extends the existing navy-shadow landscape suite with silver-green
+snow banks, a dark evergreen grove, and one Christmas tree with steady amber
+lights. The holiday detail stays in the middle-right art area. The top-left
+header, upper-right Home label and lower app dock retain quiet dark surroundings.
+
+Cloud and powder strips drift continuously at about 20 dp per minute. Tree,
+moon, lights and snow banks stay fixed. There are no flashes or transient bursts.
+The shared renderer stops all motion when Hearth leaves the foreground or Reduce
+motion is enabled. The rest state remains a complete still landscape.
+
+This is an opt-in occasion pack, excluded from implicit automatic rotation and
+recommended day periods. It can be explicitly assigned through Appearance.
+
+Regenerate offline with scripts/render-theme.sh christmas. The source layer
+names establish composition order; source and bundled manifests match.
+

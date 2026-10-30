@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Home: the hint line while an action has focus (the name line stays empty). -->
+    <string name="home_hint_all_apps">Every app on this device</string>
+    <string name="home_hint_arrange">Change the order of your favorites</string>
+    <string name="home_hint_settings">Theme, motion, weather, hidden apps and device settings</string>
+
+    <!-- Home with no favorites, under "Add apps you watch". -->
+    <string name="home_empty_hint">Open All apps, then press ☰ or hold Select on an app to add it</string>
+</resources>

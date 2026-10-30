@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Hearth</string>
+
+    <!-- Home -->
+    <string name="home_hint_options">Press ☰ or hold Select for options</string>
+    <string name="home_empty_favorites">Add apps you watch</string>
+    <string name="home_no_apps">No apps found</string>
+    <string name="action_all_apps">All apps</string>
+    <string name="action_arrange">Arrange</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Arrange mode -->
+    <string name="arrange_pick_hint">Select a favorite to move it, Back when done</string>
+    <string name="arrange_move_hint">◀ ▶ to move, Select to place, Back to cancel</string>
+
+    <!-- Launch failures -->
+    <string name="launch_not_installed">%1$s isn\'t installed anymore.</string>
+    <string name="launch_failed">%1$s didn\'t open. Try again in a moment.</string>
+
+    <!-- Options dialog -->
+    <string name="option_open">Open</string>
+    <string name="option_add_favorite">Add to favorites</string>
+    <string name="option_remove_favorite">Remove from favorites</string>
+    <string name="option_move">Move</string>
+    <string name="option_hide">Hide</string>
+
+    <!-- All apps -->
+    <string name="all_apps_title">All apps</string>
+    <string name="all_apps_tv">TV apps</string>
+    <string name="all_apps_other">Other apps</string>
+    <string name="all_apps_hint_options">Press ☰ or hold Select for options</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_reduce_motion">Reduce motion</string>
+    <string name="settings_on">On</string>
+    <string name="settings_off">Off</string>
+    <string name="settings_device">Device settings</string>
+    <string name="settings_device_failed">Device settings couldn\'t be opened on this device.</string>
+    <string name="settings_hidden_apps">Hidden apps</string>
+    <string name="settings_no_hidden_apps">No hidden apps</string>
+    <string name="settings_show">Show</string>
+    <string name="settings_about">About</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_fonts">Literata and Instrument Sans, SIL Open Font License 1.1</string>
+    <string name="about_made_by">Made with ❤️ by @jameskbb</string>
+    <string name="about_display">Display</string>
+    <string name="about_resolution">Resolution</string>
+    <string name="about_refresh_rate">Refresh rate</string>
+    <string name="about_wide_color">Wide color gamut</string>
+    <string name="about_hdr">HDR</string>
+    <string name="about_modes">Display modes</string>
+    <string name="about_yes">Yes</string>
+    <string name="about_no">No</string>
+    <string name="about_none_reported">None reported</string>
+    <string name="home_label_title">Home label</string>
+    <string name="home_label_edit">Edit text</string>
+    <string name="home_label_clear">Clear label</string>
+    <string name="home_label_placeholder">Type a Home label</string>
+    <string name="home_label_hint">Up to 40 characters. Press Done or select Save. Empty text shows no label.</string>
+    <string name="home_label_description">A quiet title in the upper-right corner of Home. Turning it off keeps your text.</string>
+</resources>

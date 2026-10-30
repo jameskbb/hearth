@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Feathered suspended light inside the bay, clear of both header corners. -->
+  <defs>
+    <radialGradient id="light" cx="0" cy="0" r="1" gradientTransform="translate(.59 .47) scale(.24 .17)">
+      <stop stop-color="#F0C985" stop-opacity=".24"/>
+      <stop offset=".5" stop-color="#E9B968" stop-opacity=".09"/>
+      <stop offset="1" stop-color="#E9B968" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#light)"/>
+</svg>

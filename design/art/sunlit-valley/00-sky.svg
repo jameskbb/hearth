@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#176EAF"/>
+      <stop offset="0.48" stop-color="#38A8D2"/>
+      <stop offset="0.78" stop-color="#A3D5DC"/>
+      <stop offset="1" stop-color="#D1E4C5"/>
+    </linearGradient>
+    <radialGradient id="daylight" cx="76%" cy="18%" r="56%">
+      <stop offset="0" stop-color="#EAF8E9" stop-opacity="0.26"/>
+      <stop offset="0.5" stop-color="#BFE8EE" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#BFE8EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#daylight)"/>
+</svg>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fixture 16:9 banner (320x180 dp): blue field and a light bar where a wordmark would sit. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp" android:height="180dp" android:viewportWidth="320" android:viewportHeight="180">
+    <path android:fillColor="#FF1C3C9A" android:pathData="M0,0h320v180h-320z" />
+    <path android:fillColor="#FF2D5BD7" android:pathData="M0,120h320v60h-320z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M60,70h200v40h-200z" />
+</vector>

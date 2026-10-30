@@ -1,0 +1,27 @@
+{
+  "format": 1,
+  "id": "sunlit-valley",
+  "name": "Sunlit Valley",
+  "author": "Hearth",
+  "description": "Blue skies over a bright green valley",
+  "dayparts": ["day"],
+  "palette": {
+    "ink": "#FFF6FAF2",
+    "inkMuted": "#B8F6FAF2",
+    "accent": "#FFB9E56E",
+    "glow": "#66B9E56E",
+    "shade": "#E0082530",
+    "shadeMid": "#73082530",
+    "window": "#FF082530"
+  },
+  "preview": "preview.webp",
+  "motion": { "sway": { "amplitude": 4, "period": 160 } },
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "clouds.webp", "y": 52, "parallax": 0.1, "wrap": true,
+      "drift": { "x": 80, "period": 210 } },
+    { "image": "mountains.webp", "y": 178, "parallax": 0.25 },
+    { "image": "valley.webp", "y": 282, "parallax": 0.58 },
+    { "image": "forest.webp", "y": 326, "parallax": 1.0 }
+  ]
+}

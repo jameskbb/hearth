@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <!-- Hearth theme "Misty Forest", layer 00: the base. Rendered by scripts/render-theme.sh misty-forest.
+       A cool dawn sky: slate blue overhead easing to pale sage and a diffuse sun low and right of center,
+       so the brightest light stays clear of the clock. The faintest ridge is painted here, lost in haze. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E2C3A"/>
+      <stop offset=".2" stop-color="#304556"/>
+      <stop offset=".34" stop-color="#52687A"/>
+      <stop offset=".44" stop-color="#83998F"/>
+      <stop offset=".51" stop-color="#B2C0A9"/>
+      <stop offset=".58" stop-color="#CBD1B6"/>
+      <stop offset="1" stop-color="#A3B3A2"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="640" cy="236" r="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF4D8" stop-opacity=".95"/>
+      <stop offset=".08" stop-color="#F8E6BC" stop-opacity=".7"/>
+      <stop offset=".3" stop-color="#E2D2A8" stop-opacity=".28"/>
+      <stop offset=".65" stop-color="#C8C4A8" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#C8C4A8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cool" cx="120" cy="40" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#18222E" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#18222E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9AA8AC"/>
+      <stop offset="1" stop-color="#C3C9BC"/>
+    </linearGradient>
+    <filter id="soft" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".018 .05" numOctaves="4" seed="9" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="8" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="1.2"/>
+    </filter>
+    <filter id="disc" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="17" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#cool)"/>
+  <rect width="960" height="540" fill="url(#sun)"/>
+  <circle cx="640" cy="226" r="14" fill="#FFF8E8" opacity=".85" filter="url(#disc)"/>
+
+  <!-- Farthest ridge, almost the color of the haze. -->
+  <path d="M-40 209.2 L-36 209.4 L-32 209.2 L-28 209 L-24 206 L-20 202 L-16 201.1 L-12 198.3 L-8 197.9 L-4 198.4 L0 200 L4 201 L8 196.8 L12 194.9 L16 194.7 L20 196.8 L24 199.9 L28 201.8 L32 207.8 L36 212.7 L40 217.8 L44 224.3 L48 231.4 L52 240.2 L56 242.6 L60 242.2 L64 241.1 L68 239.6 L72 240 L76 238.1 L80 239.2 L84 240.5 L88 239.5 L92 238.7 L96 237.3 L100 240.5 L104 241.8 L108 240.1 L112 238.1 L116 234.6 L120 233.5 L124 230.8 L128 230 L132 232.2 L136 231.8 L140 230.5 L144 225.8 L148 224.1 L152 224.8 L156 223.8 L160 224.5 L164 224.1 L168 225.7 L172 225.5 L176 224.3 L180 227.3 L184 229.2 L188 230.1 L192 225.8 L196 219.5 L200 215.7 L204 210.3 L208 207.2 L212 204.6 L216 204.4 L220 205.5 L224 203.3 L228 204.8 L232 207.9 L236 212.8 L240 216 L244 214.9 L248 215.8 L252 214.8 L256 214.3 L260 214.6 L264 216 L268 220.2 L272 219.5 L276 217.7 L280 216.3 L284 216.1 L288 217.8 L292 215.9 L296 216 L300 215.6 L304 214.2 L308 213.5 L312 212.5 L316 216.3 L320 217.9 L324 215.9 L328 212.5 L332 208 L336 206.8 L340 204.1 L344 203.7 L348 206.6 L352 209.1 L356 212.9 L360 215 L364 221.6 L368 230.4 L372 236.3 L376 241 L380 241.7 L384 243.6 L388 243.4 L392 242.1 L396 244.3 L400 246 L404 248.2 L408 246.1 L412 243.7 L416 244.5 L420 244 L424 244.2 L428 242 L432 240.5 L436 239.1 L440 234.4 L444 233 L448 232.7 L452 234.6 L456 233.2 L460 227.1 L464 223.1 L468 217.9 L472 214.3 L476 210.8 L480 208.7 L484 210.2 L488 208.5 L492 208 L496 208.8 L500 212.3 L504 217.1 L508 216.5 L512 215.7 L516 212.6 L520 208.5 L524 204.5 L528 200 L532 200.9 L536 200.7 L540 199.3 L544 198 L548 197.6 L552 201.9 L556 203.9 L560 206.3 L564 209 L568 210.2 L572 211.9 L576 211.2 L580 215.1 L584 220.9 L588 224.6 L592 226.8 L596 225.6 L600 226.9 L604 227 L608 226.2 L612 227.7 L616 228.6 L620 230.8 L624 229.3 L628 228.9 L632 232.5 L636 235.2 L640 237.6 L644 235.1 L648 232.3 L652 228.6 L656 221.9 L660 218 L664 215.1 L668 216 L672 215.6 L676 213.4 L680 215.3 L684 218.2 L688 223.6 L692 227.3 L696 230.2 L700 234.3 L704 234.1 L708 234.3 L712 234.7 L716 238.2 L720 242.9 L724 242.8 L728 242.8 L732 241.5 L736 240.9 L740 239.8 L744 236.4 L748 236.7 L752 234.7 L756 231.6 L760 227.9 L764 225.7 L768 228.2 L772 227.6 L776 226 L780 222.5 L784 217.4 L788 212.5 L792 204.9 L796 201.9 L800 200.9 L804 199.7 L808 198.6 L812 196.5 L816 199.8 L820 203.4 L824 206.5 L828 209.6 L832 210.3 L836 211.2 L840 207.3 L844 204.3 L848 204.8 L852 205.6 L856 207.2 L860 204.7 L864 204.3 L868 205 L872 204.5 L876 206.2 L880 207.3 L884 211.2 L888 212.6 L892 211.9 L896 214.9 L900 219.2 L904 226.3 L908 230.4 L912 232.8 L916 235.7 L920 235 L924 234.6 L928 233.5 L932 235.6 L936 239 L940 238.4 L944 239.3 L948 240.4 L952 244.5 L956 248.1 L960 248.7 L964 250.5 L968 248 L972 243.4 L976 236.4 L980 230.5 L984 229.4 L988 225.8 L992 222.5 L996 218.7 L1000 216.6 L1000 216.6 L1000 560 L-40 560Z" fill="url(#haze)" opacity=".75" filter="url(#soft)"/>
+
+  <rect width="960" height="540" filter="url(#grain)" opacity=".06" style="mix-blend-mode:overlay"/>
+</svg>

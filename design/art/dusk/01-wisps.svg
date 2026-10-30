@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="-26.1 96 1012.2 210.875">
+  <!-- Hearth theme "Dusk", layer 01: the lit wisps, on transparent. Rendered by scripts/render-theme.sh dusk.
+       The same wisps as design/art/dusk.svg, in its coordinates. The view is the strip from y 96, widened by
+       the layer's overscan (26.1 dp a side: drift 24 plus sway 6 x parallax 0.35), so at rest every wisp
+       lands where the original has it. Path opacities are the original's divided by 0.925, the layer's
+       resting opacity, so the composite at rest matches the original. -->
+  <defs>
+    <linearGradient id="cloudLit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7B3E78" stop-opacity=".0"/>
+      <stop offset=".55" stop-color="#C45C78" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#FFB07A" stop-opacity=".85"/>
+    </linearGradient>
+    <filter id="wisp" x="-20%" y="-200%" width="140%" height="500%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .06" numOctaves="3" seed="7" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="26" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="2.2 1.4"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#wisp)">
+    <path d="M-20 196 C140 186 300 200 470 190 C600 182 700 194 780 188 L780 197 C690 205 600 196 470 203 C300 212 150 200 -20 206Z" fill="url(#cloudLit)" opacity=".811"/>
+    <path d="M380 236 C500 230 610 240 720 233 C820 227 900 236 990 230 L990 238 C900 245 820 238 720 243 C610 249 500 242 380 245Z" fill="url(#cloudLit)" opacity=".973"/>
+    <path d="M60 262 C180 258 260 266 360 261 L360 266 C260 271 180 266 60 268Z" fill="url(#cloudLit)" opacity=".649"/>
+    <path d="M560 128 C660 122 760 130 900 124 L900 129 C760 136 660 129 560 132Z" fill="#9B4D86" opacity=".378"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Adaptive icon foreground: low sun, glow and three ridges. Mirrors group
+     "foreground" in design/brand/icon.svg. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:pathData="M28,64a26,26 0,1 0,52 0a26,26 0,1 0,-52 0z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="54"
+                android:centerY="64"
+                android:gradientRadius="26">
+                <item android:offset="0" android:color="#E6FFE9B8" />
+                <item android:offset="0.4" android:color="#59FF8F4A" />
+                <item android:offset="1" android:color="#00FF8F4A" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#FFFFF3D6"
+        android:pathData="M45,64a9,9 0,1 0,18 0a9,9 0,1 0,-18 0z" />
+    <path
+        android:fillColor="#FF3E2C66"
+        android:pathData="M0,68 C14,64 24,62 34,65 C44,68 50,66 60,64 C72,62 84,66 108,63 L108,108 L0,108 Z" />
+    <path
+        android:fillColor="#FF1E1C4C"
+        android:pathData="M0,76 C16,71 28,74 40,72 C54,70 64,75 78,74 C90,73 98,71 108,72 L108,108 L0,108 Z" />
+    <path
+        android:fillColor="#FF0A0E24"
+        android:pathData="M0,86 C18,82 34,85 52,83 C70,81 86,85 108,82 L108,108 L0,108 Z" />
+</vector>

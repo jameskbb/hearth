@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "id": "harvest-evening",
+  "name": "Harvest Evening",
+  "author": "Hearth",
+  "description": "Copper leaves and pumpkins in the last autumn light",
+  "autoRotationEligible": false,
+  "dayparts": [],
+  "palette": {
+    "ink": "#FFFFF2DF",
+    "inkMuted": "#E6FFF2DF",
+    "accent": "#FFF2B56F",
+    "glow": "#66EBA15A",
+    "shade": "#E0152027",
+    "shadeMid": "#73152027",
+    "window": "#FF152027"
+  },
+  "preview": "preview.webp",
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "clouds.webp", "y": 124, "wrap": true,
+      "drift": { "x": 64, "period": 180 } },
+    { "image": "orchard.webp", "y": 202 }
+  ]
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="140" viewBox="-12 400 984 140" data-scale="1">
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#879045" stop-opacity="0"/>
+      <stop offset="0.38" stop-color="#606A34" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#293C2C"/>
+    </linearGradient>
+    <g id="tuft" fill="none" stroke-linecap="round">
+      <path d="M0 32 C-1 20 -4 10 -9 1 M1 32 C3 20 7 10 13 3 M0 32 C0 18 0 8 2 0 M-1 32 C-5 23 -11 17 -17 13 M1 32 C6 24 12 19 19 17"/>
+      <path d="M-9 1 l-3 -3 M13 3 l3 -2 M2 0 l2 -3"/>
+    </g>
+  </defs>
+  <path d="M-14 462 C91 451 174 470 268 486 C401 509 514 499 641 479 C751 462 857 450 974 459 L974 540 L-14 540Z" fill="url(#ground)"/>
+  <g stroke="#D5B84F" stroke-width="1.2" opacity="0.6">
+    <use href="#tuft" transform="translate(14 493) rotate(16) scale(1.1)"/><use href="#tuft" transform="translate(31 504) rotate(10) scale(0.7)"/>
+    <use href="#tuft" transform="translate(62 485) rotate(19) scale(1.4)"/><use href="#tuft" transform="translate(78 510) rotate(13) scale(0.65)"/>
+    <use href="#tuft" transform="translate(139 501) rotate(17) scale(1.0)"/><use href="#tuft" transform="translate(157 516) rotate(12) scale(0.6)"/>
+    <use href="#tuft" transform="translate(228 514) rotate(16) scale(0.8)"/>
+    <use href="#tuft" transform="translate(747 510) rotate(17) scale(0.8)"/><use href="#tuft" transform="translate(770 499) rotate(11) scale(1.1)"/>
+    <use href="#tuft" transform="translate(841 501) rotate(20) scale(1.0)"/><use href="#tuft" transform="translate(856 513) rotate(14) scale(0.7)"/>
+    <use href="#tuft" transform="translate(921 480) rotate(18) scale(1.4)"/><use href="#tuft" transform="translate(941 500) rotate(10) scale(1.0)"/>
+  </g>
+  <g stroke="#879446" stroke-width="1.2" opacity="0.5">
+    <use href="#tuft" transform="translate(109 518) rotate(16) scale(0.74)"/><use href="#tuft" transform="translate(203 526) rotate(12) scale(0.7)"/>
+    <use href="#tuft" transform="translate(676 527) rotate(14) scale(0.6)"/><use href="#tuft" transform="translate(880 519) rotate(17) scale(0.76)"/>
+  </g>
+</svg>

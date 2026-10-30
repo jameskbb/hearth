@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" preserveAspectRatio="xMidYMid slice">
+  <!-- Hearth wallpaper "Aurora". Reference art, kept as the original single-file wallpaper; the theme pack in design/art/aurora/ is split from it.
+       Midnight blue, emerald curtain with a restrained violet upper fringe, dark treeline. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#040919"/>
+      <stop offset=".5" stop-color="#0A1631"/>
+      <stop offset=".78" stop-color="#0E2640"/>
+    </linearGradient>
+    <radialGradient id="low" cx="520" cy="430" r="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1F7A63" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#1F7A63" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="curtain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8E7CFF" stop-opacity="0"/>
+      <stop offset=".18" stop-color="#8E7CFF" stop-opacity=".45"/>
+      <stop offset=".42" stop-color="#4BE3A8" stop-opacity=".9"/>
+      <stop offset=".75" stop-color="#22C08F" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#22C08F" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Vertical ray texture inside the curtain. -->
+    <filter id="rays" x="-30%" y="-60%" width="160%" height="220%">
+      <feTurbulence type="fractalNoise" baseFrequency=".035 .0015" numOctaves="3" seed="5" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.4 0 0 0 -0.9" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in" result="striped"/>
+      <feGaussianBlur in="striped" stdDeviation="3 9" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="16 26" result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/></feMerge>
+    </filter>
+    <filter id="tree" x="-5%" y="-50%" width="110%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency=".09 .02" numOctaves="3" seed="2" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="13" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#low)"/>
+
+  <g fill="#DCE6FF">
+    <circle cx="70" cy="42" r=".75"/><circle cx="196" cy="96" r=".55"/><circle cx="318" cy="30" r=".85"/><circle cx="452" cy="62" r=".55"/>
+    <circle cx="588" cy="24" r=".7"/><circle cx="706" cy="52" r=".95"/><circle cx="842" cy="36" r=".65"/><circle cx="912" cy="104" r=".55"/>
+    <circle cx="140" cy="160" r=".45"/><circle cx="262" cy="196" r=".4"/><circle cx="886" cy="176" r=".45"/><circle cx="36" cy="128" r=".5"/>
+    <circle cx="520" cy="110" r=".4"/><circle cx="760" cy="128" r=".45"/>
+  </g>
+
+  <g filter="url(#rays)">
+    <path d="M-60 268 C80 178 200 140 330 168 C470 198 560 118 700 98 C820 82 900 118 1020 104 L1020 196 C910 214 830 196 720 214 C590 236 500 292 360 280 C230 270 110 312 -60 352Z" fill="url(#curtain)"/>
+    <path d="M330 296 C420 228 500 188 600 178 C680 170 740 196 820 176 L830 200 C750 224 690 204 600 214 C510 226 440 268 350 326Z" fill="url(#curtain)" opacity=".75"/>
+  </g>
+
+  <g filter="url(#tree)" fill="#030612">
+    <path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/>
+  </g>
+
+  <rect width="960" height="540" filter="url(#grain)" opacity=".06" style="mix-blend-mode:overlay"/>
+</svg>

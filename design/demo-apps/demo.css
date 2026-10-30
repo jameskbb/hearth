@@ -1,0 +1,36 @@
+/* Original text-based demo banners, 320x180 Android TV pixels.
+   Service names identify examples; these are not official logos or clients. */
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../../app/src/main/res/font/instrument_sans.ttf");
+  font-weight: 400 700;
+}
+html, body { margin: 0; padding: 0; background: transparent; }
+.b {
+  position: relative;
+  width: 320px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: "Instrument Sans", sans-serif;
+}
+.service {
+  margin: 0 0 6px;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.demo {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+}

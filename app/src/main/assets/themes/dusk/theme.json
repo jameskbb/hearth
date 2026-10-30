@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "id": "dusk",
+  "name": "Dusk",
+  "author": "Hearth",
+  "description": "Amber light over deep blue ridges",
+  "dayparts": ["evening"],
+  "palette": {
+    "ink": "#FFFFF3E4",
+    "inkMuted": "#B8FFF3E4",
+    "accent": "#FFFFB45C",
+    "glow": "#73FF9646",
+    "shade": "#E00A0E24",
+    "shadeMid": "#730A0E24",
+    "window": "#FF0A0E24"
+  },
+  "preview": "preview.webp",
+  "motion": { "sway": { "amplitude": 6, "period": 90 } },
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "wisps.webp", "y": 96, "parallax": 0.35,
+      "drift": { "x": 24, "period": 150 },
+      "opacity": { "min": 0.85, "max": 1.0, "period": 60 } }
+  ]
+}

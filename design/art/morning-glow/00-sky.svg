@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <!-- Morning Glow base: clear dawn blue, warm low light, and subtle grain from the encoder. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#244F7C"/>
+      <stop offset="0.34" stop-color="#739FAF"/>
+      <stop offset="0.58" stop-color="#EDB782"/>
+      <stop offset="1" stop-color="#DDA662"/>
+    </linearGradient>
+    <radialGradient id="sunwash" cx="69%" cy="53%" r="32%">
+      <stop offset="0" stop-color="#FFF8D0" stop-opacity="0.96"/>
+      <stop offset="0.12" stop-color="#FFE39A" stop-opacity="0.74"/>
+      <stop offset="0.46" stop-color="#FFD48A" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#FFD48A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#sunwash)"/>
+  <ellipse cx="666" cy="285" rx="33" ry="25" fill="#FFF0B6" opacity="0.8" filter="url(#soft)"/>
+  <circle cx="666" cy="285" r="11" fill="#FFF4CE" opacity="0.96"/>
+</svg>

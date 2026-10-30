@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "id": "open-bay",
+  "name": "Open Bay",
+  "author": "Hearth",
+  "description": "A warm, atmospheric garage workshop in the afternoon light.",
+  "autoRotationEligible": false,
+  "dayparts": [],
+  "palette": {
+    "ink": "#FFF5EDDF",
+    "inkMuted": "#C7F5EDDF",
+    "accent": "#FFE9B968",
+    "glow": "#59E9B968",
+    "window": "#FF172A35"
+  },
+  "preview": "preview.webp",
+  "layers": [
+    {
+      "image": "workshop.webp"
+    },
+    {
+      "image": "haze.webp",
+      "opacity": {
+        "min": 0.24,
+        "max": 0.38,
+        "period": 180
+      }
+    },
+    {
+      "image": "dust.webp",
+      "drift": {
+        "x": 6,
+        "period": 240
+      },
+      "opacity": {
+        "min": 0.32,
+        "max": 0.5,
+        "period": 140
+      }
+    }
+  ]
+}

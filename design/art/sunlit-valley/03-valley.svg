@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="258" viewBox="-6 282 972 258">
+  <defs>
+    <linearGradient id="back" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#71B75C"/>
+      <stop offset="1" stop-color="#2F7F47"/>
+    </linearGradient>
+    <linearGradient id="meadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A3C96A"/>
+      <stop offset="1" stop-color="#4C8849"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#45ADB9"/>
+      <stop offset="0.5" stop-color="#ACDFCA"/>
+      <stop offset="1" stop-color="#3097B2"/>
+    </linearGradient>
+  </defs>
+  <path d="M-8 367 C55 351 102 377 150 394 C198 415 249 413 290 432 C327 445 369 438 402 421 C454 397 496 405 538 386 C592 364 650 369 706 348 C781 320 873 336 968 312 L968 540 L-8 540Z" fill="url(#back)"/>
+  <path d="M-8 413 C58 396 115 421 165 435 C230 450 275 470 344 454 C398 441 439 416 492 421 C558 426 594 410 654 400 C733 387 821 371 895 378 C923 379 946 374 968 368 L968 540 L-8 540Z" fill="url(#meadow)"/>
+  <path d="M401 416 C433 424 470 424 480 434 C490 445 443 450 448 459 C452 467 520 465 545 480 C565 491 539 504 526 512 L494 512 C516 499 535 492 517 486 C486 475 426 476 423 461 C421 446 480 444 467 435 C453 429 424 424 395 420Z" fill="url(#water)" opacity="0.86"/>
+  <g fill="none" stroke="#DCE88E" stroke-linecap="round" opacity="0.52">
+    <path d="M41 412 C118 422 165 445 231 453" stroke-width="1.4"/>
+    <path d="M594 416 C672 399 738 400 799 388" stroke-width="1.2"/>
+  </g>
+</svg>

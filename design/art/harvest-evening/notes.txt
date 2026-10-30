@@ -1,0 +1,24 @@
+Harvest Evening
+
+Original Hearth SVG artwork, authored for this pack using the existing Dusk
+and Golden Prairie landscape vocabulary. No third-party artwork, fonts, or
+reference images are embedded. The palette carries copper autumn foliage,
+harvested fields, uncarved pumpkins and a pale gourd into deep slate shadows.
+There are no spooky motifs, faces, text, logos, or personal details.
+
+The landscape remains still. A separate half-resolution atmospheric strip
+travels continuously at 21.3 dp per minute, using the existing wrapping drift
+renderer. Its edges are transparent so the repeat is quiet. There is no
+introductory event, flashing, or seasonal clock dependency. Reduce motion
+shows the same full scene at rest, and backgrounding stops animation through
+the shared renderer. Dark upper corners and the lower landscape leave room
+for the existing clock, optional Home label, app names, and controls.
+
+Build offline with scripts/render-theme.sh harvest-evening using a Python
+interpreter with Pillow and numpy. The base and opaque landscape use the
+existing lossless WebP and anti-banding grain pipeline; the cloud strip keeps
+alpha. Source SVGs and theme.json are the reproducible source of every image.
+
+This seasonal pack opts out of implicit automatic rotation and offers no
+default daypart recommendations. Choose it in Single Theme or intentionally
+add it to a custom schedule or Surprise Me pool.

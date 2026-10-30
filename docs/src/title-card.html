@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hearth title card</title>
+<!-- README title card, 1200x440 CSS px rendered at 2x by scripts/render-title-card.sh.
+     Uses the app's own fonts, wallpaper and a real screenshot, so it stays truthful. -->
+<style>
+  @font-face { font-family: Literata; src: url(../../app/src/main/res/font/literata.ttf); font-weight: 300 400; }
+  @font-face { font-family: Instrument; src: url(../../app/src/main/res/font/instrument_sans.ttf); font-weight: 100 900; }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 440px; overflow: hidden; background: #0A0E24; }
+  .card { position: relative; width: 1200px; height: 440px; overflow: hidden;
+    background: url(../../app/src/main/assets/themes/dusk/preview.webp) center 62% / cover; }
+  .shade { position: absolute; inset: 0;
+    background: radial-gradient(ellipse 560px 330px at 230px 220px, rgba(10,14,36,.62), rgba(10,14,36,0) 72%); }
+  .words { position: absolute; left: 72px; top: 118px; color: #FFF3E4; }
+  .name { font: 300 92px/0.95 Literata, serif; letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 72; }
+  .line { font: 400 22px/1.4 Instrument, sans-serif; color: rgba(255,243,228,.86); margin-top: 22px; max-width: 420px; }
+  .tv { position: absolute; right: -60px; top: 56px; width: 640px; aspect-ratio: 16 / 9;
+    border-radius: 12px; overflow: hidden; background: #000;
+    box-shadow: 0 0 0 1px rgba(255,243,228,.10), 0 30px 70px rgba(3,5,18,.7); }
+  .tv img { width: 100%; height: 100%; display: block; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="shade"></div>
+    <div class="words">
+      <div class="name">Hearth</div>
+      <div class="line">A quiet, colorful home screen for Fire TV and Android TV, built for the remote.</div>
+    </div>
+    <div class="tv"><img src="../images/home-focus.png" alt=""></div>
+  </div>
+</body>
+</html>

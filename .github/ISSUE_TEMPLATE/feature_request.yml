@@ -1,0 +1,22 @@
+name: Feature or theme idea
+description: Suggest an improvement that fits a calm TV home screen.
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What would this help you do?
+      description: Describe the situation or problem first.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How would it work with a remote? For themes, describe the mood, palette, and gentle motion.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or examples
+      description: Links and sketches are welcome. Only share material you have permission to share.

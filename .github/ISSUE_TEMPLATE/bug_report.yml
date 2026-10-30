@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a reproducible problem in Hearth.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Hearth. For vulnerabilities, follow SECURITY.md.
+        Leave out addresses, serial numbers, household details, signing keys, and passwords.
+  - type: input
+    id: version
+    attributes:
+      label: Hearth version or commit
+      description: Find the version in Settings, About, or provide your source commit.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Android or Fire OS version
+      description: Give the OS version and whether this is a TV, streaming device, or emulator. No serial number is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the remote buttons you pressed and the screen where the issue started.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add screenshots or relevant logs after removing personal and device details. If this concerns Home, name any separate redirect helper and its version.

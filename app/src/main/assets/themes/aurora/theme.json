@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "id": "aurora",
+  "name": "Aurora",
+  "author": "Hearth",
+  "description": "An emerald curtain over a dark treeline",
+  "dayparts": ["night"],
+  "palette": {
+    "ink": "#FFEAF6F1",
+    "inkMuted": "#B8EAF6F1",
+    "accent": "#FF3FE0A1",
+    "glow": "#613FE0A1",
+    "shade": "#E6050A18",
+    "shadeMid": "#73050A18",
+    "window": "#FF050A18"
+  },
+  "preview": "preview.webp",
+  "motion": { "sway": { "amplitude": 4, "period": 90 } },
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "curtain.webp", "parallax": 0.3,
+      "drift": { "x": 10, "period": 120 },
+      "opacity": { "min": 0.8, "max": 1.0, "period": 45 } }
+  ]
+}

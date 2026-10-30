@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="182" viewBox="0 66 960 182" data-scale="1">
+  <defs>
+    <linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFDF1" stop-opacity="0.92"/>
+      <stop offset="0.7" stop-color="#FFE8B7" stop-opacity="0.66"/>
+      <stop offset="1" stop-color="#E9C990" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="soft" x="-25%" y="-40%" width="150%" height="180%"><feGaussianBlur stdDeviation="1.8"/></filter>
+  </defs>
+  <g fill="url(#cloud)" filter="url(#soft)">
+    <path d="M76 183 C113 172 138 180 169 177 C201 169 229 179 259 177 C286 172 306 179 327 184 C359 180 385 186 411 188 C363 195 314 189 271 193 C201 195 137 187 76 183Z" opacity="0.48"/>
+    <path d="M420 146 C451 131 478 139 502 129 C519 117 536 123 550 117 C569 100 588 112 604 106 C619 87 642 99 654 91 C668 78 688 84 697 96 C715 92 732 103 742 116 C765 112 782 124 799 125 C819 124 843 134 856 143 C787 145 749 139 698 149 C653 153 615 146 573 153 C523 159 470 150 420 146Z" transform="translate(0 67) scale(1 0.55)" opacity="0.79"/>
+    <path d="M613 214 C654 203 685 212 713 206 C743 196 767 208 790 205 C826 199 855 212 884 216 C810 223 737 216 690 221 C661 222 635 217 613 214Z" opacity="0.52"/>
+  </g>
+  <g fill="none" stroke="#FFFBE6" stroke-linecap="round" opacity="0.38">
+    <path d="M495 148 C554 151 604 143 640 148" stroke-width="1"/>
+    <path d="M693 146 C739 136 776 143 810 142" stroke-width="1.2"/>
+  </g>
+</svg>

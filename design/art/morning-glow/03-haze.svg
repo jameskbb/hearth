@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="170" viewBox="0 270 960 170" data-scale="1">
+  <defs>
+    <linearGradient id="fog" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFF4CB" stop-opacity="0"/>
+      <stop offset="0.14" stop-color="#FFF4CB" stop-opacity="0.24"/>
+      <stop offset="0.5" stop-color="#FFF0BE" stop-opacity="0.66"/>
+      <stop offset="0.86" stop-color="#FFF4CB" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#FFF4CB" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="fogsoft" x="-10%" y="-50%" width="120%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <g fill="url(#fog)" filter="url(#fogsoft)">
+    <path d="M0 314 C106 292 186 330 281 312 C370 294 433 304 516 326 C605 347 700 300 786 307 C853 312 907 331 960 320 L960 357 C861 372 783 346 694 359 C593 374 519 350 422 347 C315 343 231 374 128 356 C78 347 35 350 0 358Z"/>
+    <path d="M0 374 C114 351 203 388 310 371 C409 354 489 373 582 388 C680 404 755 363 858 372 C895 375 930 384 960 383 L960 416 C867 429 786 406 700 419 C585 436 498 405 390 408 C269 412 193 432 83 409 C52 402 24 403 0 407Z" opacity="0.58"/>
+  </g>
+</svg>

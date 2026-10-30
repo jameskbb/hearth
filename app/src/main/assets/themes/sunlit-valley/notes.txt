@@ -1,0 +1,1 @@
+Sunlit Valley is original layered artwork created for Hearth. Its image-generation reference was produced with OpenAI's built-in image generation tool from the art direction in the development request. The shipping SVG layers were authored specifically for Hearth and do not embed third-party material.

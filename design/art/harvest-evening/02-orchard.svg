@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="338" viewBox="0 202 960 338">
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#766443"/><stop offset="1" stop-color="#293A32"/></linearGradient>
+    <linearGradient id="copper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#AE7740"/><stop offset="1" stop-color="#725036"/></linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#343F34"/><stop offset="0.55" stop-color="#20312D"/><stop offset="1" stop-color="#121F25"/></linearGradient>
+    <linearGradient id="leaves" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C38A45"/><stop offset="0.5" stop-color="#A26737"/><stop offset="1" stop-color="#644635"/></linearGradient>
+    <linearGradient id="pumpkin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D69547"/><stop offset="0.45" stop-color="#AF6C35"/><stop offset="1" stop-color="#68462D"/></linearGradient>
+    <linearGradient id="gourd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#BCB27C"/><stop offset="1" stop-color="#6A7252"/></linearGradient>
+    <g id="pumpkin-shape">
+      <ellipse cx="0" cy="0" rx="20" ry="14" fill="url(#pumpkin)"/>
+      <g fill="none" stroke="#68452E" stroke-width="0.8" opacity="0.65"><path d="M-3 -13 C-11 -8 -11 7 -4 13 M3 -13 C11 -7 12 8 5 13 M-11 -10 C-19 -3 -18 5 -12 10 M11 -10 C18 -4 19 5 13 10"/></g>
+      <path d="M-2 -12 C0 -15 -1 -18 1 -20 L5 -19 C2 -15 4 -14 3 -12Z" fill="#596042"/>
+      <path d="M-11 -8 C-8 -11 -6 -11 -4 -12" fill="none" stroke="#E6B369" stroke-width="0.8" opacity="0.6"/>
+    </g>
+  </defs>
+  <!-- Folds of harvested land carry autumn color above the quiet dock. -->
+  <path d="M0 335 C86 320 140 332 211 327 C284 322 341 333 402 326 C473 319 523 326 589 319 C670 310 740 321 807 315 C875 310 915 315 960 308 L960 540 L0 540Z" fill="url(#field)"/>
+  <path d="M0 357 C71 340 146 350 219 363 C295 375 342 368 411 356 C488 342 549 346 621 339 C711 331 773 340 846 328 C893 321 931 322 960 326 L960 540 L0 540Z" fill="url(#copper)"/>
+  <path d="M0 383 C99 367 163 380 233 389 C312 399 368 392 439 384 C521 375 582 380 652 367 C747 351 838 359 960 349 L960 540 L0 540Z" fill="url(#ground)"/>
+  <path d="M27 350 C112 342 171 355 223 362 M440 354 C505 343 567 345 618 340 M665 334 C716 330 758 335 798 329" fill="none" stroke="#C69B5A" stroke-width="1.1" opacity="0.4"/>
+  <!-- A single orchard tree is held to the edge of the unobstructed landscape. -->
+  <path d="M907 345 C913 309 911 279 901 250 L905 245 C917 269 922 299 919 341Z" fill="#3B342B"/>
+  <path d="M914 307 C908 288 885 284 873 265 M916 286 C927 271 937 264 950 254 M909 278 C899 260 886 252 875 243" fill="none" stroke="#45362A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M831 260 C825 250 832 239 847 237 C844 225 858 216 871 219 C881 206 900 203 914 211 C930 206 948 215 949 226 C964 226 975 238 972 250 C986 258 977 273 963 276 C952 288 935 285 923 289 C907 293 893 285 879 286 C861 286 856 279 849 276 C837 276 831 269 831 260Z" fill="url(#leaves)"/>
+  <path d="M848 236 C862 234 869 226 878 225 C894 222 906 215 917 220 C925 222 927 225 933 226 C918 226 910 231 897 232 C880 230 868 242 853 243Z" fill="#D2A15C" opacity="0.55"/>
+  <path d="M841 259 C854 266 864 263 875 268 C887 273 900 267 914 273 C929 278 944 268 959 271 C948 282 933 279 922 284 C903 288 891 280 877 282 C862 281 854 272 843 271Z" fill="#70472F" opacity="0.6"/>
+  <!-- Uncarved pumpkins and a pale gourd mark harvest, with no Halloween faces. -->
+  <ellipse cx="817" cy="347" rx="55" ry="6" fill="#263129" opacity="0.5"/>
+  <use href="#pumpkin-shape" transform="translate(791 338) scale(0.72)"/>
+  <use href="#pumpkin-shape" transform="translate(824 337)"/>
+  <path d="M849 327 C845 325 846 319 850 317 C854 316 857 319 856 324 C855 329 864 331 863 338 C862 345 847 347 845 339 C844 334 850 332 849 327Z" fill="url(#gourd)"/>
+  <path d="M851 317 L852 312 L855 312 L853 318Z" fill="#626348"/>
+  <!-- Sparse dry stems stay at the edge and below readable foreground. -->
+  <g fill="none" stroke="#7F7850" stroke-width="1" stroke-linecap="round" opacity="0.45">
+    <path d="M7 476 C11 459 8 441 4 432 M8 463 L17 448 M6 453 L1 445 M943 480 C939 462 942 444 948 432 M942 454 L935 441 M944 449 L955 439 M928 497 C925 484 925 472 929 464"/>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Home: the line under the temperature. %1$s is a condition below, %2$s and %3$s are
+         temperatures such as "70°". -->
+    <string name="weather_caption_full">%1$s, high %2$s, low %3$s</string>
+    <string name="weather_caption_range">High %1$s, low %2$s</string>
+
+    <!-- Conditions, from the WMO weather codes Open-Meteo reports. -->
+    <string name="weather_clear">Clear</string>
+    <string name="weather_mostly_clear">Mostly clear</string>
+    <string name="weather_partly_cloudy">Partly cloudy</string>
+    <string name="weather_cloudy">Cloudy</string>
+    <string name="weather_fog">Fog</string>
+    <string name="weather_drizzle">Drizzle</string>
+    <string name="weather_freezing_drizzle">Freezing drizzle</string>
+    <string name="weather_rain">Rain</string>
+    <string name="weather_heavy_rain">Heavy rain</string>
+    <string name="weather_freezing_rain">Freezing rain</string>
+    <string name="weather_showers">Showers</string>
+    <string name="weather_heavy_showers">Heavy showers</string>
+    <string name="weather_snow">Snow</string>
+    <string name="weather_heavy_snow">Heavy snow</string>
+    <string name="weather_snow_showers">Snow showers</string>
+    <string name="weather_thunderstorm">Thunderstorm</string>
+    <string name="weather_thunderstorm_hail">Thunderstorm with hail</string>
+
+    <!-- Settings, the Weather section. -->
+    <string name="settings_weather">Weather</string>
+    <string name="settings_weather_show">Show on Home</string>
+    <string name="settings_weather_city">City</string>
+    <string name="settings_weather_choose_city">Choose a city</string>
+    <string name="settings_weather_units">Units</string>
+    <string name="settings_units_fahrenheit">Fahrenheit</string>
+    <string name="settings_units_celsius">Celsius</string>
+
+    <!-- Settings, the status line under the weather rows. %1$s is a time ("8:42 PM") or a date. -->
+    <string name="weather_status_off">Hearth goes online only when this is on, and then sends just your city\'s location to Open-Meteo.</string>
+    <string name="weather_status_no_city">Choose a city to show the weather on Home.</string>
+    <string name="weather_status_fetching">Getting the weather from Open-Meteo…</string>
+    <string name="weather_status_updated">Updated at %1$s from Open-Meteo.</string>
+    <string name="weather_status_too_old">Last updated %1$s, too long ago to show on Home.</string>
+    <string name="weather_failed_unreachable">Couldn\'t reach Open-Meteo. Hearth will try again at %1$s.</string>
+    <string name="weather_failed_server">Open-Meteo returned an error. Hearth will try again at %1$s.</string>
+    <string name="weather_failed_response">Open-Meteo sent weather Hearth couldn\'t read. Hearth will try again at %1$s.</string>
+    <string name="weather_status_time_today">at %1$s</string>
+    <string name="weather_status_time_other_day">on %1$s at %2$s</string>
+
+    <!-- City search. -->
+    <string name="city_search_title">Choose a city</string>
+    <string name="city_search_placeholder">Type a city name</string>
+    <string name="city_search_idle">Press Select to type. Matching cities appear as you type.</string>
+    <string name="city_search_searching">Searching…</string>
+    <string name="city_search_results">Choose your city, or press Back to cancel.</string>
+    <string name="city_search_no_matches">No cities match \"%1$s\". Check the spelling, or try a larger town nearby.</string>
+    <string name="city_search_unreachable">Couldn\'t reach Open-Meteo. Check the connection, then search again.</string>
+    <string name="city_search_failed">Open-Meteo couldn\'t search right now. Try again in a moment.</string>
+
+    <!-- About. Open-Meteo data is CC BY 4.0, which asks for this credit. -->
+    <string name="about_weather_data">Weather data by Open-Meteo.com, CC BY 4.0</string>
+</resources>

@@ -1,0 +1,28 @@
+Open Bay
+
+Original Hearth environment artwork, created for this project with the built-in
+image generation tool. No third-party reference images or artwork were used.
+The complete generation prompt is in prompt.txt beside these sources.
+
+00-workshop.svg embeds the original PNG painting losslessly. It is intentionally
+a raster painting inside an SVG source, rather than a vector approximation of
+wood, tools and brushwork. The SVG is self-contained and renders offline through
+scripts/render-theme.sh. No image generation service is needed to rebuild it.
+The original composition is scaled uniformly and cropped by less than a pixel
+at its native size to the 16:9 canvas, then rendered to the 1920x1080 base.
+
+The painting supplies architectural, outdoor, midground and foreground depth.
+Its structure stays still to avoid sliding joinery, a moving car, or seams.
+01-haze.svg adds a feathered half-resolution wash inside the bay, with a narrow
+180-second opacity range. 02-dust.svg adds sparse half-resolution motes in that
+light. They drift just six dp over a 240-second cycle, with matching overscan
+and a separate 140-second opacity cycle. Both use the shared theme renderer.
+At rest they use midpoint opacity; Reduce motion preserves the full painting.
+
+Palette: cool slate and blue-green shadows, walnut and worn metal, restrained
+amber daylight. All assets use Hearth's existing SDR/sRGB and grain pipeline.
+The upper corners and dark foreground are reserved for Home lettering.
+There are no baked-in words, logos, license plates, or personal details.
+
+This pack opts out of implicit automatic rotation. It remains available for
+Single Theme and intentional custom Surprise Me or schedule assignments.

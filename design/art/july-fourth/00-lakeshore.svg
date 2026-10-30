@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A1A32"/><stop offset="0.38" stop-color="#203C60"/>
+      <stop offset="0.60" stop-color="#706174"/><stop offset="0.77" stop-color="#B17B73"/>
+      <stop offset="1" stop-color="#D29C75"/>
+    </linearGradient>
+    <radialGradient id="afterglow" cx="0.71" cy="0.63" r="0.54">
+      <stop offset="0" stop-color="#E6AE7B" stop-opacity="0.54"/>
+      <stop offset="0.5" stop-color="#D48F74" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#C5877F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#435D73"/><stop offset="0.38" stop-color="#263F57"/>
+      <stop offset="1" stop-color="#10263A"/>
+    </linearGradient>
+    <linearGradient id="shore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#263F42"/><stop offset="1" stop-color="#0B1C2D"/>
+    </linearGradient>
+    <radialGradient id="lamp">
+      <stop offset="0" stop-color="#F1C782" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#F1C782" stop-opacity="0"/>
+    </radialGradient>
+    <g id="fan">
+      <path d="M-21 0 A21 21 0 0 0 21 0Z" fill="#B66360"/>
+      <path d="M-14 0 A14 14 0 0 0 14 0Z" fill="#E2D7BA"/>
+      <path d="M-7 0 A7 7 0 0 0 7 0Z" fill="#486583"/>
+      <path d="M-18 0L-5 11M18 0L5 11M-10 0L-3 16M10 0L3 16M0 0V20" fill="none" stroke="#603D44" stroke-opacity="0.15" stroke-width="0.7"/>
+    </g>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#afterglow)"/>
+  <g fill="#CFD8DB" opacity="0.30">
+    <circle cx="425" cy="79" r="0.65"/><circle cx="558" cy="113" r="0.5"/>
+    <circle cx="702" cy="134" r="0.65"/><circle cx="338" cy="120" r="0.5"/>
+    <circle cx="796" cy="108" r="0.5"/><circle cx="507" cy="159" r="0.55"/>
+  </g>
+  <path d="M0 281C64 270 109 275 154 268S225 272 265 278S342 268 382 276S450 280 486 274S550 279 587 285S654 279 698 275S780 282 818 273S902 270 960 261V540H0Z" fill="#5E6573"/>
+  <path d="M0 298C50 289 84 284 128 287S191 300 239 293S310 286 352 291S416 298 458 291S526 291 566 294S625 291 663 286S733 291 781 287S876 281 960 278V540H0Z" fill="#344C63"/>
+  <path d="M0 310C76 306 118 311 168 306S275 306 323 310S430 305 477 308S560 309 604 303S701 302 747 306S851 300 960 296V540H0Z" fill="url(#lake)"/>
+  <path d="M0 310C111 309 170 312 259 311M322 311C389 312 430 310 490 311" fill="none" stroke="#A1AA9A" stroke-opacity="0.15" stroke-width="1"/>
+  <path d="M628 320C690 305 761 302 824 307S915 307 960 299V540H0V468C92 440 170 428 240 434S389 457 472 444S571 358 628 320Z" fill="url(#shore)"/>
+  <path d="M644 320C723 311 807 317 874 313S925 311 960 308" fill="none" stroke="#9B9A78" stroke-opacity="0.20" stroke-width="1.2"/>
+  <!-- A modest lakeside pier carries the celebration without filling the sky. -->
+  <path d="M650 313L865 308L888 318L643 325Z" fill="#655850"/>
+  <path d="M643 325L888 318V322L643 329Z" fill="#25313A"/>
+  <path d="M673 317L695 321M710 315L732 320M749 313L770 318M790 312L812 317M833 310L854 316" stroke="#AE9871" stroke-opacity="0.17" stroke-width="0.8"/>
+  <g fill="#273744">
+    <path d="M649 262H653V343H649Z"/><path d="M756 258H760V337H756Z"/>
+    <path d="M863 253H867V333H863Z"/>
+  </g>
+  <path d="M651 272Q704 284 758 267Q811 279 865 262" fill="none" stroke="#CAB897" stroke-opacity="0.65" stroke-width="1"/>
+  <use href="#fan" x="704" y="278" transform="rotate(-2 704 278)"/>
+  <use href="#fan" x="811" y="273" transform="rotate(-2 811 273)"/>
+  <path d="M653 271L665 274L661 285Z" fill="#B66360"/><path d="M670 276L682 278L677 290Z" fill="#E2D7BA"/>
+  <path d="M727 275L739 271L736 285Z" fill="#486583"/>
+  <path d="M760 267L773 270L768 282Z" fill="#B66360"/>
+  <path d="M779 272L790 274L786 286Z" fill="#E2D7BA"/>
+  <path d="M835 269L847 265L844 279Z" fill="#486583"/>
+  <g>
+    <circle cx="651" cy="261" r="12" fill="url(#lamp)"/>
+    <circle cx="758" cy="257" r="12" fill="url(#lamp)"/>
+    <circle cx="865" cy="252" r="12" fill="url(#lamp)"/>
+    <g fill="#E8C183"><circle cx="651" cy="261" r="1.4"/><circle cx="758" cy="257" r="1.4"/><circle cx="865" cy="252" r="1.4"/></g>
+  </g>
+  <path d="M0 482C58 466 111 460 169 466S303 503 383 498S529 480 598 487S755 523 960 492V540H0Z" fill="#0A1B2B"/>
+  <g fill="none" stroke="#42514A" stroke-width="1" stroke-opacity="0.45">
+    <path d="M25 476Q30 465 25 453M30 476Q31 457 40 449M35 477Q38 470 47 468M55 472Q58 451 54 445M61 471Q62 457 69 452"/>
+    <path d="M917 499Q917 478 908 470M922 499Q920 486 931 477M936 498Q939 479 946 473M944 496Q948 486 956 485"/>
+  </g>
+</svg>

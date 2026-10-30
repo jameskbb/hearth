@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings: the Theme row. Its value is the theme in use. -->
+    <string name="settings_theme">Theme</string>
+    <string name="theme_follow_now">Follow the Day, %1$s now</string>
+    <string name="theme_surprise_now">Surprise Me, %1$s today</string>
+    <!-- No theme pack could be loaded, so Hearth shows a solid color. -->
+    <string name="theme_plain">Plain color</string>
+
+    <!-- The Appearance panel, in place of the Settings rows. -->
+    <string name="appearance_title">Appearance</string>
+    <string name="theme_mode_single">Single Theme</string>
+    <string name="theme_mode_follow">Follow the Day</string>
+    <string name="theme_mode_surprise">Surprise Me</string>
+    <string name="theme_mode_single_description">One scene, all day.</string>
+    <string name="theme_mode_follow_short_description">Changes naturally with the time of day.</string>
+    <string name="theme_mode_surprise_description">A fresh scene each day.</string>
+    <string name="theme_mode_recommended">Recommended</string>
+    <string name="appearance_mode_prompt">How themes change</string>
+    <string name="appearance_customize_schedule">Customize schedule</string>
+    <plurals name="appearance_period_count">
+        <item quantity="one">%d time period</item>
+        <item quantity="other">%d time periods</item>
+    </plurals>
+    <string name="appearance_choose_theme">Choose a theme</string>
+    <string name="appearance_enabled_themes">Themes in the mix</string>
+    <string name="appearance_selected">Selected</string>
+    <string name="appearance_included">Included</string>
+    <string name="appearance_chosen">Chosen</string>
+    <string name="appearance_single_focused_hint">Select to use %1$s</string>
+    <string name="appearance_reload">Reload installed themes</string>
+    <string name="appearance_failure">%1$s couldn\'t be loaded: %2$s</string>
+
+    <string name="schedule_title">Theme schedule</string>
+    <string name="schedule_period_title">Edit %1$s</string>
+    <string name="schedule_period_fallback">time period</string>
+    <string name="schedule_starts_at">Starts at %1$s</string>
+    <string name="schedule_restore">Restore recommended schedule</string>
+    <string name="schedule_stability_hint">Hearth keeps one scene for the whole time period.</string>
+    <string name="schedule_period_name">Time period name</string>
+    <string name="schedule_save_name">Save name</string>
+    <string name="schedule_start_earlier">Start 30 minutes earlier</string>
+    <string name="schedule_start_later">Start 30 minutes later</string>
+    <string name="schedule_theme_choice">Theme choice</string>
+    <string name="schedule_choice_one">One theme</string>
+    <string name="schedule_choice_shuffle">Shuffle</string>
+    <string name="schedule_choose_one_theme">Choose one theme</string>
+    <string name="schedule_choose_shuffle_themes">Themes to shuffle</string>
+    <string name="schedule_rename_period">Rename period</string>
+    <string name="schedule_no_themes">No themes selected. Hearth will use an available theme.</string>
+    <string name="schedule_shuffle_value">Rotates daily: %1$s</string>
+    <string name="settings_about_back">Back to Settings</string>
+
+    <!-- Why a theme pack couldn't be loaded; follows "<pack> couldn't be loaded: ". -->
+    <string name="theme_problem_missing_manifest">missing theme.json</string>
+    <string name="theme_problem_malformed">theme.json isn\'t valid JSON</string>
+    <string name="theme_problem_newer">it needs a newer Hearth</string>
+    <string name="theme_problem_missing_field">theme.json has no %1$s</string>
+    <string name="theme_problem_bad_value">theme.json has an invalid %1$s</string>
+    <string name="theme_problem_bad_id">the id %1$s isn\'t allowed</string>
+    <string name="theme_problem_layer_count">a pack has 1 to 8 layers, this one %1$d</string>
+    <string name="theme_problem_missing_image">%1$s not found</string>
+    <string name="theme_problem_unreadable_image">%1$s couldn\'t be read</string>
+    <string name="theme_problem_base_size">the first layer, %1$s, must be 1920 x 1080 pixels, not %2$s</string>
+    <string name="theme_problem_too_wide">%1$s is wider than 1920 pixels</string>
+    <string name="theme_problem_too_large">decoded layers exceed 32 MB</string>
+    <string name="theme_problem_duplicate_bundled">id %1$s already used by a bundled theme</string>
+    <string name="theme_problem_duplicate">id %1$s already used by another theme</string>
+    <string name="theme_problem_archive_too_large">the zip is too large</string>
+    <string name="theme_problem_archive_unreadable">the zip couldn\'t be read</string>
+</resources>

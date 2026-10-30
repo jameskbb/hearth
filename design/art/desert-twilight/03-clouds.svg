@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="150" viewBox="0 110 960 150" data-scale="1">
+  <!-- Hearth theme "Desert Twilight", layer 03: three soft lenticular clouds lit warm from below, on
+       transparent. Rendered at 1x (960 px wide) by scripts/render-theme.sh desert-twilight. The layer
+       wraps: every cloud sits inside the tile with clear sky at both edges, and the texture is stitched
+       noise, so the left and right edges match. -->
+  <defs>
+    <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7E6488" stop-opacity=".35"/>
+      <stop offset=".45" stop-color="#A9778E" stop-opacity=".7"/>
+      <stop offset=".8" stop-color="#F0A07A" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#FFC690" stop-opacity=".9"/>
+    </linearGradient>
+    <filter id="soft" filterUnits="userSpaceOnUse" x="0" y="110" width="960" height="150">
+      <feTurbulence type="fractalNoise" baseFrequency=".01 .09" numOctaves="4" seed="12" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.3 0 0 0 .05" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in" result="c"/>
+      <feGaussianBlur in="c" stdDeviation="9 2.6"/>
+    </filter>
+  </defs>
+
+  <g fill="url(#lit)" filter="url(#soft)">
+    <path d="M60 165.6 C177.6 147.1 354 144.7 480 158.4 C362.4 171.1 186 173 60 165.6Z" opacity="0.9"/>
+    <path d="M140 147.7 C212.8 139.2 322 138.1 400 144.3 C327.2 150.2 218 151.1 140 147.7Z" opacity="0.6"/>
+    <path d="M550 202.6 C620 189.5 725 187.8 800 197.4 C730 206.5 625 207.8 550 202.6Z" opacity="0.85"/>
+    <path d="M600 190.2 C642 184 705 183.2 750 187.8 C708 192 645 192.7 600 190.2Z" opacity="0.55"/>
+    <path d="M290 235.7 C343.2 227.2 423 226.1 480 232.3 C426.8 238.2 347 239.1 290 235.7Z" opacity="0.7"/>
+  </g>
+</svg>

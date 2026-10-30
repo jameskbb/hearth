@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="432" height="432">
+  <!-- Hearth launcher icon, on the 108x108 adaptive icon canvas (the inner 66
+       circle is the safe zone). Dusk palette: a low sun on the horizon between
+       a violet sky and deep blue ridges. The app's adaptive icon layers
+       (res/drawable/ic_launcher_background.xml and ic_launcher_foreground.xml)
+       mirror the two groups below; keep them in sync. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#151B4A"/>
+      <stop offset=".36" stop-color="#352663"/>
+      <stop offset=".5" stop-color="#7A3565"/>
+      <stop offset=".58" stop-color="#C8524E"/>
+      <stop offset=".64" stop-color="#F08A44"/>
+      <stop offset=".7" stop-color="#FFC06A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="54" cy="64" r="26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE9B8" stop-opacity=".9"/>
+      <stop offset=".4" stop-color="#FF8F4A" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#FF8F4A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="background">
+    <rect width="108" height="108" fill="url(#sky)"/>
+  </g>
+  <g id="foreground">
+    <circle cx="54" cy="64" r="26" fill="url(#glow)"/>
+    <circle cx="54" cy="64" r="9" fill="#FFF3D6"/>
+    <path d="M0 68 C14 64 24 62 34 65 C44 68 50 66 60 64 C72 62 84 66 108 63 L108 108 L0 108 Z" fill="#3E2C66"/>
+    <path d="M0 76 C16 71 28 74 40 72 C54 70 64 75 78 74 C90 73 98 71 108 72 L108 108 L0 108 Z" fill="#1E1C4C"/>
+    <path d="M0 86 C18 82 34 85 52 83 C70 81 86 85 108 82 L108 108 L0 108 Z" fill="#0A0E24"/>
+  </g>
+</svg>

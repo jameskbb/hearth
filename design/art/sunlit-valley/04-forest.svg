@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="214" viewBox="-10 326 980 214">
+  <defs>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3D7B49"/>
+      <stop offset="1" stop-color="#123F3B"/>
+    </linearGradient>
+    <g id="pine">
+      <path d="M0 0 L-1 6 L-3 10 L-1 10 L-5 15 L-3 15 L-6 20 L-3 20 L-8 27 L-5 26 L-9 32 L-6 31 L-11 38 L-4 37 L-6 41 L-1 40 L-1 44 L1 44 L1 40 L7 41 L5 37 L10 38 L7 33 L9 34 L5 27 L8 28 L4 21 L6 22 L3 16 L5 16 L2 10 L3 11 L1 6Z"/>
+    </g>
+  </defs>
+  <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424 L972 540 L-12 540Z" fill="url(#hill)"/>
+  <g fill="#185247" opacity="0.94">
+    <use href="#pine" transform="translate(13 391) scale(1.5)"/><use href="#pine" transform="translate(37 410) scale(0.9)"/>
+    <use href="#pine" transform="translate(57 399) scale(1.25)"/><use href="#pine" transform="translate(84 430) scale(0.7)"/>
+    <use href="#pine" transform="translate(112 421) scale(1.0)"/><use href="#pine" transform="translate(126 437) scale(0.65)"/>
+    <use href="#pine" transform="translate(164 454) scale(0.62)"/><use href="#pine" transform="translate(179 452) scale(0.73)"/>
+    <use href="#pine" transform="translate(739 439) scale(0.64)"/><use href="#pine" transform="translate(754 426) scale(0.9)"/>
+    <use href="#pine" transform="translate(807 409) scale(0.8)"/><use href="#pine" transform="translate(821 393) scale(1.05)"/>
+    <use href="#pine" transform="translate(848 400) scale(0.65)"/><use href="#pine" transform="translate(873 354) scale(1.62)"/>
+    <use href="#pine" transform="translate(893 383) scale(1.08)"/><use href="#pine" transform="translate(925 372) scale(1.2)"/>
+    <use href="#pine" transform="translate(953 350) scale(1.65)"/>
+  </g>
+  <path d="M-12 509 C84 495 140 511 219 525 C345 546 469 542 572 532 C710 518 820 470 972 478 L972 540 L-12 540Z" fill="#0D3433"/>
+</svg>

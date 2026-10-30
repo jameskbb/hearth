@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="154" viewBox="0 58 960 154" data-scale="1">
+  <!-- Soft cloud groups leave matching transparent edges for continuous drift. -->
+  <defs>
+    <linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFDF3" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#F8DCA7" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-35%" width="140%" height="170%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+  </defs>
+  <g fill="url(#cloud)" filter="url(#blur)">
+    <path d="M94 124 C148 116 182 126 226 123 C265 121 289 128 318 132 C274 134 253 130 221 133 C176 135 130 129 94 124Z" opacity="0.32"/>
+    <path d="M452 113 C493 105 520 114 550 110 C582 104 602 110 621 117 C654 114 677 120 706 123 C655 128 614 123 576 125 C531 125 488 117 452 113Z" opacity="0.44"/>
+    <path d="M593 175 C628 163 655 171 685 164 C711 156 730 165 751 163 C782 154 806 167 829 166 C857 163 882 173 906 180 C854 179 811 183 771 179 C729 177 699 181 665 178 C636 182 614 178 593 175Z" opacity="0.75"/>
+    <path d="M398 195 C435 188 456 195 484 191 C503 188 521 194 544 197 C498 201 446 199 398 195Z" opacity="0.42"/>
+  </g>
+  <g fill="none" stroke="#FFF8DE" stroke-linecap="round" opacity="0.45">
+    <path d="M639 177 C693 179 734 173 777 179" stroke-width="1"/>
+  </g>
+</svg>

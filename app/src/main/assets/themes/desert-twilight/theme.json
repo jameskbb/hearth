@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "id": "desert-twilight",
+  "name": "Desert Twilight",
+  "author": "Hearth",
+  "description": "Mesas as the day turns to twilight",
+  "dayparts": ["evening"],
+  "palette": {
+    "ink": "#FFFFF1E6",
+    "inkMuted": "#B8FFF1E6",
+    "accent": "#FFFFB36B",
+    "glow": "#66FFB36B",
+    "shade": "#E0120B24",
+    "shadeMid": "#73120B24",
+    "window": "#FF120B24"
+  },
+  "preview": "preview.webp",
+  "motion": { "sway": { "amplitude": 8, "period": 90 } },
+  "layers": [
+    { "image": "sky-day.webp" },
+    { "image": "sky-twilight.webp",
+      "fade": { "from": 0, "to": 1, "delay": 20, "duration": 180 } },
+    { "image": "stars.webp",
+      "fade": { "from": 0, "to": 1, "delay": 110, "duration": 120 },
+      "opacity": { "min": 0.75, "max": 1.0, "period": 30 } },
+    { "image": "clouds.webp", "y": 110, "parallax": 0.2, "wrap": true,
+      "drift": { "x": 70, "period": 200 } },
+    { "image": "mesas-far.webp", "y": 230, "parallax": 0.3 },
+    { "image": "mesas-near.webp", "y": 240, "parallax": 1.0 }
+  ]
+}

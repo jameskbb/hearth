@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="150" viewBox="0 330 960 150" data-scale="1">
+  <!-- Hearth theme "Misty Forest", layer 04: mist drifting through the nearer trees. Rendered at 1x (960 px wide) by
+       scripts/render-theme.sh misty-forest and scaled up on the device. The layer wraps: the band is uniform
+       left to right and its texture is stitched noise, so the left and right edges match. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="330" x2="0" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7E938F" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#7E938F" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#7E938F" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#7E938F" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="mist" filterUnits="userSpaceOnUse" x="0" y="330" width="960" height="150">
+      <feTurbulence type="fractalNoise" baseFrequency=".006 .035" numOctaves="4" seed="57" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.6 0 0 0 -0.75" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="330" width="960" height="150" fill="url(#band)" filter="url(#mist)"/>
+</svg>

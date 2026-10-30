@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fixture icon: a solid square with a lighter diamond, so its dominant color is obvious. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp" android:viewportWidth="96" android:viewportHeight="96">
+    <path android:fillColor="#FF2D5BD7" android:pathData="M0,0h96v96h-96z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M48,18L78,48L48,78L18,48Z" />
+</vector>

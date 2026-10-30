@@ -1,0 +1,46 @@
+{
+  "format": 1,
+  "id": "new-year",
+  "name": "New Year",
+  "author": "Hearth",
+  "description": "Champagne lights above a quiet midnight lake",
+  "autoRotationEligible": false,
+  "dayparts": [],
+  "palette": {
+    "ink": "#FFFFF4DF",
+    "inkMuted": "#CCFFF4DF",
+    "accent": "#FFE4C38C",
+    "glow": "#66E4C38C",
+    "shade": "#E0081526",
+    "shadeMid": "#73081526",
+    "window": "#FF081526"
+  },
+  "preview": "preview.webp",
+  "layers": [
+    {
+      "image": "lakeside.webp"
+    },
+    {
+      "image": "haze.webp",
+      "y": 145,
+      "wrap": true,
+      "drift": {
+        "x": 54,
+        "period": 180
+      }
+    },
+    {
+      "image": "reflections.webp",
+      "y": 318,
+      "drift": {
+        "x": 4,
+        "period": 64
+      },
+      "opacity": {
+        "min": 0.64,
+        "max": 0.9,
+        "period": 90
+      }
+    }
+  ]
+}

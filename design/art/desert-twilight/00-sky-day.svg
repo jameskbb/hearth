@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <!-- Hearth theme "Desert Twilight", layer 00: the base, late afternoon. Rendered by
+       scripts/render-theme.sh desert-twilight. Dusty blue overhead warming to apricot at the horizon,
+       which sits near 55%; the sun's haze is right of center so the clock's corner stays the quietest. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2F4A72"/>
+      <stop offset=".18" stop-color="#4A6A92"/>
+      <stop offset=".34" stop-color="#7F95AE"/>
+      <stop offset=".44" stop-color="#C2B3A6"/>
+      <stop offset=".51" stop-color="#E7B98E"/>
+      <stop offset=".56" stop-color="#F2AA73"/>
+      <stop offset="1" stop-color="#E3955F"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="660" cy="272" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF1CF" stop-opacity=".95"/>
+      <stop offset=".07" stop-color="#FFD9A0" stop-opacity=".7"/>
+      <stop offset=".28" stop-color="#F7B077" stop-opacity=".3"/>
+      <stop offset=".6" stop-color="#E49A76" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#E49A76" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cool" cx="80" cy="20" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B2C4C" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#1B2C4C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="disc" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="21" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#cool)"/>
+  <rect width="960" height="540" fill="url(#sun)"/>
+  <circle cx="660" cy="262" r="13" fill="#FFF6E4" filter="url(#disc)"/>
+
+  <rect width="960" height="540" filter="url(#grain)" opacity=".06" style="mix-blend-mode:overlay"/>
+</svg>

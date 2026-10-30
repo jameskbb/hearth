@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="166" viewBox="0 52 960 166" data-scale="1">
+  <defs>
+    <linearGradient id="white" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.96"/>
+      <stop offset="0.7" stop-color="#EEF8F4" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#C6DEE0" stop-opacity="0.42"/>
+    </linearGradient>
+    <filter id="soft" x="-25%" y="-35%" width="150%" height="175%">
+      <feGaussianBlur stdDeviation="1.4"/>
+    </filter>
+  </defs>
+  <g fill="url(#white)" filter="url(#soft)">
+    <path d="M57 176 C81 166 100 174 121 168 C142 163 160 172 178 174 C201 173 223 180 238 183 C179 187 115 183 57 176Z" opacity="0.45"/>
+    <path d="M488 153 C505 140 522 146 535 137 C548 124 564 131 571 128 C574 113 587 108 600 114 C609 95 628 93 643 102 C650 83 672 82 685 96 C703 90 721 103 723 117 C741 112 753 123 760 137 C781 132 798 143 805 153 C826 149 849 158 867 164 C816 170 772 166 731 170 C697 173 665 166 635 168 C589 172 539 163 488 153Z" opacity="0.79"/>
+    <path d="M313 202 C333 193 351 200 365 194 C380 185 391 191 401 194 C418 191 433 199 444 202 C401 209 356 205 313 202Z" opacity="0.57"/>
+  </g>
+  <g fill="#FFFFFF" opacity="0.14" filter="url(#soft)">
+    <path d="M577 131 C590 112 601 121 610 111 C623 100 637 104 645 112 C654 93 672 92 682 102 C694 99 707 108 711 120 C668 127 628 124 577 131Z"/>
+  </g>
+</svg>

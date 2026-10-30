@@ -1,0 +1,27 @@
+{
+  "format": 1,
+  "id": "july-fourth",
+  "name": "July Fourth",
+  "author": "Hearth",
+  "description": "Summer twilight and red, cream and blue by the lake",
+  "autoRotationEligible": false,
+  "dayparts": [],
+  "palette": {
+    "ink": "#FFFFF4E2",
+    "inkMuted": "#CCF3E9D8",
+    "accent": "#FFE7C28D",
+    "glow": "#66E7C28D",
+    "shade": "#E00A1A2C",
+    "shadeMid": "#730A1A2C",
+    "window": "#FF0A1A2C"
+  },
+  "preview": "preview.webp",
+  "layers": [
+    { "image": "lakeshore.webp" },
+    { "image": "clouds.webp", "y": 128, "wrap": true,
+      "drift": { "x": 66, "period": 195 } },
+    { "image": "ripples.webp", "y": 314,
+      "drift": { "x": 3, "period": 72 },
+      "opacity": { "min": 0.60, "max": 0.86, "period": 100 } }
+  ]
+}

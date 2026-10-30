@@ -1,0 +1,28 @@
+{
+  "format": 1,
+  "id": "golden-prairie",
+  "name": "Golden Prairie",
+  "author": "Hearth",
+  "description": "Warm afternoon light across open grassland",
+  "dayparts": ["day"],
+  "palette": {
+    "ink": "#FFFFF7E8",
+    "inkMuted": "#B8FFF7E8",
+    "accent": "#FFFFCF67",
+    "glow": "#66FFCF67",
+    "shade": "#E01B2B28",
+    "shadeMid": "#731B2B28",
+    "window": "#FF1B2B28"
+  },
+  "preview": "preview.webp",
+  "motion": { "sway": { "amplitude": 4, "period": 160 } },
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "clouds.webp", "y": 66, "parallax": 0.1, "wrap": true,
+      "drift": { "x": 76, "period": 210 } },
+    { "image": "mesas.webp", "y": 252, "parallax": 0.24 },
+    { "image": "prairie.webp", "y": 304, "parallax": 0.68 },
+    { "image": "grasses.webp", "y": 400, "parallax": 1.0,
+      "drift": { "x": 1.2, "period": 48 } }
+  ]
+}

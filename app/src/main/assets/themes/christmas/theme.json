@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "id": "christmas",
+  "name": "Christmas",
+  "author": "Hearth",
+  "description": "Evergreens, silver snow and a tree lit warmly for Christmas",
+  "autoRotationEligible": false,
+  "dayparts": [],
+  "palette": {
+    "ink": "#FFF3F4E9",
+    "inkMuted": "#E6E4EDE5",
+    "accent": "#FFE4BC7E",
+    "glow": "#66E4BC7E",
+    "shade": "#E00A1B29",
+    "shadeMid": "#730A1B29",
+    "window": "#FF0A1B29"
+  },
+  "preview": "preview.webp",
+  "layers": [
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "clouds.webp",
+      "y": 150,
+      "wrap": true,
+      "drift": {
+        "x": 70,
+        "period": 210
+      }
+    },
+    {
+      "image": "grove.webp",
+      "y": 170
+    },
+    {
+      "image": "powder.webp",
+      "y": 281,
+      "wrap": true,
+      "drift": {
+        "x": 65,
+        "period": 190
+      },
+      "opacity": {
+        "min": 0.6,
+        "max": 0.85,
+        "period": 90
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="364" viewBox="0 176 960 364">
+  <defs>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#718F93"/><stop offset="1" stop-color="#557C7C"/></linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#526A61"/><stop offset="1" stop-color="#34564D"/></linearGradient>
+    <linearGradient id="meadow" x1="0" y1="0" x2="0.4" y2="1"><stop stop-color="#7E956A"/><stop offset="0.5" stop-color="#536D50"/><stop offset="1" stop-color="#1E3935"/></linearGradient>
+    <linearGradient id="near" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#294B42"/><stop offset="1" stop-color="#122A2E"/></linearGradient>
+    <linearGradient id="branch" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#394D48"/><stop offset="1" stop-color="#655E4C"/></linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#B57D87"/><stop offset="0.42" stop-color="#D9ABA9"/><stop offset="1" stop-color="#A2757B"/></linearGradient>
+    <linearGradient id="sage" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#839C85"/><stop offset="0.4" stop-color="#B4C6A7"/><stop offset="1" stop-color="#748B7A"/></linearGradient>
+    <linearGradient id="cream" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#BDA778"/><stop offset="0.42" stop-color="#DCCBA0"/><stop offset="1" stop-color="#A79776"/></linearGradient>
+    <g id="flower">
+      <path d="M0 -1 C-7 -10 -6 -14 -2 -13 C2 -13 3 -7 1 -2 C8 -10 13 -9 13 -5 C13 -1 7 2 2 1 C11 7 10 12 6 12 C2 12 -1 6 -1 2 C-5 10 -11 11 -12 7 C-13 3 -8 0 -2 0 C-11 -4 -12 -9 -8 -10 C-4 -11 -1 -6 0 -1Z" fill="#CE9CA1"/>
+      <path d="M0 -1 C-3 -6 -3 -9 -1 -9 C2 -9 2 -5 1 -2 C6 -5 8 -5 8 -3 C8 0 4 1 2 1 C6 5 6 8 4 8 C1 8 0 4 -1 2 C-4 7 -7 8 -8 5 C-8 2 -4 1 -2 0 C-7 -3 -8 -6 -6 -7 C-3 -7 -1 -4 0 -1Z" fill="#E2BCB9"/>
+      <circle r="1.7" fill="#D9C48B"/>
+    </g>
+    <g id="leaf"><path d="M0 0 C3 -7 10 -9 15 -9 C12 -2 7 1 0 0Z" fill="#8BA07B"/></g>
+  </defs>
+  <path d="M0 294 C37 275 60 286 93 274 C129 262 152 279 182 273 C225 260 253 284 290 288 C332 292 368 271 405 276 C444 280 470 290 502 292 C542 293 577 271 614 274 C660 276 691 293 726 286 C776 276 799 267 836 274 C880 285 918 265 960 272 L960 540 L0 540Z" fill="url(#far)"/>
+  <path d="M0 323 C64 306 100 315 148 305 C202 292 230 319 277 317 C333 314 361 332 408 328 C470 322 504 300 553 307 C604 318 630 310 681 303 C742 296 789 317 831 306 C881 292 921 294 960 299 L960 540 L0 540Z" fill="url(#ridge)"/>
+  <path d="M0 351 C77 326 115 352 176 348 C236 345 282 365 343 360 C423 354 474 342 537 336 C600 331 636 310 685 305 C743 296 779 309 825 314 C868 317 910 305 960 310 L960 540 L0 540Z" fill="url(#meadow)"/>
+  <path d="M341 360 C460 339 512 347 588 324 C668 301 730 301 788 309 C846 320 903 305 960 311 L960 319 C875 322 831 330 782 322 C706 310 652 320 588 335 C489 358 428 350 341 360Z" fill="#A4AA7E" opacity="0.28"/>
+  <path d="M0 401 C96 382 155 403 224 401 C306 400 374 435 463 425 C542 413 622 421 697 407 C780 390 847 407 960 387 L960 540 L0 540Z" fill="url(#near)"/>
+  <path d="M0 464 C92 440 192 470 262 460 C343 450 408 482 493 476 C599 470 676 476 751 468 C817 459 889 467 960 451 L960 540 L0 540Z" fill="#162E30" opacity="0.56"/>
+  <!-- Seasonal objects sit in the grass, with common light and ground shadows. -->
+  <ellipse cx="745" cy="311" rx="61" ry="7" fill="#324B3C" opacity="0.58"/>
+  <path d="M708 307 C696 306 695 297 699 285 C702 275 709 267 713 276 C720 287 725 306 713 308Z" fill="url(#sage)" transform="rotate(-15 709 294)"/>
+  <path d="M734 310 C720 311 719 299 722 287 C725 276 731 267 737 276 C746 289 750 307 738 310Z" fill="url(#pink)" transform="rotate(9 734 294)"/>
+  <path d="M762 308 C749 307 748 298 752 286 C756 274 762 268 766 277 C774 292 776 307 764 308Z" fill="url(#cream)" transform="rotate(-6 761 294)"/>
+  <path d="M783 311 C773 311 770 303 774 294 C778 285 781 279 785 284 C794 294 797 309 786 311Z" fill="url(#pink)" transform="rotate(16 783 299)"/>
+  <g fill="none" stroke="#F0D4C2" stroke-width="1.3" opacity="0.58">
+    <path d="M724 296 Q733 301 744 295 M724 291 Q732 296 742 291"/>
+    <path d="M777 297 Q784 303 792 300"/>
+  </g>
+  <g fill="#E0DEC1" opacity="0.6"><circle cx="707" cy="287" r="1"/><circle cx="711" cy="298" r="1"/><circle cx="702" cy="294" r="1"/><circle cx="760" cy="288" r="1"/><circle cx="758" cy="300" r="1"/><circle cx="768" cy="297" r="1"/></g>
+  <path d="M864 349 Q876 298 863 262 Q852 229 810 204 L815 200 Q853 218 871 247 Q881 219 906 191 L910 194 Q884 225 881 257 Q890 298 879 348Z" fill="url(#branch)"/>
+  <g fill="none" stroke="#57604B" stroke-linecap="round">
+    <path d="M863 262 Q832 233 798 237 M845 228 Q818 218 789 192 M873 248 Q905 232 930 208 M886 224 Q882 200 891 178 M905 192 Q928 195 950 181 M908 238 Q937 235 958 221" stroke-width="3"/>
+    <path d="M813 237 L797 223 M827 214 L826 192 M916 219 L915 201 M934 189 L934 176" stroke-width="1.6"/>
+  </g>
+  <g>
+    <use href="#leaf" transform="translate(817 220) rotate(12)"/><use href="#leaf" transform="translate(883 225) rotate(-90)"/><use href="#leaf" transform="translate(927 211) rotate(-12)"/>
+    <use href="#flower" transform="translate(791 194) scale(.65)"/><use href="#flower" transform="translate(804 207) scale(.5)"/>
+    <use href="#flower" transform="translate(826 194) scale(.55)"/><use href="#flower" transform="translate(814 216) scale(.6)"/>
+    <use href="#flower" transform="translate(800 235) scale(.65)"/><use href="#flower" transform="translate(812 237) scale(.45)"/>
+    <use href="#flower" transform="translate(842 226) scale(.55)"/><use href="#flower" transform="translate(851 238) scale(.45)"/>
+    <use href="#flower" transform="translate(890 180) scale(.6)"/><use href="#flower" transform="translate(886 198) scale(.45)"/>
+    <use href="#flower" transform="translate(908 193) scale(.5)"/><use href="#flower" transform="translate(916 205) scale(.6)"/>
+    <use href="#flower" transform="translate(929 211) scale(.6)"/><use href="#flower" transform="translate(936 185) scale(.65)"/>
+    <use href="#flower" transform="translate(951 183) scale(.55)"/><use href="#flower" transform="translate(949 227) scale(.65)"/>
+  </g>
+  <g fill="none" stroke="#6F8459" stroke-width="1" opacity="0.7">
+    <path d="M696 317 L693 307 M698 317 L701 308 M718 316 L716 308 M748 315 L751 307 M771 316 L770 310 M795 317 L799 307 M802 318 L804 311"/>
+    <path d="M17 508 Q19 494 15 483 M19 501 L25 490 M30 513 Q30 500 34 493 M914 510 Q918 497 915 487 M917 502 L925 491"/>
+  </g>
+</svg>

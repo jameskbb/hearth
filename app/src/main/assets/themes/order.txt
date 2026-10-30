@@ -1,0 +1,15 @@
+# Bundled themes in gallery order: the day from morning to night.
+morning-glow
+misty-forest
+sunlit-valley
+golden-prairie
+dusk
+desert-twilight
+aurora
+open-bay
+# Seasonal scenes, available by choice throughout the year.
+harvest-evening
+christmas
+new-year
+easter
+july-fourth

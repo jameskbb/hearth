@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- Hearth's TV banner (320x180, the Android TV banner size at xhdpi).
+     A crop of the Dusk wallpaper with the wordmark in Literata. Rendered to
+     pixels by scripts/render-brand.sh, so the app needs no font at runtime. -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: Literata; src: url("../../app/src/main/res/font/literata.ttf"); font-weight: 300 400; }
+  html, body { margin: 0; padding: 0; background: #0A0E24; }
+  .banner { position: relative; width: 320px; height: 180px; overflow: hidden; background: #0A0E24; }
+  /* Dusk at 2/3 scale (640x360), offset so the sun sits in the right third. */
+  .art { position: absolute; left: -196px; top: -112px; width: 640px; height: 360px; }
+  /* Localized shade behind the wordmark only, like the home screen's. */
+  .shade { position: absolute; inset: 0;
+    background: radial-gradient(ellipse 190px 120px at 70px 104px, rgba(10,14,36,.62), rgba(10,14,36,0) 100%); }
+  .word { position: absolute; left: 24px; top: 72px; margin: 0;
+    font-family: Literata; font-weight: 340; font-size: 46px; line-height: 1;
+    font-variation-settings: "opsz" 72; letter-spacing: -0.015em;
+    color: #FFF3E4; text-shadow: 0 1px 10px rgba(10,14,36,.45); }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <img class="art" src="../art/dusk.svg" alt="">
+    <div class="shade"></div>
+    <p class="word">Hearth</p>
+  </div>
+</body>
+</html>

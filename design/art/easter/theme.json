@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "id": "easter",
+  "name": "Easter",
+  "author": "Hearth",
+  "description": "Spring blossoms and softly colored eggs above a dawn meadow",
+  "autoRotationEligible": false,
+  "dayparts": [],
+  "palette": {
+    "ink": "#FFFFF4E8",
+    "inkMuted": "#E6FFF4E8",
+    "accent": "#FFE6B9C1",
+    "glow": "#66E6B9C1",
+    "shade": "#E0152B35",
+    "shadeMid": "#73152B35",
+    "window": "#FF152B35"
+  },
+  "preview": "preview.webp",
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "clouds.webp", "y": 115, "wrap": true,
+      "drift": { "x": 63, "period": 180 } },
+    { "image": "meadow.webp", "y": 176 }
+  ]
+}

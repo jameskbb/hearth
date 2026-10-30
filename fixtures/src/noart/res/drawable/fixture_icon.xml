@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deliberately empty artwork: fully transparent, to exercise Hearth's monogram fallback. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#00000000" />
+    <size android:width="96dp" android:height="96dp" />
+</shape>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generic demo glyph, not a service logo. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp" android:height="96dp" android:viewportWidth="96" android:viewportHeight="96">
+    <path android:fillColor="#10291D" android:pathData="M0,0h96v96h-96z" />
+    <path android:fillColor="#65F69A" android:pathData="M30,24h16c17,0 26,9 26,24s-9,24 -26,24h-16zM40,34v28h6c10,0 16,-5 16,-14s-6,-14 -16,-14z" android:fillType="evenOdd" />
+</vector>

@@ -1,0 +1,10 @@
+<resources>
+    <!-- Dark window from the first frame so a cold start never flashes white. -->
+    <style name="Theme.Hearth" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/window</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">false</item>
+    </style>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/fixture_icon"
+        android:label="@string/fixture_label"
+        android:theme="@android:style/Theme.Material.NoActionBar">
+        <!-- Each flavor's manifest adds the launcher intent filter (and banner, if any). -->
+        <activity
+            android:name=".FixtureActivity"
+            android:exported="true" />
+    </application>
+</manifest>

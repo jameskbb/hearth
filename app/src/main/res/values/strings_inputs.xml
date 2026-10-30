@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- An HDMI input the TV gives no name. %1$d is its position among the HDMI inputs, from 1. -->
+    <string name="input_hdmi_numbered">HDMI %1$d</string>
+
+    <!-- All apps: the section of the TV's own inputs, shown first when there are any. -->
+    <string name="all_apps_inputs">System inputs</string>
+
+    <!-- Settings, the Inputs section: one row per input, Select renames it. -->
+    <string name="settings_inputs">Inputs</string>
+    <string name="settings_rename">Rename</string>
+
+    <!-- Renaming an input, in place of the Settings rows. -->
+    <string name="rename_input_title">Rename input</string>
+    <string name="rename_input_placeholder">Type a name</string>
+    <string name="rename_input_hint">Type a name, then press the keyboard\'s Done or select Save. An empty name uses the TV\'s name.</string>
+    <string name="rename_input_save">Save</string>
+    <string name="rename_input_reset">Use the TV\'s name</string>
+</resources>

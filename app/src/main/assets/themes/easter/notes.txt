@@ -1,0 +1,21 @@
+Easter
+
+Original SVG artwork authored for Hearth, using the established layered
+landscape language. No stock images, external references or third-party art.
+SVG sources retain the complete editable artwork; shipped WebPs are rendered
+through scripts/render-theme.sh and scripts/encode-art.py with fine grain.
+
+Sage and blue hills recede into a warm spring dawn. A blossom tree and softly
+colored Easter eggs sit on the right meadow ridge, above the app dock. The
+upper corners and shaded sage ridge leave space for the clock, optional Home
+label, app name and navigation. The landscape and seasonal details stay still.
+
+Soft pink clouds drift continuously at 21 dp per minute. Transparent matching
+edges let the cloud strip wrap without a seam. Reduce motion uses the same
+rest composition without a clock. The pack is manual by default, with no
+recommended dayparts or implicit automatic rotation.
+
+Muted ink uses E6 alpha. The lower-left meadow ridge is deep sage throughout
+the landform, keeping small hints readable without a label backing surface.
+
+Rebuild: scripts/render-theme.sh easter
