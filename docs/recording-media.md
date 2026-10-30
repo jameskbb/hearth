@@ -9,6 +9,11 @@ stand-ins in [`demo-apps.md`](demo-apps.md). Familiar service names appear,
 but these are visibly labeled demos, not official clients. No accounts or
 household details belong in captures.
 
+The README tour stays inside Hearth: favorites, app options, rearranging tiles,
+All apps, Settings, and Appearance. Do not launch an app tile or choose Open
+from its options. The separate demo smoke check still exercises app launching;
+demo destination screens do not belong in promotional recordings.
+
 ## What you get
 
 | File | Made by | Notes |
@@ -96,7 +101,9 @@ Look at every file; do not commit captures you have not viewed.
 - **Screenshots:** no system toasts, the clock reads a sensible time, focus is
   where the README text says it is, and the arrange shot shows a lifted tile.
 - **Video:** make a contact sheet and check that the tour reaches every screen
-  and ends on a tidy Home:
+  and ends on a tidy Home. Keep app destination screens out of the recording.
+  Trim brief emulator artwork-loading pauses after reviewing the footage, and
+  apply the same edits to the MP4 and inline WebP:
 
   ```bash
   "$FFMPEG" -i docs/media/tour.mp4 -vf "fps=1/2.5,scale=480:-1,tile=4x4" -frames:v 1 build/media/sheet.png

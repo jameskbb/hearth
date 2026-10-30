@@ -28,7 +28,8 @@
 #   NAV_ALL_APPS  after NAV_ACTIONS, open All apps       (default "select")
 #   NAV_SETTINGS  Home, any focus: open Settings         (default: NAV_ACTIONS,
 #                 then "right right select" if Arrange is shown, else "right select")
-#   TOUR          the video's key sequence (see default below)
+#   TOUR          the video's key sequence (see default below); stay inside Hearth
+#                 and never open an app tile or the options dialog's Open action
 # Themes are chosen by name, not by key count: Settings opens with the Theme
 # row focused (checked); Select opens Appearance, the script chooses Single
 # Theme, moves Left to the first card, then moves Right until the hint reads
@@ -70,7 +71,7 @@ NAV_SETTINGS="${NAV_SETTINGS:-}"
 THEME_MAIN="${THEME_MAIN:-Dusk}"
 THEME_ALT="${THEME_ALT:-Aurora}"
 THEME_MAX="${THEME_MAX:-12}"
-TOUR="${TOUR:-wait:2 right wait:1 right wait:1 menu wait:2 back select wait:5 back wait:4 down left left select wait:4 back down left left right right select wait:3 select wait:4 back back up back wait:4}"
+TOUR="${TOUR:-wait:3 right wait:1 right wait:1 menu wait:2 back wait:1 down left left right select right select right wait:2 back back wait:1 down left left select wait:3 right wait:1 right wait:1 down wait:1 back wait:2 down left left right right select wait:3 select wait:4 back back up back wait:4}"
 RECORDER="${RECORDER:-host}"
 TRIM_START="${TRIM_START:-1.2}"
 TRIM_END="${TRIM_END:-1.0}"

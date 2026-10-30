@@ -7,8 +7,8 @@ the list of what is not done yet.
 ## Next
 
 1. **Extend the README tour to weather and schedule editing.** The current
-   tour shows the latest interface with local service-name demos, launch and
-   Back, All apps, Settings, and Appearance. A future extended tour can show
+   tour stays inside Hearth, showing favorites, app options, rearranging tiles,
+   All apps, Settings, and Appearance. A future extended tour can show
    Home with weather beside the clock and choosing a city
    ([decision 0005](decisions/0005-opt-in-weather.md)), all thirteen theme packs,
    and editing the three Appearance modes

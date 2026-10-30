@@ -15,9 +15,10 @@ weather is optional and off by default.
 [Get started](#get-started) · [Theme gallery](docs/themes.md) ·
 [Compatibility](#compatibility) · [Contribute](CONTRIBUTING.md)
 
-![A remote tour: favorites, launching an app, All apps, and settings](docs/media/tour.webp)
+![A remote tour: favorites, app options, rearranging tiles, All apps, and appearance](docs/media/tour.webp)
 
 *Recorded on an Android TV emulator. [Watch in 1080p](docs/media/tour.mp4).
+The tour stays inside Hearth without opening any apps.
 The service-name tiles are local, offline demo apps, not official clients.
 On your TV, Hearth uses your installed apps' artwork. Hearth is not affiliated
 with the services shown. [About the demos](docs/demo-apps.md).*

@@ -13,7 +13,7 @@ Read first, in order: `docs/BRIEF.md` (what v1 must be), `docs/design.md`
 (how it looks and behaves), `docs/decisions/` (settled choices; do not reopen
 them without the maintainer).
 
-## 2. This repository is headed for public release
+## 2. Public repository rules
 
 Write everything as if it were already public.
 - No private identifiers anywhere: no IP or MAC addresses, hostnames, serial
