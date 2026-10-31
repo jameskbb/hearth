@@ -1,0 +1,25 @@
+{
+  "format": 1,
+  "id": "halloween",
+  "name": "Halloween",
+  "author": "Hearth",
+  "description": "Friendly carved pumpkins in a quiet moonlit patch",
+  "autoRotationEligible": false,
+  "dayparts": [],
+  "palette": {
+    "ink": "#FFFFF2DF",
+    "inkMuted": "#E6FFF2DF",
+    "accent": "#FFF2B56F",
+    "glow": "#66EBA15A",
+    "shade": "#E00C1B24",
+    "shadeMid": "#730C1B24",
+    "window": "#FF0C1B24"
+  },
+  "preview": "preview.webp",
+  "layers": [
+    { "image": "sky.webp" },
+    { "image": "clouds.webp", "y": 160, "wrap": true,
+      "drift": { "x": 64, "period": 180 } },
+    { "image": "patch.webp", "y": 202 }
+  ]
+}

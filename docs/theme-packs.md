@@ -1,7 +1,7 @@
 # Theme packs
 
 A theme is a folder: one manifest, `theme.json`, and the images it names.
-Hearth ships thirteen packs inside the APK (`app/src/main/assets/themes/`) and
+Hearth ships fourteen packs inside the APK (`app/src/main/assets/themes/`) and
 loads extra packs from a folder on the device. Nothing in the launcher's UI
 code knows a theme by name; the gallery in Settings, Appearance lists whatever
 packs load.

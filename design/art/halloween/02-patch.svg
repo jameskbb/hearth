@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="338" viewBox="0 202 960 338">
+  <defs>
+    <linearGradient id="bank" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#344438"/><stop offset="1" stop-color="#15272B"/></linearGradient>
+    <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1F312F"/><stop offset=".5" stop-color="#102328"/><stop offset="1" stop-color="#07161F"/></linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#D58C43"/><stop offset=".42" stop-color="#BB6932"/><stop offset="1" stop-color="#714328"/></linearGradient>
+    <linearGradient id="rib" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#89512C"/><stop offset=".48" stop-color="#D18A40"/><stop offset="1" stop-color="#92502A"/></linearGradient>
+    <linearGradient id="candle" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F8CF7A"/><stop offset="1" stop-color="#EAA64F"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#D48B3D" stop-opacity=".18"/><stop offset="1" stop-color="#D48B3D" stop-opacity="0"/></radialGradient>
+    <g id="pumpkin">
+      <path d="M0 -36 C-19 -44 -47 -34 -51 -9 C-57 18 -38 35 -17 36 C-7 39 6 39 17 36 C41 36 56 18 51 -8 C47 -32 23 -44 0 -36Z" fill="url(#skin)"/>
+      <path d="M-3 -35 C-24 -31 -31 -8 -26 15 C-23 28 -14 36 -6 37 C-17 13 -16 -16 -3 -35Z" fill="#794B2B" opacity=".28"/>
+      <path d="M5 -36 C28 -28 33 -7 27 16 C24 29 15 35 8 37 C19 12 18 -17 5 -36Z" fill="#754229" opacity=".32"/>
+      <path d="M0 -36 C-15 -29 -18 -10 -16 10 C-15 23 -10 33 -5 37 C6 39 12 34 16 22 C24 -3 17 -27 0 -36Z" fill="url(#rib)"/>
+      <path d="M-4 -35 C-3 -42 -7 -47 -3 -52 L4 -54 C1 -44 8 -43 5 -35Z" fill="#697047"/>
+      <path d="M-3 -47 L0 -49 M-34 -18 C-31 -26 -25 -30 -19 -31" fill="none" stroke="#E1AB5B" stroke-width="1.2" stroke-linecap="round" opacity=".55"/>
+    </g>
+    <!-- Rounded eye openings and a simple smile, with no angled brows or fangs. -->
+    <g id="smile" fill="url(#candle)" stroke="#86502D" stroke-width="1.4" stroke-linejoin="round">
+      <path d="M-26 -5 C-27 -17 -15 -20 -13 -7 C-15 -4 -22 -3 -26 -5Z"/>
+      <path d="M13 -7 C15 -20 27 -17 26 -5 C22 -3 15 -4 13 -7Z"/>
+      <path d="M-4 2 Q0 -4 4 2 L3 6 H-3Z"/>
+      <path d="M-25 10 Q0 23 25 10 C20 29 6 33 0 32 C-12 32 -21 24 -25 10Z"/>
+      <path d="M-4 19 V25 H3 V20" fill="#AE672E" stroke="none"/>
+    </g>
+    <g id="lantern"><use href="#pumpkin"/><use href="#smile"/></g>
+    <g id="small-pumpkin"><use href="#pumpkin"/></g>
+  </defs>
+  <!-- A raised patch keeps all carved faces above the favorites row. -->
+  <path d="M0 340 C108 323 175 339 248 330 C329 320 381 334 448 321 C515 308 551 318 614 301 C682 280 744 303 805 289 C874 272 926 291 960 282 L960 540 H0Z" fill="url(#bank)"/>
+  <path d="M0 365 C88 349 172 362 235 352 C314 339 389 360 459 344 C534 327 598 348 663 329 C740 307 816 333 884 316 C920 307 940 313 960 308 L960 540 H0Z" fill="url(#earth)"/>
+  <!-- Small, unlit pumpkins recede into the field. -->
+  <g opacity=".66">
+    <use href="#small-pumpkin" transform="translate(490 317) scale(.19)"/>
+    <use href="#small-pumpkin" transform="translate(544 312) scale(.23)"/>
+    <use href="#small-pumpkin" transform="translate(591 320) scale(.27)"/>
+    <use href="#small-pumpkin" transform="translate(637 309) scale(.31)"/>
+    <use href="#small-pumpkin" transform="translate(675 326) scale(.25)"/>
+    <use href="#small-pumpkin" transform="translate(933 320) scale(.27)"/>
+  </g>
+  <g fill="none" stroke="#596044" stroke-width="1.2" stroke-linecap="round" opacity=".6">
+    <path d="M580 329 C616 331 632 310 668 319 C699 328 720 318 733 322 M846 325 C877 338 913 315 941 322"/>
+    <path d="M620 322 C614 316 617 311 622 312 C630 316 618 324 614 320 M911 326 C913 317 919 314 923 318 C928 324 917 326 916 321"/>
+  </g>
+  <!-- Local ground light stays under the lantern group, away from lettering. -->
+  <ellipse cx="795" cy="324" rx="133" ry="25" fill="url(#light)"/>
+  <ellipse cx="781" cy="323" rx="100" ry="6" fill="#071B20" opacity=".55"/>
+  <use href="#lantern" transform="translate(827 267) scale(.83 1.12)"/>
+  <use href="#lantern" transform="translate(738 283) scale(1.08)"/>
+  <use href="#lantern" transform="translate(900 302) scale(.58)"/>
+  <path d="M941 284 C943 261 944 244 940 225 M943 249 C935 243 934 237 933 232 M943 239 C949 234 953 229 954 222" fill="none" stroke="#4E5A43" stroke-width="2" stroke-linecap="round"/>
+  <g fill="#7C6940" opacity=".7"><path d="M941 234 Q928 225 934 220 Q945 222 941 234Z"/><path d="M947 248 Q957 235 962 242 Q959 252 947 248Z"/></g>
+</svg>

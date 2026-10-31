@@ -1,31 +1,24 @@
 Harvest Evening
 
-Original Hearth environment artwork, created for this project with the built-in
-image generation tool. No third-party reference images or artwork were used.
-The complete generation prompt is in prompt.txt beside these sources.
+Original Hearth SVG artwork, authored for this pack using the existing Dusk
+and Golden Prairie landscape vocabulary. No third-party artwork, fonts, or
+reference images are embedded. The palette carries copper autumn foliage,
+harvested fields, uncarved pumpkins and a pale gourd into deep slate shadows.
+There are no spooky motifs, faces, text, logos, or personal details.
 
-00-patch.svg embeds the original PNG painting losslessly, using the same
-self-contained raster-in-SVG source format as Open Bay. It renders offline
-through scripts/render-theme.sh; no generation service is needed to rebuild.
-The painting is uniformly scaled and cropped by less than one source pixel
-to fill the 16:9 canvas, then rendered to the 1920x1080 base.
+The landscape remains still. A separate half-resolution atmospheric strip
+travels continuously at 21.3 dp per minute, using the existing wrapping drift
+renderer. Its edges are transparent so the repeat is quiet. There is no
+introductory event, flashing, or seasonal clock dependency. Reduce motion
+shows the same full scene at rest, and backgrounding stops animation through
+the shared renderer. Dark upper corners and the lower landscape leave room
+for the existing clock, optional Home label, app names, and controls.
 
-Three prominent carved pumpkins sit above the favorites row, with smaller
-pumpkins and vines receding into a moonlit field. Amber candlelight and copper
-skin contrast with deep ink-blue and petrol shadows. The upper corners and
-lower foreground remain naturally dark for Home lettering and controls.
-No text, logos, characters, personal details or UI are baked into the image.
+Build offline with scripts/render-theme.sh harvest-evening using a Python
+interpreter with Pillow and numpy. The base and opaque landscape use the
+existing lossless WebP and anti-banding grain pipeline; the cloud strip keeps
+alpha. Source SVGs and theme.json are the reproducible source of every image.
 
-The painting and candlelight stay still. 01-mist.svg adds a faint, feathered
-half-resolution valley mist. It wraps at 16 dp per minute through the existing
-drift renderer, with transparent edges. No flashing, flickering or intro event.
-Reduce motion preserves the whole scene at rest; backgrounding stops motion
-through the shared lifecycle. Layers decode to about 8.3 MiB, below 32 MB.
-
-Build offline with scripts/render-theme.sh harvest-evening using Chrome and
-a Python interpreter with Pillow and numpy. The base uses the existing
-lossless WebP and anti-banding grain pipeline; the mist preserves alpha.
-
-The stable harvest-evening id preserves existing assignments. This seasonal
-pack remains excluded from implicit rotation, with no default dayparts.
-Choose Single Theme or explicitly include it in a custom rotation or schedule.
+This seasonal pack opts out of implicit automatic rotation and offers no
+default daypart recommendations. Choose it in Single Theme or intentionally
+add it to a custom schedule or Surprise Me pool.

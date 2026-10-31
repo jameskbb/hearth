@@ -10,7 +10,7 @@ the list of what is not done yet.
    tour stays inside Hearth, showing favorites, app options, rearranging tiles,
    All apps, Settings, and Appearance. A future extended tour can show
    Home with weather beside the clock and choosing a city
-   ([decision 0005](decisions/0005-opt-in-weather.md)), all thirteen theme packs,
+   ([decision 0005](decisions/0005-opt-in-weather.md)), all fourteen theme packs,
    and editing the three Appearance modes
    ([decisions 0006](decisions/0006-theme-packs.md) and
    [0008](decisions/0008-follow-the-day-and-theme-rotation.md)).

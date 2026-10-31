@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#13212F"/>
+      <stop offset="0.25" stop-color="#2E3547"/>
+      <stop offset="0.44" stop-color="#79504C"/>
+      <stop offset="0.56" stop-color="#BE7C4B"/>
+      <stop offset="0.66" stop-color="#D7A263"/>
+      <stop offset="1" stop-color="#5B5546"/>
+    </linearGradient>
+    <radialGradient id="last-light" cx="73%" cy="55%" r="42%">
+      <stop offset="0" stop-color="#F9C581" stop-opacity="0.66"/>
+      <stop offset="0.35" stop-color="#E8A060" stop-opacity="0.23"/>
+      <stop offset="1" stop-color="#D08A5A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#76614F"/>
+      <stop offset="1" stop-color="#394647"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#last-light)"/>
+  <circle cx="706" cy="282" r="15" fill="#F5CC8E" opacity="0.88"/>
+  <path d="M-10 308 C40 299 78 296 120 300 C171 304 209 291 253 288 C313 285 347 296 393 292 C443 288 478 299 520 293 C576 285 623 277 669 286 C714 296 761 283 807 288 C858 295 909 280 970 285 L970 540 L-10 540Z" fill="url(#far)"/>
+  <path d="M-10 330 C56 316 108 323 171 315 C231 308 273 321 324 319 C388 317 423 306 477 312 C535 320 591 301 644 307 C700 316 754 309 807 304 C868 298 919 311 970 301 L970 540 L-10 540Z" fill="#4C4D40"/>
+</svg>

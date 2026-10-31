@@ -1,6 +1,6 @@
 # Theme gallery
 
-Thirteen bundled theme packs: seven everyday scenes and six special themes, all
+Fourteen bundled theme packs: seven everyday scenes and seven special themes, all
 original art. Each is drawn in layers that move slowly (fog drifts, a curtain
 shimmers, a sky turns to twilight) while the
 interface itself stays still; Reduce motion turns every theme into the still
@@ -25,14 +25,15 @@ image shown here. These are the packs' own renders at rest, not TV captures.
 
 ## Special themes
 
-Scenes for a particular space or occasion, chosen when you want them. Five
+Scenes for a particular space or occasion, chosen when you want them. Six
 seasonal scenes join Open Bay, with the same quiet landscapes, dark-room
 palettes and soft, continuous atmospheric motion as the everyday collection.
 
 | | |
 |---|---|
 | ![Open Bay: a walnut workbench and classic car in slate shadows beside an open sunlit garage](images/theme-open-bay.png) | **Open Bay**, a warm garage workshop in afternoon light. Walnut, cool slate shadows and an unbranded classic car, with faint haze and drifting dust. Choose it in Single Theme, or deliberately add it to a custom rotation. |
-| ![Harvest Evening: glowing carved pumpkins in a moonlit patch](images/theme-harvest-evening.png) | **Harvest Evening**, a Halloween pumpkin patch. Carved amber faces, copper vines and deep blue shadows with slowly drifting valley mist. |
+| ![Harvest Evening: copper autumn hills and pumpkins in warm evening light](images/theme-harvest-evening.png) | **Harvest Evening**, a gentle autumn harvest scene. Autumn colors and pumpkins with slowly drifting atmosphere. |
+| ![Halloween: friendly carved pumpkins in a blue-green night landscape](images/theme-halloween.png) | **Halloween**, a moonlit pumpkin patch with rounded carved eyes, warm smiles and slow clouds. A separate scene from Harvest Evening, in the same illustrated landscape style. |
 | ![Christmas: a snowy evergreen valley with steady warm tree lights](images/theme-christmas.png) | **Christmas**, a winter evening with a warmly lit evergreen and soft atmospheric drift. |
 | ![New Year: champagne lights above a midnight lake](images/theme-new-year.png) | **New Year**, a midnight celebration with restrained gold light and slowly moving lake haze. |
 | ![Easter: a spring landscape with flowers and softly colored eggs](images/theme-easter.png) | **Easter**, a quiet spring scene with flowers, colored eggs and slow clouds. |
@@ -62,7 +63,7 @@ with no artwork text or extra focus stop. Edit, hide, or clear it at any time;
 your choice is saved locally and works across themes.
 
 The artwork stays unobscured, with no gray gradient patches behind text.
-All thirteen scenes keep their slow layered motion; Reduce motion makes them
+All fourteen scenes keep their slow layered motion; Reduce motion makes them
 still. Appearance groups the three modes on one line, shows only the selected
 mode's controls, and keeps period renaming and About on their own screens.
 

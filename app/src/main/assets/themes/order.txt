@@ -9,6 +9,7 @@ aurora
 open-bay
 # Seasonal scenes, available by choice throughout the year.
 harvest-evening
+halloween
 christmas
 new-year
 easter

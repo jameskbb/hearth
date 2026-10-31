@@ -37,9 +37,9 @@ class BundledThemesTest {
     @Test fun specialThemesAreInTheGalleryButManualByDefault() {
         val manifests = packs().map { ThemeManifestCodec.parse(File(it, "theme.json").readText()) }
         val gallery = manifests.map { ThemeOrder.info(it, bundled = true) }
-        val special = setOf("open-bay", "harvest-evening", "christmas", "new-year", "easter", "july-fourth")
+        val special = setOf("open-bay", "harvest-evening", "halloween", "christmas", "new-year", "easter", "july-fourth")
             .map(::ThemeId).toSet()
-        assertEquals(13, gallery.size)
+        assertEquals(14, gallery.size)
         assertEquals(special, gallery.filterNot { it.autoRotationEligible }.map { it.id }.toSet())
         assertTrue(manifests.filter { it.id in special }.all { it.dayparts.isEmpty() })
         assertTrue(ThemeScheduleConfig.Recommended.periods.none { period -> period.themeIds.any { it in special } })

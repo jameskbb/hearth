@@ -1,0 +1,24 @@
+Halloween
+
+Original Hearth SVG artwork, authored for this pack in the same layered
+landscape style as Harvest Evening, Dusk and Christmas. No generated painting,
+photographic texture or third-party reference image is used.
+
+A crescent moon, blue-green hills and a raised pumpkin patch form a quiet
+night scene. Three prominent carved pumpkins have rounded eye openings,
+upturned smiles and single square teeth. No angry brows, fangs, horror motifs
+or photorealistic detail. Smaller uncarved pumpkins recede into the field.
+The dark upper corners and lower foreground leave room for Home lettering.
+
+Terrain and candlelight stay still. A separate half-resolution cloud strip
+wraps at 21.3 dp per minute through the existing renderer. Its edges are
+transparent. There is no flashing, flicker or introductory event. Reduce
+motion shows the same scene at rest and backgrounding stops animation.
+
+Build offline with scripts/render-theme.sh halloween, Chrome, and a Python
+interpreter with Pillow and numpy. SVGs and theme.json are the complete
+sources. The rendered pack uses existing lossless WebP and anti-banding grain.
+
+Halloween is separate from Harvest Evening, whose original uncarved autumn
+scene remains unchanged. The Halloween pack is manual by default, with no
+default dayparts; add it to custom schedules or pools only by explicit choice.
