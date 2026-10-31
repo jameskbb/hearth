@@ -32,7 +32,7 @@ with the services shown. [About the demos](docs/demo-apps.md).*
   Select for options. Back at Home stays in Hearth.
 - **Thirteen original scenes.** Choose one, follow an editable daily schedule,
   or let Surprise Me pick once a day. Seven everyday landscapes sit alongside
-  Open Bay and five seasonal scenes, including a gentle fall harvest theme.
+  Open Bay and five seasonal scenes, including a moonlit Halloween pumpkin patch.
 - **Motion at your pace.** Slow clouds, haze, and light give the artwork life.
   Reduce motion makes every scene still and turns off focus scaling and fades.
 - **A few personal touches.** Add an optional Home label, show local weather,
@@ -40,8 +40,8 @@ with the services shown. [About the demos](docs/demo-apps.md).*
 
 | | |
 |---|---|
-| ![Favorites on Aurora, with a clear selection above the app row](docs/images/home-aurora.png) | ![Christmas, with a softly lit evergreen above the app row](docs/images/home-christmas.png) |
-| Aurora, one of seven everyday scenes. | Christmas, one of five seasonal scenes. |
+| ![Favorites on Aurora, with a clear selection above the app row](docs/images/home-aurora.png) | ![Harvest Evening, with glowing carved pumpkins above the app row](docs/images/home-harvest-evening.png) |
+| Aurora, one of seven everyday scenes. | Harvest Evening, one of five seasonal scenes. |
 
 [Explore all thirteen themes](docs/themes.md), or
 [make your own theme pack](docs/theme-packs.md) from images and a small manifest.

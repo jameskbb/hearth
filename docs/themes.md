@@ -32,7 +32,7 @@ palettes and soft, continuous atmospheric motion as the everyday collection.
 | | |
 |---|---|
 | ![Open Bay: a walnut workbench and classic car in slate shadows beside an open sunlit garage](images/theme-open-bay.png) | **Open Bay**, a warm garage workshop in afternoon light. Walnut, cool slate shadows and an unbranded classic car, with faint haze and drifting dust. Choose it in Single Theme, or deliberately add it to a custom rotation. |
-| ![Harvest Evening: copper autumn hills and pumpkins in warm evening light](images/theme-harvest-evening.png) | **Harvest Evening**, a gentle Halloween harvest scene. Autumn colors and pumpkins with slowly drifting atmosphere. |
+| ![Harvest Evening: glowing carved pumpkins in a moonlit patch](images/theme-harvest-evening.png) | **Harvest Evening**, a Halloween pumpkin patch. Carved amber faces, copper vines and deep blue shadows with slowly drifting valley mist. |
 | ![Christmas: a snowy evergreen valley with steady warm tree lights](images/theme-christmas.png) | **Christmas**, a winter evening with a warmly lit evergreen and soft atmospheric drift. |
 | ![New Year: champagne lights above a midnight lake](images/theme-new-year.png) | **New Year**, a midnight celebration with restrained gold light and slowly moving lake haze. |
 | ![Easter: a spring landscape with flowers and softly colored eggs](images/theme-easter.png) | **Easter**, a quiet spring scene with flowers, colored eggs and slow clouds. |

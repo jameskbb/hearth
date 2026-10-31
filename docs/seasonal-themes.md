@@ -1,19 +1,20 @@
 # Seasonal themes
 
 Five occasion packs extend the existing scene collection: Harvest Evening
-(Halloween as fall harvest), Christmas, New Year, Easter and July Fourth.
-Their editable SVG layers live in `design/art/<id>/`, with rendered packs in
-`app/src/main/assets/themes/<id>/`. Each source folder records its artwork
-provenance and motion choices in `notes.txt`.
+(a moonlit Halloween pumpkin patch), Christmas, New Year, Easter and July Fourth.
+Their self-contained artwork sources live in `design/art/<id>/`, with rendered
+packs in `app/src/main/assets/themes/<id>/`. Each source folder records its
+artwork provenance and motion choices in `notes.txt`.
 
 ## Direction contract
 
 **Thesis:** seasonal atmosphere within Hearth's quiet landscape collection.
-Holiday details belong in the environment, with uncarved pumpkins for harvest,
-steady Christmas lights, champagne accents for New Year, spring colors for
+Holiday details belong in the environment, with glowing carved pumpkins for
+Halloween, steady Christmas lights, champagne accents for New Year, spring
+colors for
 Easter and restrained red, cream and blue for July Fourth.
 
-**Own world:** retain the layered SVG art, fine anti-banding grain, deep blue
+**Own world:** retain layered artwork, fine anti-banding grain, deep blue
 or green shadows, warm light, existing type and focus treatment. No new UI
 surfaces, artwork text or personalized labels.
 
@@ -27,8 +28,9 @@ the favorites and actions. Holiday details sit toward the right near the
 horizon, where they can be enjoyed above the app tiles.
 
 **Form:** extend the established landscape composition from Dusk, Misty Forest
-and Golden Prairie. The existing manifest drives slow, sustained atmospheric
-motion; terrain and decorations remain still. No concept seed is needed for
+and Golden Prairie. Harvest Evening uses a painted pumpkin patch, with larger
+carved faces and deep night shadows. The existing manifest drives slow,
+sustained atmospheric motion; terrain and decorations remain still. No concept seed is needed for
 this extension of the existing design.
 
 **Finish:** review every rest render and motion sheet, verify the shipped packs
@@ -48,20 +50,23 @@ handling. No flashing lights or rapid fireworks are part of these packs.
 
 | Pack | Sustained motion | Decoded layers |
 |---|---|---|
-| Harvest Evening | Clouds drift at 21.3 dp/min | 13.3 MiB |
+| Harvest Evening | Valley mist drifts at 16 dp/min | 8.3 MiB |
 | Christmas | Clouds and powder drift at about 20 dp/min | 14.2 MiB |
 | New Year | Haze drifts at 18 dp/min; reflections glide and breathe slowly | 9.1 MiB |
 | Easter | Clouds drift at 21 dp/min | 13.7 MiB |
 | July Fourth | Clouds drift at 20.3 dp/min; water reflections glide slowly | 8.8 MiB |
 
 All five are below the 32 MB decoded limit. Their rendered layer files and
-gallery previews add about 5.7 MiB to the APK before ZIP overhead. Artwork is
-authored locally as SVG, with no third-party images or additional dependencies.
+gallery previews add about 6.3 MiB to the APK before ZIP overhead. Harvest
+Evening embeds its original generated PNG painting in a self-contained
+SVG, following Open Bay. Its exact prompt is stored with the sources. Other
+seasonal scenes use authored SVG. No third-party images or new runtime
+dependencies are included.
 
 ## Verification
 
-Final comparison against Dusk, Golden Prairie and Misty Forest found no
-material drift from the existing landscape system. The rest renders and Home
+The original seasonal comparison against Dusk, Golden Prairie and Misty Forest
+found no material drift from the existing landscape system. The rest renders and Home
 captures retain quiet header space, layered terrain, a dark foreground and
 the existing typography and focus treatment. All five source manifests match
 their shipped copies and use the existing palette roles and motion format.
@@ -82,14 +87,39 @@ counting the glyph shadow. The shared renderer and lifecycle handling are
 unchanged. Physical-panel frame pacing, memory and sofa-distance readability
 still require the [device checklist](testing.md).
 
+## Harvest Evening redesign review
+
+The Halloween revision replaces the small horizon gourds with three large
+carved pumpkins above the app row and a patch receding into moonlit hills.
+Ink-blue shadows and steady amber faces keep the dark-room character.
+The theme retains its id, manual rotation policy, palette roles and renderer.
+The original painting and the native-layout lighting correction prompts live
+in `design/art/harvest-evening/prompt.txt`; the painting is embedded in
+`00-patch.svg` and rebuilds offline.
+
+Creative review covered the full scene, gallery thumbnail, native Home and
+Settings captures, and initial and ten-minute motion sheets. It checked
+seasonal recognition, composition, text contrast, focus visibility and visual
+comfort. The first Settings pass found bright leaves behind the weather
+explanation and Hidden apps. A targeted lighting correction put that part of
+the field into natural shadow while retaining the carved faces. Final native
+captures and glyph-region contrast sampling confirmed the correction.
+The clock, app name, hints, actions and Settings text remain readable without
+backing panels. The pumpkin faces stay clear of the dock; faint mist supplies
+motion while the terrain and candles stay still. No open visual blocker
+remains in the reviewed views. Physical-panel color and long-duration frame
+pacing remain separate device checks.
+
 ## TV captures
 
 Captured at 1920x1080 on the API 28 Android TV emulator with
 `scripts/screenshots.sh`. Reduce motion is on to show the rest state. The
 clock is the emulator's local time, weather is off, and the app banners are
 the repository's offline demos. Harvest Evening and July Fourth were set
-through temporary local preference fixtures. Christmas, New Year and Easter
-were selected with D-pad and Select through Appearance. The original
+through temporary local preference fixtures. The redesigned Harvest Evening
+capture uses the final debug APK with Reduce motion on; its original emulator
+preferences were backed up and restored after review. Christmas, New Year and
+Easter were selected with D-pad and Select through Appearance. The original
 preferences were restored after capture.
 
 This run used software emulation without hardware acceleration. During the
