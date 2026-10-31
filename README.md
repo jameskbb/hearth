@@ -33,7 +33,7 @@ with the services shown. [About the demos](docs/demo-apps.md).*
 - **Fourteen original scenes.** Choose one, follow an editable daily schedule,
   or let Surprise Me pick once a day. Seven everyday landscapes sit alongside
   Open Bay and six seasonal scenes, including Harvest Evening and a separate
-  Halloween pumpkin patch with friendly carved smiles.
+  Halloween corn maze with friendly carved pumpkins and slowly breathing lights.
 - **Motion at your pace.** Slow clouds, haze, and light give the artwork life.
   Reduce motion makes every scene still and turns off focus scaling and fades.
 - **A few personal touches.** Add an optional Home label, show local weather,
@@ -41,7 +41,7 @@ with the services shown. [About the demos](docs/demo-apps.md).*
 
 | | |
 |---|---|
-| ![Favorites on Aurora, with a clear selection above the app row](docs/images/home-aurora.png) | ![Halloween, with friendly carved pumpkins above the app row](docs/images/home-halloween.png) |
+| ![Favorites on Aurora, with a clear selection above the app row](docs/images/home-aurora.png) | ![Halloween, with glowing carved pumpkins beside a corn maze](docs/images/home-halloween.png) |
 | Aurora, one of seven everyday scenes. | Halloween, one of six seasonal scenes. |
 
 [Explore all fourteen themes](docs/themes.md), or

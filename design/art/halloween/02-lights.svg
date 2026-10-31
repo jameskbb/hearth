@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="120" viewBox="0 130 960 120" data-scale="1">
+  <defs>
+    <radialGradient id="amber"><stop stop-color="#FFD18A" stop-opacity=".85"/><stop offset=".25" stop-color="#E8AC51" stop-opacity=".47"/><stop offset="1" stop-color="#D49A49" stop-opacity="0"/></radialGradient>
+  </defs>
+  <!-- Fixed, distant lamp halos breathe together over three minutes. -->
+  <g fill="url(#amber)">
+    <ellipse cx="532.00" cy="193.78" rx="7.50" ry="6.75"/>
+    <ellipse cx="548.00" cy="199.12" rx="7.50" ry="6.75"/>
+    <ellipse cx="564.00" cy="202.03" rx="7.50" ry="6.75"/>
+    <ellipse cx="580.00" cy="202.50" rx="7.50" ry="6.75"/>
+    <ellipse cx="596.00" cy="200.53" rx="7.50" ry="6.75"/>
+    <ellipse cx="612.00" cy="196.12" rx="7.50" ry="6.75"/>
+    <ellipse cx="628.00" cy="189.28" rx="7.50" ry="6.75"/>
+    <ellipse cx="658.67" cy="189.03" rx="6.75" ry="6.08"/>
+    <ellipse cx="673.19" cy="195.12" rx="6.75" ry="6.08"/>
+    <ellipse cx="687.55" cy="198.28" rx="6.75" ry="6.08"/>
+  </g>
+</svg>

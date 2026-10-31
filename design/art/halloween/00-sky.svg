@@ -3,7 +3,7 @@
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop stop-color="#07121E"/>
       <stop offset=".38" stop-color="#182E40"/>
-      <stop offset=".58" stop-color="#3B5056"/>
+      <stop offset=".58" stop-color="#30494E"/>
       <stop offset=".74" stop-color="#293E41"/>
       <stop offset="1" stop-color="#0B1A23"/>
     </linearGradient>
@@ -25,6 +25,11 @@
   <g fill="#A4BAB6" opacity=".4">
     <circle cx="528" cy="108" r=".75"/><circle cx="771" cy="97" r=".7"/>
     <circle cx="728" cy="176" r=".65"/><circle cx="601" cy="191" r=".6"/>
+  </g>
+  <!-- Still high cloud veils leave the string lights as the scene's only motion. -->
+  <g fill="none" stroke="#81999D" stroke-linecap="round" opacity=".08">
+    <path d="M96 184 Q189 179 282 183 T438 180" stroke-width="3"/>
+    <path d="M470 157 Q516 152 576 156" stroke-width="2"/>
   </g>
   <path d="M-20 299 C51 274 99 285 159 279 C220 273 250 293 304 282 C373 268 411 279 469 270 C534 260 580 279 632 272 C695 264 734 283 792 270 C850 255 905 271 980 253 L980 540 H-20Z" fill="url(#ridge)"/>
   <path d="M-20 318 C66 301 113 313 177 305 C242 297 280 310 335 301 C400 290 455 312 521 299 C593 284 657 305 718 294 C784 282 851 301 909 285 C933 280 957 282 980 277 L980 540 H-20Z" fill="#20373D"/>

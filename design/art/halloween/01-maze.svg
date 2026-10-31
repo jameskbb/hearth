@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 140 960 400">
+  <defs>
+    <linearGradient id="far-root" gradientUnits="userSpaceOnUse" x1="0" y1="241" x2="0" y2="291"><stop stop-color="#2C453D" stop-opacity=".94"/><stop offset="1" stop-color="#263F3B" stop-opacity="0"/></linearGradient>
+    <linearGradient id="mid-root" gradientUnits="userSpaceOnUse" x1="0" y1="251" x2="0" y2="337"><stop stop-color="#3E5340"/><stop offset=".55" stop-color="#2A4132" stop-opacity=".85"/><stop offset="1" stop-color="#14292B" stop-opacity="0"/></linearGradient>
+    <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#23362E"/><stop offset=".42" stop-color="#14292B"/><stop offset="1" stop-color="#07151E"/></linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#626049"/><stop offset=".5" stop-color="#4B4F3B"/><stop offset="1" stop-color="#192C29"/></linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#D58C43"/><stop offset=".42" stop-color="#BB6932"/><stop offset="1" stop-color="#714328"/></linearGradient>
+    <linearGradient id="rib" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#89512C"/><stop offset=".48" stop-color="#D18A40"/><stop offset="1" stop-color="#92502A"/></linearGradient>
+    <linearGradient id="candle" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFDB8C"/><stop offset=".65" stop-color="#F8BB61"/><stop offset="1" stop-color="#E4933E"/></linearGradient>
+    <linearGradient id="front-corn" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#867D4B"/><stop offset=".45" stop-color="#62613D"/><stop offset="1" stop-color="#243A2E"/></linearGradient>
+    <linearGradient id="middle-corn" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#65734F"/><stop offset="1" stop-color="#293E32"/></linearGradient>
+    <g id="pumpkin">
+      <path d="M0 -36 C-19 -44 -47 -34 -51 -9 C-57 18 -38 35 -17 36 C-7 39 6 39 17 36 C41 36 56 18 51 -8 C47 -32 23 -44 0 -36Z" fill="url(#skin)"/>
+      <path d="M-3 -35 C-24 -31 -31 -8 -26 15 C-23 28 -14 36 -6 37 C-17 13 -16 -16 -3 -35Z" fill="#794B2B" opacity=".28"/>
+      <path d="M5 -36 C28 -28 33 -7 27 16 C24 29 15 35 8 37 C19 12 18 -17 5 -36Z" fill="#754229" opacity=".32"/>
+      <path d="M0 -36 C-15 -29 -18 -10 -16 10 C-15 23 -10 33 -5 37 C6 39 12 34 16 22 C24 -3 17 -27 0 -36Z" fill="url(#rib)"/>
+      <path d="M-4 -35 C-3 -42 -7 -47 -3 -52 L4 -54 C1 -44 8 -43 5 -35Z" fill="#697047"/>
+      <path d="M-3 -47 L0 -49 M-34 -18 C-31 -26 -25 -30 -19 -31" fill="none" stroke="#E1AB5B" stroke-width="1.2" stroke-linecap="round" opacity=".55"/>
+    </g>
+    <g id="corn-0">
+      <path d="M0 0 Q-2 -46 -4 -101" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M-1.0 -19 C-12 -41 -23 -46 -29.6 -31 C-20 -34 -12 -29 -1.0 -19Z"/>
+      <path d="M-1.0 -33 C12 -55 32 -60 35.4 -34 C29 -48 12 -43 -1.0 -33Z"/>
+      <path d="M-1.0 -49 C-12 -71 -27 -76 -33.6 -45 C-24 -64 -12 -59 -1.0 -49Z"/>
+      <path d="M-1.0 -63 C12 -85 23 -90 26.4 -72 C20 -78 12 -73 -1.0 -63Z"/>
+      <path d="M-1.0 -77 C-12 -99 -22 -104 -28.6 -76 C-19 -92 -12 -87 -1.0 -77Z"/>
+      <path d="M-4 -102 L-5 -111 M-4 -104 L-10 -111 M-4 -101 L1 -109 M-5 -108 L-1 -115" fill="none" stroke="currentColor" stroke-width=".85" stroke-linecap="round"/>
+    </g>
+    <g id="corn-1">
+      <path d="M0 0 Q4 -46 2 -101" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M0.5 -19 C-12 -41 -26 -46 -30.2 -20 C-23 -34 -12 -29 0.5 -19Z"/>
+      <path d="M0.5 -33 C12 -55 28 -60 33.8 -29 C25 -48 12 -43 0.5 -33Z"/>
+      <path d="M0.5 -49 C-12 -71 -30 -76 -34.2 -58 C-27 -64 -12 -59 0.5 -49Z"/>
+      <path d="M0.5 -63 C12 -85 26 -90 31.8 -62 C23 -78 12 -73 0.5 -63Z"/>
+      <path d="M0.5 -77 C-12 -99 -18 -104 -22.2 -80 C-15 -92 -12 -87 0.5 -77Z"/>
+      <path d="M2 -102 L1 -111 M2 -104 L-4 -111 M2 -101 L7 -109 M1 -108 L5 -115" fill="none" stroke="currentColor" stroke-width=".85" stroke-linecap="round"/>
+    </g>
+    <g id="corn-2">
+      <path d="M0 0 Q1 -46 -1 -101" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M-0.2 -19 C-12 -41 -29 -46 -34.4 -15 C-26 -34 -12 -29 -0.2 -19Z"/>
+      <path d="M-0.2 -33 C12 -55 31 -60 35.6 -42 C28 -48 12 -43 -0.2 -33Z"/>
+      <path d="M-0.2 -49 C-12 -71 -26 -76 -31.4 -48 C-23 -64 -12 -59 -0.2 -49Z"/>
+      <path d="M-0.2 -63 C12 -85 22 -90 26.6 -66 C19 -78 12 -73 -0.2 -63Z"/>
+      <path d="M-0.2 -77 C-12 -99 -21 -104 -26.4 -89 C-18 -92 -12 -87 -0.2 -77Z"/>
+      <path d="M-1 -102 L-2 -111 M-1 -104 L-7 -111 M-1 -101 L4 -109 M-2 -108 L2 -115" fill="none" stroke="currentColor" stroke-width=".85" stroke-linecap="round"/>
+    </g>
+    <g id="corn-3">
+      <path d="M0 0 Q6 -46 4 -101" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M1.0 -19 C-12 -41 -25 -46 -28.4 -28 C-22 -34 -12 -29 1.0 -19Z"/>
+      <path d="M1.0 -33 C12 -55 27 -60 33.6 -32 C24 -48 12 -43 1.0 -33Z"/>
+      <path d="M1.0 -49 C-12 -71 -29 -76 -32.4 -52 C-26 -64 -12 -59 1.0 -49Z"/>
+      <path d="M1.0 -63 C12 -85 25 -90 31.6 -75 C22 -78 12 -73 1.0 -63Z"/>
+      <path d="M1.0 -77 C-12 -99 -17 -104 -20.4 -78 C-14 -92 -12 -87 1.0 -77Z"/>
+      <path d="M4 -102 L3 -111 M4 -104 L-2 -111 M4 -101 L9 -109 M3 -108 L7 -115" fill="none" stroke="currentColor" stroke-width=".85" stroke-linecap="round"/>
+    </g>
+    <g id="corn-4">
+      <path d="M0 0 Q-1 -46 -3 -101" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M-0.8 -19 C-12 -41 -28 -46 -34.2 -18 C-25 -34 -12 -29 -0.8 -19Z"/>
+      <path d="M-0.8 -33 C12 -55 30 -60 33.8 -36 C27 -48 12 -43 -0.8 -33Z"/>
+      <path d="M-0.8 -49 C-12 -71 -25 -76 -31.2 -61 C-22 -64 -12 -59 -0.8 -49Z"/>
+      <path d="M-0.8 -63 C12 -85 28 -90 31.8 -64 C25 -78 12 -73 -0.8 -63Z"/>
+      <path d="M-0.8 -77 C-12 -99 -20 -104 -26.2 -73 C-17 -92 -12 -87 -0.8 -77Z"/>
+      <path d="M-3 -102 L-4 -111 M-3 -104 L-9 -111 M-3 -101 L2 -109 M-4 -108 L0 -115" fill="none" stroke="currentColor" stroke-width=".85" stroke-linecap="round"/>
+    </g>
+    <g id="corn-5">
+      <path d="M0 0 Q3 -46 1 -101" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M0.2 -19 C-12 -41 -24 -46 -28.6 -22 C-21 -34 -12 -29 0.2 -19Z"/>
+      <path d="M0.2 -33 C12 -55 33 -60 38.4 -45 C30 -48 12 -43 0.2 -33Z"/>
+      <path d="M0.2 -49 C-12 -71 -28 -76 -32.6 -50 C-25 -64 -12 -59 0.2 -49Z"/>
+      <path d="M0.2 -63 C12 -85 24 -90 29.4 -59 C21 -78 12 -73 0.2 -63Z"/>
+      <path d="M0.2 -77 C-12 -99 -16 -104 -20.6 -86 C-13 -92 -12 -87 0.2 -77Z"/>
+      <path d="M1 -102 L0 -111 M1 -104 L-5 -111 M1 -101 L6 -109 M0 -108 L4 -115" fill="none" stroke="currentColor" stroke-width=".85" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <!-- A single dark clearing leaves lettering and the dock uncluttered. -->
+  <path d="M0 340 C130 324 236 341 341 326 C428 314 482 325 549 305 C624 282 716 304 789 291 C863 279 917 291 960 279 L960 540 H0Z" fill="url(#earth)"/>
+  <!-- This folded path turns across the maze, rather than ending as a straight farm lane. -->
+  <path d="M541 365 Q611 362 675 365 Q682 332 698 296 Q701 290 693 287 L648 280 Q640 278 648 273 L680 255 Q686 252 682 246 L678 233 L655 233 L648 247 L611 268 Q601 273 606 282 Q609 286 616 288 L650 298 Q657 301 653 308Z" fill="url(#path)"/>
+  <path d="M550 354 L588 321 M651 287 L676 291 M651 261 L673 249" fill="none" stroke="#8B8055" stroke-width="1" opacity=".2"/>
+  <path d="M329 253 Q348 244 391 242 Q473 241 521 242 Q595 236 660 242 L685 284 Q590 293 489 289 Q386 294 329 286Z" fill="url(#far-root)"/>
+  <!-- Far corn hedges recede behind the bent path. -->
+  <g fill="#354E45" color="#4E6350" opacity="0.72">
+    <use href="#corn-0" transform="translate(350.0 251.0) rotate(-0.9) scale(0.268 0.276)"/>
+    <use href="#corn-1" transform="translate(358.0 251.7) rotate(-3.1) scale(0.326 0.278)"/>
+    <use href="#corn-2" transform="translate(366.0 252.4) rotate(-2.8) scale(0.287 0.330)"/>
+    <use href="#corn-3" transform="translate(374.0 252.8) rotate(-2.9) scale(0.331 0.322)"/>
+    <use href="#corn-4" transform="translate(382.0 253.0) rotate(-0.7) scale(0.313 0.304)"/>
+    <use href="#corn-5" transform="translate(390.0 252.9) rotate(-3.8) scale(0.353 0.274)"/>
+    <use href="#corn-0" transform="translate(398.0 252.5) rotate(-2.4) scale(0.348 0.300)"/>
+    <use href="#corn-1" transform="translate(406.0 251.9) rotate(3.6) scale(0.295 0.297)"/>
+    <use href="#corn-2" transform="translate(414.0 251.2) rotate(0.7) scale(0.285 0.285)"/>
+    <use href="#corn-3" transform="translate(422.0 250.5) rotate(2.7) scale(0.314 0.346)"/>
+    <use href="#corn-4" transform="translate(430.0 249.8) rotate(2.7) scale(0.297 0.284)"/>
+    <use href="#corn-5" transform="translate(438.0 249.3) rotate(1.9) scale(0.352 0.269)"/>
+    <use href="#corn-0" transform="translate(446.0 249.0) rotate(-2.3) scale(0.342 0.321)"/>
+    <use href="#corn-1" transform="translate(454.0 249.1) rotate(-2.4) scale(0.336 0.328)"/>
+    <use href="#corn-2" transform="translate(462.0 249.4) rotate(-3.7) scale(0.322 0.285)"/>
+    <use href="#corn-3" transform="translate(470.0 249.9) rotate(-0.8) scale(0.296 0.295)"/>
+    <use href="#corn-4" transform="translate(478.0 250.6) rotate(3.7) scale(0.323 0.337)"/>
+    <use href="#corn-5" transform="translate(486.0 251.4) rotate(2.3) scale(0.351 0.350)"/>
+    <use href="#corn-0" transform="translate(494.0 252.1) rotate(1.0) scale(0.293 0.281)"/>
+    <use href="#corn-1" transform="translate(502.0 252.6) rotate(-3.3) scale(0.314 0.323)"/>
+    <use href="#corn-2" transform="translate(510.0 252.9) rotate(0.8) scale(0.283 0.344)"/>
+    <use href="#corn-3" transform="translate(518.0 253.0) rotate(-0.8) scale(0.327 0.275)"/>
+    <use href="#corn-4" transform="translate(526.0 252.7) rotate(3.9) scale(0.346 0.321)"/>
+    <use href="#corn-5" transform="translate(534.0 252.3) rotate(2.4) scale(0.284 0.305)"/>
+    <use href="#corn-0" transform="translate(542.0 251.6) rotate(0.5) scale(0.305 0.333)"/>
+    <use href="#corn-1" transform="translate(550.0 250.8) rotate(3.9) scale(0.277 0.275)"/>
+    <use href="#corn-2" transform="translate(558.0 250.1) rotate(-1.3) scale(0.277 0.283)"/>
+    <use href="#corn-3" transform="translate(566.0 249.5) rotate(-0.2) scale(0.329 0.338)"/>
+    <use href="#corn-4" transform="translate(574.0 249.1) rotate(-1.8) scale(0.310 0.333)"/>
+    <use href="#corn-5" transform="translate(582.0 249.0) rotate(1.1) scale(0.299 0.318)"/>
+    <use href="#corn-0" transform="translate(590.0 249.2) rotate(-2.9) scale(0.270 0.276)"/>
+    <use href="#corn-1" transform="translate(598.0 249.6) rotate(3.8) scale(0.330 0.325)"/>
+    <use href="#corn-2" transform="translate(606.0 250.2) rotate(2.1) scale(0.333 0.288)"/>
+    <use href="#corn-3" transform="translate(614.0 250.9) rotate(-3.9) scale(0.352 0.296)"/>
+    <use href="#corn-4" transform="translate(622.0 251.7) rotate(-2.6) scale(0.299 0.290)"/>
+    <use href="#corn-5" transform="translate(630.0 252.3) rotate(2.9) scale(0.271 0.277)"/>
+    <use href="#corn-0" transform="translate(638.0 252.8) rotate(-2.3) scale(0.271 0.318)"/>
+    <use href="#corn-1" transform="translate(646.0 253.0) rotate(-1.6) scale(0.283 0.335)"/>
+  </g>
+  <!-- A short return wall shows the first maze turn. -->
+  <g fill="#3D5343" color="#60704F" opacity="0.93">
+    <use href="#corn-0" transform="translate(641.0 252.0) rotate(1.6) scale(0.365 0.393)"/>
+    <use href="#corn-1" transform="translate(648.0 251.8) rotate(-0.8) scale(0.403 0.437)"/>
+    <use href="#corn-2" transform="translate(655.0 251.5) rotate(-0.3) scale(0.403 0.421)"/>
+    <use href="#corn-3" transform="translate(662.0 251.2) rotate(-2.9) scale(0.424 0.394)"/>
+    <use href="#corn-4" transform="translate(669.0 251.0) rotate(2.0) scale(0.358 0.429)"/>
+    <use href="#corn-5" transform="translate(676.0 250.8) rotate(0.6) scale(0.450 0.419)"/>
+    <use href="#corn-0" transform="translate(683.0 250.5) rotate(-3.0) scale(0.363 0.436)"/>
+  </g>
+  <g fill="none" stroke="#293B32" stroke-linecap="round">
+    <path d="M516 244 L516 181 M644 241 L644 175 M757 267 L757 165" stroke-width="2.5"/>
+    <path d="M516 181 Q580 217 644 175 Q703 217 757 165" stroke-width="1.15"/>
+  </g>
+  <g stroke="#3E4535" stroke-width=".85">
+    <path d="M532.00 188.78 V191.78"/><ellipse cx="532.00" cy="192.78" rx="1.50" ry="2.10" fill="#D9AB65"/>
+    <path d="M548.00 194.12 V197.12"/><ellipse cx="548.00" cy="198.12" rx="1.50" ry="2.10" fill="#D9AB65"/>
+    <path d="M564.00 197.03 V200.03"/><ellipse cx="564.00" cy="201.03" rx="1.50" ry="2.10" fill="#D9AB65"/>
+    <path d="M580.00 197.50 V200.50"/><ellipse cx="580.00" cy="201.50" rx="1.50" ry="2.10" fill="#D9AB65"/>
+    <path d="M596.00 195.53 V198.53"/><ellipse cx="596.00" cy="199.53" rx="1.50" ry="2.10" fill="#D9AB65"/>
+    <path d="M612.00 191.12 V194.12"/><ellipse cx="612.00" cy="195.12" rx="1.50" ry="2.10" fill="#D9AB65"/>
+    <path d="M628.00 184.28 V187.28"/><ellipse cx="628.00" cy="188.28" rx="1.50" ry="2.10" fill="#D9AB65"/>
+    <path d="M658.67 184.03 V187.03"/><ellipse cx="658.67" cy="188.03" rx="1.35" ry="1.89" fill="#D9AB65"/>
+    <path d="M673.19 190.12 V193.12"/><ellipse cx="673.19" cy="194.12" rx="1.35" ry="1.89" fill="#D9AB65"/>
+    <path d="M687.55 193.28 V196.28"/><ellipse cx="687.55" cy="197.28" rx="1.35" ry="1.89" fill="#D9AB65"/>
+    <path d="M701.75 193.50 V196.50"/><ellipse cx="701.75" cy="197.50" rx="1.35" ry="1.89" fill="#D9AB65"/>
+    <path d="M715.80 190.78 V193.78"/><ellipse cx="715.80" cy="194.78" rx="1.35" ry="1.89" fill="#D9AB65"/>
+    <path d="M729.69 185.12 V188.12"/><ellipse cx="729.69" cy="189.12" rx="1.35" ry="1.89" fill="#D9AB65"/>
+    <path d="M743.42 176.53 V179.53"/><ellipse cx="743.42" cy="180.53" rx="1.35" ry="1.89" fill="#D9AB65"/>
+  </g>
+  <path d="M462 287 Q481 273 500 273 Q522 266 544 266 Q574 254 613 247 L635 300 Q591 327 549 339 L462 348Z" fill="url(#mid-root)"/>
+  <!-- Left maze bank climbs toward the return corner. -->
+  <g fill="url(#middle-corn)" color="#66724F" opacity="1">
+    <use href="#corn-0" transform="translate(487.0 305.0) rotate(-1.0) scale(0.842 0.772)"/>
+    <use href="#corn-1" transform="translate(493.2 302.8) rotate(1.7) scale(0.792 0.816)"/>
+    <use href="#corn-2" transform="translate(499.4 300.6) rotate(2.2) scale(0.823 0.753)"/>
+    <use href="#corn-3" transform="translate(505.6 298.4) rotate(-3.7) scale(0.843 0.857)"/>
+    <use href="#corn-4" transform="translate(511.8 296.2) rotate(-1.9) scale(0.793 0.846)"/>
+    <use href="#corn-5" transform="translate(518.0 294.0) rotate(-1.1) scale(0.683 0.804)"/>
+    <use href="#corn-0" transform="translate(524.2 291.8) rotate(-0.9) scale(0.702 0.780)"/>
+    <use href="#corn-1" transform="translate(530.4 289.6) rotate(-1.2) scale(0.640 0.642)"/>
+    <use href="#corn-2" transform="translate(536.6 287.4) rotate(2.2) scale(0.713 0.649)"/>
+    <use href="#corn-3" transform="translate(542.8 285.2) rotate(1.0) scale(0.574 0.605)"/>
+    <use href="#corn-4" transform="translate(549.0 283.0) rotate(3.5) scale(0.626 0.627)"/>
+    <use href="#corn-5" transform="translate(555.2 280.8) rotate(-3.7) scale(0.569 0.552)"/>
+    <use href="#corn-0" transform="translate(561.4 278.6) rotate(-0.2) scale(0.581 0.549)"/>
+    <use href="#corn-1" transform="translate(567.6 276.4) rotate(-1.0) scale(0.483 0.482)"/>
+    <use href="#corn-2" transform="translate(573.8 274.2) rotate(3.3) scale(0.577 0.506)"/>
+    <use href="#corn-3" transform="translate(580.0 272.0) rotate(2.2) scale(0.526 0.499)"/>
+    <use href="#corn-4" transform="translate(586.2 269.8) rotate(2.8) scale(0.455 0.504)"/>
+    <use href="#corn-5" transform="translate(592.4 267.6) rotate(-3.2) scale(0.474 0.444)"/>
+    <use href="#corn-0" transform="translate(598.6 265.4) rotate(-1.0) scale(0.455 0.406)"/>
+    <use href="#corn-1" transform="translate(604.8 263.2) rotate(1.4) scale(0.428 0.471)"/>
+  </g>
+  <path d="M695 267 Q717 257 735 264 Q759 253 781 261 Q809 253 835 261 Q866 253 893 260 Q927 251 960 257 L960 337 L695 331Z" fill="url(#front-corn)"/>
+  <!-- Near bank has irregular tassels and folded leaves, not a fence line. -->
+  <g fill="url(#front-corn)" color="#8D8650" opacity="1">
+    <use href="#corn-0" transform="translate(709.0 316.0) rotate(-1.5) scale(1.136 1.234)"/>
+    <use href="#corn-1" transform="translate(718.4 318.9) rotate(0.4) scale(1.094 1.178)"/>
+    <use href="#corn-2" transform="translate(727.8 321.2) rotate(2.6) scale(1.042 1.097)"/>
+    <use href="#corn-3" transform="translate(737.2 322.7) rotate(-3.6) scale(1.048 1.187)"/>
+    <use href="#corn-4" transform="translate(746.6 323.0) rotate(-1.4) scale(1.274 1.181)"/>
+    <use href="#corn-5" transform="translate(756.0 322.0) rotate(-3.5) scale(1.283 1.215)"/>
+    <use href="#corn-0" transform="translate(765.4 320.1) rotate(4.0) scale(1.050 1.122)"/>
+    <use href="#corn-1" transform="translate(774.8 317.4) rotate(-1.5) scale(1.016 0.986)"/>
+    <use href="#corn-2" transform="translate(784.2 314.5) rotate(0.3) scale(0.986 1.097)"/>
+    <use href="#corn-3" transform="translate(793.6 311.8) rotate(-3.8) scale(1.111 1.015)"/>
+    <use href="#corn-4" transform="translate(803.0 309.9) rotate(-0.2) scale(1.226 1.106)"/>
+    <use href="#corn-5" transform="translate(812.4 309.0) rotate(3.2) scale(1.123 1.181)"/>
+    <use href="#corn-0" transform="translate(821.8 309.4) rotate(-1.3) scale(1.233 1.194)"/>
+    <use href="#corn-1" transform="translate(831.2 310.9) rotate(2.9) scale(1.025 0.999)"/>
+    <use href="#corn-2" transform="translate(840.6 313.3) rotate(3.3) scale(0.990 1.145)"/>
+    <use href="#corn-3" transform="translate(850.0 316.1) rotate(-0.7) scale(1.074 1.091)"/>
+    <use href="#corn-4" transform="translate(859.4 319.0) rotate(2.7) scale(1.271 1.181)"/>
+    <use href="#corn-5" transform="translate(868.8 321.3) rotate(-0.4) scale(0.984 1.195)"/>
+    <use href="#corn-0" transform="translate(878.2 322.7) rotate(1.9) scale(1.099 1.221)"/>
+    <use href="#corn-1" transform="translate(887.6 322.9) rotate(3.3) scale(1.260 1.197)"/>
+    <use href="#corn-2" transform="translate(897.0 322.0) rotate(2.3) scale(1.107 1.141)"/>
+    <use href="#corn-3" transform="translate(906.4 320.0) rotate(0.7) scale(1.115 1.014)"/>
+    <use href="#corn-4" transform="translate(915.8 317.3) rotate(-3.0) scale(1.247 1.237)"/>
+    <use href="#corn-5" transform="translate(925.2 314.4) rotate(-1.3) scale(1.092 1.042)"/>
+    <use href="#corn-0" transform="translate(934.6 311.7) rotate(-1.5) scale(1.275 1.100)"/>
+    <use href="#corn-1" transform="translate(944.0 309.8) rotate(1.4) scale(1.058 1.106)"/>
+    <use href="#corn-2" transform="translate(953.4 309.0) rotate(-2.2) scale(1.080 1.029)"/>
+    <use href="#corn-3" transform="translate(962.8 309.4) rotate(-2.6) scale(1.054 1.248)"/>
+    <use href="#corn-4" transform="translate(972.2 310.9) rotate(2.3) scale(1.210 1.005)"/>
+  </g>
+  <path d="M693 317 Q707 309 723 314 Q742 307 760 312 Q782 309 803 315 Q826 311 850 318 Q880 314 907 321 Q931 316 960 321 L960 342 Q828 336 693 337Z" fill="#1A3029"/>
+  <g fill="#58613B" opacity=".9">
+    <path d="M736 272 C711 245 702 244 697 251 C708 248 724 266 736 278Z"/>
+    <path d="M789 246 C815 219 830 226 834 241 C821 225 807 240 789 253Z"/>
+    <path d="M890 272 C906 248 924 253 926 266 C914 256 903 268 890 278Z"/>
+    <path d="M936 235 C917 211 902 212 899 220 C913 214 927 233 936 242Z"/>
+    <path d="M535 264 C516 244 505 250 505 258 C514 249 526 264 535 269Z" fill="#4B6043"/>
+    <path d="M582 250 C595 230 608 234 609 241 C600 233 593 246 582 255Z" fill="#4B6043"/>
+  </g>
+  <g fill="none" stroke="#B4A16B" stroke-width=".8" stroke-linecap="round" opacity=".4">
+    <path d="M721 228 Q711 216 704 210 M847 211 Q862 196 874 198 M935 216 Q921 199 916 195 M795 196 L797 188"/>
+  </g>
+  <g fill="#C08D43" opacity=".65">
+    <path d="M712 280 Q693 256 689 253 Q699 268 712 285Z"/>
+    <path d="M814 275 Q808 257 796 251 Q812 256 818 276Z"/>
+    <path d="M880 296 Q891 282 907 280 Q900 292 880 299Z"/>
+  </g>
+  <g fill="#525D37" opacity=".85">
+    <path d="M761 230 C744 203 728 202 721 225 C731 209 746 220 761 236Z"/>
+    <path d="M869 218 C888 200 898 204 901 231 C894 212 883 213 869 224Z"/>
+    <path d="M948 281 C935 257 921 259 915 276 C926 267 937 275 948 288Z"/>
+  </g>
+  <!-- Individual contacts settle the pumpkins into the ground against the corn. -->
+  <g fill="#06171B" opacity=".7">
+    <ellipse cx="843" cy="315" rx="45" ry="5"/>
+    <ellipse cx="754" cy="330" rx="58" ry="6"/>
+    <ellipse cx="904" cy="331" rx="32" ry="4"/>
+  </g>
+  <g fill="#926239" opacity=".35">
+    <path d="M711 326 Q745 317 793 329 Q760 340 711 334Z"/>
+    <path d="M823 312 Q846 306 868 315 Q847 319 823 318Z"/>
+    <path d="M885 329 Q905 323 926 331 Q907 335 885 334Z"/>
+  </g>
+  <!-- The tall companion has rounded open eyes and a small asymmetric smile. -->
+  <g transform="translate(843 272) scale(.78 1.07)">
+    <use href="#pumpkin"/>
+    <g fill="url(#candle)" stroke="#8B4D27" stroke-width="1.3" stroke-linejoin="round">
+      <path d="M-24 -8 C-25 -22 -13 -23 -12 -9 Q-18 -4 -24 -8Z"/>
+      <path d="M12 -9 C13 -23 25 -22 24 -8 Q18 -4 12 -9Z"/>
+      <path d="M-3 0 Q0 -4 3 0 L3 5 H-3Z"/>
+      <path d="M-23 12 Q1 23 23 7 Q18 27 1 29 Q-14 29 -23 12Z"/>
+      <path d="M-3 20 V25 H3 V20" fill="#B77134" stroke="none"/>
+    </g>
+  </g>
+  <!-- Crescent eye cutouts make the broad pumpkin smile without threatening brows. -->
+  <g transform="translate(752 288) scale(1.05)">
+    <use href="#pumpkin"/>
+    <g fill="url(#candle)" stroke="#8B4D27" stroke-width="1.3" stroke-linejoin="round">
+      <path d="M-28 -6 C-25 -21 -15 -21 -11 -6 Q-19 -15 -28 -6Z"/>
+      <path d="M11 -6 C15 -21 25 -21 28 -6 Q20 -15 11 -6Z"/>
+      <path d="M-4 2 Q0 -3 4 2 L3 6 H-3Z"/>
+      <path d="M-25 10 Q0 22 25 10 Q19 29 1 30 Q-17 29 -25 10Z"/>
+      <path d="M-6 20 V25 H1 V21" fill="#B77134" stroke="none"/>
+    </g>
+  </g>
+  <!-- The little pumpkin has one playful wink and a gently crooked grin. -->
+  <g transform="translate(904 308) rotate(5) scale(.57)">
+    <use href="#pumpkin"/>
+    <g fill="url(#candle)" stroke="#8B4D27" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M-27 -4 Q-21 -19 -12 -6 Q-20 -11 -27 -4Z"/>
+      <path d="M12 -7 C13 -19 25 -19 25 -6 Q19 -2 12 -7Z"/>
+      <path d="M-3 3 Q0 -2 3 3 V7 H-3Z"/>
+      <path d="M-24 11 Q0 23 25 7 Q17 28 1 30 Q-16 29 -24 11Z"/>
+      <path d="M3 19 V26 H9 V18" fill="#B77134" stroke="none"/>
+    </g>
+  </g>
+  <g fill="none" stroke="#5A6342" stroke-width="1.1" stroke-linecap="round" opacity=".65">
+    <path d="M681 331 Q706 318 718 329 M794 335 Q813 326 830 330 M928 332 Q940 327 953 331"/>
+    <path d="M812 331 C805 321 814 316 818 322 C823 329 813 332 811 326"/>
+  </g>
+  <g fill="#596144" opacity=".65"><path d="M701 330 Q692 316 686 324 Q686 332 701 330Z"/><path d="M940 330 Q946 316 953 323 Q952 333 940 330Z"/></g>
+</svg>

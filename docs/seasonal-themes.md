@@ -43,21 +43,22 @@ The seven everyday scenes and recommended schedule keep their existing
 behavior. Seasonal packs can be used at any time of year; there is no date
 detection, holiday scheduler or network access.
 
-Only atmospheric layers move. Reduce motion draws the shared renderer's rest
+Only atmospheric layers move, or distant lights change gently in brightness.
+Reduce motion draws the shared renderer's rest
 state, and leaving Hearth suspends animation through the existing lifecycle
 handling. No flashing lights or rapid fireworks are part of these packs.
 
 | Pack | Sustained motion | Decoded layers |
 |---|---|---|
 | Harvest Evening | Clouds drift at 21.3 dp/min | 13.3 MiB |
-| Halloween | Clouds drift at 21.3 dp/min | 13.2 MiB |
+| Halloween | Distant string-light halos breathe over 180 seconds | 14.2 MiB |
 | Christmas | Clouds and powder drift at about 20 dp/min | 14.2 MiB |
 | New Year | Haze drifts at 18 dp/min; reflections glide and breathe slowly | 9.1 MiB |
 | Easter | Clouds drift at 21 dp/min | 13.7 MiB |
 | July Fourth | Clouds drift at 20.3 dp/min; water reflections glide slowly | 8.8 MiB |
 
 All six are below the 32 MB decoded limit. Their rendered layer files and
-gallery previews add about 6.8 MiB to the APK before ZIP overhead. Artwork is
+gallery previews add about 7.0 MiB to the APK before ZIP overhead. Artwork is
 authored locally as SVG, with no third-party images or additional dependencies.
 
 ## Verification
@@ -87,21 +88,28 @@ still require the [device checklist](testing.md).
 ## Halloween review
 
 Halloween is a separate pack. Harvest Evening's original source, bundled
-images, preview and captures are preserved byte for byte. Halloween uses
-new authored SVG layers and the collection's existing landscape language.
-Carved faces have rounded eye openings, upturned smiles and a single square
-tooth, with no angry brows or fangs. Smooth ribs and simple layered hills
-keep the scene illustrated. Three larger pumpkins sit above the app row;
-small unlit pumpkins make the patch recede into the landscape.
+images, preview and captures are unchanged. The Halloween scene uses authored
+SVGs and the collection's illustrated landscape language. A path turns through
+three receding corn banks, with irregular tassels and folded leaves. Three
+carved pumpkins rest against the near corn: a broad crescent-eyed smile, a tall
+open-eyed companion and a little winking grin. Steady candlelight touches the
+nearest corn and earth. There are no angry brows, fangs or photographic detail.
 
-Creative review covers the rest render, thumbnail, native Home and Settings,
-and motion sheets at startup and after ten minutes. Broad text-region
-contrast sampling at 0, 60, 240, 600 and 840 seconds keeps small Home and
-Settings lettering above 4.5:1 and large lettering above 3:1 without relying
-on glyph shadows. Only the faint cloud strip moves; candlelight is steady.
-The same manual rotation policy, palette roles and renderer are retained.
-Physical-panel color, long-duration frame pacing and sofa-distance judgment
-remain separate device checks.
+Three creative reviews challenged composition and depth, visual consistency,
+and TV readability and motion. They led to corrected row perspective, drooping
+leaf shapes, roots grounded in continuous soil masses and an organic path bend.
+The checks cover the rest image, thumbnail, native Home and Settings, long app
+names and bright/dim lamp phases, including sustained motion after ten minutes.
+Small Home and Settings lettering remains above 4.5:1 and large lettering above
+3:1 in the sampled text regions, without relying on glyph shadows.
+
+Cable, support posts, bulb cores, corn and pumpkins are still. Only the local
+amber halo strip changes opacity, from 0.46 to 0.66 over a 180-second cycle.
+Each rise and fall takes 90 seconds. Cores stay lit at the dim phase; no lamp
+moves, blinks or switches off. Phase zero matches the preview and Reduce
+motion's midpoint state. The existing renderer suspends motion in the
+background. The palette roles and manual rotation policy are unchanged.
+Physical-panel color and long-duration frame pacing remain device checks.
 
 ## TV captures
 

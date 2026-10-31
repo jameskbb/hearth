@@ -3,7 +3,7 @@
   "id": "halloween",
   "name": "Halloween",
   "author": "Hearth",
-  "description": "Friendly carved pumpkins in a quiet moonlit patch",
+  "description": "Friendly carved pumpkins beside a corn maze and softly breathing string lights",
   "autoRotationEligible": false,
   "dayparts": [],
   "palette": {
@@ -17,9 +17,22 @@
   },
   "preview": "preview.webp",
   "layers": [
-    { "image": "sky.webp" },
-    { "image": "clouds.webp", "y": 160, "wrap": true,
-      "drift": { "x": 64, "period": 180 } },
-    { "image": "patch.webp", "y": 202 }
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "maze.webp",
+      "y": 140
+    },
+    {
+      "image": "lights.webp",
+      "y": 130,
+      "opacity": {
+        "min": 0.46,
+        "max": 0.66,
+        "period": 180,
+        "phase": 0
+      }
+    }
   ]
 }

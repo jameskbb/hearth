@@ -1,24 +1,31 @@
 Halloween
 
-Original Hearth SVG artwork, authored for this pack in the same layered
-landscape style as Harvest Evening, Dusk and Christmas. No generated painting,
-photographic texture or third-party reference image is used.
+Original Hearth SVG artwork in the collection's illustrated landscape style.
+No generated painting, photographic texture or third-party references are used.
+Harvest Evening remains a separate, unchanged scene.
 
-A crescent moon, blue-green hills and a raised pumpkin patch form a quiet
-night scene. Three prominent carved pumpkins have rounded eye openings,
-upturned smiles and single square teeth. No angry brows, fangs, horror motifs
-or photorealistic detail. Smaller uncarved pumpkins recede into the field.
-The dark upper corners and lower foreground leave room for Home lettering.
+A turning path and three overlapping banks establish the corn maze. Long folded
+leaves, irregular tassels and cooler distant rows create depth. Three friendly
+carved pumpkins sit against the nearest corn bank. A broad crescent-eyed smile,
+a taller open-eyed companion and a little winking grin have distinct carvings.
+Small reflected amber shapes connect their steady candlelight to corn and earth.
+No angry brows, fangs, horror props or photorealistic detail. The left header,
+app-name area and lower dock remain naturally quiet and dark.
 
-Terrain and candlelight stay still. A separate half-resolution cloud strip
-wraps at 21.3 dp per minute through the existing renderer. Its edges are
-transparent. There is no flashing, flicker or introductory event. Reduce
-motion shows the same scene at rest and backgrounding stops animation.
+00-sky.svg is the still sky and distant hills. 01-maze.svg contains the maze,
+path, pumpkins, grounded support posts, sagging cables and steady bulb cores.
+02-lights.svg is a half-resolution strip of local amber halos around distant
+bulbs. Only that strip moves in brightness: one smooth 180-second cycle from
+0.46 to 0.66 opacity, with phase zero. Rise and fall each take 90 seconds.
+The cores stay visible at minimum brightness. No flashing, flickering, drifting
+lamps, moving corn, introductory fade or pumpkin flicker. Reduce motion draws
+the complete scene with midpoint glow; the gallery preview uses that same rest
+state. Backgrounding suspends animation through the shared renderer.
 
-Build offline with scripts/render-theme.sh halloween, Chrome, and a Python
-interpreter with Pillow and numpy. SVGs and theme.json are the complete
-sources. The rendered pack uses existing lossless WebP and anti-banding grain.
+Build offline with scripts/render-theme.sh halloween, Chrome and a Python
+interpreter with Pillow and numpy. SVGs and theme.json are complete editable
+sources. Rendered images use existing lossless WebP and anti-banding grain.
+The three layers stay below the 32 MB decoded limit.
 
-Halloween is separate from Harvest Evening, whose original uncarved autumn
-scene remains unchanged. The Halloween pack is manual by default, with no
-default dayparts; add it to custom schedules or pools only by explicit choice.
+The pack remains manual by default, with no recommended dayparts. Use Single
+Theme or explicitly add Halloween to a custom schedule or Surprise Me pool.
