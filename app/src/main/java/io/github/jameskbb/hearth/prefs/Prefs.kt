@@ -31,7 +31,7 @@ data class HearthPrefs(
     val reducedMotion: Boolean = false,
     /** False until favorites have been seeded once from the installed TV apps. */
     val seeded: Boolean = false,
-    /** Opt-in weather on Home. Off by default; while off, Hearth makes no network requests. */
+    /** Opt-in weather on Home. Off by default; while off, no weather requests are made. */
     val weatherEnabled: Boolean = false,
     /** The city chosen in Settings. Kept when weather is turned off, so turning it back on is one step. */
     val weatherPlace: Place? = null,

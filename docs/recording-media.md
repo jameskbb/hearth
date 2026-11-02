@@ -4,10 +4,11 @@ How the screenshots, tour video and title card in the README are made. Run it
 again whenever the interface changes; the project rules require the README
 media to match the app.
 
-Everything runs on a development Android TV emulator with the local service
+The tour and Home screenshots run on a development Android TV emulator with the local service
 stand-ins in [`demo-apps.md`](demo-apps.md). Familiar service names appear,
 but these are visibly labeled demos, not official clients. No accounts or
-household details belong in captures.
+household details belong in captures. The update-page screenshot is a clean
+Fire TV capture showing only Hearth artwork, version text and update controls.
 
 The README tour stays inside Hearth: favorites, app options, rearranging tiles,
 All apps, Settings, and Appearance. Do not launch an app tile or choose Open
@@ -19,6 +20,7 @@ demo destination screens do not belong in promotional recordings.
 | File | Made by | Notes |
 |---|---|---|
 | `docs/images/home-dusk.png`, `home-focus.png`, `options.png`, `arrange.png`, `all-apps.png`, `settings.png`, `appearance.png`, `theme-schedule.png`, `home-aurora.png` | `scripts/capture-media.sh` | 1920x1080 screencaps |
+| `docs/images/updates.png` | `scripts/screenshots.sh` after opening Check for updates | 1920x1080; keep private details out of frame |
 | `docs/media/tour.mp4` | `scripts/capture-media.sh` | H.264 1080p, 30 fps, about one minute |
 | `docs/media/tour.webp` | `scripts/capture-media.sh` | Animated, 960 px, 15 fps, plays inline in the README |
 | `docs/images/readme-title-hearth.png` | `scripts/render-title-card.sh` | 1200x440 at 2x, from `docs/src/title-card.html` |

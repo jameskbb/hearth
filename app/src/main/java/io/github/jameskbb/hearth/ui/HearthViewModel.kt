@@ -29,6 +29,8 @@ import io.github.jameskbb.hearth.theme.ThemeResolution
 import io.github.jameskbb.hearth.theme.ThemeRotationState
 import io.github.jameskbb.hearth.theme.ThemeSchedule
 import io.github.jameskbb.hearth.theme.ThemeScheduleConfig
+import io.github.jameskbb.hearth.updates.InstallResult
+import io.github.jameskbb.hearth.updates.UpdateState
 import io.github.jameskbb.hearth.ui.state.ArrangeState
 import io.github.jameskbb.hearth.ui.state.FocusTarget
 import io.github.jameskbb.hearth.ui.state.HomeAction
@@ -44,6 +46,7 @@ import io.github.jameskbb.hearth.weather.WeatherFailure
 import io.github.jameskbb.hearth.weather.WeatherGlance
 import io.github.jameskbb.hearth.weather.WeatherPolicy
 import io.github.jameskbb.hearth.weather.WeatherState
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -227,6 +230,20 @@ class HearthViewModel(
     private val _aboutOpen = MutableStateFlow(false)
     val aboutOpen: StateFlow<Boolean> = _aboutOpen.asStateFlow()
 
+    private val _updatesOpen = MutableStateFlow(false)
+    val updatesOpen: StateFlow<Boolean> = _updatesOpen.asStateFlow()
+    val updateState: StateFlow<UpdateState> = container.updates.state
+    private val _updateInstalling = MutableStateFlow(false)
+    val updateInstalling: StateFlow<Boolean> = _updateInstalling.asStateFlow()
+    private val _updateInstallResult = MutableStateFlow<InstallResult?>(null)
+    val updateInstallResult: StateFlow<InstallResult?> = _updateInstallResult.asStateFlow()
+    private val _updatePermissionAvailable = MutableStateFlow(false)
+    val updatePermissionAvailable: StateFlow<Boolean> = _updatePermissionAvailable.asStateFlow()
+    private val _updatePermissionSettingsFailed = MutableStateFlow(false)
+    val updatePermissionSettingsFailed: StateFlow<Boolean> = _updatePermissionSettingsFailed.asStateFlow()
+    private var updateInstallJob: Job? = null
+    private var updateInstallGeneration = 0L
+
     /** False after the catalog released memory while Hearth was in the background, until it is back. */
     private val themeHeld = MutableStateFlow(true)
 
@@ -400,6 +417,7 @@ class HearthViewModel(
         viewModelScope.launch { container.catalog.refresh() }
         container.tvInputs.refresh()
         refreshDeviceSettings()
+        if (_updatesOpen.value) refreshUpdatePermission()
         invalidateThemeSchedule()
         if (_options.value == null) {
             val s = _screen.value
@@ -411,6 +429,7 @@ class HearthViewModel(
     fun onForeground(foreground: Boolean) {
         container.weather.setForeground(foreground)
         _foreground.value = foreground
+        if (!foreground) cancelUpdateTransfer()
         if (foreground) themeHeld.value = true
     }
 
@@ -423,6 +442,7 @@ class HearthViewModel(
         dropCitySearch()
         dropAppearance()
         _aboutOpen.value = false
+        dropUpdates()
         _inputRename.value = null
         cancelArrangeFully()
         goHome()
@@ -438,6 +458,7 @@ class HearthViewModel(
             _citySearch.value != null -> closeCitySearch()
             _inputRename.value != null -> closeRename()
             _aboutOpen.value -> closeAbout()
+            _updatesOpen.value -> closeUpdates()
             _screen.value != Screen.Home -> goHome()
             else -> {
                 val first = favorites.value.firstOrNull()
@@ -522,6 +543,8 @@ class HearthViewModel(
         exitArrange()
         dropCitySearch()
         dropAppearance()
+        dropUpdates()
+        _aboutOpen.value = false
         if (screen == Screen.Settings) viewModelScope.launch { container.themes.refresh() }
         _inputRename.value = null
         _message.value = null
@@ -805,6 +828,93 @@ class HearthViewModel(
             if (focusFirstResult && found.isNotEmpty()) requestFocus(Screen.Settings, FocusTarget.Row(cityResultRowId(0)))
             focusFirstResult = false
         }
+    }
+
+    // endregion
+
+    // region updates
+
+    /** Selecting this row is the only entry point that starts an update check. */
+    fun openUpdates() {
+        if (_screen.value != Screen.Settings) return
+        _updatesOpen.value = true
+        _updateInstallResult.value = null
+        _updatePermissionSettingsFailed.value = false
+        refreshUpdatePermission()
+        val target = FocusTarget.Row(ROW_UPDATE_ACTION)
+        lastFocus[Screen.Settings] = target
+        requestFocus(Screen.Settings, target)
+        container.updates.check()
+    }
+
+    fun closeUpdates() {
+        if (!_updatesOpen.value) return
+        dropUpdates()
+        val target = FocusTarget.Row(ROW_UPDATES)
+        lastFocus[Screen.Settings] = target
+        requestFocus(Screen.Settings, target)
+    }
+
+    /** A single stable focus target survives check, download and installation states. */
+    fun performUpdateAction() {
+        if (!_updatesOpen.value || _updateInstalling.value) return
+        if (_updateInstallResult.value == InstallResult.VerificationFailed) {
+            _updateInstallResult.value = null
+            container.updates.check()
+            return
+        }
+        _updateInstallResult.value = null
+        _updatePermissionSettingsFailed.value = false
+        when (val state = updateState.value) {
+            UpdateState.Checking, is UpdateState.Downloading -> container.updates.cancel()
+            is UpdateState.Available -> container.updates.download()
+            is UpdateState.Ready -> {
+                refreshUpdatePermission()
+                if (!_updatePermissionAvailable.value) {
+                    _updateInstallResult.value = InstallResult.PermissionRequired
+                    _updatePermissionSettingsFailed.value = !container.updateInstaller.openPermissionSettings()
+                } else {
+                    _updateInstalling.value = true
+                    val generation = ++updateInstallGeneration
+                    updateInstallJob = viewModelScope.launch {
+                        try {
+                            val result = container.updateInstaller.install(state.file, state.release.versionCode)
+                            if (generation == updateInstallGeneration) {
+                                _updateInstallResult.value = result
+                                refreshUpdatePermission()
+                            }
+                        } catch (cancelled: CancellationException) {
+                            throw cancelled
+                        } catch (_: Exception) {
+                            if (generation == updateInstallGeneration) _updateInstallResult.value = InstallResult.Unavailable
+                        } finally {
+                            if (generation == updateInstallGeneration) _updateInstalling.value = false
+                        }
+                    }
+                }
+            }
+            else -> container.updates.check()
+        }
+    }
+
+    private fun refreshUpdatePermission() {
+        _updatePermissionAvailable.value = container.updateInstaller.canRequestInstalls()
+        if (_updatePermissionAvailable.value) _updatePermissionSettingsFailed.value = false
+    }
+
+    private fun cancelUpdateTransfer() {
+        if (updateState.value == UpdateState.Checking || updateState.value is UpdateState.Downloading) {
+            container.updates.cancel()
+        }
+    }
+
+    private fun dropUpdates() {
+        ++updateInstallGeneration
+        cancelUpdateTransfer()
+        updateInstallJob?.cancel()
+        updateInstallJob = null
+        _updateInstalling.value = false
+        _updatesOpen.value = false
     }
 
     // endregion
@@ -1257,6 +1367,9 @@ class HearthViewModel(
         const val ROW_HOME_LABEL_CLEAR = "home_label_clear"
         const val ROW_THEME = "theme"
         const val ROW_MOTION = "motion"
+        const val ROW_UPDATES = "updates"
+        const val ROW_UPDATES_BACK = "updates_back"
+        const val ROW_UPDATE_ACTION = "update_action"
         const val ROW_ABOUT = "about"
         const val ROW_ABOUT_BACK = "about_back"
         const val ROW_DEVICE = "device"

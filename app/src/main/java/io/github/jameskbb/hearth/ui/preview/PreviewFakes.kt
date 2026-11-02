@@ -28,6 +28,12 @@ import io.github.jameskbb.hearth.system.TvInput
 import io.github.jameskbb.hearth.system.TvInputs
 import io.github.jameskbb.hearth.ui.HearthRoot
 import io.github.jameskbb.hearth.ui.HearthViewModel
+import io.github.jameskbb.hearth.updates.ApkVerification
+import io.github.jameskbb.hearth.updates.InstallResult
+import io.github.jameskbb.hearth.updates.UpdateInstaller
+import io.github.jameskbb.hearth.updates.UpdateService
+import io.github.jameskbb.hearth.updates.UpdateState
+import java.io.File
 import io.github.jameskbb.hearth.weather.Place
 import io.github.jameskbb.hearth.weather.WeatherService
 import io.github.jameskbb.hearth.weather.WeatherState
@@ -117,6 +123,18 @@ private class PreviewContainer : AppContainer {
     override val weather: WeatherService = PreviewWeather
     override val themes: ThemeCatalog = PreviewThemes
     override val tvInputs: TvInputs = PreviewTvInputs
+    override val updates = object : UpdateService {
+        override val state = MutableStateFlow<UpdateState>(UpdateState.Idle)
+        override fun check() = Unit
+        override fun download() = Unit
+        override fun cancel() = Unit
+    }
+    override val updateInstaller = object : UpdateInstaller {
+        override suspend fun verify(file: File, expectedVersionCode: Long) = ApkVerification.Unreadable
+        override suspend fun install(file: File, expectedVersionCode: Long) = InstallResult.Unavailable
+        override fun openPermissionSettings() = false
+        override fun canRequestInstalls() = false
+    }
 }
 
 @Preview(name = "Home", widthDp = 960, heightDp = 540)

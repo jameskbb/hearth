@@ -6,10 +6,11 @@
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
     <uses-feature android:name="android.software.leanback" android:required="false" />
 
-    <!-- Used only by opt-in weather, which is off by default: requests go only to Open-Meteo, over
-         HTTPS, and only after the user turns weather on in Settings
-         (docs/decisions/0005-opt-in-weather.md). -->
+    <!-- Opt-in weather uses Open-Meteo. Explicit update checks and downloads use GitHub.
+         Both use HTTPS; no background update checks or telemetry. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- The user must allow Hearth as an installation source and confirm each update. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <!-- Package visibility (Android 11+): see only launchable apps, not every package. -->
     <queries>
@@ -24,6 +25,21 @@
         <!-- Lets the settings route resolve on Android 11+, so it is not wrongly hidden. -->
         <intent>
             <action android:name="android.settings.SETTINGS" />
+        </intent>
+        <intent>
+            <action android:name="android.settings.MANAGE_UNKNOWN_APP_SOURCES" />
+            <data android:scheme="package" />
+        </intent>
+        <intent>
+            <action android:name="android.settings.SECURITY_SETTINGS" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.INSTALL_PACKAGE" />
+            <data android:mimeType="application/vnd.android.package-archive" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:mimeType="application/vnd.android.package-archive" />
         </intent>
         <!-- TV inputs: the passthrough channel ACTION_VIEW that shows an HDMI input, and the TV
              provider that reports that URI's type, so the route resolves on Android 11+ too
@@ -44,6 +60,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hearth"
         android:usesCleartextTraffic="false">
+
+        <provider
+            android:name=".updates.UpdateFileProvider"
+            android:authorities="${applicationId}.updates"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/update_paths" />
+        </provider>
 
         <activity
             android:name=".MainActivity"

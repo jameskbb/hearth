@@ -57,6 +57,7 @@ fun SettingsScreen(vm: HearthViewModel) {
     val search by vm.citySearch.collectAsState()
     val appearance by vm.appearance.collectAsState()
     val aboutOpen by vm.aboutOpen.collectAsState()
+    val updatesOpen by vm.updatesOpen.collectAsState()
     val appearanceRows = appearanceRows(vm, appearance)
     val inputs by vm.inputs.collectAsState()
     val rename by vm.inputRename.collectAsState()
@@ -73,6 +74,8 @@ fun SettingsScreen(vm: HearthViewModel) {
         appearanceRows
     } else if (currentAbout) {
         listOf(FocusTarget.Row(HearthViewModel.ROW_ABOUT_BACK))
+    } else if (updatesOpen) {
+        listOf(FocusTarget.Row(HearthViewModel.ROW_UPDATE_ACTION), FocusTarget.Row(HearthViewModel.ROW_UPDATES_BACK))
     } else if (currentRename != null) {
         renamePanelTargets(currentRename)
     } else if (currentSearch != null) {
@@ -85,6 +88,7 @@ fun SettingsScreen(vm: HearthViewModel) {
             add(FocusTarget.Row(HearthViewModel.ROW_THEME))
             add(FocusTarget.Row(HearthViewModel.ROW_MOTION))
             if (deviceAvailable) add(FocusTarget.Row(HearthViewModel.ROW_DEVICE))
+            add(FocusTarget.Row(HearthViewModel.ROW_UPDATES))
             add(FocusTarget.Row(HearthViewModel.ROW_WEATHER))
             if (weatherOn) {
                 add(FocusTarget.Row(HearthViewModel.ROW_CITY))
@@ -128,6 +132,7 @@ fun SettingsScreen(vm: HearthViewModel) {
                     currentAppearance?.page == AppearancePage.PeriodName -> stringResource(R.string.schedule_rename_period)
                     currentAppearance != null -> stringResource(R.string.appearance_title)
                     currentAbout -> stringResource(R.string.settings_about)
+                    updatesOpen -> stringResource(R.string.updates_title)
                     currentRename != null -> stringResource(R.string.rename_input_title)
                     currentSearch != null -> stringResource(R.string.city_search_title)
                     else -> stringResource(R.string.settings_title)
@@ -142,6 +147,8 @@ fun SettingsScreen(vm: HearthViewModel) {
                         AppearancePanel(vm, currentAppearance, registry)
                     } else if (currentAbout) {
                         AboutPanel(vm, registry, focused)
+                    } else if (updatesOpen) {
+                        UpdatesPanel(vm, registry, focused)
                     } else if (currentRename != null) {
                         RenameInputPanel(vm, currentRename, registry, focused)
                     } else if (currentSearch != null) {
@@ -171,6 +178,15 @@ fun SettingsScreen(vm: HearthViewModel) {
                                     modifier = Modifier.focusTarget(registry, FocusTarget.Row(HearthViewModel.ROW_DEVICE)),
                                 )
                             }
+                            SettingRow(
+                                label = stringResource(R.string.settings_check_updates),
+                                value = null,
+                                onClick = vm::openUpdates,
+                                onFocused = focused(HearthViewModel.ROW_UPDATES),
+                                modifier = Modifier.padding(top = 14.dp)
+                                    .focusTarget(registry, FocusTarget.Row(HearthViewModel.ROW_UPDATES)),
+                            )
+
                             val m = message?.takeIf { it.screen == Screen.Settings }
                             if (m != null) {
                                 BasicText(

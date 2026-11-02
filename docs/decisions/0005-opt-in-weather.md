@@ -1,6 +1,7 @@
 # 0005: Opt-in weather from Open-Meteo, off by default
 
-**Status:** Accepted, 2026-10-22. Amends the offline promise in
+**Status:** Accepted, 2026-10-22. The manual update exception is recorded in
+[decision 0012](0012-manual-app-updates.md). Amends the offline promise in
 `docs/BRIEF.md` (Engineering) and the "No INTERNET permission" rule in
 `CLAUDE.md`/`AGENTS.md`; it does not withdraw it.
 

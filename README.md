@@ -36,6 +36,9 @@ with the services shown. [About the demos](docs/demo-apps.md).*
   Halloween corn maze with friendly carved pumpkins and slowly breathing lights.
 - **Motion at your pace.** Slow clouds, haze, and light give the artwork life.
   Reduce motion makes every scene still and turns off focus scaling and fades.
+- **Updates from the sofa.** Check for updates in Settings, download a new
+  signed release, and confirm it with the TV's installer. Hearth updates
+  need no ADB after your initial install. [How updates work](docs/install.md#update).
 - **A few personal touches.** Add an optional Home label, show local weather,
   or pin HDMI inputs when your TV exposes a supported route.
 
@@ -71,6 +74,11 @@ keep your signing key: an APK signed with another key cannot update your app
 while preserving its preferences. CI APKs are development artifacts with a
 temporary debug signing identity, not stable signed releases.
 
+![Hearth updates with an explicit check and installation guidance](docs/images/updates.png)
+
+*Check for updates in Settings checks published releases without ADB.
+Shown on Fire TV.*
+
 **On Fire TV, installing Hearth does not make Home open it.** Amazon's launcher
 stays enabled. A separate Home-button helper may be needed, and support varies
 by firmware. Read the [Home-button guide](docs/home-button.md) before setting
@@ -101,6 +109,8 @@ When you enable weather, city searches and the selected city's coordinates go
 to [Open-Meteo](https://open-meteo.com/) over HTTPS. Like any internet service,
 it also receives your network address. Hearth does not request device location
 permission. Turn weather off to stop its requests.
+Selecting **Check for updates** contacts GitHub for the latest stable release;
+selecting Download update fetches its APK. There are no automatic update checks.
 Read the [privacy details](PRIVACY.md).
 
 ## Contributing

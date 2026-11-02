@@ -1,6 +1,7 @@
 # Build, install, update and roll back
 
-Hearth is installed by sideloading over ADB. Placeholders in angle brackets,
+Hearth is initially installed by sideloading over ADB. Later compatible
+releases can be installed with the remote from Settings, Check for updates. Placeholders in angle brackets,
 such as `<tv-ip>`, stand for your own values.
 
 ## Compatibility
@@ -109,6 +110,35 @@ button for instant launches.
 
 ## Update
 
+### With the TV remote
+
+Install a build containing Check for updates once using the initial ADB
+instructions. Then ADB can be turned off for Hearth updates.
+
+1. Open Hearth Settings and select **Check for updates**. This contacts the
+   public GitHub release API and reads the latest stable release's manifest.
+2. If a newer compatible version is available, select **Download update**.
+   Wait for the download and checksum check to finish.
+3. If **Allow installation** appears, select it to open the offered settings
+   route and enable installation from Hearth. On older
+   Fire OS, the setting may be called Apps from Unknown Sources. Return to
+   Hearth and select Install update again.
+4. Confirm the update in the TV's system installer. Open Hearth again if the
+   installer closes it. Preferences are preserved.
+
+Hearth checks only when requested, never on startup or on a schedule. Back
+cancels an active check/download and returns to the settings row. Errors,
+missing releases, unsupported versions and blocked installation routes are
+shown on the page. Downloads and installation require separate selections.
+There may be no published stable release yet; that is reported explicitly.
+An APK signed with another key is rejected before installation.
+
+ADB can still be required by a separate Home Assistant integration or
+Home-button helper. Turning it off may stop those integrations; the updater
+does not change them or turn ADB off itself.
+
+### Over ADB
+
 ```bash
 adb install -r app-release.apk
 ```
@@ -117,6 +147,45 @@ adb install -r app-release.apk
 (favorites, order, hidden apps, wallpaper) as long as the new APK is signed
 with the same key. If the keys differ, the install fails with a signature
 error; installing then requires uninstalling first, which erases preferences.
+
+### Prepare a release for remote updates
+
+Publication is a manual maintainer action. Build a minified release with the
+same persistent signing key as installed TVs. Increase `versionCode` for every
+update and use a new version name and release tag. The machine's existing
+debug key can update TVs signed with that key, but it must be preserved if
+used; a new CI debug key cannot replace it. Prefer a backed-up release key
+for new lasting installations.
+
+```bash
+./gradlew assembleRelease
+python3 scripts/prepare-update.py
+```
+
+The script verifies the APK signature and reads version metadata from the
+APK, then writes `build/update-release/app-release.apk` and
+`build/update-release/hearth-update.json`. It never uploads anything. Keep
+these generated assets out of Git. The manifest has this shape (the digest
+and size are computed from the actual APK):
+
+```json
+{
+  "versionCode": 4,
+  "versionName": "0.1.3",
+  "minSdk": 21,
+  "apkAsset": "app-release.apk",
+  "sha256": "<computed SHA-256>",
+  "sizeBytes": 12345
+}
+```
+
+The maintainer creates a stable GitHub release for the tested commit with a
+tag such as `v0.1.3`, uploads both files with their exact names, and publishes
+it manually. Do not publish a draft or prerelease as an update, use temporary
+CI APKs, or replace assets under an already published tag. A missing manifest,
+wrong size/digest, incompatible APK or different signing certificate prevents
+the update. Validate a real upgrade and installer cancellation with the
+[testing checklist](testing.md#manual-app-updates).
 
 ## Roll back
 

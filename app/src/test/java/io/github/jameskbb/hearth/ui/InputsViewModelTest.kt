@@ -85,6 +85,8 @@ class InputsViewModelTest {
         override val displayFacts: DisplayFactsReader = object : DisplayFactsReader {
             override fun read() = DisplayFacts(1920, 1080, 320, 60f, emptyList(), false, emptyList())
         }
+        override val updates = FakeUpdates()
+        override val updateInstaller = FakeUpdateInstaller()
         override val weather = FakeWeather()
         override val themes = FakeThemeCatalog()
     }

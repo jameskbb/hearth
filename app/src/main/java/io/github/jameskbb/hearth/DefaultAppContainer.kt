@@ -1,7 +1,13 @@
 package io.github.jameskbb.hearth
 
 import android.app.Application
+import android.os.Build
 import android.content.ComponentCallbacks2
+import io.github.jameskbb.hearth.apps.packageInfo
+import io.github.jameskbb.hearth.updates.UpdateService
+import io.github.jameskbb.hearth.updates.UpdateInstaller
+import io.github.jameskbb.hearth.updates.GitHubUpdateService
+import io.github.jameskbb.hearth.updates.AndroidUpdateInstaller
 import io.github.jameskbb.hearth.apps.AppCatalog
 import io.github.jameskbb.hearth.apps.AppLauncher
 import io.github.jameskbb.hearth.apps.ArtworkLoader
@@ -68,6 +74,20 @@ class DefaultAppContainer(app: Application) : AppContainer {
     /** HDMI inputs; empty on devices without them (decision 0007). */
     private val tvInputsImpl = AndroidTvInputs(app, scope)
     override val tvInputs: TvInputs get() = tvInputsImpl
+
+    /** Manual updates only: construction and returning to Home never contact GitHub. */
+    override val updates: UpdateService = GitHubUpdateService(
+        directory = File(app.cacheDir, "updates"),
+        currentVersionCode = app.packageManager.packageInfo(app.packageName).let {
+            if (Build.VERSION.SDK_INT >= 28) it.longVersionCode else {
+                @Suppress("DEPRECATION")
+                it.versionCode.toLong()
+            }
+        },
+        sdkInt = Build.VERSION.SDK_INT,
+        scope = scope,
+    )
+    override val updateInstaller: UpdateInstaller = AndroidUpdateInstaller(app)
 
     init {
         catalogImpl.start()

@@ -5,6 +5,8 @@ set -u
 cd "$(dirname "$0")/.." || exit 1
 fail=0
 
+python3 scripts/test-prepare-update.py || { echo "FAIL: update packaging checks"; fail=1; }
+
 python3 scripts/check-public-safety.py || { echo "FAIL: public-safety checks"; fail=1; }
 
 # Shell scripts: syntax always, shellcheck when installed.

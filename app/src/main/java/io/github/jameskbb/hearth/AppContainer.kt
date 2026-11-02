@@ -9,6 +9,8 @@ import io.github.jameskbb.hearth.system.SystemRoutes
 import io.github.jameskbb.hearth.theme.ThemeCatalog
 import io.github.jameskbb.hearth.system.TvInputs
 import io.github.jameskbb.hearth.weather.WeatherService
+import io.github.jameskbb.hearth.updates.UpdateService
+import io.github.jameskbb.hearth.updates.UpdateInstaller
 
 /** Hand-wired dependencies; no DI framework. Built once in [HearthApp]. */
 interface AppContainer {
@@ -21,4 +23,6 @@ interface AppContainer {
     val weather: WeatherService
     val themes: ThemeCatalog
     val tvInputs: TvInputs
+    val updates: UpdateService
+    val updateInstaller: UpdateInstaller
 }

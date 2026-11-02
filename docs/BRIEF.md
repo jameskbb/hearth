@@ -53,6 +53,9 @@ remote navigation, and performance matter equally.
 8. Optional weather beside the clock, off by default, for a city the user
    picks in Settings (added by the owner after the original brief; see
    `docs/decisions/0005-opt-in-weather.md`).
+9. Manual update checks and installation through the TV remote, without ADB
+   after the initial installation (added by the owner; see
+   `docs/decisions/0012-manual-app-updates.md`).
 
 Out of scope for v1: accounts, cloud sync, streaming catalogs, cross-app
 continue watching, pretend data, controls that do nothing, and any weather
@@ -73,9 +76,9 @@ to the system launcher from the root screen.
   as the original primary target.
 - Clear separation: app discovery, launching, preferences, presentation. No DI
   or architecture frameworks beyond that.
-- Offline by design: no internet use unless the user turns on weather, which
-  then sends only the chosen city's coordinates to Open-Meteo. No Google Play
-  Services, no analytics. Artwork cached, heavy work off the UI thread.
+- Offline by design: internet use only for optional weather with Open-Meteo
+  and manual update checks/downloads from GitHub. No automatic update checks,
+  Google Play Services, or analytics. Artwork cached, heavy work off the UI thread.
 - Do not change global system settings (animation scales, picture settings,
   display modes), disable system packages, or require root.
 

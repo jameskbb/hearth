@@ -239,7 +239,7 @@ your own notes; only the status belongs here.
 | Background transition | Leave Hearth for another app across a schedule boundary, then return. The correct theme appears once, with the old decoded scene held until the new one is ready and no visible image edge. | untested |
 | Display facts | Settings, About shows the TV's real resolution, refresh rate, wide gamut and HDR values. | untested |
 | Offline | With the network disconnected, Hearth starts and works. | untested |
-| Weather off makes no requests | Fresh install, weather left off: no traffic from Hearth (router log or `adb shell dumpsys netstats detail`). | untested |
+| Weather off makes no requests | Fresh install, weather left off, no update check selected: no traffic from Hearth (router log or `adb shell dumpsys netstats detail`). | untested |
 | Weather city search | Settings, Weather, Show on Home: the search opens with the system keyboard up; typing finds cities; the keyboard's Search key focuses the first match; Back closes the keyboard, then the search; choosing a city returns to the City row. | untested |
 | Weather on Home | After choosing a city, the temperature, glyph and range appear beside the clock within seconds, readable on every theme from the sofa; Home's layout and focus are otherwise unchanged. | untested |
 | Weather units | The default unit follows the TV's region; Units switches it and Home follows at once. | untested |
@@ -277,3 +277,38 @@ Emulator status (API 28 Android TV, not a device): the smoke test passed 15 of
   sofa distance and on API 25's static font path.
 
 These are physical-TV checks, not claims established by emulator captures.
+
+
+## Manual app updates
+
+JVM tests cover strict release metadata, HTTPS redirect policy, digest and size
+validation, cancellation, failure recovery, update UI state and focus, and APK
+identity checks. The framework compatibility matrix exercises installer
+intents, permission routes, and private provider configuration across APIs 21
+through 36. These checks do not establish vendor installer behavior.
+
+Before publishing a stable release, validate on an Android TV emulator and a
+physical Fire TV, recording only generic results here:
+
+- With weather off, launch, resume, and open Settings: no update traffic.
+  Select Check for updates: installed version and a pending/result state appear.
+- With no stable release, show the no-release result. With a valid newer signed
+  release, show its version and download action. Equal/older versions do not
+  offer a downgrade. Drafts, prereleases and malformed assets never install.
+- Disconnect the network during a check/download. Show an error, keep focus,
+  and allow retry. Back/Home/background during download cancels it and removes
+  the partial file; returning never starts another request by itself.
+- Confirm wrong checksum, truncated file, wrong package, wrong version and
+  different signing certificate cannot open the installer.
+- On API 26+, deny installation from Hearth, open the offered permission
+  settings, return, and select Install update. Check vendor settings fallbacks
+  on Fire OS. Hearth never toggles settings or installs without confirmation.
+- Cancel the installer, return, retry, then complete a correctly signed upgrade.
+  Favorites, themes, hidden apps and other preferences survive. The installed
+  version changes and the first-install timestamp remains unchanged.
+- Repeat an upgrade using only the remote with ADB disabled by the operator.
+  Check for updates remains usable after the update. Record Home-button helper
+  and Home Assistant behavior separately.
+
+Physical remote-only upgrade with ADB off remains unverified until an operator
+completes it against a published stable release.

@@ -59,4 +59,34 @@
     <string name="home_label_placeholder">Type a Home label</string>
     <string name="home_label_hint">Up to 40 characters. Press Done or select Save. Empty text shows no label.</string>
     <string name="home_label_description">A quiet title in the upper-right corner of Home. Turning it off keeps your text.</string>
+
+    <!-- Manual app updates -->
+    <string name="settings_check_updates">Check for updates</string>
+    <string name="updates_title">Hearth updates</string>
+    <string name="updates_idle">Choose Check for updates to look for a newer Hearth version.</string>
+    <string name="updates_checking">Checking GitHub for a newer version…</string>
+    <string name="updates_current">You have the latest published version of Hearth.</string>
+    <string name="updates_no_release">No Hearth update has been published yet. Check again later.</string>
+    <string name="updates_available">Hearth %1$s is available. Download it, then confirm installation on the TV.</string>
+    <string name="updates_downloading">Downloading the update…</string>
+    <string name="updates_progress">Downloading the update: %1$d%%</string>
+    <string name="updates_ready">Hearth %1$s is ready. Select Install update, then confirm on the TV. Your preferences stay saved.</string>
+    <string name="updates_download">Download update</string>
+    <string name="updates_install">Install update</string>
+    <string name="updates_allow">Allow installation</string>
+    <string name="updates_cancel">Cancel</string>
+    <string name="updates_retry">Try again</string>
+    <string name="updates_verifying">Preparing installation…</string>
+    <string name="updates_verifying_status">Checking the update before opening the TV installer…</string>
+    <string name="updates_permission_needed">The TV needs permission to install updates. Select Allow installation, then allow Hearth or enable Apps from Unknown Sources in the TV settings. Return here to install.</string>
+    <string name="updates_permission_settings_failed">Open the TV settings and allow Hearth to install unknown apps, or enable Apps from Unknown Sources. Then return here to install.</string>
+    <string name="updates_installer_opened">Confirm installation in the TV installer. If you cancelled, select Install update to try again.</string>
+    <string name="updates_installer_unavailable">The TV installer could not be opened. Try again, or install a Hearth APK using the TV\'s usual sideloading method.</string>
+    <string name="updates_network_failed">Could not reach GitHub. Check your connection and try again.</string>
+    <string name="updates_rate_limited">GitHub is busy or has limited update checks. Wait a few minutes, then try again.</string>
+    <string name="updates_invalid_release">The published update is missing valid installation details. Try again after a new release is published.</string>
+    <string name="updates_incompatible">The published update needs a newer Android version than this TV supports.</string>
+    <string name="updates_download_failed">The update could not be downloaded. Check your connection and available storage, then try again.</string>
+    <string name="updates_verification_failed">This update could not be verified for your Hearth installation. It must use the same signing key and a newer version. Download a compatible release before trying again.</string>
+    <string name="updates_privacy">Hearth checks GitHub only when you choose Check for updates. Downloads start only when you choose Download update. ADB can stay off. The TV asks you to confirm installation.</string>
 </resources>

@@ -34,7 +34,7 @@
     <string name="settings_units_celsius">Celsius</string>
 
     <!-- Settings, the status line under the weather rows. %1$s is a time ("8:42 PM") or a date. -->
-    <string name="weather_status_off">Hearth goes online only when this is on, and then sends just your city\'s location to Open-Meteo.</string>
+    <string name="weather_status_off">Weather is off. Turning it on sends your chosen city\'s location to Open-Meteo.</string>
     <string name="weather_status_no_city">Choose a city to show the weather on Home.</string>
     <string name="weather_status_fetching">Getting the weather from Open-Meteo…</string>
     <string name="weather_status_updated">Updated at %1$s from Open-Meteo.</string>

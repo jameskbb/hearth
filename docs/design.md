@@ -177,6 +177,11 @@ Small and honest; every row does something.
 - Hidden apps: list with "Show" to restore each.
 - Device settings: opens the platform's settings through a route verified at
   runtime; hidden when no route resolves.
+- Check for updates: opens a separate page and checks GitHub for a stable
+  release. Shows the installed version, progress and result. Download update
+  is a separate action, followed by Install update or Allow installation.
+  Back cancels a pending check/download and restores this row. No update
+  traffic before selecting the row. See [manual updates](decisions/0012-manual-app-updates.md).
 - About: a separate destination with version, font licenses, the weather data credit ("Weather data by
   Open-Meteo.com, CC BY 4.0"), and the display facts the device reports
   (resolution, refresh rate, wide color gamut, HDR types). Real values only.
@@ -245,9 +250,8 @@ the rest of Settings:
 - **Units**: Fahrenheit / Celsius, defaulting from the locale; Select
   switches. Shown only while weather is on.
 - **Status**, plain text under the rows (Instrument Sans 12, never
-  focusable). Off: "Hearth goes online only when this is on, and then sends
-  just your city's location to Open-Meteo." On: "Choose a city to show the
-  weather on Home.", "Getting the weather from Open-Meteo…", or "Updated at
+  focusable). Off: "Weather is off. Turning it on sends your chosen city's
+  location to Open-Meteo." On: "Choose a city to show the weather on Home.", "Getting the weather from Open-Meteo…", or "Updated at
   8:42 PM from Open-Meteo." A failure leads, in full ink: "Couldn't reach
   Open-Meteo. Hearth will try again at 9:05 PM." (also "Open-Meteo returned
   an error." and "Open-Meteo sent weather Hearth couldn't read."), followed by

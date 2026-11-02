@@ -50,12 +50,13 @@ Emulator and device scripts are in `scripts/` (see `docs/testing.md`).
 | `prefs` | DataStore persistence and the pure `FavoritesOps` |
 | `system` | Verified routes into the platform's settings, display facts |
 | `weather` | Opt-in weather: Open-Meteo client and parsing, WMO codes, refresh policy, cache |
+| `updates` | Manual GitHub release checks, verified APK downloads, system installer handoff |
 | `theme` | Theme packs: manifest codec, validation, discovery, decoding, Auto schedule |
 | `ui.theme` | Tokens, fonts, theme motion math |
 | `ui.home`, `ui.allapps`, `ui.settings`, `ui.components` | Presentation |
 
 Keep the layers separate: UI talks to the interfaces in `apps`, `prefs`,
-`system`, `weather` and `theme`, wired by hand in `AppContainer`. No DI or architecture frameworks.
+`system`, `weather`, `updates` and `theme`, wired by hand in `AppContainer`. No DI or architecture frameworks.
 
 ## 5. Rules
 
@@ -64,8 +65,9 @@ Keep the layers separate: UI talks to the interfaces in `apps`, `prefs`,
   pinned in `gradle/libs.versions.toml`.
 - Android compatibility tests run in CI across APIs 21 through 36. Keep the legacy
   Robolectric lane for API 21/22 and JDK 21 for API 36 tests; production builds use JDK 17.
-- INTERNET is used only by opt-in weather, off by default, with requests only
-  to Open-Meteo. No Google Play Services, no analytics.
+- INTERNET is used only by opt-in weather (Open-Meteo) and user-initiated
+  update checks/downloads (GitHub). No automatic update checks, Google Play
+  Services, or analytics. See decision 0012.
 - Never change global system settings (animation scales, picture settings,
   display modes), and never disable or modify other apps.
 - Every visible control must work; no placeholder data.

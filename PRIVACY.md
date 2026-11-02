@@ -21,7 +21,8 @@ other settings.
 
 ## Optional weather
 
-Weather is off by default. With it off, Hearth makes no network requests.
+Weather is off by default. Its requests stop while it is off. Unless you
+choose Check for updates, Hearth makes no other network requests.
 When you enable it and search for a city, the search text goes to
 `geocoding-api.open-meteo.com`. Forecast requests send the selected city's
 coordinates, rounded to four decimal places, to `api.open-meteo.com`.
@@ -37,6 +38,24 @@ than three hours is hidden from Home. Changing temperature units is local.
 See [Open-Meteo's privacy policy](https://open-meteo.com/en/privacy) for how
 that service handles requests, and the
 [weather design decision](docs/decisions/0005-opt-in-weather.md) for details.
+
+## Manual app updates
+
+Selecting Settings, Check for updates requests the latest stable release from
+GitHub's public API for this repository. Hearth then reads its small update
+manifest. Selecting Download update fetches the APK from GitHub's release
+asset storage over HTTPS. There are no startup, scheduled, or background
+update checks. Opening Settings alone sends nothing.
+
+GitHub and its release storage receive your network address and ordinary HTTP
+client information. Hearth sends no credentials, device identifiers, installed
+app lists, preferences, or weather location with update requests. It stores a
+downloaded APK only in private cache storage and checks its checksum, package,
+version, and signing certificate before asking the system installer to open.
+The TV controls installation permission and asks you to confirm installation.
+
+See [GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+and the [update design decision](docs/decisions/0012-manual-app-updates.md).
 
 ## Bug reports and screenshots
 
