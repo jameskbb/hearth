@@ -48,6 +48,22 @@ For theme contributions, start with the [gallery](docs/themes.md) and
 you have permission to contribute. Record third-party licenses in
 `third_party/`.
 
+## Production promotion
+
+`main` is the default integration branch. `prod` records the verified
+production baseline. Land changes on `main`, run `scripts/check.sh`, then
+promote the same commit to `prod` with a fast-forward. Keep both branches and
+never force-push either; make follow-up fixes on `main` and promote again.
+
+The repository's [zap configuration](.claude/ai-skills.md) makes `$zap` land
+and verify `main`, then fast-forward `prod`, verify again, and push both.
+CI runs the full build, lint, public-safety checks, and Android API 21 through
+36 matrix on pushes to either branch, as well as on pull requests.
+
+`prod` is a source baseline. TV updates become available when the maintainer
+manually publishes a stable release built from its tested commit with the
+persistent signing key. Follow the [release instructions](docs/install.md#prepare-a-release-for-remote-updates).
+
 ## Review checklist
 
 - Reuse the current renderer, focus model, and small service interfaces.

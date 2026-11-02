@@ -74,4 +74,6 @@ Keep the layers separate: UI talks to the interfaces in `apps`, `prefs`,
 - Changing the interface updates the README screenshots in the same change
   (`scripts/screenshots.sh`).
 - No em dashes in any file or commit message.
-- Branch model: `main` only. Test command: `scripts/check.sh`.
+- Branch model: `main` integrates changes; `prod` is the verified production
+  baseline. Promote `main` to `prod` with a fast-forward after checks pass.
+  Keep both branches; never force-push either. Test command: `scripts/check.sh`.

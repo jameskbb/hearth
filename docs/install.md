@@ -150,14 +150,17 @@ error; installing then requires uninstalling first, which erases preferences.
 
 ### Prepare a release for remote updates
 
-Publication is a manual maintainer action. Build a minified release with the
-same persistent signing key as installed TVs. Increase `versionCode` for every
+Publication is a manual maintainer action. Promote verified changes from
+`main` to `prod` using the [production promotion workflow](../CONTRIBUTING.md#production-promotion),
+then build from that `prod` commit with the same persistent signing key as
+installed TVs. Increase `versionCode` for every
 update and use a new version name and release tag. The machine's existing
 debug key can update TVs signed with that key, but it must be preserved if
 used; a new CI debug key cannot replace it. Prefer a backed-up release key
 for new lasting installations.
 
 ```bash
+git switch prod
 ./gradlew assembleRelease
 python3 scripts/prepare-update.py
 ```
@@ -179,7 +182,7 @@ and size are computed from the actual APK):
 }
 ```
 
-The maintainer creates a stable GitHub release for the tested commit with a
+The maintainer creates a stable GitHub release for the tested `prod` commit with a
 tag such as `v0.1.3`, uploads both files with their exact names, and publishes
 it manually. Do not publish a draft or prerelease as an update, use temporary
 CI APKs, or replace assets under an already published tag. A missing manifest,

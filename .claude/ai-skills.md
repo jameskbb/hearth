@@ -1,4 +1,4 @@
 ## zap
 - main: main
-- prod: none
+- prod: prod
 - test: scripts/check.sh
