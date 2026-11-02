@@ -34,6 +34,8 @@ with the services shown. [About the demos](docs/demo-apps.md).*
   or let Surprise Me pick once a day. Seven everyday landscapes sit alongside
   Open Bay and six seasonal scenes, including Harvest Evening and a separate
   Halloween corn maze with friendly carved pumpkins and slowly breathing lights.
+  Holiday themes are on by default: the matching scene takes over on five
+  holidays, then your chosen mode returns. Turn this off in Settings, Theme.
 - **Motion at your pace.** Slow clouds, haze, and light give the artwork life.
   Reduce motion makes every scene still and turns off focus scaling and fades.
 - **Updates from the sofa.** Check for updates in Settings, download a new
@@ -49,6 +51,11 @@ with the services shown. [About the demos](docs/demo-apps.md).*
 
 [Explore all fourteen themes](docs/themes.md), or
 [make your own theme pack](docs/theme-packs.md) from images and a small manifest.
+
+![Appearance settings with Holiday themes enabled](docs/images/appearance.png)
+
+*Holiday themes is on by default. Switch it off in Settings, Theme to keep
+your chosen mode throughout the year.*
 
 ## Get started
 

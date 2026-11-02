@@ -19,6 +19,8 @@ data class HearthPrefs(
     val theme: ThemeId = ThemeId.Default,
     /** How Hearth chooses a theme. Existing `auto` choices migrate to Follow the Day. */
     val themeMode: ThemeMode = ThemeMode.Single,
+    /** Holiday artwork overrides any mode on its local calendar date. Enabled on upgrades too. */
+    val holidayThemesEnabled: Boolean = true,
     /** User-editable periods and their assigned theme pools. */
     val themeSchedule: ThemeScheduleConfig = ThemeScheduleConfig.Recommended,
     /** Stable choices by period id, retained across launches and device restarts. */

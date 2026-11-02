@@ -19,6 +19,7 @@ import io.github.jameskbb.hearth.prefs.HearthPrefs
 import io.github.jameskbb.hearth.prefs.HomeLabel
 import io.github.jameskbb.hearth.prefs.PrefsCodec
 import io.github.jameskbb.hearth.system.SystemRoute
+import io.github.jameskbb.hearth.theme.HolidayThemes
 import io.github.jameskbb.hearth.theme.LoadedTheme
 import io.github.jameskbb.hearth.theme.ThemeFailure
 import io.github.jameskbb.hearth.theme.ThemeId
@@ -252,6 +253,9 @@ class HearthViewModel(
     ) { p, list, loaded, _ ->
         if (p == null || !loaded) return@combine null
         val available = list.map { it.id }
+        if (p.holidayThemesEnabled) {
+            HolidayThemes.resolve(now(), zone(), available)?.let { return@combine it }
+        }
         val autoEligible = list.filter { it.autoRotationEligible }.map { it.id }
         when (effectiveThemeMode(p)) {
             ThemeMode.Single -> ThemeSchedule.resolveSingle(pendingChoice.value ?: p.theme, available)
@@ -303,9 +307,12 @@ class HearthViewModel(
      * longer listed replaced by Dusk. Null until prefs are read and the first scan is done.
      */
     val activeThemeId: StateFlow<ThemeId?> = combine(
-        themeResolution, pendingChoice, themes,
-    ) { resolution, pending, list ->
-        pending?.takeIf { candidate -> list.any { it.id == candidate } } ?: resolution?.themeId
+        themeResolution, pendingChoice, themes, prefs, scheduleTick,
+    ) { resolution, pending, list, p, _ ->
+        val holiday = if (p?.holidayThemesEnabled == true) {
+            HolidayThemes.resolve(now(), zone(), list.map { it.id })
+        } else null
+        holiday?.themeId ?: pending?.takeIf { candidate -> list.any { it.id == candidate } } ?: resolution?.themeId
     }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
     /** The listed pack [activeThemeId] names: the Theme row's value. Null when not even Dusk is listed. */
@@ -1010,6 +1017,14 @@ class HearthViewModel(
         }
     }
 
+    fun toggleHolidayThemes() {
+        _appearance.update { it?.copy(previewing = false) }
+        viewModelScope.launch {
+            container.prefs.update { it.copy(holidayThemesEnabled = !it.holidayThemesEnabled) }
+            invalidateThemeSchedule()
+        }
+    }
+
     fun openThemeSchedule() {
         val panel = _appearance.value ?: return
         _appearance.value = panel.copy(page = AppearancePage.Schedule, periodId = null, previewing = false)
@@ -1228,7 +1243,7 @@ class HearthViewModel(
                 while (fg) {
                     scheduleTick.value += 1
                     val p = prefs.value
-                    val next = when {
+                    val modeBoundary = when {
                         p == null -> now() + 60_000
                         effectiveThemeMode(p) == ThemeMode.FollowTheDay ->
                             ThemeSchedule.nextBoundaryMillis(p.themeSchedule, now(), zone())
@@ -1237,6 +1252,10 @@ class HearthViewModel(
                         ).nextChangeMillis
                         else -> Long.MAX_VALUE
                     }
+                    val holidayBoundary = if (p?.holidayThemesEnabled == true) {
+                        HolidayThemes.nextBoundaryMillis(now(), zone())
+                    } else Long.MAX_VALUE
+                    val next = minOf(modeBoundary, holidayBoundary)
                     delay((next - now()).coerceAtLeast(0) + 1)
                 }
             }
@@ -1360,6 +1379,7 @@ class HearthViewModel(
     companion object {
         private const val KEY_LAST_TILE = "last_home_tile"
         const val ROW_HOME_LABEL = "home_label"
+        const val ROW_HOLIDAY_THEMES = "holiday_themes"
         const val ROW_HOME_LABEL_ENABLED = "home_label_enabled"
         const val ROW_HOME_LABEL_EDIT = "home_label_edit"
         const val ROW_HOME_LABEL_FIELD = "home_label_field"

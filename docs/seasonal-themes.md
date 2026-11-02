@@ -19,8 +19,8 @@ or green shadows, warm light, existing type and focus treatment. No new UI
 surfaces, artwork text or personalized labels.
 
 **Story:** choose a seasonal scene in Appearance and return to the same Home
-layout. All six are manual by default, with explicit opt-in to custom
-rotation pools or schedule periods.
+layout. All six stay outside implicit rotation pools. The Holiday themes
+setting separately enables five holiday date overrides by default.
 
 **First viewport:** full-bleed 1920x1080 art, quiet clock and weather space
 at upper left, title space at upper right, and dark lower foreground behind
@@ -40,8 +40,14 @@ provenance for all new artwork.
 
 Every pack sets `autoRotationEligible: false` and has no recommended dayparts.
 The seven everyday scenes and recommended schedule keep their existing
-behavior. Seasonal packs can be used at any time of year; there is no date
-detection, holiday scheduler or network access.
+behavior outside holidays. Seasonal packs can be used at any time of year.
+Holiday themes in Appearance is on by default and temporarily overrides any
+theme mode on January 1, Western Easter Sunday, July 4, October 31 and
+December 25. Each matching scene lasts that local calendar day, then the
+saved mode resumes. Harvest Evening has no automatic date. Scheduling uses
+only the device's clock and timezone, with no network access. Easter follows
+the Gregorian calculation described by the
+[US Naval Observatory](https://aa.usno.navy.mil/faq/easter).
 
 Only atmospheric layers move, or distant lights change gently in brightness.
 Reduce motion draws the shared renderer's rest

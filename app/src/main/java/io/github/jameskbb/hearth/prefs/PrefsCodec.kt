@@ -38,6 +38,7 @@ object PrefsCodec {
     val HIDDEN = stringSetPreferencesKey("hidden")
     val THEME = stringPreferencesKey("wallpaper")
     val THEME_MODE = stringPreferencesKey("theme_mode")
+    val HOLIDAY_THEMES_ENABLED = booleanPreferencesKey("holiday_themes_enabled")
     val SINGLE_THEME = stringPreferencesKey("single_theme")
     val THEME_PERIODS = stringSetPreferencesKey("theme_periods")
     val FOLLOW_DAY_SELECTIONS = stringSetPreferencesKey("follow_day_selections")
@@ -73,6 +74,7 @@ object PrefsCodec {
             hidden = decodeHidden(prefs.getOrNull(HIDDEN)),
             theme = explicitSingle ?: legacyChoice?.takeIf { !it.isAuto } ?: defaults.theme,
             themeMode = mode,
+            holidayThemesEnabled = prefs.getOrNull(HOLIDAY_THEMES_ENABLED) ?: defaults.holidayThemesEnabled,
             themeSchedule = decodeThemeSchedule(prefs.getOrNull(THEME_PERIODS)),
             followDaySelections = decodeFollowDaySelections(prefs.getOrNull(FOLLOW_DAY_SELECTIONS)),
             surpriseThemeIds = decodeThemeIds(prefs.getOrNull(SURPRISE_THEME_IDS)),
@@ -111,6 +113,7 @@ object PrefsCodec {
         // Old Hearth versions still understand Single Theme and Follow the Day after a downgrade.
         prefs[THEME] = if (value.themeMode == ThemeMode.FollowTheDay) ThemeId.Auto.name else single.name
         prefs[THEME_MODE] = value.themeMode.storedName
+        prefs[HOLIDAY_THEMES_ENABLED] = value.holidayThemesEnabled
         prefs[SINGLE_THEME] = single.name
         prefs[THEME_PERIODS] = encodeThemeSchedule(value.themeSchedule)
         val periodIds = value.themeSchedule.periods.mapTo(HashSet()) { it.id }

@@ -31,6 +31,7 @@ class PrefsCodecTest {
             hidden = setOf(b, c),
             theme = ThemeId("aurora"),
             themeMode = ThemeMode.SurpriseMe,
+            holidayThemesEnabled = false,
             themeSchedule = ThemeScheduleConfig(
                 listOf(
                     ThemePeriod("wake", "Wake up", 6 * 60 + 15, listOf(ThemeId("misty-forest")), false),
@@ -60,6 +61,19 @@ class PrefsCodecTest {
     @Test fun favoritesKeepOrder() {
         val list = listOf(b, c, a)
         assertEquals(list, PrefsCodec.decodeFavorites(PrefsCodec.encodeFavorites(list)))
+    }
+
+    @Test fun holidayThemesDefaultOnForNewAndExistingInstalls() {
+        assertTrue(PrefsCodec.read(emptyPreferences()).holidayThemesEnabled)
+        val legacy = mutablePreferencesOf(PrefsCodec.THEME to "aurora")
+        assertTrue(PrefsCodec.read(legacy).holidayThemesEnabled)
+        val malformed = mutablePreferencesOf(stringPreferencesKey("holiday_themes_enabled") to "invalid")
+        assertTrue(PrefsCodec.read(malformed).holidayThemesEnabled)
+        for (enabled in listOf(false, true)) {
+            val stored = mutablePreferencesOf()
+            PrefsCodec.write(stored, HearthPrefs(holidayThemesEnabled = enabled))
+            assertEquals(enabled, PrefsCodec.read(stored).holidayThemesEnabled)
+        }
     }
 
     @Test fun emptyFavoritesRoundTrip() {

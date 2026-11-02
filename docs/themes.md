@@ -44,6 +44,15 @@ Me's default pool. They are always available in Single Theme, and can be added
 to a custom pool. [Open Bay artwork and visual checks](open-bay-verification.md).
 [Seasonal artwork and verification](seasonal-themes.md).
 
+**Holiday themes are on by default**, including after an upgrade. Settings,
+Theme (Appearance), Holiday themes switches this off or on. New Year's Day
+(January 1), Western Easter Sunday, July Fourth, Halloween (October 31) and
+Christmas Day (December 25) use their matching artwork for that local calendar
+day, overriding Single Theme, Follow the Day or Surprise Me. Your saved mode
+and choices return afterward, or immediately when you turn the toggle off.
+No network or location is used. Unavailable holiday packs leave the chosen
+mode in charge. Harvest Evening and Open Bay have no automatic holiday date.
+
 ![Christmas on the TV home screen, with a softly lit evergreen above the app row](images/home-christmas.png)
 
 *Christmas on the Android TV emulator. The tiles are local demo stand-ins.*

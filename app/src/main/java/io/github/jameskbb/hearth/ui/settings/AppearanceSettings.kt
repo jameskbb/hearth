@@ -122,6 +122,7 @@ internal fun appearanceRows(vm: HearthViewModel, panel: Appearance?): List<Focus
                 } else {
                     addAll(themes.map { FocusTarget.Row(HearthViewModel.themeCardRowId(it.id)) })
                 }
+                add(FocusTarget.Row(HearthViewModel.ROW_HOLIDAY_THEMES))
                 add(FocusTarget.Row(HearthViewModel.ROW_HOME_LABEL))
                 add(FocusTarget.Row(HearthViewModel.ROW_APPEARANCE_RELOAD))
             }
@@ -241,6 +242,17 @@ private fun AppearanceMain(vm: HearthViewModel, panel: Appearance, registry: Foc
                 modifier = Modifier.padding(top = 2.dp),
             )
         }
+        SettingRow(
+            stringResource(R.string.holiday_themes_title),
+            stringResource(if (prefs?.holidayThemesEnabled != false) R.string.settings_on else R.string.settings_off),
+            vm::toggleHolidayThemes, focused(HearthViewModel.ROW_HOLIDAY_THEMES),
+            Modifier.focusTarget(registry, FocusTarget.Row(HearthViewModel.ROW_HOLIDAY_THEMES)),
+        )
+        BasicText(
+            stringResource(R.string.holiday_themes_description),
+            style = Hearth.type.hint.copy(color = palette.inkMuted),
+            modifier = Modifier.padding(bottom = 4.dp).width(AppearanceColumnWidth),
+        )
         SettingRow(
             stringResource(R.string.home_label_title),
             stringResource(if (prefs?.homeLabelEnabled == true && !prefs?.homeLabel.isNullOrBlank()) R.string.settings_on else R.string.settings_off),

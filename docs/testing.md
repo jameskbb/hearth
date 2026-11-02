@@ -279,6 +279,38 @@ Emulator status (API 28 Android TV, not a device): the smoke test passed 15 of
 These are physical-TV checks, not claims established by emulator captures.
 
 
+## Holiday theme overrides
+
+Settings, Theme (Appearance), Holiday themes defaults to On for both new
+installs and upgrades. JVM coverage checks fixed dates, moving Western
+Easter dates, local midnight boundaries and year rollover, default migration
+and persistence, all three modes, unavailable packs, preview and selection,
+clock changes, resume and automatic entry/exit while foregrounded.
+
+Verification for 0.1.4: `scripts/check.sh` passes with 444 JVM tests, and
+debug and minified release builds pass. The local update manifest matches
+the verified signed APK's version, size and SHA-256. The API 28 TV emulator
+capture uses Reduce motion and shows the Holiday themes row among the
+seasonal previews. D-pad navigation and Select switch the row Off and On.
+This software-emulated run had slow startup and delayed writes; it does not
+establish physical-TV responsiveness or a real remote update. The README
+and theme guide share the refreshed `images/appearance.png` capture.
+
+On an emulator or test TV with the appropriate local date:
+
+- Confirm the matching scene appears on January 1, Western Easter Sunday,
+  July 4, October 31 and December 25. Verify an ordinary date uses the saved
+  mode. Harvest Evening has no assigned holiday.
+- Switch Holiday themes Off with the remote. The saved mode returns
+  immediately; On restores the holiday scene. Restart Hearth to check the
+  saved toggle, and confirm an upgrade preserves an explicitly disabled toggle.
+- Preview and select another theme during a holiday. Preview works, the saved
+  selection survives, and the holiday resumes after leaving Appearance.
+- Leave Hearth open across a holiday's start and end, then repeat with sleep
+  and resume. Check a timezone or clock change through the device's own
+  settings. Hearth must not change system settings itself.
+- Verify the Appearance rows scroll into view and Back restores focus.
+
 ## Manual app updates
 
 JVM tests cover strict release metadata, HTTPS redirect policy, digest and size

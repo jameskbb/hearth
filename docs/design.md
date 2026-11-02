@@ -313,6 +313,17 @@ not compete with the live preview.
 - One horizontal row chooses Single Theme, Follow the Day, or Surprise Me.
   Left and Right move between choices. The current mode is labeled Selected;
   one short explanation below describes it. Follow the Day is recommended.
+- Holiday themes is an On / Off row below the mode's controls, on by default
+  for new installs and upgrades. It overrides all three modes on New Year's
+  Day (January 1), Western Easter Sunday, July Fourth, Halloween (October 31)
+  and Christmas Day (December 25), using the matching bundled pack. Each
+  override lasts one local calendar day. The stored mode, pools and Single
+  Theme choice are retained and resume afterward. Missing or broken holiday
+  packs leave the selected mode in charge. Gallery focus still previews any
+  pack; selecting one saves it for after the holiday. Turning the override
+  off restores the chosen mode immediately. Scheduling stays offline and
+  reevaluates on launch, resume, clock or timezone changes and the next
+  relevant boundary while foregrounded.
 - Single Theme shows the theme gallery. Each card is 184x104 dp with the
   tiles' radius and focus treatment (scale, ring, glow), showing the pack's
   preview; the name sits under it. Focus shows the real theme

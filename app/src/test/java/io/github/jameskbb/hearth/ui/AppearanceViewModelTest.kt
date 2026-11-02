@@ -29,6 +29,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.TestCoroutineScheduler
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -112,6 +113,84 @@ class AppearanceViewModelTest {
     private fun HearthViewModel.inSettings() = apply { open(Screen.Settings) }
 
     // region what the backdrop shows
+
+    @Test fun holidayOverridesEveryModeAndTurningItOffRestoresTheSavedChoice() {
+        clock = LocalDateTime.of(2026, 12, 25, 18, 0).toInstant(ZoneOffset.UTC).toEpochMilli()
+        val christmas = ThemeId("christmas")
+        for (mode in ThemeMode.entries) {
+            val vm = vm(packs = FakeThemeCatalog(listOf(info("dusk"), info("aurora"), info("christmas"))))
+                .inSettings()
+            prefs.state.value = prefs.state.value.copy(themeMode = mode, surpriseThemeIds = setOf(aurora))
+            assertEquals(christmas, vm.activeThemeId.value)
+            val saved = prefs.state.value
+            vm.openAppearance()
+            vm.focusTheme(aurora)
+            assertEquals(aurora, vm.shown())
+            vm.toggleHolidayThemes()
+            assertFalse(prefs.state.value.holidayThemesEnabled)
+            assertEquals(if (mode == ThemeMode.SurpriseMe) aurora else dusk, vm.shown())
+            assertEquals(saved.theme, prefs.state.value.theme)
+            assertEquals(saved.themeMode, prefs.state.value.themeMode)
+            assertEquals(saved.themeSchedule, prefs.state.value.themeSchedule)
+            vm.toggleHolidayThemes()
+            assertEquals(christmas, vm.shown())
+        }
+    }
+
+    @Test fun choosingAThemeDuringAHolidaySavesItForAfterward() {
+        clock = LocalDateTime.of(2026, 10, 31, 18, 0).toInstant(ZoneOffset.UTC).toEpochMilli()
+        val vm = vm(packs = FakeThemeCatalog(listOf(info("dusk"), info("aurora"), info("halloween"))))
+            .inSettings()
+        vm.openAppearance()
+        vm.focusTheme(aurora)
+        vm.chooseTheme(aurora)
+        assertEquals(aurora, prefs.state.value.theme)
+        assertEquals(ThemeId("halloween"), vm.shown())
+        clock += 24 * 60 * 60 * 1000L
+        vm.onClockChanged()
+        assertEquals(aurora, vm.shown())
+    }
+
+    @Test fun aBrokenHolidayPackFallsBackToTheSavedMode() {
+        clock = LocalDateTime.of(2026, 12, 25, 18, 0).toInstant(ZoneOffset.UTC).toEpochMilli()
+        val packs = FakeThemeCatalog(listOf(info("dusk"), info("aurora"), info("christmas")))
+            .apply { undecodable += ThemeId("christmas") }
+        val vm = vm(choice = aurora, packs = packs)
+        assertEquals(aurora, vm.activeThemeId.value)
+        assertEquals(aurora, vm.shown())
+    }
+
+    @Test fun clockChangesAndResumeReevaluateTheHolidayWithoutChangingPreferences() {
+        val vm = vm(choice = aurora, packs = FakeThemeCatalog(listOf(info("dusk"), info("aurora"), info("christmas"))))
+        clock = LocalDateTime.of(2026, 12, 25, 18, 0).toInstant(ZoneOffset.UTC).toEpochMilli()
+        vm.onResume()
+        assertEquals(ThemeId("christmas"), vm.shown())
+        clock += 24 * 60 * 60 * 1000L
+        vm.onClockChanged()
+        assertEquals(aurora, vm.shown())
+        assertEquals(aurora, prefs.state.value.theme)
+    }
+
+    @Test fun foregroundSingleThemeEntersAndLeavesAHolidayAtMidnightWithoutPolling() {
+        val scheduler = TestCoroutineScheduler()
+        Dispatchers.setMain(UnconfinedTestDispatcher(scheduler))
+        val start = LocalDateTime.of(2026, 10, 30, 23, 59).toInstant(ZoneOffset.UTC).toEpochMilli()
+        prefs = Prefs(HearthPrefs(seeded = true, theme = aurora))
+        themes = FakeThemeCatalog(listOf(info("dusk"), info("aurora"), info("halloween")))
+        val vm = HearthViewModel(
+            Container(prefs, themes), SavedStateHandle(),
+            now = { start + scheduler.currentTime }, zone = { ZoneOffset.UTC },
+        )
+        vm.onForeground(true)
+        assertEquals(aurora, vm.shown())
+        scheduler.advanceTimeBy(60_001)
+        scheduler.runCurrent()
+        assertEquals(ThemeId("halloween"), vm.shown())
+        scheduler.advanceTimeBy(24 * 60 * 60 * 1000L)
+        scheduler.runCurrent()
+        assertEquals(aurora, vm.shown())
+        vm.onForeground(false)
+    }
 
     @Test fun theSavedThemeIsShownWithItsPalette() {
         val vm = vm(choice = aurora)

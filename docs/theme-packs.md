@@ -203,15 +203,22 @@ recommendations. Appearance provides three modes:
 Special themes cover a particular space or occasion. Open Bay, Harvest Evening,
 Christmas, New Year, Easter and July Fourth follow the same opt-in convention, using
 `autoRotationEligible: false` and no default daypart recommendations. This uses
-the existing manifest and gallery without a separate scheduler.
+the existing manifest and gallery for manual choices and rotation pools.
 
 These packs are bundled with `autoRotationEligible: false` and no daypart
 recommendations. They appear in the normal gallery and work in Single Theme.
 They are absent from the recommended Follow the Day schedule and Surprise Me's
 implicit pool. Selecting a card in Surprise Me, or assigning it to a schedule
 period, intentionally opts it in. Eligibility is generic pack metadata; the
-launcher has no special case for these ids. Old manifests without the field retain
+rotation logic has no special case for these ids. Old manifests without the field retain
 their existing rotation behavior. The field must be a JSON boolean.
+
+The separate Holiday themes setting is on by default, including on upgrades.
+It maps New Year's Day, Western Easter Sunday, July Fourth, Halloween and
+Christmas Day to the matching bundled ids, independently of rotation
+eligibility. Overrides last one local calendar day and preserve the saved
+mode and pools. Missing or broken holiday packs leave the chosen mode in
+charge. No new manifest fields or network access are involved.
 
 The recommended Follow the Day schedule is Morning from 05:00, Daytime from
 09:00, Evening from 17:00, and Night from 20:30. Its pools are Morning Glow

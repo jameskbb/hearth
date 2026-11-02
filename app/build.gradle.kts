@@ -31,8 +31,8 @@ android {
         applicationId = "io.github.jameskbb.hearth"
         minSdk = 21 // Android TV 5.0 and later, including Fire OS 5 (API 22)
         targetSdk = 34
-        versionCode = 4
-        versionName = "0.1.3"
+        versionCode = 5
+        versionName = "0.1.4"
     }
 
     signingConfigs {
