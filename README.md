@@ -2,15 +2,20 @@
 
 ![Hearth: a quiet home screen over a dusk landscape](docs/images/readme-title-hearth.png)
 
+<p align="center">
+  <a href="https://github.com/jameskbb/hearth/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/jameskbb/hearth/ci.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&label=CI"></a>
+  <a href="https://github.com/jameskbb/hearth/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/jameskbb/hearth?sort=semver&style=for-the-badge&logo=github&logoColor=white&label=Release&color=2e6b4e"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/github/license/jameskbb/hearth?style=for-the-badge&label=License&color=blue"></a>
+  <a href="gradle/libs.versions.toml"><img alt="Kotlin" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjameskbb%2Fhearth%2Fmain%2Fgradle%2Flibs.versions.toml&query=%24.versions.kotlin&label=Kotlin&style=for-the-badge&logo=kotlin&logoColor=white&color=7F52FF"></a>
+  <a href="#compatibility"><img alt="Platforms" src="https://img.shields.io/badge/Platforms-Fire%20TV%20%7C%20Android%20TV-23476b?style=for-the-badge&logo=android&logoColor=white"></a>
+</p>
+
 **A calm, colorful home screen for Fire TV and Android TV.**
 
 Your favorite apps, a clear selection, and a landscape with room to breathe.
 Hearth is built for the remote and the sofa, with original artwork and gentle
 motion. No ads, recommendations, accounts, or analytics. It works offline;
 weather is optional and off by default.
-
-[![CI](https://github.com/jameskbb/hearth/actions/workflows/ci.yml/badge.svg)](https://github.com/jameskbb/hearth/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [Get started](#get-started) · [Theme gallery](docs/themes.md) ·
 [Compatibility](#compatibility) · [Contribute](CONTRIBUTING.md)
