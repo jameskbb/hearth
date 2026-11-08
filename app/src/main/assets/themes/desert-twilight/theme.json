@@ -4,7 +4,9 @@
   "name": "Desert Twilight",
   "author": "Hearth",
   "description": "Mesas as the day turns to twilight",
-  "dayparts": ["evening"],
+  "dayparts": [
+    "evening"
+  ],
   "palette": {
     "ink": "#FFFFF1E6",
     "inkMuted": "#B8FFF1E6",
@@ -15,17 +17,352 @@
     "window": "#FF120B24"
   },
   "preview": "preview.webp",
-  "motion": { "sway": { "amplitude": 8, "period": 90 } },
+  "motion": {
+    "sway": {
+      "amplitude": 8,
+      "period": 90
+    }
+  },
   "layers": [
-    { "image": "sky-day.webp" },
-    { "image": "sky-twilight.webp",
-      "fade": { "from": 0, "to": 1, "delay": 20, "duration": 180 } },
-    { "image": "stars.webp",
-      "fade": { "from": 0, "to": 1, "delay": 110, "duration": 120 },
-      "opacity": { "min": 0.75, "max": 1.0, "period": 30 } },
-    { "image": "clouds.webp", "y": 110, "parallax": 0.2, "wrap": true,
-      "drift": { "x": 70, "period": 200 } },
-    { "image": "mesas-far.webp", "y": 230, "parallax": 0.3 },
-    { "image": "mesas-near.webp", "y": 240, "parallax": 1.0 }
+    {
+      "image": "sky-day.webp"
+    },
+    {
+      "image": "sky-twilight.webp",
+      "fade": {
+        "from": 0,
+        "to": 1,
+        "delay": 20,
+        "duration": 180
+      }
+    },
+    {
+      "image": "stars.webp",
+      "fade": {
+        "from": 0,
+        "to": 1,
+        "delay": 110,
+        "duration": 120
+      },
+      "opacity": {
+        "min": 0.75,
+        "max": 1.0,
+        "period": 30
+      }
+    },
+    {
+      "image": "clouds.webp",
+      "y": 110,
+      "parallax": 0.2,
+      "wrap": true,
+      "drift": {
+        "x": 70,
+        "period": 200
+      }
+    },
+    {
+      "image": "mesas-far.webp",
+      "y": 230,
+      "parallax": 0.3
+    },
+    {
+      "image": "mesas-near.webp",
+      "y": 240,
+      "parallax": 1.0
+    }
+  ],
+  "weather": [
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "hide": [
+        "stars.webp",
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp",
+          "after": "stars.webp"
+        },
+        {
+          "image": "snow-far.webp",
+          "y": 230,
+          "parallax": 0.3,
+          "after": "mesas-far.webp"
+        },
+        {
+          "image": "snow-near.webp",
+          "y": 240,
+          "parallax": 1.0,
+          "after": "mesas-near.webp"
+        },
+        {
+          "image": "snowfall-far.webp",
+          "wrap": true,
+          "drift": {
+            "x": 20,
+            "period": 120
+          },
+          "fall": {
+            "y": 36,
+            "period": 40
+          }
+        },
+        {
+          "image": "snowfall-near.webp",
+          "wrap": true,
+          "drift": {
+            "x": 30,
+            "period": 120
+          },
+          "fall": {
+            "y": 70,
+            "period": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "snow-coming-frost",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "temp": [
+          "freezing"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "hide": [
+        "stars.webp",
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp",
+          "after": "stars.webp"
+        },
+        {
+          "image": "hush.webp",
+          "y": 140,
+          "after": "mesas-far.webp"
+        },
+        {
+          "image": "snow-far.webp",
+          "y": 230,
+          "parallax": 0.3,
+          "after": "mesas-far.webp",
+          "opacity": {
+            "min": 0.5,
+            "max": 0.5,
+            "period": 60
+          }
+        },
+        {
+          "image": "snow-near.webp",
+          "y": 240,
+          "parallax": 1.0,
+          "after": "mesas-near.webp",
+          "opacity": {
+            "min": 0.4,
+            "max": 0.4,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "snow-coming",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "hide": [
+        "stars.webp",
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp",
+          "after": "stars.webp"
+        },
+        {
+          "image": "hush.webp",
+          "y": 140,
+          "after": "mesas-far.webp"
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "hide": [
+        "stars.webp",
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp",
+          "after": "stars.webp"
+        },
+        {
+          "image": "puddles.webp",
+          "y": 310,
+          "parallax": 1.0,
+          "after": "mesas-near.webp"
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 120,
+            "period": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "hide": [
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "mist.webp",
+          "y": 255,
+          "after": "mesas-far.webp"
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "hide": [
+        "stars.webp",
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp",
+          "after": "stars.webp"
+        }
+      ]
+    },
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "clear-air.webp",
+          "after": "sky-twilight.webp"
+        },
+        {
+          "image": "frost-far.webp",
+          "y": 230,
+          "parallax": 0.3,
+          "after": "mesas-far.webp"
+        },
+        {
+          "image": "frost.webp",
+          "y": 240,
+          "parallax": 1.0,
+          "after": "mesas-near.webp"
+        }
+      ]
+    },
+    {
+      "id": "cold-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "cold"
+        ]
+      },
+      "add": [
+        {
+          "image": "clear-air.webp",
+          "after": "sky-twilight.webp",
+          "opacity": {
+            "min": 0.6,
+            "max": 0.6,
+            "period": 60
+          }
+        },
+        {
+          "image": "frost-far.webp",
+          "y": 230,
+          "parallax": 0.3,
+          "after": "mesas-far.webp",
+          "opacity": {
+            "min": 0.5,
+            "max": 0.5,
+            "period": 60
+          }
+        },
+        {
+          "image": "frost.webp",
+          "y": 240,
+          "parallax": 1.0,
+          "after": "mesas-near.webp",
+          "opacity": {
+            "min": 0.4,
+            "max": 0.4,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "hot-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "hot"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze.webp",
+          "y": 130,
+          "after": "mesas-far.webp"
+        }
+      ]
+    }
   ]
 }

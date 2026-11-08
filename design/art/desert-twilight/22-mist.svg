@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="90" viewBox="0 255 960 90" data-scale="1">
+  <!-- Hearth theme "Desert Twilight", weather layer 22: luminous ground fog in the basin, on transparent.
+       Rendered at 1x (960 px wide) by scripts/render-theme.sh desert-twilight and scaled up. Drawn between the
+       far mesas and the near terrain: a soft bank lying across the basin floor, so the buttes rise out of it,
+       rose where the afterglow lights it and lavender away from it, in drawn-out wisps. It is kept thin, and thinner still toward the left, where the app name sits. -->
+  <defs>
+    <linearGradient id="bank" x1="0" y1="255" x2="0" y2="345" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D8C4E0" stop-opacity="0"/>
+      <stop offset=".4" stop-color="#E0C8DA" stop-opacity=".28"/>
+      <stop offset=".68" stop-color="#EED0D4" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#C8B8DC" stop-opacity=".44"/>
+    </linearGradient>
+    <radialGradient id="lit" cx="660" cy="300" r="300" gradientUnits="userSpaceOnUse" gradientTransform="translate(660 300) scale(1.4 .12) translate(-660 -300)">
+      <stop offset="0" stop-color="#FFE0C0" stop-opacity=".8"/><stop offset="1" stop-color="#FFE0C0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="wisp" filterUnits="userSpaceOnUse" x="0" y="255" width="960" height="90">
+      <feTurbulence type="fractalNoise" baseFrequency=".006 .07" numOctaves="3" seed="93" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.4 0 0 0 .1" result="a"/>
+      <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    </filter>
+    <!-- thinner toward the left, where the app name sits -->
+    <linearGradient id="side" x1="0" y1="0" x2="960" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset=".72" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="lean" maskUnits="userSpaceOnUse" x="0" y="255" width="960" height="90">
+      <rect x="0" y="255" width="960" height="90" fill="url(#side)"/>
+    </mask>
+  </defs>
+  <g filter="url(#wisp)" mask="url(#lean)">
+    <rect x="0" y="255" width="960" height="90" fill="url(#bank)"/>
+    <rect x="0" y="255" width="960" height="90" fill="url(#lit)"/>
+  </g>
+</svg>
