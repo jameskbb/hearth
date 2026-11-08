@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="150" viewBox="0 0 960 300" data-scale="1">
+  <!-- Hearth theme "Desert Twilight", weather layer 20: crisp cold air, on transparent. Rendered at a quarter size (480 px wide; it is only a smooth gradient) by
+       scripts/render-theme.sh desert-twilight and scaled up. A clear cobalt lift over the upper sky, the blue of a cold
+       evening when the air is dry and the stars come early, fading out before the warm band at the horizon. -->
+  <defs>
+    <linearGradient id="air" x1="0" y1="0" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2C4894" stop-opacity=".42"/>
+      <stop offset=".45" stop-color="#4A62B4" stop-opacity=".3"/>
+      <stop offset=".8" stop-color="#8A8AD0" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#8A8AD0" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="300" fill="url(#air)"/>
+</svg>

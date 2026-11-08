@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="164" viewBox="0 286 960 164">
+  <!-- Hearth theme "Dusk", weather layer 13: snow lying on the ridges, on transparent. Rendered by
+       scripts/render-theme.sh dusk. A strip from y 286 holding every crest, cut from the same ridge paths and
+       displaced by the same ridge filter as layer 00, so the snow sits exactly on the drawn hills. Each ridge
+       is white above its own snow line, fading in soft patches below it; the hills are backlit, so the snow
+       holds lavender shade with a bright rim where the crest meets the glow, rose toward the sun. The near
+       ridges are only dusted, so the foreground behind the dock stays deep. -->
+  <defs>
+    <filter id="ridge" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".02 .05" numOctaves="4" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <radialGradient id="shadeFar" cx="652" cy="314" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6CEC8"/><stop offset=".45" stop-color="#D2B6D4"/><stop offset="1" stop-color="#B0A8D6"/>
+    </radialGradient>
+    <radialGradient id="shadeMid" cx="652" cy="314" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C2AED6"/><stop offset="1" stop-color="#8E8AC4"/>
+    </radialGradient>
+    <linearGradient id="shadeNear" x1="0" y1="390" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6E6EAE"/><stop offset="1" stop-color="#4C4E8E"/>
+    </linearGradient>
+    <radialGradient id="rim" cx="652" cy="314" r="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF2DC"/><stop offset=".4" stop-color="#F4D6E4"/><stop offset="1" stop-color="#C4C0EE"/>
+    </radialGradient>
+    <!-- Snow does not lie evenly: soft horizontal patches, thinner where the noise is low. -->
+    <filter id="patch" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".016 .16" numOctaves="4" seed="51" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.6 0 0 0 -.5" result="a"/>
+      <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    </filter>
+    <linearGradient id="line0" x1="0" y1="300" x2="0" y2="334" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.95"/><stop offset=".55" stop-color="#fff" stop-opacity="0.522"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="f0" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 322 C60 310 110 300 170 306 C230 312 270 292 330 296 C400 300 440 314 520 308 C600 302 640 318 720 312 C800 306 860 296 960 304 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#line0)"/>
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <mask id="r0" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 322 C60 310 110 300 170 306 C230 312 270 292 330 296 C400 300 440 314 520 308 C600 302 640 318 720 312 C800 306 860 296 960 304 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/><path d="M-40 322 C60 310 110 300 170 306 C230 312 270 292 330 296 C400 300 440 314 520 308 C600 302 640 318 720 312 C800 306 860 296 960 304 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.1)"/>
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <linearGradient id="line1" x1="0" y1="316" x2="0" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.85"/><stop offset=".55" stop-color="#fff" stop-opacity="0.468"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="f1" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#line1)"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <mask id="r1" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/><path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.1)"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <linearGradient id="line2" x1="0" y1="348" x2="0" y2="382" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.72"/><stop offset=".55" stop-color="#fff" stop-opacity="0.396"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="f2" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#line2)"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <mask id="r2" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/><path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.1)"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <linearGradient id="line3" x1="0" y1="394" x2="0" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.4"/><stop offset=".55" stop-color="#fff" stop-opacity="0.220"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="f3" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="url(#line3)"/>
+    </mask>
+    <mask id="r3" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/><path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.1)"/>
+    </mask>
+  </defs>
+
+  <g filter="url(#ridge)">
+    <g mask="url(#f0)"><rect x="-40" y="286" width="1040" height="164" fill="url(#shadeFar)" filter="url(#patch)"/></g>
+    <g mask="url(#f1)"><rect x="-40" y="286" width="1040" height="164" fill="url(#shadeMid)" filter="url(#patch)"/></g>
+    <g mask="url(#f2)"><rect x="-40" y="286" width="1040" height="164" fill="url(#shadeMid)" filter="url(#patch)"/></g>
+    <g mask="url(#f3)"><rect x="-40" y="286" width="1040" height="164" fill="url(#shadeNear)" filter="url(#patch)"/></g>
+    <g mask="url(#r0)"><rect x="-40" y="286" width="1040" height="164" fill="url(#rim)" opacity="0.85"/></g>
+    <g mask="url(#r1)"><rect x="-40" y="286" width="1040" height="164" fill="url(#rim)" opacity="0.6"/></g>
+    <g mask="url(#r2)"><rect x="-40" y="286" width="1040" height="164" fill="url(#rim)" opacity="0.45"/></g>
+    <g mask="url(#r3)"><rect x="-40" y="286" width="1040" height="164" fill="url(#rim)" opacity="0.35"/></g>
+  </g>
+</svg>

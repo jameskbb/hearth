@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330" data-scale="1">
+  <!-- Hearth theme "Desert Twilight", weather layer 10: a soft evening cloud deck, on transparent, for overcast, rain
+       and the hush before snow. Rendered at 1x (960 px wide) by scripts/render-theme.sh desert-twilight and scaled up.
+       Lavender-pearl rolls of stratocumulus over the upper sky, lit apricot and rose from below where the
+       sun went down (x 660), with a clear slot above the mesas so the afterglow still shows. The deck is
+       translucent, so the day sky and then the twilight sky that fades in beneath it both carry through. The top-left
+       corner stays deep so the clock keeps its contrast. -->
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A2C58"/>
+      <stop offset=".28" stop-color="#4E4C80"/>
+      <stop offset=".52" stop-color="#8C83AE"/>
+      <stop offset=".7" stop-color="#C69DAE"/>
+      <stop offset=".84" stop-color="#F0B494"/>
+      <stop offset="1" stop-color="#FFD2A0"/>
+    </linearGradient>
+    <linearGradient id="crest" x1="0" y1="0" x2="0" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A3C6C"/>
+      <stop offset=".28" stop-color="#6A6598"/>
+      <stop offset=".52" stop-color="#ADA2C6"/>
+      <stop offset=".7" stop-color="#DDB6BE"/>
+      <stop offset=".84" stop-color="#FFC6A2"/>
+      <stop offset="1" stop-color="#FFDDB0"/>
+    </linearGradient>
+    <radialGradient id="lit" cx="660" cy="290" r="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD8A6" stop-opacity=".9"/>
+      <stop offset=".3" stop-color="#F7A989" stop-opacity=".45"/>
+      <stop offset=".7" stop-color="#C9809A" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#C9809A" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Where the deck is: dense overhead, thinning at the corner and opening into a slot above the ridges. -->
+    <linearGradient id="cover" x1="0" y1="0" x2="0" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".62"/>
+      <stop offset=".35" stop-color="#fff" stop-opacity=".82"/>
+      <stop offset=".62" stop-color="#fff" stop-opacity=".78"/>
+      <stop offset=".76" stop-color="#fff" stop-opacity=".45"/>
+      <stop offset=".86" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="960" height="330">
+      <rect width="960" height="330" fill="url(#cover)"/>
+    </mask>
+    <!-- Rolls: stretched stitched noise sharpened into soft lumps, alpha only. -->
+    <filter id="rolls" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="330">
+      <feTurbulence type="fractalNoise" baseFrequency=".006 .028" numOctaves="4" seed="43" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.1 0 0 0 -.38" result="a"/>
+      <feGaussianBlur in="a" stdDeviation="3 1.4" result="ab"/>
+      <feComposite in="SourceGraphic" in2="ab" operator="in"/>
+    </filter>
+    <filter id="haze" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="330">
+      <feTurbulence type="fractalNoise" baseFrequency=".003 .012" numOctaves="3" seed="46" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.8 0 0 0 .45" result="a"/>
+      <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    </filter>
+  </defs>
+
+  <g mask="url(#m)">
+    <!-- a thin even veil, then the rolls over it, then the warm underlight -->
+    <rect width="960" height="330" fill="url(#body)" opacity=".82" filter="url(#haze)"/>
+    <g filter="url(#rolls)">
+      <rect width="960" height="330" fill="url(#crest)" opacity=".8"/>
+      <rect width="960" height="330" fill="url(#lit)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="164" viewBox="0 286 960 164">
+  <!-- Hearth theme "Dusk", weather layer 11: rain-washed crests catching the low sun, on transparent.
+       Rendered by scripts/render-theme.sh dusk. A hairline of wet light along each crest, cut from the same
+       paths and ridge filter as layer 00, warm and strongest toward the sun. -->
+  <defs>
+    <filter id="ridge" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".02 .05" numOctaves="4" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <radialGradient id="glint" cx="652" cy="314" r="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF0D0" stop-opacity="1"/>
+      <stop offset=".3" stop-color="#FFD0A0" stop-opacity=".85"/>
+      <stop offset=".75" stop-color="#F2B0C0" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#D8B8E8" stop-opacity=".08"/>
+    </radialGradient>
+    <mask id="b0" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 322 C60 310 110 300 170 306 C230 312 270 292 330 296 C400 300 440 314 520 308 C600 302 640 318 720 312 C800 306 860 296 960 304 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+      <path d="M-40 322 C60 310 110 300 170 306 C230 312 270 292 330 296 C400 300 440 314 520 308 C600 302 640 318 720 312 C800 306 860 296 960 304 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.1)"/>
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <mask id="b1" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.1)"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <mask id="b2" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.1)"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <mask id="b3" maskUnits="userSpaceOnUse" x="-40" y="286" width="1040" height="164">
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000" transform="translate(0 1.2)"/>
+    </mask>
+  </defs>
+
+  <g filter="url(#ridge)">
+    <g mask="url(#b0)"><rect x="-40" y="286" width="1040" height="164" fill="url(#glint)" opacity="1"/></g>
+    <g mask="url(#b1)"><rect x="-40" y="286" width="1040" height="164" fill="url(#glint)" opacity="0.9"/></g>
+    <g mask="url(#b2)"><rect x="-40" y="286" width="1040" height="164" fill="url(#glint)" opacity="0.75"/></g>
+    <g mask="url(#b3)"><rect x="-40" y="286" width="1040" height="164" fill="url(#glint)" opacity="0.6"/></g>
+  </g>
+</svg>

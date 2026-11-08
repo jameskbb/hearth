@@ -1,0 +1,31 @@
+Dusk is the original Hearth scene, split from design/art/dusk.svg (which stays the reference and is not
+changed by the weather layers): layer 00 is the sky, sun and ridges, layer 01 the lit wisps.
+
+Weather variants
+
+Provenance: original work drawn for Hearth from this pack's own SVG sources; no third-party material.
+The ridge-following layers (11, 13, 16, 18) reuse the four ridge paths and the ridge displacement filter
+of layer 00, so what they draw sits exactly on the drawn crests. All are evening light over the same
+horizon, sun and ridges; the sun and its amber band stay in every variant.
+
+- snow: a lavender-pearl cloud deck (deck) with the sun still glowing in a clear slot under it, snow lying
+  above a snow line on every ridge with rose rims toward the sun (snow-caps), and two falling-snow layers
+  (snowfall-far, snowfall-near) that drift and fall at different speeds. The wisps are hidden.
+- snow-coming-frost (forecast snow, freezing): the deck, the pearl-rose hush over the lower sky (hush),
+  and a light dusting (snow-caps at 0.45). No flakes.
+- snow-coming (forecast snow): the deck and the hush; the hush before snow, no flakes.
+- rain: the deck, rain-washed crests catching the low sun (glints) and soft falling rain (rain).
+- fog: luminous valley fog lying between the ridges (fog), rose near the glow, thinner toward the left
+  where the app name sits.
+- overcast: the deck alone, with the wisps hidden.
+- freezing-clear: a cobalt lift of clear cold air over the upper sky (clear-air), the first stars (stars),
+  and rime with fine glints along the crests (frost).
+- cold-clear: the same at lower strength (clear-air 0.6, stars 0.7, frost 0.4).
+- hot-clear: a golden haze that spreads the sun's bloom and veils the far ridges (haze).
+
+Left out: none of the target pairings. Storm falls back to rain through the sky widening. Warm and mild
+clear evenings show the plain scene, which already is one. Dusk has no buildings, so the warm light kept
+in wet and snowy variants is the sun and its band rather than windows.
+
+Size: about 1.86 MB of variant images (deck, snow-caps and fog are the largest). The smooth veils (hush,
+clear-air, haze) are drawn at a quarter size, 480 px wide, since they hold only gradients.
