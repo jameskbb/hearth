@@ -3,6 +3,7 @@ package io.github.jameskbb.hearth.ui.theme
 import io.github.jameskbb.hearth.theme.Breath
 import io.github.jameskbb.hearth.theme.Drift
 import io.github.jameskbb.hearth.theme.Fade
+import io.github.jameskbb.hearth.theme.Fall
 import io.github.jameskbb.hearth.theme.LayerSpec
 import io.github.jameskbb.hearth.theme.Sway
 import kotlin.math.PI
@@ -46,6 +47,12 @@ object ThemeMotion {
         val w = CANVAS_WIDTH_DP.toDouble()
         return (((travelled % w) + w) % w).toFloat()
     }
+
+    /**
+     * Fall at [t]: [Fall.yDp] per period, downward and continuous, in canvas dp. The caller
+     * reduces it to the layer's drawn height, where the image repeats.
+     */
+    fun fallOffset(t: Double, fall: Fall): Double = fall.yDp.toDouble() * t / fall.periodSeconds
 
     /** Opacity breathing at [t]: the midpoint at t = 0 (phase 0), the maximum a quarter cycle on. */
     fun breath(t: Double, breath: Breath): Float {
@@ -95,6 +102,7 @@ object ThemeMotion {
     fun isStill(sway: Sway, layers: List<LayerSpec>): Boolean = layers.all { l ->
         (sway.amplitudeDp == 0f || l.parallax == 0f) &&
             (l.drift == null || l.drift.xDp == 0f) &&
+            l.fall == null &&
             (l.opacity == null || l.opacity.min == l.opacity.max) &&
             (l.fade == null || l.fade.from == l.fade.to)
     }
@@ -103,7 +111,9 @@ object ThemeMotion {
      * Where a layer lands on a canvas [canvasWidthPx] wide, in px. The image is scaled so its
      * width spans the canvas plus its overscan on both sides (starting at minus the overscan),
      * its height scaled with it, and its top edge sits `y` below the canvas top. [tiled] layers repeat every [LayerFrame.width] from [LayerFrame.left],
-     * which is then in (-width, 0].
+     * which is then in (-width, 0]. A falling layer also repeats every [LayerFrame.height]
+     * downward from [LayerFrame.top] ([LayerFrame.tiledVertically]), which is then in
+     * (-height, 0]: `y` plus the fall, reduced to one image height. At rest the fall is 0.
      */
     fun frame(
         spec: LayerSpec,
@@ -117,17 +127,26 @@ object ThemeMotion {
         val over = overscan(spec, sway) * unit
         val width = canvasWidthPx + 2f * over
         val height = width * imageHeight / imageWidth.coerceAtLeast(1)
-        val top = spec.yDp * unit
+        val fall = spec.fall
+        val top = if (fall == null) spec.yDp * unit else {
+            val fallDp = if (t == null) 0.0 else fallOffset(t, fall)
+            val h = height.toDouble().coerceAtLeast(1.0)
+            val raw = (spec.yDp + fallDp) * unit
+            var wrapped = ((raw % h) + h) % h
+            if (wrapped > 0.0) wrapped -= h
+            wrapped.toFloat()
+        }
+        val falls = fall != null
         val alpha = layerAlpha(t, spec)
         val swayPx = if (t == null) 0f else swayOffset(t, sway, spec.parallax) * unit
         if (spec.wrap) {
             val driftPx = if (t == null) 0f else (spec.drift?.let { driftOffset(t, it, wrap = true) } ?: 0f) * unit
             var left = (swayPx + driftPx) % width
             if (left > 0f) left -= width
-            return LayerFrame(left, top, width, height, alpha, tiled = true)
+            return LayerFrame(left, top, width, height, alpha, tiled = true, tiledVertically = falls)
         }
         val driftPx = if (t == null) 0f else (spec.drift?.let { driftOffset(t, it, wrap = false) } ?: 0f) * unit
-        return LayerFrame(-over + swayPx + driftPx, top, width, height, alpha, tiled = false)
+        return LayerFrame(-over + swayPx + driftPx, top, width, height, alpha, tiled = false, tiledVertically = falls)
     }
 }
 
@@ -139,4 +158,6 @@ data class LayerFrame(
     val height: Float,
     val alpha: Float,
     val tiled: Boolean,
+    /** Repeats downward every [height] from [top] to the canvas bottom (a falling layer). */
+    val tiledVertically: Boolean = false,
 )

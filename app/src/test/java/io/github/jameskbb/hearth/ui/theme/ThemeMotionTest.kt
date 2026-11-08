@@ -3,6 +3,7 @@ package io.github.jameskbb.hearth.ui.theme
 import io.github.jameskbb.hearth.theme.Breath
 import io.github.jameskbb.hearth.theme.Drift
 import io.github.jameskbb.hearth.theme.Fade
+import io.github.jameskbb.hearth.theme.Fall
 import io.github.jameskbb.hearth.theme.LayerSpec
 import io.github.jameskbb.hearth.theme.Sway
 import org.junit.Assert.assertEquals
@@ -147,11 +148,35 @@ class ThemeMotionTest {
         assertEquals(0f, rest.left, eps)
     }
 
+    @Test fun fallingLayerTilesDownwardFromInsideTheFirstTile() {
+        // 960x540 on a 1920 px canvas: 2 px per dp, each tile 1080 px tall.
+        val spec = LayerSpec("snow.webp", wrap = true, fall = Fall(40f, 60f))
+        val f = ThemeMotion.frame(spec, 960, 540, 1920f, Sway(), 30.0)
+        assertTrue(f.tiledVertically)
+        assertEquals(1080f, f.height, eps)
+        assertEquals(40f - 1080f, f.top, eps) // 20 dp down: the tile above shows its last 40 px
+        // Continuous: a whole period later it has moved another 40 dp, wrapped to one tile.
+        val later = ThemeMotion.frame(spec, 960, 540, 1920f, Sway(), 30.0 + 60.0 * 27)
+        assertEquals(((40f + 27 * 80f) % 1080f) - 1080f, later.top, 0.05f)
+        assertTrue(later.top <= 0f && later.top > -later.height)
+    }
+
+    @Test fun aFallingLayerRestsWithNoOffset() {
+        val spec = LayerSpec("rain.webp", yDp = 300f, fall = Fall(120f, 30f))
+        val rest = ThemeMotion.frame(spec, 960, 540, 1920f, Sway(), null)
+        assertEquals(ThemeMotion.frame(spec, 960, 540, 1920f, Sway(), 0.0), rest)
+        assertEquals(600f - 1080f, rest.top, eps) // y reduced to one tile, so the tiles still cover the top
+        assertTrue(rest.tiledVertically)
+        assertFalse(rest.tiled)
+        assertFalse(ThemeMotion.frame(LayerSpec("still.webp"), 960, 540, 1920f, Sway(), null).tiledVertically)
+    }
+
     @Test fun stillnessIsDetected() {
         assertTrue(ThemeMotion.isStill(Sway(), listOf(LayerSpec("a.webp", parallax = 1f))))
         assertTrue(ThemeMotion.isStill(Sway(10f), listOf(LayerSpec("a.webp"))))
         assertFalse(ThemeMotion.isStill(Sway(10f), listOf(LayerSpec("a.webp", parallax = 0.2f))))
         assertFalse(ThemeMotion.isStill(Sway(), listOf(LayerSpec("a.webp", opacity = Breath(0.5f, 1f, 30f)))))
         assertFalse(ThemeMotion.isStill(Sway(), listOf(LayerSpec("a.webp", fade = Fade(0f, 1f, 0f, 10f)))))
+        assertFalse(ThemeMotion.isStill(Sway(), listOf(LayerSpec("a.webp", fall = Fall(40f, 60f)))))
     }
 }

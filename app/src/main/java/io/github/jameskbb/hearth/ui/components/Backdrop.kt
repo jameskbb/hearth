@@ -42,7 +42,9 @@ private class Shown(val theme: LoadedTheme, var startedAt: Double)
  * - Time restarts at zero when a theme appears and when animation starts again (back in front,
  *   or Reduce motion turned off), so one-time fades play each time Hearth is shown.
  * - A new theme crossfades in over the old one ([UiTokens.motionMillis]; at once under Reduce
- *   motion). The caller keeps passing the old theme until the new one is decoded.
+ *   motion). A weather variant of the same pack crossfades slowly instead
+ *   ([UiTokens.weatherCrossfadeMillis]), so the weather seems to change rather than cut. The
+ *   caller keeps passing the old theme until the new one is decoded.
  * - Null draws nothing: the window color behind shows.
  *
  * The clock is read only while drawing, so a frame redraws this canvas (its own layer) and
@@ -74,9 +76,11 @@ fun ThemeBackdrop(theme: LoadedTheme?, animate: Boolean, modifier: Modifier = Mo
             return@LaunchedEffect
         }
         leaving = previous
+        val weatherChange = previous.theme.info.id == theme.info.id && previous.theme.variant != theme.variant
+        val millis = if (weatherChange) UiTokens.weatherCrossfadeMillis else UiTokens.motionMillis
         try {
             fadeIn.snapTo(0f)
-            fadeIn.animateTo(1f, tween(UiTokens.motionMillis, easing = LinearEasing))
+            fadeIn.animateTo(1f, tween(millis, easing = LinearEasing))
         } finally {
             // Also when a newer theme cancels this fade: it starts its own from here.
             leaving = null
@@ -131,17 +135,22 @@ private fun DrawScope.drawTheme(theme: LoadedTheme, t: Double?) {
         val f = ThemeMotion.frame(layer.spec, image.width, image.height, size.width, theme.sway, t)
         if (f.alpha <= 0f || f.top >= size.height) continue
         val w = f.width.roundToInt().coerceAtLeast(1)
-        val dst = IntSize(w, f.height.roundToInt().coerceAtLeast(1))
+        val h = f.height.roundToInt().coerceAtLeast(1)
+        val dst = IntSize(w, h)
         val blend = if (layer.spec.blend == LayerBlend.Screen) BlendMode.Screen else BlendMode.SrcOver
-        if (f.tiled) {
-            // Fractional offsets keep slow motion smooth; whole-pixel tile steps leave no seams.
-            var x = f.left
-            while (x < size.width) {
-                translate(x, f.top) { drawImage(image, dstSize = dst, alpha = f.alpha, blendMode = blend) }
-                x += w
+        // Fractional offsets keep slow motion smooth; whole-pixel tile steps leave no seams.
+        var y = f.top
+        do {
+            if (f.tiled) {
+                var x = f.left
+                while (x < size.width) {
+                    translate(x, y) { drawImage(image, dstSize = dst, alpha = f.alpha, blendMode = blend) }
+                    x += w
+                }
+            } else {
+                translate(f.left, y) { drawImage(image, dstSize = dst, alpha = f.alpha, blendMode = blend) }
             }
-        } else {
-            translate(f.left, f.top) { drawImage(image, dstSize = dst, alpha = f.alpha, blendMode = blend) }
-        }
+            y += h
+        } while (f.tiledVertically && y < size.height)
     }
 }

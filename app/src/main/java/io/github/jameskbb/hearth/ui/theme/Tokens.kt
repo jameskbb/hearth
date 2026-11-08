@@ -58,6 +58,8 @@ object Dimens {
 object UiTokens {
     /** Focus and lift motion: 160 ms, standard easing, only in response to the user. */
     const val motionMillis = 160
+    /** A weather variant of the scene on screen crossfades in this slowly (instant under Reduce motion). */
+    const val weatherCrossfadeMillis = 4000
     /** How far a tile rises while it is being moved in arrange mode. */
     val liftOffset = 8.dp
     /**
