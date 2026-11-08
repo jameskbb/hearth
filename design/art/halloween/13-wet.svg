@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="140" viewBox="0 230 960 140" data-scale="1">
+  <!-- Rain-washed maze: the open end of the path takes a soft silver sheen and
+       warm candle reflections pool on the wet earth in front of the pumpkins. -->
+  <defs>
+    <linearGradient id="sheen" gradientUnits="userSpaceOnUse" x1="660" y1="233" x2="600" y2="365">
+      <stop offset="0" stop-color="#C9D8D2" stop-opacity="0.14"/>
+      <stop offset="0.5" stop-color="#E2C99A" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#E7B977" stop-opacity="0.02"/>
+    </linearGradient>
+    <radialGradient id="pool">
+      <stop offset="0" stop-color="#FFCB7E" stop-opacity="0.55"/>
+      <stop offset="0.5" stop-color="#F0A957" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#E39A4A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="2.4 1.2"/></filter>
+    <filter id="blur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.6"/></filter>
+    <linearGradient id="nearfade" gradientUnits="userSpaceOnUse" x1="0" y1="312" x2="0" y2="340"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <mask id="near" maskUnits="userSpaceOnUse" x="0" y="230" width="960" height="140"><rect x="530" y="230" width="190" height="140" fill="url(#nearfade)"/></mask>
+  </defs>
+  <path d="M541 365 Q611 362 675 365 Q682 332 698 296 Q701 290 693 287 L648 280 Q640 278 648 273 L680 255 Q686 252 682 246 L678 233 L655 233 L648 247 L611 268 Q601 273 606 282 Q609 286 616 288 L650 298 Q657 301 653 308Z" fill="url(#sheen)" filter="url(#blur)" mask="url(#near)"/>
+  <g fill="none" stroke="#E6D9B8" stroke-linecap="round" filter="url(#soft)" opacity="0.4">
+    <path d="M664 326 L661 338 M610 354 L640 352 M580 360 L596 359"/>
+  </g>
+  <g fill="url(#pool)">
+    <ellipse cx="752" cy="340" rx="48" ry="5"/>
+    <ellipse cx="840" cy="334" rx="40" ry="4.5"/>
+    <ellipse cx="906" cy="342" rx="30" ry="3.6"/>
+  </g>
+</svg>

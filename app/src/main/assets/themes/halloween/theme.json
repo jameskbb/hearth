@@ -34,5 +34,72 @@
         "phase": 0
       }
     }
+  ],
+  "weather": [
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "add": [
+        {
+          "image": "moon-halo.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "fog-far.webp",
+          "y": 210,
+          "after": "sky.webp"
+        },
+        {
+          "image": "fog-near.webp",
+          "y": 290,
+          "after": "maze.webp"
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "wet.webp",
+          "y": 230,
+          "after": "maze.webp"
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 120,
+            "period": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        }
+      ]
+    }
   ]
 }

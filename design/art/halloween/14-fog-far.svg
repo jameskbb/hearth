@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="130" viewBox="0 210 960 130" data-scale="0.5">
+  <!-- Moonlit fog lying in the far hollows, behind the maze. It is thinner on
+       the left, where the focused app name sits. Quarter size: soft gradient. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B9CEC8" stop-opacity="0"/>
+      <stop offset="0.4" stop-color="#B9CEC8" stop-opacity="0.42"/>
+      <stop offset="0.65" stop-color="#C8D8D0" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#AFC3BE" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.4"/>
+      <stop offset="0.4" stop-color="#fff" stop-opacity="0.5"/>
+      <stop offset="0.62" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="m"><rect x="0" y="210" width="960" height="130" fill="url(#side)"/></mask>
+  </defs>
+  <rect x="0" y="210" width="960" height="130" fill="url(#band)" mask="url(#m)"/>
+</svg>

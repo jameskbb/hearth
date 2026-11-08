@@ -29,3 +29,23 @@ The three layers stay below the 32 MB decoded limit.
 
 The pack remains manual by default, with no recommended dayparts. Use Single
 Theme or explicitly add Halloween to a custom schedule or Surprise Me pool.
+
+Weather variants
+
+Original work drawn for Hearth from this pack's own SVG sources (10-16),
+on the same horizon and in the same palette. No third-party material. Soft
+gradient layers are authored at quarter size. The pumpkins' candlelight and
+the string lights are never covered: every variant layer sits behind the
+maze or parts around the pumpkins, and lights.webp stays on top.
+
+- fog (fog): the moonlight spreads into a wide silver halo that lifts the
+  sky; moonlit fog lies in the far hollows behind the maze and thinly over
+  the near ground, parting around the pumpkins.
+- rain (rain, and storm by widening): the moonlit overcast deck, light
+  falling rain (fall: 120 dp per 30 s), a soft sheen at the open end of the
+  path and warm candle reflections pooled in front of the pumpkins.
+- overcast (cloudy, and snow skies by widening): a pearl cloud deck that
+  thins around the crescent, which still shows with a soft halo.
+
+Left out: snow (Halloween evenings are rarely snowy; snow falls back to
+overcast), freezing and cold clear, and hot-clear (not true to the scene).

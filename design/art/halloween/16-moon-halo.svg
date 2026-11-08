@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" data-scale="0.5">
+  <!-- In fog the moonlight spreads into a wide, soft silver halo that lifts
+       the whole sky. Quarter size: soft gradient only. -->
+  <defs>
+    <radialGradient id="halo" gradientUnits="userSpaceOnUse" cx="664" cy="142" r="300">
+      <stop offset="0" stop-color="#E6E4CC" stop-opacity="0.42"/>
+      <stop offset="0.2" stop-color="#C4D3CA" stop-opacity="0.24"/>
+      <stop offset="0.6" stop-color="#9FB6B2" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#9FB6B2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lift" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5B7682" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#8FA9A8" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="fadeout" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.8" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="m"><rect width="960" height="300" fill="url(#fadeout)"/></mask>
+  </defs>
+  <g mask="url(#m)">
+    <rect width="960" height="300" fill="url(#lift)"/>
+    <rect width="960" height="300" fill="url(#halo)"/>
+  </g>
+</svg>
