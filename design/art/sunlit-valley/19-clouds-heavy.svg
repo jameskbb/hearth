@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="0 60 960 200" data-scale="1">
+  <!-- Snow sky: a low, soft deck of pearl cloud rolls above the range, lit from above. Repeats left to right. -->
+  <defs>
+    <linearGradient id="roll" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBFAF3"/>
+      <stop offset="0.55" stop-color="#E6EBEA"/>
+      <stop offset="1" stop-color="#C9D6DD" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="6"/></filter>
+    <g id="rolls"><ellipse cx="81.0" cy="132.9" rx="103.0" ry="11.3" opacity="0.37"/><ellipse cx="241.2" cy="117.1" rx="107.4" ry="11.0" opacity="0.32"/><ellipse cx="421.5" cy="128.7" rx="90.8" ry="11.8" opacity="0.27"/><ellipse cx="548.0" cy="133.8" rx="118.8" ry="12.2" opacity="0.39"/><ellipse cx="741.3" cy="138.8" rx="123.9" ry="12.4" opacity="0.45"/><ellipse cx="952.3" cy="136.7" rx="105.4" ry="12.9" opacity="0.33"/><ellipse cx="34.5" cy="181.7" rx="57.4" ry="20.3" opacity="0.67"/><ellipse cx="108.0" cy="187.2" rx="85.7" ry="19.1" opacity="0.68"/><ellipse cx="171.9" cy="167.1" rx="50.1" ry="19.9" opacity="0.52"/><ellipse cx="239.2" cy="160.7" rx="60.5" ry="14.4" opacity="0.85"/><ellipse cx="328.8" cy="178.3" rx="89.4" ry="14.3" opacity="0.62"/><ellipse cx="406.5" cy="193.8" rx="55.2" ry="17.7" opacity="0.55"/><ellipse cx="474.5" cy="192.7" rx="55.6" ry="18.5" opacity="0.69"/><ellipse cx="541.9" cy="158.6" rx="71.8" ry="14.4" opacity="0.80"/><ellipse cx="621.3" cy="159.6" rx="85.1" ry="23.7" opacity="0.81"/><ellipse cx="723.1" cy="176.7" rx="84.3" ry="21.3" opacity="0.54"/><ellipse cx="816.8" cy="159.2" rx="87.2" ry="23.2" opacity="0.81"/><ellipse cx="897.1" cy="170.8" rx="66.4" ry="17.9" opacity="0.85"/><ellipse cx="958.0" cy="154.3" rx="51.2" ry="21.2" opacity="0.85"/></g>
+  </defs>
+  <g fill="url(#roll)" filter="url(#soft)" opacity="0.85">
+    <use href="#rolls"/><use href="#rolls" x="-960"/><use href="#rolls" x="960"/>
+  </g>
+</svg>

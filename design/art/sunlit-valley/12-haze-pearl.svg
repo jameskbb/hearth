@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="150" viewBox="-4 220 968 150" data-scale="1">
+  <!-- Pearl aerial haze over the far range: light held in the valley air, strongest toward the sun. -->
+  <defs>
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2F4EA" stop-opacity="0"/>
+      <stop offset="0.4" stop-color="#F2F4EA" stop-opacity="0.5"/>
+      <stop offset="0.7" stop-color="#E6EDE6" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#DDE7E1" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.72" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.9"/>
+    </linearGradient>
+    <mask id="m"><rect x="-4" y="220" width="968" height="150" fill="url(#side)"/></mask>
+  </defs>
+  <rect x="-4" y="220" width="968" height="150" fill="url(#haze)" mask="url(#m)"/>
+</svg>

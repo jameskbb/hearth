@@ -1,1 +1,17 @@
 Sunlit Valley is original layered artwork created for Hearth. Its image-generation reference was produced with OpenAI's built-in image generation tool from the art direction in the development request. The shipping SVG layers were authored specifically for Hearth and do not embed third-party material.
+
+Weather variants
+
+All weather art is original work drawn for Hearth from this pack's own SVG layers (same horizon, ridgelines, river and pine placements); no third-party material. Sources are 10-26 in this folder; each renders at half resolution (data-scale="1").
+
+- snow: pearl sky, a low deck of soft cloud rolls, fresh snow on the range (sunlit right, cool blue shade left), the valley under snow with the river open, snow on the hill crest and every pine tier, and soft falling flakes (fall). The wooded slope in front keeps a deep evergreen shade so the action row stays readable.
+- rain: pearl sky and silver cloud banks, aerial haze, a break of sun on the far meadow, wet sheen along the folds, glints on the river, and sparse soft rain streaks (fall).
+- fog: pearl sky with the sun as a pale disc, luminous fog over the far range, and bright banks drifting in the valley folds.
+- snow-coming-freezing: forecast snow at freezing: the snow-sky deck and veiled sun, pearl haze, hoarfrost on the valley and pines.
+- snow-coming: forecast snow: the same hushed sky with a light cool tint on the meadows; no flakes.
+- overcast: pearl sky, silver cloud banks and pearl haze over the range.
+- freezing-clear: the clear blue sky, a bright horizon, hoarfrost on the meadows and the pines with ice sparkles.
+- cold-clear: the clear sky with a lighter touch of the same frost and horizon brightness.
+- hot-clear: golden haze along the horizon and the far range, meadows ripened toward gold.
+
+No pairings are left out. Mild and warm clear skies use the plain scene, which is already a warm clear day.

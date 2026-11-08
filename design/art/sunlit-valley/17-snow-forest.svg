@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="214" viewBox="-10 326 980 214" data-scale="1">
+  <!-- Snow on the near hill's crest and on every pine tier; the wooded slope below goes to a cool evergreen shade so the dock text keeps its contrast. -->
+  <defs>
+    <g id="cap">
+      <path d="M0 0 L-3 10 L-1.6 9.6 L0 5.2 L1.6 10.4 L3 11Z"/>
+      <path d="M-0.5 10.4 L-5 15 L-3 14.7 L0 12.6 L3 15.6 L5 16 L2 10.6Z"/>
+      <path d="M-2.4 15.4 L-6 20 L-4 19.7 L0 17.6 L4 21.5 L6 22 L3 16.4Z"/>
+      <path d="M-2.6 20.6 L-8 27 L-5.6 26.4 L0 23.4 L5.8 27.4 L8 28 L4 21.6Z"/>
+      <path d="M-4.4 26.6 L-9 32 L-6.6 31.4 L0 28.6 L6.8 33.2 L9 34 L5 27.6Z"/>
+      <path d="M-5.4 31.8 L-11 38 L-8.4 37.4 L0 34.4 L8 37.6 L10 38 L7 33.6Z"/>
+    </g>
+    <linearGradient id="crestSnow" x1="-12" y1="0" x2="972" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A3B9CB"/><stop offset="0.5" stop-color="#B9CCD9"/><stop offset="0.68" stop-color="#E6EFF2"/><stop offset="1" stop-color="#F2F7F6"/>
+    </linearGradient>
+    <linearGradient id="crestShade" x1="-12" y1="0" x2="972" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6F8CA6"/><stop offset="0.55" stop-color="#8FA7BC"/><stop offset="1" stop-color="#C6D7DE"/>
+    </linearGradient>
+    <linearGradient id="crestLine" x1="-12" y1="0" x2="972" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C9D8E3"/><stop offset="0.55" stop-color="#D9E5EC"/><stop offset="0.7" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <clipPath id="hill"><path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424 L972 540 L-12 540Z"/></clipPath>
+    <filter id="soft" x="-5%" y="-60%" width="110%" height="220%"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="soft2" x="-5%" y="-60%" width="110%" height="220%"><feGaussianBlur stdDeviation="1.6"/></filter>
+  </defs>
+  <g clip-path="url(#hill)" fill="none" stroke-linecap="round">
+    <rect x="-12" y="400" width="984" height="140" fill="#1E4A4F" opacity="0.42"/>
+    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestShade)" stroke-width="46" opacity="0.5" filter="url(#soft)"/>
+    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestSnow)" stroke-width="26" filter="url(#soft2)"/>
+    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestLine)" stroke-width="6" opacity="0.8"/>
+    <path d="M-12 509 C84 495 140 511 219 525 C345 546 469 542 572 532 C710 518 820 470 972 478" stroke="#D6E3E6" stroke-width="5" opacity="0.45" filter="url(#soft)"/>
+  </g>
+  <g fill="#F6FAF9" opacity="0.96"><use href="#cap" transform="translate(13 391) scale(1.5)"/><use href="#cap" transform="translate(37 410) scale(0.9)"/><use href="#cap" transform="translate(57 399) scale(1.25)"/><use href="#cap" transform="translate(84 430) scale(0.7)"/><use href="#cap" transform="translate(112 421) scale(1.0)"/><use href="#cap" transform="translate(126 437) scale(0.65)"/><use href="#cap" transform="translate(164 454) scale(0.62)"/><use href="#cap" transform="translate(179 452) scale(0.73)"/><use href="#cap" transform="translate(739 439) scale(0.64)"/><use href="#cap" transform="translate(754 426) scale(0.9)"/><use href="#cap" transform="translate(807 409) scale(0.8)"/><use href="#cap" transform="translate(821 393) scale(1.05)"/><use href="#cap" transform="translate(848 400) scale(0.65)"/><use href="#cap" transform="translate(873 354) scale(1.62)"/><use href="#cap" transform="translate(893 383) scale(1.08)"/><use href="#cap" transform="translate(925 372) scale(1.2)"/><use href="#cap" transform="translate(953 350) scale(1.65)"/></g>
+</svg>

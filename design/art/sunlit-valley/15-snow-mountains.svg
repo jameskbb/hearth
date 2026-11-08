@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="362" viewBox="-4 178 968 362" data-scale="1">
+  <!-- Fresh snow on the range: sunlit on the right, cool blue in the shade on the left; the near ridge is snowy forest. -->
+  <defs>
+    <linearGradient id="farV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FAFCFC"/>
+      <stop offset="0.45" stop-color="#E2ECF1"/>
+      <stop offset="1" stop-color="#B9CEDD"/>
+    </linearGradient>
+    <linearGradient id="farH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7393B2" stop-opacity="0.72"/>
+      <stop offset="0.3" stop-color="#86A2BE" stop-opacity="0.5"/>
+      <stop offset="0.55" stop-color="#9DB6CB" stop-opacity="0.16"/>
+      <stop offset="0.75" stop-color="#FFF8EA" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#FFF8EA" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="nearV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6EFF1"/>
+      <stop offset="0.5" stop-color="#C3D5DD"/>
+      <stop offset="1" stop-color="#9DB6C6"/>
+    </linearGradient>
+    <linearGradient id="nearH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5C7E9F" stop-opacity="0.8"/>
+      <stop offset="0.35" stop-color="#7896B4" stop-opacity="0.5"/>
+      <stop offset="0.6" stop-color="#9DB6CB" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#9DB6CB" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="coverG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.72"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.95"/>
+    </linearGradient>
+    <mask id="cover"><rect x="-8" y="178" width="976" height="362" fill="url(#coverG)"/></mask>
+    <clipPath id="far"><path d="M-8 296 L25 284 L47 263 L61 269 L78 255 L92 269 L116 281 L129 278 L157 302 L181 296 L203 314 L231 307 L258 329 L283 321 L303 334 L324 327 L350 343 L379 331 L398 314 L413 319 L433 303 L451 315 L474 300 L490 275 L503 282 L521 260 L543 274 L562 268 L581 282 L604 255 L619 263 L641 244 L656 251 L677 230 L690 237 L716 205 L728 221 L745 227 L761 249 L775 241 L792 259 L811 247 L827 266 L847 258 L871 281 L892 271 L917 288 L943 276 L968 284 L968 540 L-8 540Z"/></clipPath>
+    <clipPath id="near"><path d="M-8 337 C29 324 57 325 89 345 C125 357 142 348 177 372 C213 396 251 389 281 407 C313 426 349 415 388 407 C437 398 469 373 503 372 C548 371 579 343 614 343 C657 339 684 308 726 306 C768 306 793 286 823 299 C863 309 894 290 921 304 C941 308 956 304 968 297 L968 540 L-8 540Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#far)">
+    <rect x="-8" y="178" width="976" height="362" fill="url(#farV)" mask="url(#cover)"/>
+    <rect x="-8" y="178" width="976" height="362" fill="url(#farH)"/>
+    <!-- shaded faces under the summits keep the range's structure -->
+    <g fill="#8FAEC8" opacity="0.42">
+      <path d="M716 206 L702 241 L682 262 L660 284 L700 262 L716 236Z"/>
+      <path d="M521 261 L510 287 L494 303 L518 290 L524 276Z"/>
+      <path d="M78 256 L64 274 L44 294 L72 282 L80 268Z"/>
+      <path d="M604 256 L594 276 L576 292 L600 280Z M490 276 L478 296 L466 310 L488 296Z M641 245 L630 266 L612 282 L636 268Z"/>
+      <path d="M816 250 L806 270 L790 284 L812 272Z M871 282 L860 296 L846 306 L866 296Z M231 308 L222 322 L208 334 L228 324Z"/>
+    </g>
+    <g fill="none" stroke="#A9C1D4" stroke-linecap="round" opacity="0.5" stroke-width="1.1">
+      <path d="M728 222 L738 250 M745 228 L752 262 M761 250 L766 274 M543 275 L548 296 M92 270 L96 292 M656 252 L660 274 M775 242 L784 266 M827 267 L834 288"/>
+    </g>
+  </g>
+  <g clip-path="url(#near)">
+    <rect x="-8" y="290" width="976" height="250" fill="url(#nearV)" opacity="0.95"/>
+    <rect x="-8" y="290" width="976" height="250" fill="url(#nearH)"/>
+    <path d="M726 307 C751 307 779 293 799 296 L777 312 L754 319 L741 331 L711 336 L684 350 L664 347 L699 326Z" fill="#FFFBF0" opacity="0.4"/>
+  </g>
+</svg>

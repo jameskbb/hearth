@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="190" viewBox="0 52 960 190" data-scale="1">
+  <!-- Soft silver cloud banks with lit tops; repeats seamlessly left to right. -->
+  <defs>
+    <linearGradient id="bank" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBFBF5" stop-opacity="0.9"/>
+      <stop offset="0.55" stop-color="#E2E9E8" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#B9C9D2" stop-opacity="0.34"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="2.2"/></filter>
+    <g id="banks">
+      <path d="M30 150 C58 138 84 144 104 136 C124 124 150 130 166 126 C180 112 206 112 220 124 C240 118 262 128 270 140 C292 138 312 146 326 154 C266 160 200 156 150 159 C108 162 66 156 30 150Z" opacity="0.62"/>
+      <path d="M430 132 C452 118 476 124 494 114 C510 100 532 104 546 98 C558 82 584 80 600 92 C614 80 642 82 656 98 C676 94 700 104 708 118 C732 114 756 124 768 136 C792 134 818 142 836 150 C780 158 720 152 668 156 C620 160 566 152 520 154 C486 156 456 144 430 132Z" opacity="0.78"/>
+      <path d="M250 206 C272 196 294 202 312 196 C332 186 352 192 366 198 C388 194 410 202 424 208 C376 214 318 212 250 206Z" opacity="0.5"/>
+      <path d="M690 222 C716 212 742 218 762 212 C786 204 808 212 824 218 C852 214 880 222 900 228 C840 234 760 230 690 222Z" opacity="0.46"/>
+      <path d="M-10 198 C20 190 44 194 64 190 C86 184 104 190 118 196 C80 202 30 202 -10 198Z" opacity="0.4"/>
+    </g>
+  </defs>
+  <g fill="url(#bank)" filter="url(#soft)">
+    <use href="#banks"/><use href="#banks" x="-960"/><use href="#banks" x="960"/>
+  </g>
+</svg>
