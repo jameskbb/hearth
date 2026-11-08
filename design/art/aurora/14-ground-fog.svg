@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="270" viewBox="0 300 960 240" data-scale="1">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="270" viewBox="0 285 960 270" data-scale="1">
   <!-- Hearth theme "Aurora", weather layer: luminous ground fog. Clear sky above, so the curtain stays; the fog
        pools along the forest and is silvered by an unseen moon, faintly green where the aurora lights it.
-       A half-resolution strip from y 300. -->
+       A half-resolution strip from y 285; the fog bleeds past both frame edges. -->
   <defs>
     <linearGradient id="band" x1="0" y1="300" x2="0" y2="540" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff" stop-opacity="0"/>
@@ -23,11 +23,11 @@
       <feGaussianBlur in="a" stdDeviation="10 4" result="ab"/>
       <feComposite in="SourceGraphic" in2="ab" operator="in"/>
     </filter>
-    <mask id="m" maskUnits="userSpaceOnUse" x="0" y="300" width="960" height="240">
-      <rect y="300" width="960" height="240" fill="url(#band)"/>
+    <mask id="m" maskUnits="userSpaceOnUse" x="-40" y="285" width="1040" height="270">
+      <rect x="-40" y="285" width="1040" height="270" fill="url(#band)"/>
     </mask>
   </defs>
   <g mask="url(#m)">
-    <rect y="300" width="960" height="240" fill="url(#col)" filter="url(#wisp)" opacity=".8"/>
+    <rect x="-40" y="300" width="1040" height="255" fill="url(#col)" filter="url(#wisp)" opacity=".8"/>
   </g>
 </svg>

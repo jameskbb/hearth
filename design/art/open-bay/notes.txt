@@ -38,27 +38,36 @@ to the bay, so the weather follows its own trees, hills, stone wall and floor
 sheen. No third-party material and no image generation. Every layer is a soft
 half-resolution overlay; no base layer changed and nothing is replaced.
 
-- overcast (sky cloudy): pearl, silver daylight fills the bay and the sun
+- overcast (sky cloudy): the sky and far hills in the bay turn pearl silver
+  at full strength (keyed from the painting's palest, bluest pixels), the
+  garden and stone wall keep their form under a light 22% wash, and the sun
   streak on the floor turns from amber to soft silver.
-- rain (sky rain, and storm through the sky widening): the pearl light, soft
-  rain streaks falling past the bay (still, so they read the same with motion
-  off; the workshop stays dry), a streaked reflection of the doorway on the
-  wet floor and small glints. The dust motes are hidden for rain.
+- rain (sky rain, and storm through the sky widening): the pearl light, long
+  soft streaks of varied weight falling past the bay (still, so they read the
+  same with motion off; the workshop stays dry), a cool, vertically streaked
+  reflection of the doorway on the wet floor below the threshold and small
+  glints. The dust motes are hidden for rain.
 - snow (sky snow): the pearl light, snow resting on the sunlit tree tops, the
   stone wall and the drive, soft flakes in the doorway and a little drift on
   the threshold. The flakes are still rather than falling: a falling layer
   wraps over the whole canvas and would snow inside the workshop.
-- snow-coming (clear or cloudy sky, snow forecast): the pearl light with a
-  heavy, soft white sky settled into the top of the bay. No flakes.
 - fog (sky fog): the pearl light, the garden fading into luminous warm-silver
   mist (deepest toward the far hills), and a breath of it over the threshold.
-- freezing-clear: crisp blue air in the bay, white frost on the drive and the
-  stone wall that sparkles in the low sun, and feathery rime in the lower
+- freezing-clear: crisper, bluer air in the bay; the drive, wall tops and near
+  grass silvered with frost (shadowed ground lifted toward silver-blue, lit
+  tops white) and sparkling in the low sun; feathery rime in the lower
   corners of the small side window, kept faint below the weather line.
-- cold-clear: the crisp blue air only.
-- hot-clear: golden haze over the garden, a long warm beam of hazy air
-  reaching in with more dust in it. The floor and header corners are left
-  alone.
 
-No pairing is left out. Entries are ordered most specific first: snow,
-snow-coming, rain, fog, freezing-clear, cold-clear, hot-clear, overcast.
+Every bay layer is feathered about 10 dp into the jambs and over the
+threshold, so no clip edge shows.
+
+Left out, and why:
+- snow-coming: under a heavy snow sky the doorway looks the same as overcast,
+  so a separate variant would be a copy. Cloudy skies with snow forecast show
+  overcast; clear skies with snow forecast show the plain scene.
+- cold-clear and hot-clear: the base already is a clear, warm golden
+  afternoon, and neither could be told apart from it honestly. Cold and hot
+  clear days show the plain scene.
+
+Entries are ordered most specific first: snow, rain, fog, freezing-clear,
+overcast.

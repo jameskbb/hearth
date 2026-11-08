@@ -59,28 +59,6 @@
       ]
     },
     {
-      "id": "snow-coming",
-      "when": {
-        "sky": [
-          "clear",
-          "cloudy"
-        ],
-        "forecast": [
-          "snow"
-        ]
-      },
-      "add": [
-        {
-          "image": "pearl.webp",
-          "after": "workshop.webp"
-        },
-        {
-          "image": "hush.webp",
-          "after": "workshop.webp"
-        }
-      ]
-    },
-    {
       "id": "rain",
       "when": {
         "sky": [
@@ -136,40 +114,6 @@
         },
         {
           "image": "frost.webp",
-          "after": "workshop.webp"
-        }
-      ]
-    },
-    {
-      "id": "cold-clear",
-      "when": {
-        "sky": [
-          "clear"
-        ],
-        "temp": [
-          "cold"
-        ]
-      },
-      "add": [
-        {
-          "image": "cool-air.webp",
-          "after": "workshop.webp"
-        }
-      ]
-    },
-    {
-      "id": "hot-clear",
-      "when": {
-        "sky": [
-          "clear"
-        ],
-        "temp": [
-          "hot"
-        ]
-      },
-      "add": [
-        {
-          "image": "golden.webp",
           "after": "workshop.webp"
         }
       ]

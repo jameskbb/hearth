@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
   <!-- Hearth theme "Aurora", weather layer: snow on the way. A thin, high pearl veil moves in ahead of the snow
-       and the moon wears a soft ring through it. The veil is silvered by the moon and faintly green under the
+       and the moon wears a soft 22 degree ring through it: a faint crisp inner edge with a trace of warmth,
+       feathered outward. The veil is silvered by the moon and faintly green under the
        curtain, which still shows, softened. No flakes yet. -->
   <defs>
     <linearGradient id="v" x1="0" y1="0" x2="0" y2="1">
@@ -23,26 +24,28 @@
     <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="960" height="540">
       <rect width="960" height="540" fill="url(#v)"/>
     </mask>
-    <radialGradient id="moonglow" cx="846" cy="268" r="120" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#E9EEFF" stop-opacity=".55"/>
-      <stop offset=".18" stop-color="#C9D4F2" stop-opacity=".22"/>
+    <radialGradient id="moonglow" cx="846" cy="268" r="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9EEFF" stop-opacity=".3"/>
+      <stop offset=".25" stop-color="#D6DEF6" stop-opacity=".1"/>
+      <stop offset=".6" stop-color="#C9D4F2" stop-opacity=".03"/>
       <stop offset="1" stop-color="#C9D4F2" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="halo" cx="846" cy="268" r="70" gradientUnits="userSpaceOnUse">
+    <radialGradient id="halo" cx="846" cy="268" r="84" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#DDE6FF" stop-opacity="0"/>
-      <stop offset=".72" stop-color="#DDE6FF" stop-opacity="0"/>
-      <stop offset=".8" stop-color="#E8D9C8" stop-opacity=".09"/>
-      <stop offset=".85" stop-color="#E6ECFF" stop-opacity=".2"/>
-      <stop offset=".92" stop-color="#C9DCF5" stop-opacity=".08"/>
-      <stop offset="1" stop-color="#C9DCF5" stop-opacity="0"/>
+      <stop offset=".62" stop-color="#DDE6FF" stop-opacity="0"/>
+      <stop offset=".655" stop-color="#EAD8C2" stop-opacity=".16"/>
+      <stop offset=".69" stop-color="#E3E9FA" stop-opacity=".26"/>
+      <stop offset=".8" stop-color="#D4DEF4" stop-opacity=".12"/>
+      <stop offset=".92" stop-color="#C9D6F0" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#C9D6F0" stop-opacity="0"/>
     </radialGradient>
-    <filter id="soft"><feGaussianBlur stdDeviation=".6"/></filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.1"/></filter>
   </defs>
   <g mask="url(#m)">
     <rect width="960" height="540" fill="url(#tint)" filter="url(#wisp)"/>
     <rect width="960" height="540" fill="#9AA9CF" opacity=".07"/>
   </g>
   <rect width="960" height="540" fill="url(#moonglow)"/>
-  <rect width="960" height="540" fill="url(#halo)"/>
-  <circle cx="846" cy="268" r="7.5" fill="#F4F6FF" opacity=".92" filter="url(#soft)"/>
+  <rect width="960" height="540" fill="url(#halo)" filter="url(#wisp)"/>
+  <circle cx="846" cy="268" r="6.5" fill="#EEF1FA" opacity=".82" filter="url(#soft)"/>
 </svg>

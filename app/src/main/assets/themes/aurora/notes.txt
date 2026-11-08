@@ -16,25 +16,34 @@ and rime strips are sharp detail and render at full resolution as partial
 strips. No base layer changed and nothing is replaced; every variant only adds
 layers, so the sky and curtain are shared.
 
-- snow (sky snow): the lit cloud deck from overcast, snow resting on the tree
-  tops, a lighter snow-laden forest and a moonlit snowfield in front of it
-  that glows blue-lavender, darkening toward the tiles. Sparse soft flakes
-  fall slowly (fall 36 dp every 12 s) and read as a still texture with motion
-  off.
+- snow (sky snow): the lit cloud deck from overcast, broken snow caps of
+  varied depth on the upward edges of the crowns (brightest under the
+  curtain), a forest band with a soft vertical gradient and a scatter of
+  snowy crowns, and a moonlit snowfield in front that glows blue-lavender,
+  darkening toward the tiles. Sparse soft flakes of mixed sizes fall slowly
+  (fall 36 dp every 12 s) and read as a still texture with motion off.
 - snow-coming (clear or cloudy sky, snow forecast): a thin, high pearl veil
-  moves in ahead of the snow and the moon wears a soft ring through it. The
-  curtain still shows, softened. No flakes.
+  moves in ahead of the snow. The moon shows through it with a small glow
+  and a soft 22 degree halo: a faint inner edge with a trace of warmth,
+  feathered outward and drawn through the veil's own texture, so it reads
+  as part of the cloud. The curtain still shows, softened. No flakes.
 - fog (sky fog): luminous ground fog pooled along the forest, silvered by the
-  moon and faintly green under the curtain. Ground fog forms under a clear
-  sky, so the aurora stays.
-- freezing-clear: the extra stars of a dry, cold night with a few glinting, a
-  clear cool band of light along the treeline, rime on the tree tips and a
-  sprinkle of frost glints on the ground.
-- cold-clear: the extra stars and the clear treeline band, without frost.
+  moon and faintly green under the curtain, bleeding past both frame edges.
+  Ground fog forms under a clear sky, so the aurora stays.
+- freezing-clear: the extra stars of a dry, cold night (dense in the upper
+  sky, a spread of sizes, a few with soft cross glints), a deeper and more
+  saturated zenith, a clean cyan-teal band of clear air behind the treeline,
+  soft broken rime on the crown tips, and a faint frost sheen on the ground
+  in front of the trees with sparse sparkles inside it.
+- cold-clear: the same stars and clear air at 70% opacity, without frost:
+  visibly sharper than the plain scene, gentler than freezing.
 - overcast (sky cloudy, and rain or storm through the sky widening): an
-  overcast night hides the aurora, so a broken cloud deck covers it, with the
-  cloud undersides catching its teal light and the curtain showing through
-  the breaks. Light stays in the sky; the scene is never a flat dark ceiling.
+  overcast night hides most of the aurora. A broken deck covers it; no cloud
+  is darker than the base sky behind it, the undersides catch the curtain's
+  teal light, and the deck thins to broken bands across the curtain's
+  brightest run so more than half of it shows through. The land takes a
+  little of the sky's light, and a faint high haze keeps the gaps near the
+  top from reading black.
 
 Left out, and why:
 - rain: rain needs a thick, low deck that hides the aurora completely, and

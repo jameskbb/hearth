@@ -1,21 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
-  <!-- Hearth theme "Aurora", weather layer: a broken night cloud deck for overcast. Drawn over the curtain.
-       The cloud undersides catch the aurora's teal light and the low glow; breaks along the curtain's band
-       let the emerald show through, so an overcast night still carries the scene's light. -->
+  <!-- Hearth theme "Aurora", weather layer: a broken night cloud deck for overcast and snow. Drawn over the
+       curtain. No cloud is darker than the base sky behind it; the undersides catch the aurora's teal light
+       and the low glow. The deck thins to broken bands across the curtain's brightest run, so more than half
+       of the emerald shows through, and the land below takes a little of the sky's light. -->
   <defs>
     <!-- Where the deck thins: open breaks along the curtain, denser toward the top and the treeline. -->
     <linearGradient id="thin" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-      <stop offset=".3" stop-color="#fff" stop-opacity=".9"/>
-      <stop offset=".5" stop-color="#fff" stop-opacity=".84"/>
-      <stop offset=".7" stop-color="#fff" stop-opacity=".9"/>
-      <stop offset=".765" stop-color="#fff" stop-opacity=".7"/>
+      <stop offset="0" stop-color="#fff" stop-opacity=".95"/>
+      <stop offset=".22" stop-color="#fff" stop-opacity=".85"/>
+      <stop offset=".34" stop-color="#fff" stop-opacity=".5"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".38"/>
+      <stop offset=".62" stop-color="#fff" stop-opacity=".5"/>
+      <stop offset=".72" stop-color="#fff" stop-opacity=".8"/>
+      <stop offset=".765" stop-color="#fff" stop-opacity=".65"/>
       <stop offset=".785" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
     <!-- The light the clouds catch: slate violet above, aurora teal through the middle, the low glow below. -->
     <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2B3658"/>
-      <stop offset=".3" stop-color="#34536E"/>
+      <stop offset="0" stop-color="#24334E"/>
+      <stop offset=".3" stop-color="#2F4F6A"/>
       <stop offset=".5" stop-color="#3C7C78"/>
       <stop offset=".68" stop-color="#2F6168"/>
       <stop offset=".8" stop-color="#1D3F4E"/>
@@ -23,19 +26,36 @@
     </linearGradient>
     <filter id="deck" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
       <feTurbulence type="fractalNoise" baseFrequency=".0036 .0125" numOctaves="5" seed="23" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  5.2 0 0 0 -1.9" result="d"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4.6 0 0 0 -1.85" result="d"/>
       <feGaussianBlur in="d" stdDeviation="3.2 2" result="db"/>
       <!-- Soft relief: light from below picks out the rounded cloud bases. -->
-      <feDiffuseLighting in="db" surfaceScale="4" diffuseConstant="1.1" lighting-color="#9FE8D2" result="l">
+      <feDiffuseLighting in="db" surfaceScale="4" diffuseConstant="1.1" lighting-color="#3FE0A1" result="l">
         <feDistantLight azimuth="90" elevation="38"/>
       </feDiffuseLighting>
-      <feComposite in="SourceGraphic" in2="l" operator="arithmetic" k1=".5" k2=".8" k3="0" k4="0" result="shaded"/>
+      <feComposite in="SourceGraphic" in2="l" operator="arithmetic" k1=".25" k2=".95" k3=".2" k4="0" result="shaded"/>
       <feComposite in="shaded" in2="db" operator="in"/>
     </filter>
   </defs>
   <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="960" height="540">
     <rect width="960" height="540" fill="url(#thin)"/>
   </mask>
+  <filter id="tree" x="-5%" y="-50%" width="110%" height="200%">
+    <feTurbulence type="fractalNoise" baseFrequency=".09 .02" numOctaves="3" seed="2" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <linearGradient id="haze" x1="0" y1="0" x2="0" y2="200" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#1E2E44" stop-opacity=".6"/>
+    <stop offset="1" stop-color="#1E2E44" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="land" x1="0" y1="414" x2="0" y2="540" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#2A4A5E" stop-opacity=".55"/>
+    <stop offset=".4" stop-color="#1E3348" stop-opacity=".4"/>
+    <stop offset="1" stop-color="#172638" stop-opacity=".25"/>
+  </linearGradient>
+  <!-- The land: layer 00's treeline path and displacement, so it registers exactly. -->
+  <g filter="url(#tree)" fill="url(#land)"><path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/></g>
+  <!-- A faint high haze so the gaps near the top are not black against the lit deck. -->
+  <rect width="960" height="200" fill="url(#haze)"/>
   <g mask="url(#m)">
     <rect width="960" height="540" fill="url(#lit)" filter="url(#deck)"/>
   </g>
