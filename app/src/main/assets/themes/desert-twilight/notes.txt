@@ -14,7 +14,8 @@ happens beneath them. The stars and lenticular clouds are hidden under cloud.
 - snow: a lavender-pearl cloud deck (deck) over both skies, broken snow caps on the far mesa tops only where a
   surface faces up (snow-far), snow on the cliff's ledges, a snow-covered plain with irregular bare patches
   (small and close together toward the horizon, larger toward the viewer) lit toward the horizon and lavender
-  nearer, rose where the afterglow reaches, and a filled drift banked on the dune line (snow-near), and two
+  nearer, rose where the afterglow reaches, filled drifts banked on the dune line and the near ground, all
+  feathered out before the strip ends (snow-near), and two
   falling-snow layers (snowfall-far, snowfall-near, 270 dp tiles). Snow on mesas is rare but real.
 - snow-coming-frost (forecast snow, freezing): the deck, the pearl-rose hush (hush) and a light dusting
   (snow-far 0.5, snow-near 0.4). No flakes.
