@@ -19,7 +19,7 @@
     <filter id="wide" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
   </defs>
   <g clip-path="url(#backHill)">
-    <rect x="-12" y="345" width="984" height="60" fill="url(#fresh)" filter="url(#wide)"/>
+    <rect x="-12" y="345" width="984" height="46" fill="url(#fresh)" filter="url(#wide)"/>
   </g>
   <g fill="none" stroke="url(#sheen)" stroke-linecap="round" filter="url(#wet)">
     <path d="M-12 367 C57 359 106 384 165 399 C237 418 293 422 349 433 C420 444 475 443 530 426 C609 401 647 387 708 384 C792 381 851 349 909 350 C936 351 954 360 972 357" stroke-width="2.4" opacity="0.7"/>

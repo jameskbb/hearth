@@ -47,6 +47,11 @@
       <stop offset="0.38" stop-color="#8794B4" stop-opacity="0.4"/>
       <stop offset="0.55" stop-color="#8794B4" stop-opacity="0"/>
     </linearGradient>
+    <!-- The shade on the far range fades in unevenly below the summits: no straight edge. -->
+    <filter id="fadeSoft" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="16"/></filter>
+    <mask id="shadeFade" maskUnits="userSpaceOnUse" x="-40" y="200" width="1040" height="240">
+      <path d="M-40 440 L-40 260.5 L-20 271.7 L0 287.8 L20 294.8 L40 281.9 L60 292.8 L80 305.1 L100 288.4 L120 273.0 L140 270.3 L160 273.1 L180 272.0 L200 265.4 L220 271.7 L240 293.7 L260 294.5 L280 286.6 L300 286.3 L320 298.2 L340 295.2 L360 272.6 L380 266.8 L400 272.8 L420 278.2 L440 265.1 L460 270.8 L480 293.4 L500 303.1 L520 291.3 L540 283.1 L560 291.2 L580 288.5 L600 270.5 L620 263.7 L640 268.0 L660 282.0 L680 276.9 L700 270.5 L720 290.3 L740 303.7 L760 291.4 L780 283.5 L800 290.4 L820 285.5 L840 274.2 L860 256.7 L880 267.9 L900 283.9 L920 277.6 L940 273.1 L960 286.6 L980 304.6 L1000 294.2 L1000 440Z" fill="#fff" filter="url(#fadeSoft)"/>
+    </mask>
   </defs>
   <g clip-path="url(#farRange)">
     <rect x="-8" y="230" width="976" height="170" fill="url(#cap)" filter="url(#snowedge)"/>
@@ -58,7 +63,7 @@
     <rect x="-8" y="300" width="976" height="240" fill="url(#ridgeShade)"/>
   </g>
   <g clip-path="url(#farRange)">
-    <rect x="-8" y="288" width="976" height="120" fill="url(#rangeShade)"/>
+    <rect x="-8" y="230" width="976" height="180" fill="url(#rangeShade)" mask="url(#shadeFade)"/>
   </g>
   <!-- The sunrise's warm band across the snowy ridge, as on the base. -->
   <path d="M-8 368 C90 340 165 378 240 386 C329 394 361 418 445 413 C539 406 599 373 676 369 C789 365 856 339 968 351 L968 405 C839 389 769 406 674 405 C571 409 515 440 418 439 C300 437 211 407 128 402 C68 398 25 399 -8 408Z" fill="url(#light)" opacity="0.5"/>
