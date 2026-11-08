@@ -1,25 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="130" viewBox="0 300 960 130" data-scale="0.5">
-  <!-- Low mist over the near meadow that parts around the eggs, leaving
-       the blossom tree in thinner mist. Quarter size: soft gradient only. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="150" viewBox="0 290 960 150" data-scale="0.5">
+  <!-- Low morning mist lying over the meadow in soft drifts, parting around
+       the eggs and thinning around the blossom tree and behind the focused
+       app name. Quarter size: soft shapes only. -->
   <defs>
-    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#EDE4DA" stop-opacity="0"/>
-      <stop offset="0.35" stop-color="#EDE4DA" stop-opacity="0.24"/>
-      <stop offset="0.65" stop-color="#E2DCD2" stop-opacity="0.12"/>
-      <stop offset="1" stop-color="#E2DCD2" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#fff" stop-opacity="0.4"/>
-      <stop offset="0.42" stop-color="#fff" stop-opacity="0.7"/>
-      <stop offset="0.6" stop-color="#fff"/>
-    </linearGradient>
-    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
-    <mask id="m">
-      <rect x="0" y="300" width="960" height="130" fill="url(#side)"/>
-      <g fill="#000" filter="url(#feather)">
-        <ellipse cx="745" cy="300" rx="80" ry="30"/>
+    <filter id="soft" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="20 7"/></filter>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+    <mask id="m" maskUnits="userSpaceOnUse" x="-40" y="290" width="1040" height="150">
+      <rect x="-40" y="290" width="1040" height="150" fill="#fff"/>
+      <g filter="url(#feather)">
+        <rect x="0" y="288" width="410" height="72" fill="#000" opacity="0.75"/>
+        <ellipse cx="745" cy="300" rx="70" ry="22" fill="#000"/>
+        <rect x="855" y="290" width="40" height="70" rx="16" fill="#000" opacity="0.6"/>
       </g>
     </mask>
   </defs>
-  <rect x="0" y="300" width="960" height="130" fill="url(#band)" mask="url(#m)"/>
+  <g mask="url(#m)" fill="#F1E6DC" filter="url(#soft)">
+    <ellipse cx="200" cy="350" rx="230" ry="16" opacity="0.4"/>
+    <ellipse cx="520" cy="338" rx="200" ry="14" opacity="0.5"/>
+    <ellipse cx="820" cy="330" rx="170" ry="12" opacity="0.45"/>
+    <ellipse cx="400" cy="372" rx="260" ry="12" opacity="0.3"/>
+    <ellipse cx="760" cy="364" rx="220" ry="11" opacity="0.32"/>
+  </g>
 </svg>

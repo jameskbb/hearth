@@ -30,8 +30,11 @@ are never covered.
   wider moon glow, crisp still stars away from the clock, and ice sparkle on
   the snow field and bank crests.
 - snow (snow): falling snow on the existing silver banks. A pearl cloud deck
-  lit by the moon, fresh snow resting on every tier of the evergreens and
-  along the near bank crests, and two falling layers: many small distant
+  lit by the moon, fresh snow resting on every tier of the evergreens, a
+  lighter dusting on the lit tree that stops short of every light and the
+  star, the near banks redrawn as moonlit snow (lit crests brightest toward
+  the moon, cool blue hollows deepening toward the action row, no rim
+  lines), and two falling layers: many small distant
   flakes (fall: 60 dp per 60 s) and fewer larger near ones (100 dp per
   60 s). Flakes are lighter behind the clock, weather and app name; still,
   under Reduce motion, they read as a quiet snowy texture. The base cloud

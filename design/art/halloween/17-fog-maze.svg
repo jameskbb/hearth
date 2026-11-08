@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="140" viewBox="0 200 960 140" data-scale="0.5">
+  <!-- Fog drifting across the far end of the maze, so its corn banks fade
+       into the mist instead of ending in a hard edge. It thins behind the
+       focused app name. Quarter size: soft shapes only. -->
+  <defs>
+    <filter id="soft" x="-50%" y="-80%" width="200%" height="260%"><feGaussianBlur stdDeviation="16 7"/></filter>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+    <mask id="keep" maskUnits="userSpaceOnUse" x="0" y="200" width="960" height="140">
+      <rect x="0" y="200" width="960" height="140" fill="#fff"/>
+      <rect x="20" y="292" width="380" height="70" fill="#000" opacity="0.7" filter="url(#feather)"/>
+    </mask>
+  </defs>
+  <g mask="url(#keep)" fill="#BFD2CC" filter="url(#soft)">
+    <ellipse cx="335" cy="262" rx="120" ry="20" opacity="0.5"/>
+    <ellipse cx="300" cy="282" rx="130" ry="14" opacity="0.4"/>
+    <ellipse cx="462" cy="302" rx="34" ry="26" opacity="0.5"/>
+    <ellipse cx="520" cy="252" rx="80" ry="12" opacity="0.22"/>
+  </g>
+</svg>

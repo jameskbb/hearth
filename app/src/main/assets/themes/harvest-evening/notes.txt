@@ -31,7 +31,9 @@ gradient layers (veil-overcast, sky-crisp, fog-far, fog-near) are authored at
 quarter size because they hold no detail; the rest are half size.
 
 - frost (clear, freezing): a crisper blue upper sky over the unchanged copper
-  sunset, soft rime along the field crests, frosted stems and ice sparkle.
+  sunset, frost silvering the upper faces of the field folds in broken,
+  tapering fills (brightest toward the sun), rimed stubble and stems in the
+  near field and sparse ice sparkle inside the frosted areas.
 - fog (fog): luminous gold fog pooled in the far valley behind the orchard,
   and a thin low fog over the near fields that clears around the pumpkins,
   gourd and tree. Both thin on the left behind the focused app name.

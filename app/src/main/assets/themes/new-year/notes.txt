@@ -11,10 +11,12 @@ the champagne lights are drawn above any cloud and stay warm and clear.
 Soft gradient layers are authored at quarter size.
 
 - freezing-clear (clear, freezing): a clearer, brighter midnight blue,
-  crisp still stars kept away from the clock and the starbursts, rime on
-  the near shore crest and a few ice glints at the lake edge.
+  crisp still stars kept away from the clock and the starbursts, broken rime
+  on the upper face of the near shore and a few ice glints at the lake edge.
 - snow (snow): a pearl cloud deck with a champagne underside, the starbursts
-  above it, snow settling on the near shore, and two soft falling layers
+  above it, the near shore under snow (moonlit
+  crest warming toward the champagne lights, cool shadow deepening toward the
+  action row, the shore's own grass tufts poking through), and two soft falling layers
   (60 and 100 dp per 60 s), lighter behind the clock, weather and app name.
 - overcast (cloudy, and fog skies by widening): the pearl deck and the
   starbursts above it.

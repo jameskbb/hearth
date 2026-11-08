@@ -27,8 +27,9 @@ on the same horizon and in the same palette. No third-party material. Soft
 gradient layers (veil, rainbow, mist) are authored at quarter size. The
 eggs and the blossom tree are never covered.
 
-- fog (fog): spring morning mist blushed by the dawn between the far hills,
-  and a thin low mist over the near meadow that parts around the eggs.
+- fog (fog): rose-gold dawn mist lying in the valleys between the far hills
+  (drawn over them, parting around the eggs and the tree) and soft low drifts
+  over the near meadow. Both stay thin on the left behind the app name.
 - rain (rain, and storm by widening): a fresh spring rain. The pearl deck
   with fuller pink-pearl clouds, a faint pastel rainbow over the far hills
   (clear of the clock, fading before the app name), light falling rain

@@ -54,6 +54,11 @@
           "after": "sky.webp"
         },
         {
+          "image": "fog-maze.webp",
+          "y": 200,
+          "after": "maze.webp"
+        },
+        {
           "image": "fog-near.webp",
           "y": 290,
           "after": "maze.webp"

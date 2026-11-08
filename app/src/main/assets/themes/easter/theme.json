@@ -45,8 +45,8 @@
       "add": [
         {
           "image": "mist-far.webp",
-          "y": 230,
-          "after": "clouds.webp"
+          "y": 220,
+          "after": "meadow.webp"
         },
         {
           "image": "mist-near.webp",

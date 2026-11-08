@@ -1,19 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="120" viewBox="0 230 960 120" data-scale="0.5">
-  <!-- Spring morning mist lying between the far hills, blushed by the dawn.
-       Thinner on the left, behind the focused app name. Quarter size. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="140" viewBox="0 220 960 140" data-scale="0.5">
+  <!-- Rose-gold dawn mist lying in the valleys between the far hills, drawn over
+       them but parting around the eggs and the tree, warmest
+       around the rising sun. It thins on the left, behind the focused app
+       name. Quarter size: soft gradient only. -->
   <defs>
     <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#F2DED2" stop-opacity="0"/>
-      <stop offset="0.4" stop-color="#F2DED2" stop-opacity="0.56"/>
-      <stop offset="0.7" stop-color="#EEDFD4" stop-opacity="0.5"/>
+      <stop offset="0" stop-color="#F4D9C8" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#F4D9C8" stop-opacity="0.6"/>
+      <stop offset="0.6" stop-color="#F2DCCB" stop-opacity="0.7"/>
+      <stop offset="0.85" stop-color="#E9D6C8" stop-opacity="0.3"/>
       <stop offset="1" stop-color="#E4DAD0" stop-opacity="0"/>
     </linearGradient>
+    <radialGradient id="sun" gradientUnits="userSpaceOnUse" cx="656" cy="285" r="230">
+      <stop offset="0" stop-color="#FBDDB2" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FBDDB2" stop-opacity="0"/>
+    </radialGradient>
     <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#fff" stop-opacity="0.35"/>
-      <stop offset="0.42" stop-color="#fff" stop-opacity="0.5"/>
-      <stop offset="0.62" stop-color="#fff"/>
+      <stop offset="0" stop-color="#fff" stop-opacity="0.12"/>
+      <stop offset="0.42" stop-color="#fff" stop-opacity="0.18"/>
+      <stop offset="0.58" stop-color="#fff"/>
     </linearGradient>
-    <mask id="m"><rect x="0" y="230" width="960" height="120" fill="url(#side)"/></mask>
+    <linearGradient id="fadeout" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.4" stop-color="#fff"/>
+      <stop offset="0.75" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+    <mask id="m" maskUnits="userSpaceOnUse" x="0" y="220" width="960" height="140">
+      <rect x="0" y="220" width="960" height="140" fill="url(#side)"/>
+      <g fill="#000" filter="url(#feather)">
+        <ellipse cx="740" cy="294" rx="50" ry="20" opacity="0.65"/>
+        <rect x="860" y="220" width="30" height="140" rx="12" opacity="0.45"/>
+      </g>
+    </mask>
+    <mask id="f"><rect x="0" y="220" width="960" height="140" fill="url(#fadeout)"/></mask>
   </defs>
-  <rect x="0" y="230" width="960" height="120" fill="url(#band)" mask="url(#m)"/>
+  <g mask="url(#m)">
+    <rect x="0" y="220" width="960" height="140" fill="url(#band)"/>
+    <rect x="0" y="220" width="960" height="140" fill="url(#sun)" mask="url(#f)"/>
+  </g>
 </svg>

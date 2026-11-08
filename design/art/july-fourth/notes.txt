@@ -13,8 +13,9 @@ lamps are never covered.
   and the lake, the sky above warmer and brighter, and a few still gold
   shimmer glints on the far water.
 - rain (rain, and storm by widening): a summer shower. The pearl deck,
-  light falling rain (fall: 120 dp per 30 s), soft rings where drops land on
-  the lake (water only) and warm lamp light glinting on the wet pier boards.
+  light falling rain (fall: 120 dp per 30 s), soft, broken rings where drops land
+  on the lake (tiny and many toward the far shore, larger, fewer and fainter
+  nearer, each at a different stage of spreading; water only, edges faded) and warm lamp light glinting on the wet pier boards.
 - overcast (cloudy, and fog or snow skies by widening): a pearl summer deck that
   stays slate behind the clock and lets the dusk glow through over the pier.
 

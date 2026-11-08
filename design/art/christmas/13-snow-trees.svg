@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="180" viewBox="0 200 960 180" data-scale="1">
   <!-- Falling snow settles on the evergreens: each tier of the grove's own
        tree outlines keeps a soft white rim along its upper edge. The lit
-       Christmas tree is left as it is so its lights stay clear. -->
+       Christmas tree gets a lighter dusting that stops short of every light
+       and the star, so they stay clear. -->
   <defs>
     <filter id="soft" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="0.5"/></filter>
     <mask id="rim" maskUnits="userSpaceOnUse" x="0" y="200" width="960" height="180">
@@ -33,6 +34,47 @@
       </g>
     </mask>
     <linearGradient id="snow" x1="0" y1="200" x2="0" y2="380" gradientUnits="userSpaceOnUse"><stop stop-color="#EEF5F2"/><stop offset="1" stop-color="#C2D6D4"/></linearGradient>
+    <mask id="lit" maskUnits="userSpaceOnUse" x="0" y="200" width="960" height="180">
+      <path d="M758.00 200.00 L752.98 218.99 L755.49 212.83 L747.78 231.83 L752.89 225.67 L741.85 244.66 L749.92 238.50 L739.65 257.49 L748.82 251.33 L732.30 270.33 L745.15 264.17 L725.04 283.16 L741.52 277.00 L719.36 295.99 L738.68 289.83 L722.37 308.83 L740.18 302.67 L711.74 321.66 L734.87 315.50 L707.11 334.49 L732.55 328.33 L703.86 347.33 L730.93 341.17 L756.00 354.00 L760.00 354.00 L786.96 341.17 L815.91 347.33 L783.38 328.33 L808.75 334.49 L777.16 315.50 L796.31 321.66 L777.64 302.67 L797.29 308.83 L774.22 289.83 L790.45 295.99 L771.87 277.00 L785.74 283.16 L770.79 264.17 L783.58 270.33 L769.14 251.33 L780.28 257.49 L765.25 238.50 L772.51 244.66 L762.96 225.67 L767.92 231.83 L760.80 212.83 L763.60 218.99Z" fill="#fff"/>
+      <path d="M758.00 200.00 L752.98 218.99 L755.49 212.83 L747.78 231.83 L752.89 225.67 L741.85 244.66 L749.92 238.50 L739.65 257.49 L748.82 251.33 L732.30 270.33 L745.15 264.17 L725.04 283.16 L741.52 277.00 L719.36 295.99 L738.68 289.83 L722.37 308.83 L740.18 302.67 L711.74 321.66 L734.87 315.50 L707.11 334.49 L732.55 328.33 L703.86 347.33 L730.93 341.17 L756.00 354.00 L760.00 354.00 L786.96 341.17 L815.91 347.33 L783.38 328.33 L808.75 334.49 L777.16 315.50 L796.31 321.66 L777.64 302.67 L797.29 308.83 L774.22 289.83 L790.45 295.99 L771.87 277.00 L785.74 283.16 L770.79 264.17 L783.58 270.33 L769.14 251.33 L780.28 257.49 L765.25 238.50 L772.51 244.66 L762.96 225.67 L767.92 231.83 L760.80 212.83 L763.60 218.99Z" fill="#000" transform="translate(0.5 2.2)"/>
+      <g fill="#000">
+        <rect x="740" y="190" width="36" height="24"/>
+        <circle cx="750.00" cy="226.00" r="3.2"/>
+        <circle cx="758.00" cy="231.00" r="3.2"/>
+        <circle cx="766.00" cy="226.00" r="3.2"/>
+        <circle cx="743.00" cy="246.00" r="3.2"/>
+        <circle cx="753.00" cy="250.33" r="3.2"/>
+        <circle cx="763.00" cy="250.33" r="3.2"/>
+        <circle cx="773.00" cy="246.00" r="3.2"/>
+        <circle cx="736.00" cy="266.00" r="3.2"/>
+        <circle cx="747.00" cy="269.54" r="3.2"/>
+        <circle cx="758.00" cy="271.00" r="3.2"/>
+        <circle cx="769.00" cy="269.54" r="3.2"/>
+        <circle cx="780.00" cy="266.00" r="3.2"/>
+        <circle cx="729.00" cy="286.00" r="3.2"/>
+        <circle cx="740.60" cy="288.94" r="3.2"/>
+        <circle cx="752.20" cy="290.76" r="3.2"/>
+        <circle cx="763.80" cy="290.76" r="3.2"/>
+        <circle cx="775.40" cy="288.94" r="3.2"/>
+        <circle cx="787.00" cy="286.00" r="3.2"/>
+        <circle cx="722.00" cy="306.00" r="3.2"/>
+        <circle cx="734.00" cy="308.50" r="3.2"/>
+        <circle cx="746.00" cy="310.33" r="3.2"/>
+        <circle cx="758.00" cy="311.00" r="3.2"/>
+        <circle cx="770.00" cy="310.33" r="3.2"/>
+        <circle cx="782.00" cy="308.50" r="3.2"/>
+        <circle cx="794.00" cy="306.00" r="3.2"/>
+        <circle cx="715.00" cy="326.00" r="3.2"/>
+        <circle cx="727.29" cy="328.17" r="3.2"/>
+        <circle cx="739.57" cy="329.91" r="3.2"/>
+        <circle cx="751.86" cy="330.87" r="3.2"/>
+        <circle cx="764.14" cy="330.87" r="3.2"/>
+        <circle cx="776.43" cy="329.91" r="3.2"/>
+        <circle cx="788.71" cy="328.17" r="3.2"/>
+        <circle cx="801.00" cy="326.00" r="3.2"/>
+      </g>
+    </mask>
   </defs>
   <rect x="0" y="200" width="960" height="180" fill="url(#snow)" opacity="0.82" mask="url(#rim)" filter="url(#soft)"/>
+  <rect x="0" y="200" width="960" height="180" fill="url(#snow)" opacity="0.55" mask="url(#lit)" filter="url(#soft)"/>
 </svg>
