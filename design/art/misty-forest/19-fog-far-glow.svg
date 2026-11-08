@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="170" viewBox="0 210 960 170" data-scale="1">
+  <!-- Misty Forest weather layer: replaces fog-far.webp on fog mornings, with the same shapes, motion and
+       stitched texture: the valley mist thickened and lit from within, pearl white warming toward the sun. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="210" x2="0" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF8EA" stop-opacity="0"/>
+      <stop offset="0.22" stop-color="#FFF8EA" stop-opacity="0.62"/>
+      <stop offset="0.47" stop-color="#FFFBF2" stop-opacity="0.97"/>
+      <stop offset="0.7" stop-color="#FFF6E6" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#FFF6E6" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="mist" filterUnits="userSpaceOnUse" x="0" y="210" width="960" height="170">
+      <feTurbulence type="fractalNoise" baseFrequency=".0045 .028" numOctaves="4" seed="31" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.2 0 0 0 -0.35" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="210" width="960" height="170" fill="url(#band)" filter="url(#mist)"/>
+</svg>
