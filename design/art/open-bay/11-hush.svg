@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Hearth theme "Open Bay", weather layer: snow on the way. Over the pearl overcast, a heavy, soft white sky
+       settles into the top of the bay and the far hills go quiet behind it: the hush before snow. No flakes.
+       Half resolution. -->
+  <defs>
+    <clipPath id="bay"><rect x="517.5" y="145" width="265" height="178"/></clipPath>
+    <linearGradient id="g" x1="0" y1="145" x2="0" y2="323" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EEF0F4" stop-opacity=".78"/>
+      <stop offset=".3" stop-color="#E8ECF1" stop-opacity=".55"/>
+      <stop offset=".6" stop-color="#E2E7ED" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#E2E7ED" stop-opacity=".06"/>
+    </linearGradient>
+    <filter id="soft" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .03" numOctaves="3" seed="8" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .9 0 0 0 .45" result="a"/>
+      <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#bay)">
+    <rect x="517" y="145" width="266" height="178" fill="url(#g)" filter="url(#soft)"/>
+  </g>
+</svg>

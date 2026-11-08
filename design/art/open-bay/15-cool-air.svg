@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Hearth theme "Open Bay", weather layer: a cold, clear afternoon. The air in the bay turns crisp and blue,
+       the haze lifts off the hills and the sky behind the trees reads clear. Half resolution. -->
+  <defs>
+    <clipPath id="bay"><rect x="517.5" y="145" width="265" height="178"/></clipPath>
+    <linearGradient id="g" x1="0" y1="145" x2="0" y2="323" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A9CBEA" stop-opacity=".42"/>
+      <stop offset=".45" stop-color="#B4CFE6" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#BFD3E4" stop-opacity=".1"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#bay)">
+    <rect x="517" y="145" width="266" height="178" fill="url(#g)"/>
+  </g>
+</svg>
