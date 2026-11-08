@@ -65,6 +65,8 @@ data class WeatherReport(
     /** The WMO weather interpretation code; see [WeatherCodes]. */
     val weatherCode: Int,
     val isDay: Boolean,
+    /** Today's overall WMO code at that place (the daily forecast), when the response has it. */
+    val dailyWeatherCode: Int? = null,
 ) {
     fun isFor(place: Place?): Boolean =
         place != null && place.sameLocation(Place("", null, null, latitude, longitude))
@@ -103,7 +105,7 @@ data class WeatherState(
 
 /** The network calls. One implementation talks to Open-Meteo; tests use fakes. */
 interface WeatherApi {
-    /** Current conditions and today's range at [place]. Throws [WeatherException]. */
+    /** Current conditions, today's range and today's overall code at [place]. Throws [WeatherException]. */
     suspend fun forecast(place: Place, fetchedAt: Long): WeatherReport
 
     /** Cities matching [query], best first. Throws [WeatherException]. */

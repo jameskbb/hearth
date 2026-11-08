@@ -61,6 +61,7 @@ object WeatherPolicy {
             temperatureC = r.temperatureC,
             highC = r.highC,
             lowC = r.lowC,
+            forecast = r.dailyWeatherCode?.let(WeatherCodes::condition),
             expiresAt = expiresAt(r.fetchedAt),
         )
     }
@@ -73,6 +74,8 @@ data class WeatherGlance(
     val temperatureC: Double,
     val highC: Double?,
     val lowC: Double?,
+    /** Today's overall condition (the daily forecast), when known. Home does not show it; weather scenes read it. */
+    val forecast: Condition? = null,
     /** When this stops being current and must leave Home. */
     val expiresAt: Long,
 )

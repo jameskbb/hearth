@@ -17,6 +17,13 @@ class WeatherCacheTest {
         assertEquals(report, WeatherCacheCodec.decode(WeatherCacheCodec.encode(report)))
     }
 
+    @Test fun theDailyCodeRoundTripsAndAnOlderCacheReadsWithoutIt() {
+        val withForecast = report.copy(dailyWeatherCode = 71)
+        assertEquals(withForecast, WeatherCacheCodec.decode(WeatherCacheCodec.encode(withForecast)))
+        val older = """{"v":1,"lat":1,"lon":1,"at":1,"t":1,"code":1,"day":true}"""
+        assertNull(WeatherCacheCodec.decode(older)!!.dailyWeatherCode)
+    }
+
     @Test fun codecRejectsGarbageAndOtherVersions() {
         assertNull(WeatherCacheCodec.decode(""))
         assertNull(WeatherCacheCodec.decode("{"))

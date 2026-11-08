@@ -58,6 +58,8 @@ object WeatherCacheCodec {
         r.lowC?.let { put("lo", it) }
         put("code", r.weatherCode)
         put("day", r.isDay)
+        // Optional, so a cache written before it existed still reads (as no forecast).
+        r.dailyWeatherCode?.let { put("dcode", it) }
     }.toString()
 
     fun decode(text: String): WeatherReport? = try {
@@ -74,6 +76,7 @@ object WeatherCacheCodec {
                 lowC = if (o.has("lo")) o.getDouble("lo") else null,
                 weatherCode = o.getInt("code"),
                 isDay = o.getBoolean("day"),
+                dailyWeatherCode = (o.opt("dcode") as? Number)?.toInt(),
             ).takeIf { Place.isValid(it.latitude, it.longitude) && it.temperatureC.isFinite() }
         }
     } catch (_: JSONException) {
