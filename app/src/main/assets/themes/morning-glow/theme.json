@@ -46,8 +46,9 @@
       "hide": ["clouds.webp"],
       "add": [
         {"image": "sky-pearl.webp", "after": "sky.webp"},
-        {"image": "fog-veil.webp", "y": 150, "parallax": 0.2, "wrap": true, "drift": {"x": 40, "period": 240}, "after": "mountains.webp"},
-        {"image": "fog-veil.webp", "y": 240, "parallax": 0.6, "wrap": true, "drift": {"x": 60, "period": 200}, "opacity": {"min": 0.3, "max": 0.4, "period": 70}, "after": "hills.webp"}
+        {"image": "fog-veil.webp", "y": -20, "parallax": 0.1, "opacity": {"min": 0.5, "max": 0.6, "period": 90}, "after": "sky.webp"},
+        {"image": "fog-veil.webp", "y": 150, "parallax": 0.2, "after": "mountains.webp"},
+        {"image": "fog-veil.webp", "y": 240, "parallax": 0.6, "opacity": {"min": 0.3, "max": 0.4, "period": 70}, "after": "hills.webp"}
       ] },
     { "id": "snow-coming-freezing", "when": {"sky": ["clear", "cloudy"], "temp": ["freezing"], "forecast": ["snow"]},
       "hide": ["clouds.webp"],

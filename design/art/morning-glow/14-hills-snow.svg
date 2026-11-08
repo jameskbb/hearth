@@ -1,38 +1,66 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="-10 300 980 240">
   <!-- Morning Glow weather layer: the hills under fresh snow, replacing hills.webp for snow mornings.
-       The same shapes as 04-hills.svg. Sunlit snow on the far slopes with the sunrise's gold band across it;
-       the near hill lies in cool blue shade so the dock reads over it as it does on the green hills. -->
+       The same shapes as 04-hills.svg, modelled as snow: rose-gold light on the slopes facing the sunrise
+       (right), cool lavender-blue in the hollows and on the shaded left, soft gradients rather than flat
+       bands. The near hill is a periwinkle in shade so the dock still reads over it. -->
   <defs>
     <linearGradient id="back" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#F3F1EE"/>
-      <stop offset="0.16" stop-color="#DCE2EA"/>
-      <stop offset="0.33" stop-color="#9AAAC0"/>
-      <stop offset="0.45" stop-color="#71839F"/>
-      <stop offset="1" stop-color="#55678A"/>
+      <stop offset="0" stop-color="#E6E4EC"/>
+      <stop offset="0.25" stop-color="#C6CADC"/>
+      <stop offset="0.55" stop-color="#9CA4C4"/>
+      <stop offset="1" stop-color="#7F88AE"/>
     </linearGradient>
-    <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#7A8DAA"/>
-      <stop offset="0.45" stop-color="#53668A"/>
-      <stop offset="1" stop-color="#2F3E5E"/>
+    <linearGradient id="sunside" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFE0C8" stop-opacity="0"/>
+      <stop offset="0.42" stop-color="#FFE0C8" stop-opacity="0"/>
+      <stop offset="0.72" stop-color="#FFE2C6" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#FFDCC0" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="shadeside" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6E7AA6" stop-opacity="0.45"/>
+      <stop offset="0.4" stop-color="#6E7AA6" stop-opacity="0.12"/>
+      <stop offset="0.6" stop-color="#6E7AA6" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#F6D2A8" stop-opacity="0.1"/>
-      <stop offset="0.68" stop-color="#FFD7B4" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#F6D2A8" stop-opacity="0.2"/>
+      <stop offset="0" stop-color="#F8D8C4" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#FCD9BC" stop-opacity="0.25"/>
+      <stop offset="0.7" stop-color="#FFDAB4" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#F8D8C4" stop-opacity="0.2"/>
     </linearGradient>
-    <linearGradient id="lip" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#DCE6F2" stop-opacity="0.35"/>
-      <stop offset="0.75" stop-color="#FFF0D8" stop-opacity="0.8"/>
-      <stop offset="1" stop-color="#DCE6F2" stop-opacity="0.4"/>
+    <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6E7DAA"/>
+      <stop offset="0.5" stop-color="#5D6B98"/>
+      <stop offset="1" stop-color="#4E5C88"/>
     </linearGradient>
-    <filter id="soft" x="-5%" y="-50%" width="110%" height="200%">
-      <feGaussianBlur stdDeviation="1.4"/>
-    </filter>
+    <linearGradient id="frontlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C8C4DC" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#E8C8C0" stop-opacity="0.08"/>
+      <stop offset="0.85" stop-color="#F4CDB8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#F4CDB8" stop-opacity="0.2"/>
+    </linearGradient>
+    <clipPath id="backHill">
+      <path d="M-12 366 C57 358 106 383 165 398 C237 417 293 421 349 432 C420 443 475 442 530 425 C609 400 647 386 708 383 C792 380 851 348 909 349 C936 350 954 359 972 356 L972 540 L-12 540Z"/>
+    </clipPath>
+    <clipPath id="frontHill">
+      <path d="M-12 445 C55 427 104 441 151 446 C232 456 282 476 345 483 C437 492 514 474 588 466 C673 456 722 452 788 429 C852 408 911 408 972 418 L972 540 L-12 540Z"/>
+    </clipPath>
+    <filter id="sweep" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="hollow" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="12"/></filter>
+    <filter id="crest" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
   </defs>
   <path d="M-12 366 C57 358 106 383 165 398 C237 417 293 421 349 432 C420 443 475 442 530 425 C609 400 647 386 708 383 C792 380 851 348 909 349 C936 350 954 359 972 356 L972 540 L-12 540Z" fill="url(#back)"/>
-  <path d="M-12 379 C64 373 121 399 183 414 C256 432 304 429 362 442 C421 455 485 446 538 431 C643 398 687 399 748 393 C831 384 903 355 972 365 L972 401 C889 393 827 420 744 422 C649 423 587 455 507 465 C420 479 325 458 251 453 C153 449 64 404 -12 411Z" fill="url(#gold)" opacity="0.7"/>
+  <g clip-path="url(#backHill)">
+    <rect x="-12" y="340" width="984" height="200" fill="url(#shadeside)"/>
+    <!-- Lavender shadow pooling in the hollow below the first swell. -->
+    <path d="M-12 420 C80 410 170 440 260 452 C340 462 420 470 520 456 C600 444 680 430 760 426 L760 500 L-12 500Z" fill="#8790B8" opacity="0.4" filter="url(#hollow)"/>
+    <!-- The sunrise sweeping across the far snow: a soft wash, not a band. -->
+    <path d="M-12 379 C64 373 121 399 183 414 C256 432 304 429 362 442 C421 455 485 446 538 431 C643 398 687 399 748 393 C831 384 903 355 972 365 L972 401 C889 393 827 420 744 422 C649 423 587 455 507 465 C420 479 325 458 251 453 C153 449 64 404 -12 411Z" fill="url(#gold)" filter="url(#sweep)"/>
+    <rect x="-12" y="340" width="984" height="200" fill="url(#sunside)" opacity="0.6"/>
+  </g>
   <path d="M-12 445 C55 427 104 441 151 446 C232 456 282 476 345 483 C437 492 514 474 588 466 C673 456 722 452 788 429 C852 408 911 408 972 418 L972 540 L-12 540Z" fill="url(#front)"/>
-  <!-- Sun catching the lip of the near drift. -->
-  <path d="M-12 445 C55 427 104 441 151 446 C232 456 282 476 345 483 C437 492 514 474 588 466 C673 456 722 452 788 429 C852 408 911 408 972 418" fill="none" stroke="url(#lip)" stroke-width="2.2" filter="url(#soft)"/>
-  <path d="M-12 451 L15 446 L22 440 L29 443 L33 437 L39 444 L48 440 L54 446 L62 441 L69 443 L75 437 L81 442 L87 439 L93 446 L106 444 L111 449 L130 449 L137 444 L143 449 L151 446 L163 453 L187 455 L195 450 L203 458 L217 458 L230 464 L251 467 L260 462 L266 467 L272 465 L285 472 L312 477 L330 483 C239 500 115 522 -12 529Z" fill="#3A4868" opacity="0.4"/>
+  <g clip-path="url(#frontHill)">
+    <!-- Light on the near drift's crown, widest where it faces the sun, fading down the slope. -->
+    <path d="M-12 445 C55 427 104 441 151 446 C232 456 282 476 345 483 C437 492 514 474 588 466 C673 456 722 452 788 429 C852 408 911 408 972 418 L972 452 C911 440 852 444 788 462 C722 482 673 484 588 490 C514 496 437 506 345 500 C282 494 232 472 151 458 C104 452 55 442 -12 456Z" fill="url(#frontlight)" filter="url(#crest)"/>
+  </g>
+  <path d="M-12 451 L15 446 L22 440 L29 443 L33 437 L39 444 L48 440 L54 446 L62 441 L69 443 L75 437 L81 442 L87 439 L93 446 L106 444 L111 449 L130 449 L137 444 L143 449 L151 446 L163 453 L187 455 L195 450 L203 458 L217 458 L230 464 L251 467 L260 462 L266 467 L272 465 L285 472 L312 477 L330 483 C239 500 115 522 -12 529Z" fill="#46527C" opacity="0.4"/>
 </svg>

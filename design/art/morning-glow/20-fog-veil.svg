@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 150 960 320" data-scale="1">
   <!-- Morning Glow weather layer: luminous fog for fog mornings, drawn at half size (data-scale 1) and
-       wrapping: the band is uniform left to right and its texture is stitched noise, so the edges match.
-       Bright pearl, warmest where the sun shines into it. Used twice: a deep bank veiling the ranges and,
-       fainter, a low drift across the hills. -->
+       held still (it does not wrap or drift). Bright pearl. The fog thins to under a third over the left
+       of the frame where the focused app name and hint sit (and, in the high use, behind the clock).
+       Used three times: high in the sky so the overcast turns luminous, a deep bank veiling the ranges
+       and, fainter, a low drift across the hills. -->
   <defs>
     <linearGradient id="band" x1="0" y1="150" x2="0" y2="470" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#F7F2EA" stop-opacity="0"/>
@@ -15,13 +16,21 @@
       <stop offset="0" stop-color="#FFE6B8" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#FFE6B8" stop-opacity="0"/>
     </radialGradient>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+    <!-- Keepout: rows 190 to 360 of this layer land on the name band (and the clock in the high use). -->
+    <mask id="keepout" maskUnits="userSpaceOnUse" x="-100" y="50" width="1160" height="520">
+      <rect x="-100" y="50" width="1160" height="520" fill="#fff"/>
+      <rect x="-100" y="172" width="545" height="206" fill="#000" opacity="0.92" filter="url(#feather)"/>
+    </mask>
     <filter id="mist" filterUnits="userSpaceOnUse" x="0" y="150" width="960" height="320">
       <feTurbulence type="fractalNoise" baseFrequency=".004 .02" numOctaves="3" seed="44" stitchTiles="stitch" result="n"/>
       <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.6 0 0 0 -0.15" result="m"/>
       <feComposite in="SourceGraphic" in2="m" operator="in"/>
     </filter>
   </defs>
-  <g filter="url(#mist)">
-    <rect x="0" y="150" width="960" height="320" fill="url(#band)"/>
+  <g mask="url(#keepout)">
+    <g filter="url(#mist)">
+      <rect x="0" y="150" width="960" height="320" fill="url(#band)"/>
+    </g>
   </g>
 </svg>
