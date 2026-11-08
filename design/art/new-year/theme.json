@@ -42,5 +42,91 @@
         "period": 90
       }
     }
+  ],
+  "weather": [
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "sky-crisp.webp",
+          "after": "lakeside.webp"
+        },
+        {
+          "image": "stars.webp",
+          "after": "lakeside.webp"
+        },
+        {
+          "image": "frost.webp",
+          "y": 300
+        }
+      ]
+    },
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "lakeside.webp"
+        },
+        {
+          "image": "bursts.webp",
+          "y": 100,
+          "after": "lakeside.webp"
+        },
+        {
+          "image": "snow-shore.webp",
+          "y": 340,
+          "after": "reflections.webp"
+        },
+        {
+          "image": "snowfall-far.webp",
+          "wrap": true,
+          "fall": {
+            "y": 60,
+            "period": 60
+          }
+        },
+        {
+          "image": "snowfall-near.webp",
+          "wrap": true,
+          "fall": {
+            "y": 100,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "lakeside.webp"
+        },
+        {
+          "image": "bursts.webp",
+          "y": 100,
+          "after": "lakeside.webp"
+        }
+      ]
+    }
   ]
 }

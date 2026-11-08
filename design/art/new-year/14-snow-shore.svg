@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="130" viewBox="0 340 960 130" data-scale="1">
+  <!-- Snow settling on the near shore: a soft silver light along its crest
+       and a thin dusting that fades into the dark ground behind the app row. -->
+  <defs>
+    <filter id="soft" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="1.6 2"/></filter>
+    <linearGradient id="dust" gradientUnits="userSpaceOnUse" x1="0" y1="360" x2="0" y2="470">
+      <stop offset="0" stop-color="#D5E0E4" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#C5D2D8" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#C5D2D8" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="shore"><path d="M-20 368 C76 349 129 368 183 378 C241 391 270 410 347 420 C432 433 514 435 559 446 C672 470 766 464 984 449 L984 560 L-20 560Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#shore)">
+    <rect x="-20" y="340" width="1004" height="130" fill="url(#dust)"/>
+    <path d="M-20 368 C76 349 129 368 183 378 C241 391 270 410 347 420 C432 433 514 435 559 446 C672 470 766 464 984 449" fill="none" stroke="#E2EAEE" stroke-width="6" opacity="0.26" filter="url(#soft)"/>
+  </g>
+</svg>

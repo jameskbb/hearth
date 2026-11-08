@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="140" viewBox="0 300 960 140" data-scale="1">
+  <!-- Freezing clear: rime on the near shore crest and its grasses, and a
+       few ice glints where the lake meets the shore. -->
+  <defs><filter id="soft" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="1.8 1.8"/></filter>
+    <filter id="glint" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="0.4"/></filter>
+    <g id="spark"><path d="M0 -2.6 L0.4 -0.4 L2.6 0 L0.4 0.4 L0 2.6 L-0.4 0.4 L-2.6 0 L-0.4 -0.4Z"/></g></defs>
+  <path d="M-20 368 C76 349 129 368 183 378 C241 391 270 410 347 420 C432 433 514 435 559 446" fill="none" stroke="#E2ECF2" stroke-width="4" opacity="0.2" filter="url(#soft)"/>
+  <g fill="#F2F8FC" filter="url(#glint)">
+    <use href="#spark" transform="translate(93.3 362.5) scale(0.69)" opacity="0.71"/>
+    <use href="#spark" transform="translate(323.4 418.8) scale(0.69)" opacity="0.82"/>
+    <use href="#spark" transform="translate(59.7 358.6) scale(0.47)" opacity="0.65"/>
+    <use href="#spark" transform="translate(388.0 429.0) scale(0.40)" opacity="0.45"/>
+    <use href="#spark" transform="translate(206.6 386.1) scale(0.60)" opacity="0.56"/>
+    <use href="#spark" transform="translate(109.4 365.3) scale(0.70)" opacity="0.83"/>
+    <use href="#spark" transform="translate(176.7 378.8) scale(0.88)" opacity="0.73"/>
+    <use href="#spark" transform="translate(141.1 371.7) scale(0.62)" opacity="0.49"/>
+    <use href="#spark" transform="translate(56.8 360.6) scale(0.56)" opacity="0.55"/>
+    <use href="#spark" transform="translate(390.6 427.0) scale(0.63)" opacity="0.65"/>
+    <use href="#spark" transform="translate(4.3 368.3) scale(0.53)" opacity="0.51"/>
+    <use href="#spark" transform="translate(277.8 407.8) scale(0.42)" opacity="0.50"/>
+    <use href="#spark" transform="translate(21.8 364.5) scale(0.56)" opacity="0.53"/>
+    <use href="#spark" transform="translate(94.5 362.9) scale(0.69)" opacity="0.69"/>
+    <use href="#spark" transform="translate(5.2 368.6) scale(0.42)" opacity="0.76"/>
+    <use href="#spark" transform="translate(353.0 422.7) scale(0.57)" opacity="0.67"/>
+    <use href="#spark" transform="translate(313.9 417.0) scale(0.43)" opacity="0.49"/>
+    <use href="#spark" transform="translate(337.2 419.6) scale(0.69)" opacity="0.60"/>
+    <use href="#spark" transform="translate(18.4 366.6) scale(0.49)" opacity="0.58"/>
+    <use href="#spark" transform="translate(401.5 430.8) scale(0.83)" opacity="0.82"/>
+    <use href="#spark" transform="translate(172.6 377.0) scale(0.63)" opacity="0.78"/>
+    <use href="#spark" transform="translate(350.6 423.1) scale(0.75)" opacity="0.54"/>
+    <use href="#spark" transform="translate(306.1 414.0) scale(0.84)" opacity="0.57"/>
+    <use href="#spark" transform="translate(294.0 412.4) scale(0.75)" opacity="0.76"/>
+    <use href="#spark" transform="translate(403.7 428.3) scale(0.88)" opacity="0.46"/>
+    <use href="#spark" transform="translate(395.0 427.8) scale(0.45)" opacity="0.59"/>
+    <use href="#spark" transform="translate(603.3 317.8) scale(0.69)" opacity="0.64"/>
+    <use href="#spark" transform="translate(700.6 319.0) scale(0.56)" opacity="0.50"/>
+    <use href="#spark" transform="translate(611.2 318.8) scale(0.65)" opacity="0.69"/>
+    <use href="#spark" transform="translate(791.0 320.2) scale(0.50)" opacity="0.64"/>
+    <use href="#spark" transform="translate(867.8 320.6) scale(0.42)" opacity="0.56"/>
+    <use href="#spark" transform="translate(588.1 319.3) scale(0.52)" opacity="0.58"/>
+    <use href="#spark" transform="translate(762.2 318.4) scale(0.40)" opacity="0.50"/>
+    <use href="#spark" transform="translate(856.5 318.1) scale(0.69)" opacity="0.65"/>
+    <use href="#spark" transform="translate(660.2 318.8) scale(0.63)" opacity="0.40"/>
+    <use href="#spark" transform="translate(852.6 318.6) scale(0.59)" opacity="0.40"/>
+  </g>
+</svg>

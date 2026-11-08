@@ -1,3 +1,23 @@
 New Year is original SVG artwork authored for Hearth. No third-party assets or generated raster imagery are embedded. The scene follows the existing layered landscape system: a navy midnight lake, distant still champagne celebration lights, and a dark shoreline beneath the app dock. The starbursts and shore lights stay steady; only atmospheric haze and broken water reflections move. No year number or personalized text is painted into the scene.
 
 Render with scripts/render-theme.sh new-year. The base is encoded losslessly with the shared fine anti-banding grain. Haze and reflections are authored at half resolution. Haze travels 18 dp per minute with a seamless horizontal wrap. Reflections glide 4 dp each way over 64 seconds and breathe between 0.64 and 0.90 over 90 seconds. Reduce motion uses the renderer's static rest state. The pack is opt-in and does not enter implicit rotation pools.
+
+Weather variants
+
+Original work drawn for Hearth from this pack's own SVG sources (10-17),
+on the same horizon and in the same palette. No third-party material.
+11-bursts.svg copies the two starbursts from 00-lakeside.svg unchanged, so
+the champagne lights are drawn above any cloud and stay warm and clear.
+Soft gradient layers are authored at quarter size.
+
+- freezing-clear (clear, freezing): a clearer, brighter midnight blue,
+  crisp still stars kept away from the clock and the starbursts, rime on
+  the near shore crest and a few ice glints at the lake edge.
+- snow (snow): a pearl cloud deck with a champagne underside, the starbursts
+  above it, snow settling on the near shore, and two soft falling layers
+  (60 and 100 dp per 60 s), lighter behind the clock, weather and app name.
+- overcast (cloudy, and fog skies by widening): the pearl deck and the
+  starbursts above it.
+
+Left out: rain (a winter midnight; rain falls back to overcast) and
+hot-clear (not true to the season).

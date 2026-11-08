@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="310" viewBox="0 0 960 310" data-scale="0.5">
+  <!-- A pearl midnight cloud deck for overcast and snow, at quarter size
+       because it is all soft gradient. Its underside takes a champagne glow
+       from the celebration below; it stays slate behind the clock. -->
+  <defs>
+    <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3D4F6C" stop-opacity="0.56"/>
+      <stop offset="0.4" stop-color="#687C90" stop-opacity="0.44"/>
+      <stop offset="0.75" stop-color="#94A3A6" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#94A3A6" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" gradientUnits="userSpaceOnUse" cx="740" cy="250" r="300">
+      <stop offset="0" stop-color="#F0D2A0" stop-opacity="0.34"/>
+      <stop offset="0.4" stop-color="#D8BC94" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#C4AC8C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A9B4BC" stop-opacity="0"/>
+      <stop offset="1" stop-color="#D9D6CC" stop-opacity="0.5"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="8 5"/></filter>
+  </defs>
+  <rect width="960" height="310" fill="url(#deck)"/>
+  <g fill="url(#belly)" filter="url(#soft)">
+    <path d="M420 88 C480 74 540 84 600 78 C660 70 720 84 780 76 C840 68 900 80 980 74 L980 108 C900 116 840 106 780 112 C720 118 660 108 600 114 C540 120 480 112 420 110Z" opacity="0.4"/>
+    <path d="M-20 150 C40 138 100 148 160 140 C220 132 280 146 340 140 C380 136 410 140 440 148 C400 158 350 154 300 160 C240 166 180 158 120 164 C60 170 20 162 -20 166Z" opacity="0.3"/>
+    <path d="M280 232 C350 220 420 230 490 224 C570 216 650 230 730 222 C810 214 890 226 980 218 L980 244 C890 252 810 242 730 248 C650 254 570 246 490 252 C420 258 350 250 280 248Z" opacity="0.5"/>
+  </g>
+  <rect width="960" height="310" fill="url(#glow)"/>
+</svg>
