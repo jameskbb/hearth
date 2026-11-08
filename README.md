@@ -41,6 +41,12 @@ with the services shown. [About the demos](docs/demo-apps.md).*
   Halloween corn maze with friendly carved pumpkins and slowly breathing lights.
   Holiday themes are on by default: the matching scene takes over on five
   holidays, then your chosen mode returns. Turn this off in Settings, Theme.
+- **Scenes that follow the weather.** With weather on, every scene changes
+  with the sky outside: frost on a freezing morning, rain on a wet afternoon,
+  a pearl sky when snow is on the way, falling snow, fog and golden summer
+  haze, always bright and never gloomy. It is on by default once you turn on
+  weather; switch it off with Weather in scenes. Without weather, nothing
+  changes.
 - **Motion at your pace.** Slow clouds, haze, and light give the artwork life.
   Reduce motion makes every scene still and turns off focus scaling and fades.
 - **Updates from the sofa.** Check for updates in Settings, download a new
