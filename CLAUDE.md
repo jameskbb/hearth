@@ -23,9 +23,12 @@ Write everything as if it were already public.
   maintainer's private records, not here.
 - No secrets, keystores or signing passwords in the repo (`.gitignore` covers
   `*.jks`, `*.keystore`, `keystore.properties`).
-- Agents never make this repository public, create a public repository,
-  publish a release, or post project content publicly. The maintainer does
-  that by hand.
+- Agents never make this repository public, create a public repository, or
+  post project content publicly. The maintainer does that by hand.
+- Agents may publish a GitHub release when the maintainer asks for one. The
+  APK must be signed with the same key as the previous release (check with
+  `apksigner verify --print-certs`), `scripts/check.sh` must pass on the
+  released commit, and CI must be green on `main` first.
 - Commits carry no AI attribution trailers.
 - Third-party material is recorded in `third_party/` with its license.
 
