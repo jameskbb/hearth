@@ -11,26 +11,29 @@ and sway with them. Every variant keeps the day sky, the twilight sky fading in 
 afterglow: weather layers are translucent overlays drawn above both skies, so the crossfade still
 happens beneath them. The stars and lenticular clouds are hidden under cloud.
 
-- snow: a lavender-pearl cloud deck (deck) over both skies, snow caps on the far mesa tops (snow-far),
-  snow on the cliff ledges, a patchy blanket on the plain and a drift on the dune line (snow-near), and
-  two falling-snow layers (snowfall-far, snowfall-near, 270 dp tiles). Snow on mesas is rare but real;
-  it is kept to the blue-hour lavender of the shade side, with rose where the afterglow reaches it.
+- snow: a lavender-pearl cloud deck (deck) over both skies, broken snow caps on the far mesa tops only where a
+  surface faces up (snow-far), snow on the cliff's ledges, a snow-covered plain with irregular bare patches
+  (small and close together toward the horizon, larger toward the viewer) lit toward the horizon and lavender
+  nearer, rose where the afterglow reaches, and a filled drift banked on the dune line (snow-near), and two
+  falling-snow layers (snowfall-far, snowfall-near, 270 dp tiles). Snow on mesas is rare but real.
 - snow-coming-frost (forecast snow, freezing): the deck, the pearl-rose hush (hush) and a light dusting
   (snow-far 0.5, snow-near 0.4). No flakes.
 - snow-coming (forecast snow): the deck and the hush. No flakes.
-- rain: the deck, soft rain (rain, a 270 dp tile), and rain standing in thin slicks on the plain that hold
-  the afterglow (puddles).
-- fog: luminous ground fog lying across the basin floor between the far mesas and the near terrain (mist),
-  kept thin toward the left where the app name sits. The lenticular clouds are hidden.
+- rain: the deck, soft rain (rain, a 270 dp tile), and a few irregular slicks clustered in the low ground right
+  of the app name, wider and shallower with distance, reflecting amber and rose with a darker damp rim (puddles).
+- fog: luminous ground fog lying across the basin floor over the near terrain, so the buttes rise out of it,
+  rose near the afterglow and under a third of its strength over the left, where the app name sits (mist).
+  The lenticular clouds are hidden.
 - overcast: the deck alone.
-- freezing-clear: a cobalt lift of clear cold air over both skies (clear-air), rime on the far mesa tops
-  (frost-far), and rime with glints along the ledges, the plain's edge and the dune line (frost).
-- cold-clear: the same at lower strength (clear-air 0.6, frost-far 0.5, frost 0.4).
+- freezing-clear: a cobalt lift of clear cold air over both skies (clear-air), broken rime on the far mesa
+  tops (frost-far), and silvering of the shadowed ground with broken rime on the ledges and the dune's top and
+  sparse soft glints (frost).
+- cold-clear: the same at lower strength (clear-air 0.9, frost-far 0.5, frost 0.4).
 - hot-clear: a golden haze over the far mesas and the afterglow (haze), drawn beneath the near terrain.
 
 Left out: none of the target pairings. Storm falls back to rain through the sky widening; warm and mild
 clear evenings show the plain scene.
 
-Size: about 1.60 MB of variant images. The largest variant (snow) decodes to about 31.4 MB against the
+Size: about 2.3 MB of variant images. The largest variant (snow) decodes to about 31.6 MB against the
 32 MB limit, which is why its snow strips are cropped to the rows they use and its falling layers are
 270 dp tiles; add nothing to it without taking something out.
