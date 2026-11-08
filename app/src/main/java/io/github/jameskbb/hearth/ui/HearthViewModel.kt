@@ -21,6 +21,9 @@ import io.github.jameskbb.hearth.prefs.PrefsCodec
 import io.github.jameskbb.hearth.system.SystemRoute
 import io.github.jameskbb.hearth.theme.HolidayThemes
 import io.github.jameskbb.hearth.theme.LoadedTheme
+import io.github.jameskbb.hearth.theme.SceneMood
+import io.github.jameskbb.hearth.theme.SceneWeather
+import io.github.jameskbb.hearth.theme.ShownMood
 import io.github.jameskbb.hearth.theme.ThemeFailure
 import io.github.jameskbb.hearth.theme.ThemeId
 import io.github.jameskbb.hearth.theme.ThemeInfo
@@ -198,6 +201,49 @@ class HearthViewModel(
     val reducedMotion: StateFlow<Boolean> = prefs.map { it?.reducedMotion ?: false }
         .stateIn(viewModelScope, SharingStarted.Eagerly, false)
 
+    /** Weather as the service reports it (Settings shows its status). */
+    val weather: StateFlow<WeatherState> = container.weather.state
+
+    /**
+     * What Home shows: the current weather, or null (weather off, no city, never fetched, or older
+     * than WeatherPolicy.MAX_AGE_MILLIS). A result leaves Home when it expires even if nothing else
+     * happens: one delay until that moment, no polling.
+     */
+    val homeWeather: StateFlow<WeatherGlance?> = weather.transformLatest { s ->
+        var glance = WeatherPolicy.glance(s, now())
+        emit(glance)
+        while (glance != null) {
+            delay((glance.expiresAt - now()).coerceAtLeast(0) + 1)
+            glance = WeatherPolicy.glance(s, now())
+            emit(glance)
+        }
+    }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+
+    /** The mood on screen and since when, for the hold; read and written only by [sceneMood]. */
+    private var shownMood: ShownMood? = null
+
+    /**
+     * The weather as scenes see it (decision 0013), or null for the plain scene: weather off, no
+     * city, stale, or Weather in scenes off. Recomputed only when Home's weather or the setting
+     * changes; a new mood replaces the one on screen only after that one has been up for
+     * SceneWeather.HOLD_MILLIS (one delay until then, no polling). No mood is immediate.
+     */
+    val sceneMood: StateFlow<SceneMood?> = combine(
+        homeWeather,
+        prefs.map { it?.weatherScenes ?: HearthPrefs().weatherScenes }.distinctUntilChanged(),
+    ) { glance, scenes -> glance to scenes }
+        .transformLatest { (glance, scenes) ->
+            val candidate = SceneWeather.mood(glance, scenes, shownMood?.mood)
+            shownMood = SceneWeather.hold(shownMood, candidate, now())
+            emit(shownMood?.mood)
+            val waitUntil = SceneWeather.holdEndsAt(shownMood, candidate)
+            if (waitUntil != null) {
+                delay((waitUntil - now()).coerceAtLeast(0) + 1)
+                shownMood = SceneWeather.hold(shownMood, candidate, now())
+                emit(shownMood?.mood)
+            }
+        }.distinctUntilChanged().stateIn(viewModelScope, SharingStarted.Eagerly, null)
+
     // region theme state
 
     /** Usable theme packs in gallery order, and the packs that failed, with their reasons. */
@@ -248,32 +294,40 @@ class HearthViewModel(
     /** False after the catalog released memory while Hearth was in the background, until it is back. */
     private val themeHeld = MutableStateFlow(true)
 
+    /**
+     * The mode's pick. The scene mood takes part only in a new shuffled pick (packs with an exact
+     * weather match are preferred); a pick already made for this occurrence, saved or still
+     * pending, is kept whatever the weather does, so weather never rerolls it.
+     */
     private val themeResolution: StateFlow<ThemeResolution?> = combine(
-        prefs, themes, container.themes.loaded, scheduleTick,
-    ) { p, list, loaded, _ ->
+        prefs, themes, container.themes.loaded, scheduleTick, sceneMood,
+    ) { p, list, loaded, _, mood ->
         if (p == null || !loaded) return@combine null
         val available = list.map { it.id }
         if (p.holidayThemesEnabled) {
             HolidayThemes.resolve(now(), zone(), available)?.let { return@combine it }
         }
         val autoEligible = list.filter { it.autoRotationEligible }.map { it.id }
+        val weatherMatches = ThemeSchedule.weatherMatches(list, mood)
         when (effectiveThemeMode(p)) {
             ThemeMode.Single -> ThemeSchedule.resolveSingle(pendingChoice.value ?: p.theme, available)
             ThemeMode.FollowTheDay -> {
                 val occurrence = ThemeSchedule.currentOccurrence(p.themeSchedule, now(), zone())
+                val id = occurrence.period.id
                 ThemeSchedule.resolveFollowDay(
                     p.themeSchedule,
-                    p.followDaySelections[occurrence.period.id] ?: pendingFollowSelections[occurrence.period.id],
+                    currentOrPrevious(occurrence.key, p.followDaySelections[id], pendingFollowSelections[id]),
                     available,
                     now(),
                     zone(),
                     autoEligible = autoEligible,
                     chooseIndex = { size -> Math.floorMod(occurrence.key.hashCode(), size) },
-                )
+                    weatherMatches = weatherMatches,
+                ).also { r -> r.rotationState?.let { pendingFollowSelections[id] = it } }
             }
             ThemeMode.SurpriseMe -> ThemeSchedule.resolveSurprise(
                 p.surpriseThemeIds,
-                p.surpriseSelection ?: pendingSurpriseSelection,
+                currentOrPrevious(ThemeSchedule.surpriseKey(now(), zone()), p.surpriseSelection, pendingSurpriseSelection),
                 available,
                 now(),
                 zone(),
@@ -282,9 +336,18 @@ class HearthViewModel(
                     val localDay = java.time.Instant.ofEpochMilli(now()).atZone(zone()).toLocalDate()
                     Math.floorMod("${zone().id}|$localDay".hashCode(), size)
                 },
-            )
+                weatherMatches = weatherMatches,
+            ).also { r -> r.rotationState?.let { pendingSurpriseSelection = it } }
         }
     }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+
+    /**
+     * The saved or pending choice made for occurrence [key], else the stored one (an earlier
+     * occurrence's, which a new pick avoids). Recording the pending pick as soon as it is made
+     * means a recomputation before prefs report it (a new mood, say) keeps it.
+     */
+    private fun currentOrPrevious(key: String, stored: ThemeRotationState?, pending: ThemeRotationState?): ThemeRotationState? =
+        listOfNotNull(stored, pending).firstOrNull { it.occurrenceKey == key } ?: stored ?: pending
 
     /** Compatibility name used by previews: the theme Follow the Day would show now. */
     val autoThemeId: StateFlow<ThemeId> = combine(prefs, themes, scheduleTick) { p, list, _ ->
@@ -332,40 +395,37 @@ class HearthViewModel(
      * backdrop then crossfades); a pack that fails to decode falls back to Dusk, and if Dusk fails
      * too, to null: the window color with Dusk's palette.
      */
-    val activeTheme: StateFlow<LoadedTheme?> = combine(displayThemeId, themeHeld, themes) { id, held, list ->
-        Triple(id, held, list.firstOrNull { it.id == id }?.contentRevision)
+    val activeTheme: StateFlow<LoadedTheme?> = combine(displayThemeId, themeHeld, themes, sceneMood) { id, held, list, mood ->
+        val info = list.firstOrNull { it.id == id }
+        Shown(id, held, info?.contentRevision, info?.variantFor(mood), mood)
     }
-        .transformLatest { (id, held, _) ->
-            if (!held) emit(null) else if (id != null) emit(loadTheme(id))
+        .distinctUntilChanged { a, b -> a.copy(mood = null) == b.copy(mood = null) }
+        .transformLatest { s ->
+            if (!s.held) emit(null) else if (s.id != null) emit(loadTheme(s.id, s.variant, s.mood))
         }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
-    /** The palette for the UI: the theme on screen, else the one about to be, else Dusk's. */
+    /** What [activeTheme] asks the catalog for. Another mood that picks the same variant changes nothing. */
+    private data class Shown(
+        val id: ThemeId?,
+        val held: Boolean,
+        val revision: String?,
+        val variant: String?,
+        val mood: SceneMood?,
+    )
+
+    /** The palette for the UI: the theme on screen (its variant's), else the one about to be, else Dusk's. */
     val activePalette: StateFlow<HearthPalette> = combine(activeTheme, displayThemeId, themes) { theme, id, list ->
-        (theme?.info?.palette ?: list.firstOrNull { it.id == id }?.palette)?.toHearthPalette() ?: DefaultPalette
+        (theme?.palette ?: list.firstOrNull { it.id == id }?.palette)?.toHearthPalette() ?: DefaultPalette
     }.stateIn(viewModelScope, SharingStarted.Eagerly, DefaultPalette)
 
-    private suspend fun loadTheme(id: ThemeId): LoadedTheme? =
-        container.themes.load(id) ?: if (id != ThemeId.Default) container.themes.load(ThemeId.Default) else null
+    /** [id] with [variant], else Dusk with its own variant for [mood]. */
+    private suspend fun loadTheme(id: ThemeId, variant: String?, mood: SceneMood?): LoadedTheme? =
+        container.themes.load(id, variant) ?: if (id != ThemeId.Default) {
+            val dusk = themes.value.firstOrNull { it.id == ThemeId.Default }
+            container.themes.load(ThemeId.Default, dusk?.variantFor(mood))
+        } else null
 
     // endregion
-
-    /** Weather as the service reports it (Settings shows its status). */
-    val weather: StateFlow<WeatherState> = container.weather.state
-
-    /**
-     * What Home shows: the current weather, or null (weather off, no city, never fetched, or older
-     * than WeatherPolicy.MAX_AGE_MILLIS). A result leaves Home when it expires even if nothing else
-     * happens: one delay until that moment, no polling.
-     */
-    val homeWeather: StateFlow<WeatherGlance?> = weather.transformLatest { s ->
-        var glance = WeatherPolicy.glance(s, now())
-        emit(glance)
-        while (glance != null) {
-            delay((glance.expiresAt - now()).coerceAtLeast(0) + 1)
-            glance = WeatherPolicy.glance(s, now())
-            emit(glance)
-        }
-    }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
     private val _citySearch = MutableStateFlow<CitySearch?>(null)
     val citySearch: StateFlow<CitySearch?> = _citySearch.asStateFlow()
@@ -760,6 +820,9 @@ class HearthViewModel(
     }
 
     fun setTemperatureUnit(unit: TemperatureUnit) = edit { it.copy(temperatureUnit = unit) }
+
+    /** Weather in scenes: on or off. Shown only while weather is on; the scene follows at once. */
+    fun toggleWeatherScenes() = edit { it.copy(weatherScenes = !it.weatherScenes) }
 
     fun openCitySearch() {
         _message.value = null
@@ -1396,6 +1459,7 @@ class HearthViewModel(
         const val ROW_WEATHER = "weather"
         const val ROW_CITY = "city"
         const val ROW_UNITS = "units"
+        const val ROW_WEATHER_SCENES = "weather_scenes"
         const val ROW_CITY_FIELD = "city_field"
         const val ROW_MODE_SINGLE = "mode_single"
         const val ROW_MODE_FOLLOW = "mode_follow"
