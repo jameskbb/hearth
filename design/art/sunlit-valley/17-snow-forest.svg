@@ -23,11 +23,11 @@
     <filter id="soft2" x="-5%" y="-60%" width="110%" height="220%"><feGaussianBlur stdDeviation="1.6"/></filter>
   </defs>
   <g clip-path="url(#hill)" fill="none" stroke-linecap="round">
-    <rect x="-12" y="400" width="984" height="140" fill="#1E4A4F" opacity="0.42"/>
-    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestShade)" stroke-width="46" opacity="0.5" filter="url(#soft)"/>
-    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestSnow)" stroke-width="26" filter="url(#soft2)"/>
-    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestLine)" stroke-width="6" opacity="0.8"/>
-    <path d="M-12 509 C84 495 140 511 219 525 C345 546 469 542 572 532 C710 518 820 470 972 478" stroke="#D6E3E6" stroke-width="5" opacity="0.45" filter="url(#soft)"/>
+    <rect x="-12" y="400" width="984" height="140" fill="#1E4A4F" opacity="0.3"/>
+    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestSnow)" stroke-width="64" opacity="0.18" filter="url(#soft)"/>
+    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestSnow)" stroke-width="44" opacity="0.3" filter="url(#soft)"/>
+    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestSnow)" stroke-width="28" opacity="0.55" filter="url(#soft)"/>
+    <path d="M-12 445 C50 425 97 441 149 461 C218 486 273 493 326 507 C402 526 471 525 544 512 C610 498 653 470 712 466 C789 459 838 420 894 416 C926 413 951 421 972 424" stroke="url(#crestSnow)" stroke-width="14" opacity="0.85" filter="url(#soft2)"/>
   </g>
   <g fill="#F6FAF9" opacity="0.96"><use href="#cap" transform="translate(13 391) scale(1.5)"/><use href="#cap" transform="translate(37 410) scale(0.9)"/><use href="#cap" transform="translate(57 399) scale(1.25)"/><use href="#cap" transform="translate(84 430) scale(0.7)"/><use href="#cap" transform="translate(112 421) scale(1.0)"/><use href="#cap" transform="translate(126 437) scale(0.65)"/><use href="#cap" transform="translate(164 454) scale(0.62)"/><use href="#cap" transform="translate(179 452) scale(0.73)"/><use href="#cap" transform="translate(739 439) scale(0.64)"/><use href="#cap" transform="translate(754 426) scale(0.9)"/><use href="#cap" transform="translate(807 409) scale(0.8)"/><use href="#cap" transform="translate(821 393) scale(1.05)"/><use href="#cap" transform="translate(848 400) scale(0.65)"/><use href="#cap" transform="translate(873 354) scale(1.62)"/><use href="#cap" transform="translate(893 383) scale(1.08)"/><use href="#cap" transform="translate(925 372) scale(1.2)"/><use href="#cap" transform="translate(953 350) scale(1.65)"/></g>
 </svg>

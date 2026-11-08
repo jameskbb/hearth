@@ -66,7 +66,8 @@
         ]
       },
       "replace": {
-        "clouds.webp": "clouds-heavy.webp"
+        "clouds.webp": "clouds-heavy.webp",
+        "grasses.webp": "snow-grasses.webp"
       },
       "add": [
         {
@@ -158,13 +159,8 @@
         },
         {
           "image": "fog-low.webp",
-          "y": 360,
+          "y": 304,
           "parallax": 0.68,
-          "wrap": true,
-          "drift": {
-            "x": 40,
-            "period": 240
-          },
           "opacity": {
             "min": 0.8,
             "max": 1.0,
@@ -311,10 +307,8 @@
       },
       "add": [
         {
-          "image": "haze-pearl.webp",
-          "y": 250,
-          "parallax": 0.24,
-          "after": "mesas.webp"
+          "image": "air-crisp.webp",
+          "after": "sky.webp"
         },
         {
           "image": "frost-prairie.webp",
@@ -346,15 +340,8 @@
       },
       "add": [
         {
-          "image": "haze-pearl.webp",
-          "y": 250,
-          "parallax": 0.24,
-          "after": "mesas.webp",
-          "opacity": {
-            "min": 0.6,
-            "max": 0.6,
-            "period": 60
-          }
+          "image": "air-crisp.webp",
+          "after": "sky.webp"
         },
         {
           "image": "frost-prairie.webp",
@@ -362,8 +349,8 @@
           "parallax": 0.68,
           "after": "prairie.webp",
           "opacity": {
-            "min": 0.4,
-            "max": 0.4,
+            "min": 0.45,
+            "max": 0.45,
             "period": 60
           }
         }
@@ -382,9 +369,9 @@
       "add": [
         {
           "image": "haze-gold.webp",
-          "y": 200,
-          "parallax": 0.24,
-          "after": "mesas.webp"
+          "y": 180,
+          "parallax": 0.68,
+          "after": "prairie.webp"
         }
       ]
     }

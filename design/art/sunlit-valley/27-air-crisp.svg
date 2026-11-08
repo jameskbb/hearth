@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Crisp cold air: a deeper, more saturated zenith and a sharp, bright band of clear light along the ridge line. -->
+  <defs>
+    <linearGradient id="zenith" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C5596" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#1665A6" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#1665A6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2FAFD" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#F2FAFD" stop-opacity="0.3"/>
+      <stop offset="0.85" stop-color="#FBFEFF" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FBFEFF" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.3"/>
+      <stop offset="0.4" stop-color="#FFFFFF" stop-opacity="0.3"/>
+      <stop offset="0.7" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="m"><rect x="0" y="185" width="960" height="150" fill="url(#side)"/></mask>
+  </defs>
+  <rect x="0" y="0" width="960" height="130" fill="url(#zenith)"/>
+  <rect x="0" y="185" width="960" height="150" fill="url(#band)" mask="url(#m)"/>
+</svg>
