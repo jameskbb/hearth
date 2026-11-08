@@ -15,7 +15,15 @@ data class ThemeInfo(
     /** Changes when any file used by an installed pack changes, even if its manifest does not. */
     val contentRevision: String = "",
     val autoRotationEligible: Boolean = true,
-)
+    /** The pack's weather variants in match order, without their art. */
+    val weather: List<VariantRule> = emptyList(),
+) {
+    /** Every mood one of [weather] matches exactly, computed from the manifest. */
+    val moods: Set<SceneMood> by lazy { ThemeVariants.moods(weather) }
+
+    /** The variant to show for [mood], with the sky widened if needed; null for the plain scene. */
+    fun variantFor(mood: SceneMood?): String? = ThemeVariants.pick(weather, mood)
+}
 
 /** A pack that is not listed, where it was ([location]: its folder or zip name) and why. */
 data class ThemeFailure(val location: String, val problem: ThemeProblem)
@@ -42,11 +50,14 @@ interface ThemeCatalog {
     suspend fun refresh()
 
     /**
-     * The decoded pack, or null when [id] is not listed or its images could not be decoded (it
+     * The decoded pack with weather [variant] applied (null, or an id the pack does not have:
+     * the plain scene), or null when [id] is not listed or its images could not be decoded (it
      * then moves to [failures]). Holds one theme: loading another drops the previous one from
-     * the cache once the new one is decoded. Cancellable between layers.
+     * the cache once the new one is decoded. Images the previous set of the same pack already
+     * decoded are reused, so a variant switch decodes only what changed. Cancellable between
+     * layers.
      */
-    suspend fun load(id: ThemeId): LoadedTheme?
+    suspend fun load(id: ThemeId, variant: String? = null): LoadedTheme?
 
     /** A small image for the gallery card (`preview`, else the first layer scaled down). */
     suspend fun preview(id: ThemeId): ImageBitmap?
@@ -119,5 +130,6 @@ object ThemeOrder {
         bundled = bundled,
         contentRevision = contentRevision,
         autoRotationEligible = manifest.autoRotationEligible,
+        weather = manifest.weather.map { it.matchRule },
     )
 }

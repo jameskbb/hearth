@@ -52,6 +52,7 @@ class PrefsCodecTest {
             weatherEnabled = true,
             weatherPlace = Place("Reykjavík", "Capital Region", "Iceland", 64.13548, -21.89541),
             temperatureUnit = TemperatureUnit.Celsius,
+            weatherScenes = false,
         )
         val prefs = mutablePreferencesOf()
         PrefsCodec.write(prefs, value)
@@ -73,6 +74,20 @@ class PrefsCodecTest {
             val stored = mutablePreferencesOf()
             PrefsCodec.write(stored, HearthPrefs(holidayThemesEnabled = enabled))
             assertEquals(enabled, PrefsCodec.read(stored).holidayThemesEnabled)
+        }
+    }
+
+    @Test fun weatherScenesDefaultOnForNewAndExistingInstalls() {
+        assertTrue(HearthPrefs().weatherScenes)
+        assertTrue(PrefsCodec.read(emptyPreferences()).weatherScenes)
+        val upgraded = mutablePreferencesOf(PrefsCodec.WEATHER_ENABLED to true)
+        assertTrue(PrefsCodec.read(upgraded).weatherScenes)
+        val malformed = mutablePreferencesOf(stringPreferencesKey("weather_scenes") to "off")
+        assertTrue(PrefsCodec.read(malformed).weatherScenes)
+        for (enabled in listOf(false, true)) {
+            val stored = mutablePreferencesOf()
+            PrefsCodec.write(stored, HearthPrefs(weatherScenes = enabled))
+            assertEquals(enabled, PrefsCodec.read(stored).weatherScenes)
         }
     }
 

@@ -124,6 +124,10 @@ data class ThemeResolution(
 /**
  * Pure local-clock scheduling and stable theme rotation. No network, location, or background
  * polling is involved. Callers re-run resolution on resume and once at [nextBoundaryMillis].
+ *
+ * Weather (decision 0013): while weather is on and a mood is known, the caller passes the packs
+ * with a variant matching it exactly ([weatherMatches]). Only a new shuffled pick reads them,
+ * preferring those packs within the eligible pool; a saved pick is never rerolled for weather.
  */
 object ThemeSchedule {
     private const val MINUTES_PER_DAY = ThemePeriod.MINUTES_PER_DAY
@@ -182,6 +186,7 @@ object ThemeSchedule {
         nowMillis: Long,
         zone: ZoneId,
         autoEligible: Collection<ThemeId> = available,
+        weatherMatches: Collection<ThemeId> = emptySet(),
         chooseIndex: (Int) -> Int = { Random.nextInt(it) },
     ): ThemeResolution {
         val occurrence = currentOccurrence(schedule, nowMillis, zone)
@@ -191,7 +196,7 @@ object ThemeSchedule {
         val selected = current?.themeId ?: when {
             eligible.isEmpty() -> fallback(usable.filter { it in autoEligible })
             !occurrence.period.shuffle || eligible.size == 1 -> eligible.first()
-            else -> chooseAvoiding(eligible, saved?.themeId, chooseIndex)
+            else -> chooseAvoiding(eligible, saved?.themeId, chooseIndex, weatherMatches)
         }
         val state = ThemeRotationState(occurrence.key, selected)
         return ThemeResolution(selected, state, occurrence.endMillis, occurrence.period)
@@ -208,6 +213,7 @@ object ThemeSchedule {
         nowMillis: Long,
         zone: ZoneId,
         autoEligible: Collection<ThemeId> = available,
+        weatherMatches: Collection<ThemeId> = emptySet(),
         chooseIndex: (Int) -> Int = { Random.nextInt(it) },
     ): ThemeResolution {
         val usable = usable(available)
@@ -215,18 +221,24 @@ object ThemeSchedule {
         val eligible = if (requested.isEmpty()) usable.filter { it in autoEligible } else requested.filter { it in usable }
         val start = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate().atStartOfDay(zone)
         val next = start.toLocalDate().plusDays(1).atStartOfDay(zone)
-        val key = "surprise|${zone.id}|${start.toInstant().toEpochMilli()}"
+        val key = surpriseKey(nowMillis, zone)
         val current = saved?.takeIf { it.occurrenceKey == key && it.themeId in eligible }
         val selected = current?.themeId ?: when {
             eligible.isEmpty() -> fallback(usable.filter { it in autoEligible })
             eligible.size == 1 -> eligible.first()
-            else -> chooseAvoiding(eligible, saved?.themeId, chooseIndex)
+            else -> chooseAvoiding(eligible, saved?.themeId, chooseIndex, weatherMatches)
         }
         return ThemeResolution(
             themeId = selected,
             rotationState = ThemeRotationState(key, selected),
             nextChangeMillis = next.toInstant().toEpochMilli(),
         )
+    }
+
+    /** Surprise Me's occurrence key: the local day containing [nowMillis] in [zone]. */
+    fun surpriseKey(nowMillis: Long, zone: ZoneId): String {
+        val start = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate().atStartOfDay(zone)
+        return "surprise|${zone.id}|${start.toInstant().toEpochMilli()}"
     }
 
     /** The gallery's included set, including explicit ids that are temporarily unavailable. */
@@ -266,12 +278,25 @@ object ThemeSchedule {
         else -> ThemeId.Default
     }
 
+    /** Packs in [themes] with a variant matching [mood] exactly (no sky widening). Empty without a mood. */
+    fun weatherMatches(themes: List<ThemeInfo>, mood: SceneMood?): Set<ThemeId> {
+        if (mood == null) return emptySet()
+        return themes.filter { ThemeVariants.exact(it.weather, mood) != null }.mapTo(LinkedHashSet()) { it.id }
+    }
+
+    /**
+     * A shuffled pick from [eligible], avoiding [previous] when another option exists. Packs in
+     * [preferred] (weather matches) go first when any of them is eligible and not [previous];
+     * otherwise the pick is made as without weather. Never outside [eligible].
+     */
     private fun chooseAvoiding(
         eligible: List<ThemeId>,
         previous: ThemeId?,
         chooseIndex: (Int) -> Int,
+        preferred: Collection<ThemeId> = emptySet(),
     ): ThemeId {
-        val choices = eligible.filterNot { it == previous }.ifEmpty { eligible }
+        val matching = eligible.filter { it in preferred && it != previous }
+        val choices = matching.ifEmpty { eligible.filterNot { it == previous }.ifEmpty { eligible } }
         return choices[Math.floorMod(chooseIndex(choices.size), choices.size)]
     }
 

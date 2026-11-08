@@ -583,14 +583,19 @@ private fun ThemeFailureLine(failure: ThemeFailure) {
 }
 
 @Composable
-private fun problemText(f: ThemeFailure): String = when (val p = f.problem) {
+private fun problemText(f: ThemeFailure): String = problemText(f.problem)
+
+@Composable
+private fun problemText(problem: ThemeProblem): String = when (val p = problem) {
     ThemeProblem.MissingManifest -> stringResource(R.string.theme_problem_missing_manifest)
     ThemeProblem.MalformedManifest -> stringResource(R.string.theme_problem_malformed)
     is ThemeProblem.NeedsNewerHearth -> stringResource(R.string.theme_problem_newer)
     is ThemeProblem.MissingField -> stringResource(R.string.theme_problem_missing_field, p.field)
     is ThemeProblem.BadValue -> stringResource(R.string.theme_problem_bad_value, p.field)
     is ThemeProblem.BadId -> stringResource(R.string.theme_problem_bad_id, p.id)
-    is ThemeProblem.LayerCount -> stringResource(R.string.theme_problem_layer_count, p.count)
+    is ThemeProblem.LayerCount -> stringResource(R.string.theme_problem_layer_count, p.count, p.max)
+    is ThemeProblem.BadVariant -> stringResource(R.string.theme_problem_variant, p.variant, problemText(p.problem))
+    is ThemeProblem.FullSizeReplacements -> stringResource(R.string.theme_problem_full_size_replacements)
     is ThemeProblem.MissingImage -> stringResource(R.string.theme_problem_missing_image, p.path)
     is ThemeProblem.UnreadableImage -> stringResource(R.string.theme_problem_unreadable_image, p.path)
     is ThemeProblem.BaseLayerSize -> stringResource(R.string.theme_problem_base_size, p.path, "${p.width} x ${p.height}")

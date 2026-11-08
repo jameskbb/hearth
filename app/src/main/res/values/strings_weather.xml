@@ -32,6 +32,9 @@
     <string name="settings_weather_units">Units</string>
     <string name="settings_units_fahrenheit">Fahrenheit</string>
     <string name="settings_units_celsius">Celsius</string>
+    <!-- Whether the Home scene follows the weather (rain, snow, fog, frost, heat). Shown only while
+         weather is on; the value is On or Off. -->
+    <string name="settings_weather_scenes">Weather in scenes</string>
 
     <!-- Settings, the status line under the weather rows. %1$s is a time ("8:42 PM") or a date. -->
     <string name="weather_status_off">Weather is off. Turning it on sends your chosen city\'s location to Open-Meteo.</string>

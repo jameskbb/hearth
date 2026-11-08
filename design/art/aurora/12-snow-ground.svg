@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="144" viewBox="0 396 960 144">
+  <!-- Hearth theme "Aurora", weather layer: snow resting on the treeline and a moonlit snowfield in front of
+       the forest, on transparent. The treeline is the same path and displacement as layer 00, so the snow sits
+       exactly on the tree tops. Placed at y 396. -->
+  <defs>
+    <filter id="tree" x="-5%" y="-50%" width="110%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency=".09 .02" numOctaves="3" seed="2" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="cap" x="-5%" y="-20%" width="110%" height="140%" color-interpolation-filters="sRGB">
+      <feOffset in="SourceAlpha" dy="2.6" result="lo"/>
+      <feComposite in="SourceGraphic" in2="lo" operator="out" result="rim"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".22 .5" numOctaves="2" seed="9" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.2 0 0 0 -.75" result="na"/>
+      <feComposite in="rim" in2="na" operator="in" result="patchy"/>
+      <feGaussianBlur in="patchy" stdDeviation=".45"/>
+    </filter>
+    <linearGradient id="field" x1="0" y1="448" x2="0" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4E6288" stop-opacity="0"/>
+      <stop offset=".1" stop-color="#4E6288"/>
+      <stop offset=".26" stop-color="#33456A"/>
+      <stop offset=".6" stop-color="#1D2A48"/>
+      <stop offset="1" stop-color="#121A30"/>
+    </linearGradient>
+    <radialGradient id="moonlit" cx="700" cy="452" r="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B9CCEA" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#B9CCEA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="drift" x="0" y="-10%" width="100%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".012 .06" numOctaves="3" seed="17" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="10" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="1.4"/>
+    </filter>
+  </defs>
+  <!-- Snow-laden forest reads a little lighter than bare trees. -->
+  <g filter="url(#tree)" fill="#2A3858" opacity=".55"><path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/></g>
+  <g filter="url(#cap)">
+    <g filter="url(#tree)" fill="#BCCDE8"><path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/></g>
+  </g>
+  <g filter="url(#drift)">
+    <path d="M-20 462 C90 452 180 458 280 455 C390 451 470 461 560 457 C660 452 760 449 860 455 C910 458 950 454 980 452 L980 560 L-20 560Z" fill="url(#field)"/>
+    <path d="M-20 462 C90 452 180 458 280 455 C390 451 470 461 560 457 C660 452 760 449 860 455 C910 458 950 454 980 452 L980 560 L-20 560Z" fill="url(#moonlit)"/>
+  </g>
+  <path d="M-20 461 C90 451 180 457 280 454 C390 450 470 460 560 456 C660 451 760 448 860 454 C910 457 950 453 980 451" fill="none" stroke="#C6D6F2" stroke-opacity=".22" stroke-width="1.1" filter="url(#drift)"/>
+</svg>

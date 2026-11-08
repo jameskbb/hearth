@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Hearth theme "Aurora", weather layer: a broken night cloud deck for overcast. Drawn over the curtain.
+       The cloud undersides catch the aurora's teal light and the low glow; breaks along the curtain's band
+       let the emerald show through, so an overcast night still carries the scene's light. -->
+  <defs>
+    <!-- Where the deck thins: open breaks along the curtain, denser toward the top and the treeline. -->
+    <linearGradient id="thin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+      <stop offset=".3" stop-color="#fff" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".84"/>
+      <stop offset=".7" stop-color="#fff" stop-opacity=".9"/>
+      <stop offset=".765" stop-color="#fff" stop-opacity=".7"/>
+      <stop offset=".785" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <!-- The light the clouds catch: slate violet above, aurora teal through the middle, the low glow below. -->
+    <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B3658"/>
+      <stop offset=".3" stop-color="#34536E"/>
+      <stop offset=".5" stop-color="#3C7C78"/>
+      <stop offset=".68" stop-color="#2F6168"/>
+      <stop offset=".8" stop-color="#1D3F4E"/>
+      <stop offset="1" stop-color="#1D3F4E"/>
+    </linearGradient>
+    <filter id="deck" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency=".0036 .0125" numOctaves="5" seed="23" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  5.2 0 0 0 -1.9" result="d"/>
+      <feGaussianBlur in="d" stdDeviation="3.2 2" result="db"/>
+      <!-- Soft relief: light from below picks out the rounded cloud bases. -->
+      <feDiffuseLighting in="db" surfaceScale="4" diffuseConstant="1.1" lighting-color="#9FE8D2" result="l">
+        <feDistantLight azimuth="90" elevation="38"/>
+      </feDiffuseLighting>
+      <feComposite in="SourceGraphic" in2="l" operator="arithmetic" k1=".5" k2=".8" k3="0" k4="0" result="shaded"/>
+      <feComposite in="shaded" in2="db" operator="in"/>
+    </filter>
+  </defs>
+  <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="960" height="540">
+    <rect width="960" height="540" fill="url(#thin)"/>
+  </mask>
+  <g mask="url(#m)">
+    <rect width="960" height="540" fill="url(#lit)" filter="url(#deck)"/>
+  </g>
+</svg>

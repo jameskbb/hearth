@@ -100,7 +100,7 @@ private object PreviewThemes : ThemeCatalog {
     override val loaded: StateFlow<Boolean> = MutableStateFlow(true)
     override val releases: StateFlow<Int> = MutableStateFlow(0)
     override suspend fun refresh() = Unit
-    override suspend fun load(id: ThemeId): LoadedTheme? = null
+    override suspend fun load(id: ThemeId, variant: String?): LoadedTheme? = null
     override suspend fun preview(id: ThemeId): ImageBitmap? = null
     override fun releasePreviews() = Unit
     override fun release() = Unit

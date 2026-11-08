@@ -20,6 +20,7 @@ class OpenMeteoTest {
         assertEquals(21.1, r.highC!!, 0.0)
         assertEquals(11.2, r.lowC!!, 0.0)
         assertEquals(2, r.weatherCode)
+        assertEquals(61, r.dailyWeatherCode)
         assertFalse(r.isDay)
         assertEquals(1234L, r.fetchedAt)
     }
@@ -40,7 +41,20 @@ class OpenMeteoTest {
         assertNull(r.highC)
         assertNull(r.lowC)
         assertEquals(73, r.weatherCode)
+        assertNull("no daily weather_code is no forecast", r.dailyWeatherCode)
         assertTrue(r.isDay)
+    }
+
+    @Test fun anUnusableDailyCodeIsNoForecastNotAFailure() {
+        val body = """{"current":{"temperature_2m":3.0,"weather_code":3,"is_day":1},""" +
+            """"daily":{"temperature_2m_max":[5.0],"temperature_2m_min":[1.0],"weather_code":["snow"]}}"""
+        val r = OpenMeteo.parseForecast(body, springfield, 0L)
+        assertNull(r.dailyWeatherCode)
+        assertEquals(5.0, r.highC!!, 0.0)
+        val nulled = body.replace("[\"snow\"]", "[null]")
+        assertNull(OpenMeteo.parseForecast(nulled, springfield, 0L).dailyWeatherCode)
+        val good = body.replace("[\"snow\"]", "[73]")
+        assertEquals(73, OpenMeteo.parseForecast(good, springfield, 0L).dailyWeatherCode)
     }
 
     @Test fun anErrorBodyIsABadResponse() {
@@ -74,7 +88,8 @@ class OpenMeteoTest {
         assertTrue(url.startsWith("https://api.open-meteo.com/v1/forecast?"))
         assertTrue(url.contains("latitude=39.8017&longitude=-89.6437"))
         assertTrue(url.contains("current=temperature_2m,weather_code,is_day"))
-        assertTrue(url.contains("daily=temperature_2m_max,temperature_2m_min"))
+        // Today's overall code rides on the same request: nothing new is sent.
+        assertTrue(url.contains("daily=temperature_2m_max,temperature_2m_min,weather_code"))
         assertTrue(url.contains("timezone=auto"))
     }
 

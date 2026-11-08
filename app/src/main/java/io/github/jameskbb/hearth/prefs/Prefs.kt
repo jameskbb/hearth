@@ -37,6 +37,11 @@ data class HearthPrefs(
     val weatherEnabled: Boolean = false,
     /** The city chosen in Settings. Kept when weather is turned off, so turning it back on is one step. */
     val weatherPlace: Place? = null,
+    /**
+     * Weather in scenes: while weather is on, the scene follows it (docs/decisions/0013-weather-scenes.md).
+     * On by default, so turning weather on brings weather scenes with it.
+     */
+    val weatherScenes: Boolean = true,
     /** The unit chosen in Settings; null follows the locale (see Temperatures.defaultUnit). */
     val temperatureUnit: TemperatureUnit? = null,
     /**

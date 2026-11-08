@@ -26,7 +26,7 @@ import io.github.jameskbb.hearth.weather.TemperatureUnit
  * - `wallpaper` remains the legacy theme choice for downgrade compatibility. The current mode,
  *   single-theme choice, schedule, Surprise Me pool, and stable rotation choices have their own
  *   keys.
- * - `weather_enabled`, `temperature_unit` (absent when following the locale), and the chosen city
+ * - `weather_enabled`, `weather_scenes` (absent reads as on), `temperature_unit` (absent when following the locale), and the chosen city
  *   as `weather_place_name`, `_region`, `_country`, `_lat`, `_lon` (all absent when none).
  * - `input_labels`: a string set of "<input id>\t<name>", one per renamed input.
  *
@@ -47,6 +47,7 @@ object PrefsCodec {
     val REDUCED_MOTION = booleanPreferencesKey("reduced_motion")
     val SEEDED = booleanPreferencesKey("seeded")
     val WEATHER_ENABLED = booleanPreferencesKey("weather_enabled")
+    val WEATHER_SCENES = booleanPreferencesKey("weather_scenes")
     val TEMPERATURE_UNIT = stringPreferencesKey("temperature_unit")
     val PLACE_NAME = stringPreferencesKey("weather_place_name")
     val PLACE_REGION = stringPreferencesKey("weather_place_region")
@@ -83,6 +84,7 @@ object PrefsCodec {
             seeded = prefs.getOrNull(SEEDED) ?: defaults.seeded,
             weatherEnabled = prefs.getOrNull(WEATHER_ENABLED) ?: defaults.weatherEnabled,
             weatherPlace = readPlace(prefs),
+            weatherScenes = prefs.getOrNull(WEATHER_SCENES) ?: defaults.weatherScenes,
             temperatureUnit = TemperatureUnit.fromStored(prefs.getOrNull(TEMPERATURE_UNIT)),
             inputLabels = decodeInputLabels(prefs.getOrNull(INPUT_LABELS)),
             homeLabelEnabled = prefs.getOrNull(HOME_LABEL_ENABLED) ?: false,
@@ -125,6 +127,7 @@ object PrefsCodec {
         prefs[REDUCED_MOTION] = value.reducedMotion
         prefs[SEEDED] = value.seeded
         prefs[WEATHER_ENABLED] = value.weatherEnabled
+        prefs[WEATHER_SCENES] = value.weatherScenes
         prefs[INPUT_LABELS] = encodeInputLabels(value.inputLabels)
         prefs[HOME_LABEL_ENABLED] = value.homeLabelEnabled
         prefs[HOME_LABEL] = HomeLabel.clean(value.homeLabel)

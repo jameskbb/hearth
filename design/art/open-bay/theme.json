@@ -38,5 +38,155 @@
         "period": 140
       }
     }
+  ],
+  "weather": [
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "add": [
+        {
+          "image": "pearl.webp",
+          "after": "workshop.webp"
+        },
+        {
+          "image": "snow-bay.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    },
+    {
+      "id": "snow-coming",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "add": [
+        {
+          "image": "pearl.webp",
+          "after": "workshop.webp"
+        },
+        {
+          "image": "hush.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "hide": [
+        "dust.webp"
+      ],
+      "add": [
+        {
+          "image": "pearl.webp",
+          "after": "workshop.webp"
+        },
+        {
+          "image": "rain.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "add": [
+        {
+          "image": "pearl.webp",
+          "after": "workshop.webp"
+        },
+        {
+          "image": "fog-bay.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    },
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "cool-air.webp",
+          "after": "workshop.webp"
+        },
+        {
+          "image": "frost.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    },
+    {
+      "id": "cold-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "cold"
+        ]
+      },
+      "add": [
+        {
+          "image": "cool-air.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    },
+    {
+      "id": "hot-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "hot"
+        ]
+      },
+      "add": [
+        {
+          "image": "golden.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "add": [
+        {
+          "image": "pearl.webp",
+          "after": "workshop.webp"
+        }
+      ]
+    }
   ]
 }

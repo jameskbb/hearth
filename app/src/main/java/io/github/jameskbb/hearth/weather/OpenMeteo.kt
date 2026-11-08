@@ -18,12 +18,15 @@ object OpenMeteo {
     const val GEOCODING_HOST = "geocoding-api.open-meteo.com"
     const val SEARCH_COUNT = 8
 
-    /** Current temperature, code and day/night, plus today's range in the place's own time zone. */
+    /**
+     * Current temperature, code and day/night, plus today's range and today's overall weather code
+     * (which weather scenes read as the forecast) in the place's own time zone.
+     */
     fun forecastUrl(latitude: Double, longitude: Double): String =
         "https://$FORECAST_HOST/v1/forecast" +
             "?latitude=${coordinate(latitude)}&longitude=${coordinate(longitude)}" +
             "&current=temperature_2m,weather_code,is_day" +
-            "&daily=temperature_2m_max,temperature_2m_min" +
+            "&daily=temperature_2m_max,temperature_2m_min,weather_code" +
             "&timezone=auto&forecast_days=1"
 
     fun searchUrl(query: String, language: String): String {
@@ -56,6 +59,7 @@ object OpenMeteo {
             highC = daily?.optJSONArray("temperature_2m_max")?.firstFinite(),
             lowC = daily?.optJSONArray("temperature_2m_min")?.firstFinite(),
             weatherCode = code,
+            dailyWeatherCode = daily?.optJSONArray("weather_code")?.firstInt(),
             // Open-Meteo sends 1 or 0; a missing flag is read as day.
             isDay = current.optInt("is_day", 1) != 0,
         )
@@ -84,6 +88,14 @@ object OpenMeteo {
 
     private fun JSONArray.firstFinite(): Double? =
         if (length() == 0 || isNull(0)) null else optDouble(0).takeIf { it.isFinite() }
+
+    /** The first entry as a whole number, or null when it is missing, null or not a whole number. */
+    private fun JSONArray.firstInt(): Int? {
+        if (length() == 0 || isNull(0)) return null
+        val n = opt(0) as? Number ?: return null
+        val d = n.toDouble()
+        return if (d.isFinite() && d == Math.floor(d) && d in 0.0..999.0) d.toInt() else null
+    }
 
     private inline fun <T> readable(block: () -> T): T = try {
         block()

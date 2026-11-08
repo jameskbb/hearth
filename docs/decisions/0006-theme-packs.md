@@ -1,6 +1,8 @@
 # 0006: Wallpapers become theme packs, with gentle motion
 
-**Status:** Accepted, 2026-10-22
+**Status:** Accepted, 2026-10-22. Extended by
+[decision 0013](0013-weather-scenes.md): packs may add an optional `weather`
+block and the `fall` motion field, still `format: 1`.
 
 ## Context
 The wallpaper registry (`ui.theme.Wallpapers`) held two entries, Dusk and

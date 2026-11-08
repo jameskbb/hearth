@@ -26,6 +26,8 @@ class FakeThemeCatalog(initial: List<ThemeInfo> = listOf(info("dusk", Daypart.Ev
     override val releases = MutableStateFlow(0)
     val undecodable = mutableSetOf<ThemeId>()
     val loads = mutableListOf<ThemeId>()
+    /** Every load as (pack, variant), in order. */
+    val variantLoads = mutableListOf<Pair<ThemeId, String?>>()
     var refreshes = 0
     var previewReleases = 0
 
@@ -33,15 +35,17 @@ class FakeThemeCatalog(initial: List<ThemeInfo> = listOf(info("dusk", Daypart.Ev
         refreshes++
     }
 
-    override suspend fun load(id: ThemeId): LoadedTheme? {
+    override suspend fun load(id: ThemeId, variant: String?): LoadedTheme? {
         loads += id
+        variantLoads += id to variant
         val info = themes.value.firstOrNull { it.id == id } ?: return null
         if (id in undecodable) {
             themes.update { list -> list.filterNot { it.id == id } }
             failures.update { it + ThemeFailure(id.name, ThemeProblem.UnreadableImage("sky.webp")) }
             return null
         }
-        return LoadedTheme(info, Sway(), emptyList())
+        val known = variant?.takeIf { v -> info.weather.any { it.id == v } }
+        return LoadedTheme(info, Sway(), emptyList(), variant = known)
     }
 
     override suspend fun preview(id: ThemeId): ImageBitmap? = null

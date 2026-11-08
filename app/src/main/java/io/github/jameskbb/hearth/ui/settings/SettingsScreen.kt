@@ -93,6 +93,7 @@ fun SettingsScreen(vm: HearthViewModel) {
             if (weatherOn) {
                 add(FocusTarget.Row(HearthViewModel.ROW_CITY))
                 add(FocusTarget.Row(HearthViewModel.ROW_UNITS))
+                add(FocusTarget.Row(HearthViewModel.ROW_WEATHER_SCENES))
             }
             addAll(inputRowTargets(inputs))
             hidden.forEach { add(FocusTarget.Row(HearthViewModel.hiddenRowId(it.first))) }
@@ -228,6 +229,15 @@ fun SettingsScreen(vm: HearthViewModel) {
                                     },
                                     onFocused = focused(HearthViewModel.ROW_UNITS),
                                     modifier = Modifier.focusTarget(registry, FocusTarget.Row(HearthViewModel.ROW_UNITS)),
+                                )
+                                SettingRow(
+                                    label = stringResource(R.string.settings_weather_scenes),
+                                    value = onOff(prefs?.weatherScenes != false),
+                                    onClick = vm::toggleWeatherScenes,
+                                    onFocused = focused(HearthViewModel.ROW_WEATHER_SCENES),
+                                    modifier = Modifier.focusTarget(
+                                        registry, FocusTarget.Row(HearthViewModel.ROW_WEATHER_SCENES),
+                                    ),
                                 )
                             }
                             WeatherStatus(vm, weatherOn, hasPlace = prefs?.weatherPlace != null)
