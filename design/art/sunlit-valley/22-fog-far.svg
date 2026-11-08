@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="-4 200 968 240" data-scale="1">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="205" viewBox="-4 215 968 205" data-scale="1">
   <!-- Luminous fog over the far range: the peaks stand clear above a bright, sunlit bank. -->
   <defs>
     <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
@@ -13,7 +13,7 @@
       <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.9"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="1"/>
     </linearGradient>
-    <mask id="m"><rect x="-4" y="200" width="968" height="240" fill="url(#side)"/></mask>
+    <mask id="m"><rect x="-4" y="215" width="968" height="205" fill="url(#side)"/></mask>
   </defs>
-  <rect x="-4" y="200" width="968" height="240" fill="url(#fog)" mask="url(#m)"/>
+  <rect x="-4" y="215" width="968" height="205" fill="url(#fog)" mask="url(#m)"/>
 </svg>

@@ -2,16 +2,16 @@ Golden Prairie is original layered artwork created for Hearth. Its image-generat
 
 Weather variants
 
-All weather art is original work drawn for Hearth from this pack's own SVG layers (same mesas, prairie swells and grass tufts); no third-party material. Sources are 10-25 in this folder; each renders at half resolution (data-scale="1").
+All weather art is original work drawn for Hearth from this pack's own SVG layers (same mesas, prairie swells and grass tufts); no third-party material. Sources are 10-27 in this folder; each renders at half resolution (data-scale="1").
 
-- rain: pearl sky and silver cloud banks, soft shower veils trailing from the clouds and a rainbow standing over the mesas, sun on the wet prairie with sheen along each swell and glints of standing water, and sparse soft rain streaks (fall).
-- snow: pearl sky under a low deck of cream cloud rolls, the far mesas white, fresh snow along the rims of the red rock, the prairie under snow with dry gold stalks standing above it, and soft falling flakes (fall).
-- fog: pearl sky with the low sun as a pale disc, luminous fog over the far mesas, and bright ground fog drifting across the swells.
-- snow-coming-freezing: forecast snow at freezing: the snow-sky deck and veiled sun, pearl haze, hoarfrost on the prairie and rime on every near tuft.
+- rain: pearl sky and silver cloud banks, soft shower veils trailing from the clouds and a faint partial rainbow rising from the left mesas, opposite the low sun, sun on the wet prairie with sheen along each swell and glints of standing water, and sparse soft rain streaks (fall).
+- snow: pearl sky under a low deck of cream cloud rolls, the far mesas blue-gray rock with snow on their tops and ledges, fresh snow along the rims of the red rock, each prairie swell under snow with a lit cream top and a lavender lee, dry gold stalks in clusters, the near ground snowy in shade with drifts at the feet of the gold tufts, and soft falling flakes (fall).
+- fog: pearl sky with the low sun as a pale disc, luminous fog over the far mesas, and bright tapered ground fog pooled in the troughs between the swells.
+- snow-coming-freezing: forecast snow at freezing: the snow-sky deck and veiled sun, pearl haze, silver frost in the lee of each swell and rime on every near tuft.
 - snow-coming: forecast snow: the same hushed sky with a light frost tint on the prairie; no flakes.
 - overcast: pearl sky, silver cloud banks and pearl haze over the mesas.
-- freezing-clear: the clear sky, a bright horizon, hoarfrost on the prairie with ice sparkles and rime on the grass.
-- cold-clear: the clear sky with a lighter touch of the same frost and horizon brightness.
-- hot-clear: golden heat haze over the mesas and the far prairie, with a shimmer of light along the horizon.
+- freezing-clear: crisp air (a deeper zenith and a sharp bright horizon band), the shaded lee of each swell silvered with sparse sparkles while the sunlit tops stay gold, rime on the near grass.
+- cold-clear: the same crisp air with a lighter touch of frost in the troughs.
+- hot-clear: an apricot low sky, thick golden heat haze over the mesas, a shimmer band above the far prairie and the grass bleached toward pale gold.
 
 No pairings are left out. Mild and warm clear skies use the plain scene, which is already a warm afternoon.

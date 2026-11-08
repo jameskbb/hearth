@@ -156,19 +156,14 @@
         },
         {
           "image": "fog-far.webp",
-          "y": 200,
+          "y": 215,
           "parallax": 0.25,
           "after": "mountains.webp"
         },
         {
           "image": "fog-low.webp",
-          "y": 320,
+          "y": 282,
           "parallax": 0.58,
-          "wrap": true,
-          "drift": {
-            "x": 40,
-            "period": 240
-          },
           "opacity": {
             "min": 0.8,
             "max": 1.0,
@@ -313,10 +308,8 @@
       },
       "add": [
         {
-          "image": "haze-pearl.webp",
-          "y": 220,
-          "parallax": 0.25,
-          "after": "mountains.webp"
+          "image": "air-crisp.webp",
+          "after": "sky.webp"
         },
         {
           "image": "frost-valley.webp",
@@ -344,15 +337,8 @@
       },
       "add": [
         {
-          "image": "haze-pearl.webp",
-          "y": 220,
-          "parallax": 0.25,
-          "after": "mountains.webp",
-          "opacity": {
-            "min": 0.6,
-            "max": 0.6,
-            "period": 60
-          }
+          "image": "air-crisp.webp",
+          "after": "sky.webp"
         },
         {
           "image": "frost-valley.webp",
@@ -360,8 +346,8 @@
           "parallax": 0.58,
           "after": "valley.webp",
           "opacity": {
-            "min": 0.4,
-            "max": 0.4,
+            "min": 0.6,
+            "max": 0.6,
             "period": 60
           }
         }
