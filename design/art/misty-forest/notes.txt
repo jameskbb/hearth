@@ -8,13 +8,13 @@ Layers:
 - 10-sky-pearl: an opaque half-size sky (data-scale 1) added over the base sky, from 00-sky.svg: a soft silver deck lit from within, pale pearl low down, the diffuse sun still glowing. Shared by overcast, rain and fog.
 - 11-sky-snow: an opaque half-size snow sky, lavender pearl overhead with a rose-gold glow at the sun. Shared by snow and both snow-on-the-way looks.
 - 12-sky-crisp: an opaque half-size clear sky in sharp air: clean blue overhead, a pale clear band and a tight bright sun. Shared by cold and freezing clear.
-- 13-sky-golden: an opaque half-size sky in warm golden haze with a large blooming sun, for hot clear.
-- 14-pines-near-snow: replaces pines-near.webp on snow mornings (the variant's one full-size replacement): snow along the upward edges of every branch, and a snowy clearing in cool blue shade with soft drifts, so the dock still reads over it.
-- 15-pines-mid-snow: half-size overlay on the far treeline: snow on the far pines and a pale dusting at their feet.
-- 16-frost: half-size hoarfrost on the near forest, rime along the branch edges and fine ice sparkles. Full strength for freezing, about a third for cold.
+- 13-sky-golden: an opaque half-size sky in warm golden haze with a large blooming sun, for hot clear, graded from slate blue through dusty rose and apricot so no mid-tone turns olive.
+- 14-pines-near-snow: replaces pines-near.webp on snow mornings (the variant's one full-size replacement): snow along the upward edges of every branch, drifts banked against every trunk with warm tops on the sun side and soft blue shadows toward the viewer, and broad mounds across the clearing, shading darker toward the viewer so the dock and actions still read. No streak texture.
+- 15-pines-mid-snow: half-size overlay on the far treeline: snow on the far pines and a pale dusting at their feet, kept light behind the hint under the focused app name.
+- 16-frost: half-size hoarfrost on the near forest: short, broken, tapered rime ticks on the upper sides of the branch tips, brightest toward the sun, and a soft pale sheen fading down from the tree line. Full strength for freezing, about a third for cold.
 - 17-snowfall, 18-rainfall: sparse, soft, seamless 960x540 tiles for the fall motion over the whole frame. They read as a quiet still texture with Reduce motion. No flashes.
-- 19-fog-far-glow: replaces fog-far.webp on fog mornings with the same shapes, motion and stitched texture, thickened and lit from within.
-- 20-sunbeams: soft shafts of sun fanning down through the fog from the low sun.
-- 21-fog-veil: a deep bank of luminous pearl fog, wrapping and drifting. Used twice in the fog look: over the ranges and, fainter, across the far treeline.
+- 19-fog-far-glow: replaces fog-far.webp on fog mornings with the same shapes, motion and stitched texture, thickened and lit from within. In the fog look it is held still and thins over the left where the focused app name sits.
+- 20-sunbeams: soft shafts of sun fanning down through the fog from the low sun, drawn at quarter size.
+- 21-fog-veil: a deep bank of luminous pearl fog, held still, thinning to under a third over the left where the focused app name sits. Used three times in the fog look: high in the sky so the deck glows (its thin part then sits behind the clock), over the ranges and, fainter, across the far treeline. The fog look hides the base's near mist so the pines behind the name stay dark.
 
 Variants, in match order: snow, rain, fog, snow-coming-freezing (frost on the near pines), snow-coming, freezing-clear, cold-clear, hot-clear, overcast. The fog look is the brightest and most distinct: the forest stands in glowing mist with sunbeams through it. The others keep the same forest, ranges and mist. Overcast also covers storm (widened through rain) and cloudy skies at any temperature. No pairing was left out.
