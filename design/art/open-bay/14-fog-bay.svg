@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Hearth theme "Open Bay", weather layer: fog. The garden outside fades into luminous, warm-silver mist,
+       deepest toward the far hills, and a soft breath of it drifts in over the threshold. Half resolution. -->
+  <defs>
+    <clipPath id="bay"><rect x="517.5" y="145" width="265" height="178"/></clipPath>
+    <linearGradient id="g" x1="0" y1="145" x2="0" y2="323" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ECE8E0" stop-opacity=".86"/>
+      <stop offset=".45" stop-color="#E6E3DC" stop-opacity=".74"/>
+      <stop offset=".75" stop-color="#E0DED8" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#DCDAD4" stop-opacity=".36"/>
+    </linearGradient>
+    <filter id="wisp" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".008 .035" numOctaves="3" seed="19" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .8 0 0 0 .6" result="a"/>
+      <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    </filter>
+    <radialGradient id="in" cx="650" cy="318" r="200" gradientTransform="translate(650 318) scale(1 .32) translate(-650 -318)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D8DADB" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#D8DADB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#in)" filter="url(#wisp)"/>
+  <g clip-path="url(#bay)">
+    <rect x="517" y="145" width="266" height="178" fill="url(#g)" filter="url(#wisp)"/>
+  </g>
+</svg>

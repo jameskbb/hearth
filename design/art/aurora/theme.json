@@ -4,7 +4,9 @@
   "name": "Aurora",
   "author": "Hearth",
   "description": "An emerald curtain over a dark treeline",
-  "dayparts": ["night"],
+  "dayparts": [
+    "night"
+  ],
   "palette": {
     "ink": "#FFEAF6F1",
     "inkMuted": "#B8EAF6F1",
@@ -15,11 +17,146 @@
     "window": "#FF050A18"
   },
   "preview": "preview.webp",
-  "motion": { "sway": { "amplitude": 4, "period": 90 } },
+  "motion": {
+    "sway": {
+      "amplitude": 4,
+      "period": 90
+    }
+  },
   "layers": [
-    { "image": "sky.webp" },
-    { "image": "curtain.webp", "parallax": 0.3,
-      "drift": { "x": 10, "period": 120 },
-      "opacity": { "min": 0.8, "max": 1.0, "period": 45 } }
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "curtain.webp",
+      "parallax": 0.3,
+      "drift": {
+        "x": 10,
+        "period": 120
+      },
+      "opacity": {
+        "min": 0.8,
+        "max": 1.0,
+        "period": 45
+      }
+    }
+  ],
+  "weather": [
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "add": [
+        {
+          "image": "clouds-lit.webp"
+        },
+        {
+          "image": "snow-ground.webp",
+          "y": 396
+        },
+        {
+          "image": "snowfall.webp",
+          "fall": {
+            "y": 36,
+            "period": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": "snow-coming",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil.webp"
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "add": [
+        {
+          "image": "ground-fog.webp",
+          "y": 300
+        }
+      ]
+    },
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "stars-crisp.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "horizon-clear.webp",
+          "y": 330,
+          "after": "sky.webp"
+        },
+        {
+          "image": "rime.webp",
+          "y": 396
+        }
+      ]
+    },
+    {
+      "id": "cold-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "cold"
+        ]
+      },
+      "add": [
+        {
+          "image": "stars-crisp.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "horizon-clear.webp",
+          "y": 330,
+          "after": "sky.webp"
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "add": [
+        {
+          "image": "clouds-lit.webp"
+        }
+      ]
+    }
   ]
 }
