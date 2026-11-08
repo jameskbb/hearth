@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="125" viewBox="0 115 960 125" data-scale="1">
+  <!-- Fuller, pearl-pink versions of the base cloud strip, replacing
+       clouds.webp in overcast and rain. Edges stay transparent so the wrap
+       is quiet. -->
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E4D6D6" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#EBD0C8" stop-opacity="0.12"/>
+    </linearGradient>
+    <filter id="soft" x="-25%" y="-100%" width="150%" height="300%"><feGaussianBlur stdDeviation="4 3"/></filter>
+  </defs>
+  <g fill="url(#light)" filter="url(#soft)">
+    <path d="M50 152 C107 138 140 148 173 142 C205 136 224 142 242 146 C270 142 302 150 336 157 C284 164 250 159 220 163 C168 165 106 159 50 152Z" opacity="0.55"/>
+    <path d="M380 188 C433 175 466 182 499 177 C530 171 552 176 574 180 C607 175 644 186 684 192 C628 198 592 194 553 198 C498 200 444 192 380 188Z" opacity="0.9"/>
+    <path d="M640 135 C690 124 715 131 749 125 C786 121 810 130 836 132 C858 131 892 136 920 142 C876 147 842 141 812 145 C760 147 708 138 640 135Z" opacity="0.8"/>
+    <path d="M90 220 C132 212 164 216 191 212 C226 208 250 218 284 220 C238 228 208 222 180 226 C142 228 118 222 90 220Z" opacity="0.65"/>
+  </g>
+</svg>

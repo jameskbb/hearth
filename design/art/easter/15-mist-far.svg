@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="120" viewBox="0 230 960 120" data-scale="0.5">
+  <!-- Spring morning mist lying between the far hills, blushed by the dawn.
+       Thinner on the left, behind the focused app name. Quarter size. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2DED2" stop-opacity="0"/>
+      <stop offset="0.4" stop-color="#F2DED2" stop-opacity="0.56"/>
+      <stop offset="0.7" stop-color="#EEDFD4" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#E4DAD0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.35"/>
+      <stop offset="0.42" stop-color="#fff" stop-opacity="0.5"/>
+      <stop offset="0.62" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="m"><rect x="0" y="230" width="960" height="120" fill="url(#side)"/></mask>
+  </defs>
+  <rect x="0" y="230" width="960" height="120" fill="url(#band)" mask="url(#m)"/>
+</svg>

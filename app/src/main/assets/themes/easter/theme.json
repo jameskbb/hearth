@@ -17,9 +17,93 @@
   },
   "preview": "preview.webp",
   "layers": [
-    { "image": "sky.webp" },
-    { "image": "clouds.webp", "y": 115, "wrap": true,
-      "drift": { "x": 63, "period": 180 } },
-    { "image": "meadow.webp", "y": 176 }
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "clouds.webp",
+      "y": 115,
+      "wrap": true,
+      "drift": {
+        "x": 63,
+        "period": 180
+      }
+    },
+    {
+      "image": "meadow.webp",
+      "y": 176
+    }
+  ],
+  "weather": [
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "add": [
+        {
+          "image": "mist-far.webp",
+          "y": 230,
+          "after": "clouds.webp"
+        },
+        {
+          "image": "mist-near.webp",
+          "y": 300
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-overcast.webp"
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "rainbow.webp",
+          "y": 120,
+          "after": "sky.webp"
+        },
+        {
+          "image": "wet.webp",
+          "y": 280
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 120,
+            "period": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-overcast.webp"
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        }
+      ]
+    }
   ]
 }

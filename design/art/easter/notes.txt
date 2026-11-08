@@ -19,3 +19,23 @@ Muted ink uses E6 alpha. The lower-left meadow ridge is deep sage throughout
 the landform, keeping small hints readable without a label backing surface.
 
 Rebuild: scripts/render-theme.sh easter
+
+Weather variants
+
+Original work drawn for Hearth from this pack's own SVG sources (10-16),
+on the same horizon and in the same palette. No third-party material. Soft
+gradient layers (veil, rainbow, mist) are authored at quarter size. The
+eggs and the blossom tree are never covered.
+
+- fog (fog): spring morning mist blushed by the dawn between the far hills,
+  and a thin low mist over the near meadow that parts around the eggs.
+- rain (rain, and storm by widening): a fresh spring rain. The pearl deck
+  with fuller pink-pearl clouds, a faint pastel rainbow over the far hills
+  (clear of the clock, fading before the app name), light falling rain
+  (fall: 120 dp per 30 s) and soft silver light along the wet grass crests.
+- overcast (cloudy, and snow skies by widening): the pearl deck thinning
+  toward the hills so the dawn still warms the horizon, with fuller clouds
+  replacing clouds.webp.
+
+Left out: snow, freezing and cold clear (a spring scene; snow falls back to
+overcast) and hot-clear (not true to an Easter dawn).

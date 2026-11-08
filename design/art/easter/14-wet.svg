@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="140" viewBox="0 280 960 140" data-scale="1">
+  <!-- Rain-washed meadow: soft silver light along the grassy crests and a
+       few bright drops caught on the far ridge. -->
+  <defs>
+    <filter id="soft" x="-5%" y="-200%" width="110%" height="500%"><feGaussianBlur stdDeviation="2.4 1.6"/></filter>
+    <linearGradient id="vary" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="960" y2="0">
+      <stop offset="0" stop-color="#F1EEDC" stop-opacity="0.1"/>
+      <stop offset="0.2" stop-color="#F1EEDC" stop-opacity="0.3"/>
+      <stop offset="0.4" stop-color="#F1EEDC" stop-opacity="0.12"/>
+      <stop offset="0.58" stop-color="#F1EEDC" stop-opacity="0.32"/>
+      <stop offset="0.7" stop-color="#F1EEDC" stop-opacity="0"/>
+      <stop offset="0.86" stop-color="#F1EEDC" stop-opacity="0"/>
+      <stop offset="1" stop-color="#F1EEDC" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#vary)" stroke-linecap="round" filter="url(#soft)">
+    <path d="M0 324 C64 307 100 316 148 306 C202 293 230 320 277 318 C333 315 361 333 408 329 C470 323 504 301 553 308 C604 319 630 311 681 304" stroke-width="2.4"/>
+    <path d="M0 352 C77 327 115 353 176 349 C236 346 282 366 343 361 C423 355 474 343 537 337 C600 332 636 311 685 306" stroke-width="2.4" opacity="0.8"/>
+    <path d="M0 402 C96 383 155 404 224 402 C306 401 374 436 463 426 C542 414 622 422 697 408 C780 391 847 408 960 388" stroke-width="2.2" opacity="0.6"/>
+  </g>
+</svg>
