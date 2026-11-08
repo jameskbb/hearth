@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 160 960 380" data-scale="1">
+  <!-- Misty Forest weather layer: soft shafts of morning sun through the fog, fanning down from the low sun
+       behind the ranges. Drawn at half size (data-scale 1); faint, warm, never sharp. -->
+  <defs>
+    <radialGradient id="beam" cx="640" cy="226" r="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF6E0" stop-opacity=".95"/>
+      <stop offset=".45" stop-color="#FFF2D8" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#FFF0D0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <g fill="url(#beam)" filter="url(#soft)">
+    <path d="M640 226 L532.9 734.9 L474.2 718.9Z" opacity="0.63"/>
+    <path d="M640 226 L233.0 549.6 L198.0 499.9Z" opacity="0.67"/>
+    <path d="M640 226 L1095.1 477.6 L1069.8 518.7Z" opacity="0.68"/>
+    <path d="M640 226 L507.9 728.9 L443.3 707.4Z" opacity="0.39"/>
+    <path d="M640 226 L693.9 743.2 L655.6 745.8Z" opacity="0.54"/>
+    <path d="M640 226 L570.9 741.4 L543.4 737.0Z" opacity="0.43"/>
+    <path d="M640 226 L908.9 671.1 L847.8 702.7Z" opacity="0.62"/>
+    <path d="M640 226 L1012.2 589.2 L965.2 631.7Z" opacity="0.40"/>
+    <path d="M640 226 L525.3 733.2 L493.3 724.9Z" opacity="0.35"/>
+  </g>
+</svg>

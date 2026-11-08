@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 180 960 300" data-scale="1">
+  <!-- Misty Forest weather layer: a deep bank of luminous fog for fog mornings, drawn at half size
+       (data-scale 1) and wrapping: the band is uniform left to right and its texture is stitched noise, so
+       the edges match. Pearl white lit by the low sun, veiling the far treeline so the forest glows. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="180" x2="0" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBF6EC" stop-opacity="0"/>
+      <stop offset="0.25" stop-color="#FBF6EC" stop-opacity="0.7"/>
+      <stop offset="0.5" stop-color="#FFF8EA" stop-opacity="0.92"/>
+      <stop offset="0.75" stop-color="#F4F2EA" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#F4F2EA" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="mist" filterUnits="userSpaceOnUse" x="0" y="180" width="960" height="300">
+      <feTurbulence type="fractalNoise" baseFrequency=".004 .02" numOctaves="3" seed="71" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.6 0 0 0 -0.1" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+  </defs>
+  <rect x="0" y="180" width="960" height="300" fill="url(#band)" filter="url(#mist)"/>
+</svg>
