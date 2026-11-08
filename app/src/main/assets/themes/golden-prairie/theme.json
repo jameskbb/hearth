@@ -4,7 +4,9 @@
   "name": "Golden Prairie",
   "author": "Hearth",
   "description": "Warm afternoon light across open grassland",
-  "dayparts": ["day"],
+  "dayparts": [
+    "day"
+  ],
   "palette": {
     "ink": "#FFFFF7E8",
     "inkMuted": "#B8FFF7E8",
@@ -15,14 +17,376 @@
     "window": "#FF1B2B28"
   },
   "preview": "preview.webp",
-  "motion": { "sway": { "amplitude": 4, "period": 160 } },
+  "motion": {
+    "sway": {
+      "amplitude": 4,
+      "period": 160
+    }
+  },
   "layers": [
-    { "image": "sky.webp" },
-    { "image": "clouds.webp", "y": 66, "parallax": 0.1, "wrap": true,
-      "drift": { "x": 76, "period": 210 } },
-    { "image": "mesas.webp", "y": 252, "parallax": 0.24 },
-    { "image": "prairie.webp", "y": 304, "parallax": 0.68 },
-    { "image": "grasses.webp", "y": 400, "parallax": 1.0,
-      "drift": { "x": 1.2, "period": 48 } }
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "clouds.webp",
+      "y": 66,
+      "parallax": 0.1,
+      "wrap": true,
+      "drift": {
+        "x": 76,
+        "period": 210
+      }
+    },
+    {
+      "image": "mesas.webp",
+      "y": 252,
+      "parallax": 0.24
+    },
+    {
+      "image": "prairie.webp",
+      "y": 304,
+      "parallax": 0.68
+    },
+    {
+      "image": "grasses.webp",
+      "y": 400,
+      "parallax": 1.0,
+      "drift": {
+        "x": 1.2,
+        "period": 48
+      }
+    }
+  ],
+  "weather": [
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-heavy.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "snow-mesas.webp",
+          "y": 252,
+          "parallax": 0.24,
+          "after": "mesas.webp"
+        },
+        {
+          "image": "snow-prairie.webp",
+          "y": 304,
+          "parallax": 0.68,
+          "after": "prairie.webp"
+        },
+        {
+          "image": "snowfall.webp",
+          "wrap": true,
+          "fall": {
+            "y": 40,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-pearl.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "rainbow.webp",
+          "y": 100,
+          "after": "clouds.webp"
+        },
+        {
+          "image": "wet-prairie.webp",
+          "y": 304,
+          "parallax": 0.68,
+          "after": "prairie.webp"
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 90,
+            "period": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "hide": [
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "sun-veiled.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "fog-far.webp",
+          "y": 250,
+          "parallax": 0.24,
+          "after": "mesas.webp"
+        },
+        {
+          "image": "fog-low.webp",
+          "y": 360,
+          "parallax": 0.68,
+          "wrap": true,
+          "drift": {
+            "x": 40,
+            "period": 240
+          },
+          "opacity": {
+            "min": 0.8,
+            "max": 1.0,
+            "period": 50
+          },
+          "after": "prairie.webp"
+        }
+      ]
+    },
+    {
+      "id": "snow-coming-freezing",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "temp": [
+          "freezing"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-heavy.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "sun-veiled.webp",
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.7,
+            "max": 0.7,
+            "period": 60
+          }
+        },
+        {
+          "image": "haze-pearl.webp",
+          "y": 250,
+          "parallax": 0.24,
+          "after": "mesas.webp"
+        },
+        {
+          "image": "frost-prairie.webp",
+          "y": 304,
+          "parallax": 0.68,
+          "after": "prairie.webp"
+        },
+        {
+          "image": "frost-grasses.webp",
+          "y": 400,
+          "parallax": 1.0,
+          "drift": {
+            "x": 1.2,
+            "period": 48
+          },
+          "after": "grasses.webp"
+        }
+      ]
+    },
+    {
+      "id": "snow-coming",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-heavy.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "sun-veiled.webp",
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.7,
+            "max": 0.7,
+            "period": 60
+          }
+        },
+        {
+          "image": "haze-pearl.webp",
+          "y": 250,
+          "parallax": 0.24,
+          "after": "mesas.webp"
+        },
+        {
+          "image": "frost-prairie.webp",
+          "y": 304,
+          "parallax": 0.68,
+          "after": "prairie.webp",
+          "opacity": {
+            "min": 0.3,
+            "max": 0.3,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-pearl.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "haze-pearl.webp",
+          "y": 250,
+          "parallax": 0.24,
+          "after": "mesas.webp"
+        }
+      ]
+    },
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze-pearl.webp",
+          "y": 250,
+          "parallax": 0.24,
+          "after": "mesas.webp"
+        },
+        {
+          "image": "frost-prairie.webp",
+          "y": 304,
+          "parallax": 0.68,
+          "after": "prairie.webp"
+        },
+        {
+          "image": "frost-grasses.webp",
+          "y": 400,
+          "parallax": 1.0,
+          "drift": {
+            "x": 1.2,
+            "period": 48
+          },
+          "after": "grasses.webp"
+        }
+      ]
+    },
+    {
+      "id": "cold-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "cold"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze-pearl.webp",
+          "y": 250,
+          "parallax": 0.24,
+          "after": "mesas.webp",
+          "opacity": {
+            "min": 0.6,
+            "max": 0.6,
+            "period": 60
+          }
+        },
+        {
+          "image": "frost-prairie.webp",
+          "y": 304,
+          "parallax": 0.68,
+          "after": "prairie.webp",
+          "opacity": {
+            "min": 0.4,
+            "max": 0.4,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "hot-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "hot"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze-gold.webp",
+          "y": 200,
+          "parallax": 0.24,
+          "after": "mesas.webp"
+        }
+      ]
+    }
   ]
 }

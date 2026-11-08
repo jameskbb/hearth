@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="0 66 960 200" data-scale="1">
+  <!-- Snow sky: a low, soft deck of pearl and cream cloud rolls over the mesas. Repeats left to right. -->
+  <defs>
+    <linearGradient id="roll" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFBF0"/>
+      <stop offset="0.55" stop-color="#ECEAE0"/>
+      <stop offset="1" stop-color="#CDD4D6" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="6"/></filter>
+    <g id="rolls"><ellipse cx="90.9" cy="136.0" rx="117.1" ry="10.4" opacity="0.35"/><ellipse cx="257.9" cy="130.9" rx="116.8" ry="14.4" opacity="0.25"/><ellipse cx="426.0" cy="136.2" rx="96.6" ry="14.4" opacity="0.39"/><ellipse cx="553.0" cy="143.9" rx="99.7" ry="10.2" opacity="0.27"/><ellipse cx="715.6" cy="140.0" rx="113.8" ry="12.1" opacity="0.35"/><ellipse cx="874.4" cy="153.0" rx="122.6" ry="12.4" opacity="0.25"/><ellipse cx="48.4" cy="193.8" rx="80.7" ry="20.5" opacity="0.60"/><ellipse cx="150.7" cy="206.0" rx="95.1" ry="15.5" opacity="0.73"/><ellipse cx="249.3" cy="208.5" rx="77.7" ry="18.2" opacity="0.66"/><ellipse cx="352.0" cy="179.3" rx="83.6" ry="16.5" opacity="0.67"/><ellipse cx="428.3" cy="198.4" rx="82.3" ry="17.4" opacity="0.80"/><ellipse cx="531.6" cy="196.0" rx="80.0" ry="14.9" opacity="0.52"/><ellipse cx="627.6" cy="175.4" rx="67.8" ry="21.2" opacity="0.76"/><ellipse cx="693.0" cy="176.7" rx="69.5" ry="16.2" opacity="0.50"/><ellipse cx="769.6" cy="183.3" rx="68.7" ry="15.5" opacity="0.54"/><ellipse cx="847.7" cy="198.9" rx="94.3" ry="18.5" opacity="0.54"/><ellipse cx="917.8" cy="179.9" rx="60.4" ry="14.5" opacity="0.60"/><ellipse cx="979.0" cy="194.8" rx="63.7" ry="17.7" opacity="0.67"/></g>
+  </defs>
+  <g fill="url(#roll)" filter="url(#soft)" opacity="0.85">
+    <use href="#rolls"/><use href="#rolls" x="-960"/><use href="#rolls" x="960"/>
+  </g>
+</svg>

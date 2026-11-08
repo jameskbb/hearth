@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="288" viewBox="-4 252 968 288" data-scale="1">
+  <!-- Snow on the mesas: the far tables white under the snow sky, fresh snow along every rim and ledge of the red rock, the warm faces still glowing. -->
+  <defs>
+    <linearGradient id="farSnow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B9C8D6"/>
+      <stop offset="0.5" stop-color="#D7E1E8"/>
+      <stop offset="1" stop-color="#F2F2EC"/>
+    </linearGradient>
+    <mask id="farOnly">
+      <path d="M-8 330 L27 329 L42 325 L91 325 L103 328 L152 326 L174 315 L181 304 L215 303 L218 307 L240 306 L256 322 L289 328 L341 326 L370 330 L401 325 L459 327 L487 319 L499 307 L532 305 L539 309 L563 308 L580 323 L626 327 L676 322 L695 314 L714 291 L731 289 L737 283 L797 284 L802 289 L828 289 L841 306 L852 307 L868 321 L913 318 L944 323 L968 319 L968 540 L-8 540Z" fill="#FFFFFF"/>
+      <path d="M-8 357 L41 350 L70 352 L106 344 L142 347 L172 343 L195 350 L249 347 L280 338 L291 324 L310 324 L316 321 L353 323 L362 335 L373 337 L387 345 L426 350 L473 346 L512 349 L551 341 L587 343 L619 336 L642 322 L659 299 L680 298 L684 294 L719 295 L726 300 L758 298 L772 315 L785 319 L794 328 L824 334 L869 332 L898 338 L938 332 L968 338 L968 540 L-8 540Z" fill="#000000"/>
+    </mask>
+    <clipPath id="face"><path d="M-8 357 L41 350 L70 352 L106 344 L142 347 L172 343 L195 350 L249 347 L280 338 L291 324 L310 324 L316 321 L353 323 L362 335 L373 337 L387 345 L426 350 L473 346 L512 349 L551 341 L587 343 L619 336 L642 322 L659 299 L680 298 L684 294 L719 295 L726 300 L758 298 L772 315 L785 319 L794 328 L824 334 L869 332 L898 338 L938 332 L968 338 L968 540 L-8 540Z"/></clipPath>
+    <linearGradient id="lowSnow" x1="0" y1="352" x2="0" y2="372" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F4EE" stop-opacity="0"/>
+      <stop offset="1" stop-color="#F4F4EE" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <rect x="-8" y="252" width="976" height="288" fill="url(#farSnow)" mask="url(#farOnly)" opacity="0.88"/>
+  <g clip-path="url(#face)">
+    <path d="M659 299 L680 298 L684 294 L719 295 L726 300 L758 298 L763 305 L726 308 L716 304 L686 305 L680 309 L655 309Z M291 324 L310 324 L316 321 L353 323 L358 330 L316 329 L309 331 L289 331Z" fill="#FFFDF6"/>
+    <g fill="#F6F1EA" opacity="0.75">
+      <path d="M667 309 L660 324 L652 330 L656 330 L664 321Z M685 307 L682 321 L675 332 L680 331 L689 313Z M704 307 L702 323 L709 334 L713 334 L707 318Z M727 309 L738 327 L751 333 L740 321Z M748 308 L757 321 L770 328 L760 322Z M310 331 L304 341 L309 340 L313 333Z M338 330 L342 340 L348 342 L343 334Z"/>
+    </g>
+    <rect x="-8" y="352" width="976" height="188" fill="url(#lowSnow)"/>
+  </g>
+</svg>

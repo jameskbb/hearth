@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="236" viewBox="-7 304 974 236" data-scale="1">
+  <!-- Rain-washed prairie: sun on wet grass, bright sheen along each swell, glints of standing water. -->
+  <defs>
+    <radialGradient id="sun" cx="86%" cy="22%" r="60%">
+      <stop offset="0" stop-color="#FFF2B8" stop-opacity="0.36"/>
+      <stop offset="0.6" stop-color="#FCE7A0" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#FCE7A0" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="land"><path d="M-9 361 C69 353 127 363 205 359 C294 353 346 368 427 363 C517 356 576 369 655 358 C754 345 844 357 969 348 L969 540 L-9 540Z"/></clipPath>
+    <filter id="soft" x="-5%" y="-50%" width="110%" height="200%"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <g clip-path="url(#land)">
+    <rect x="-9" y="304" width="978" height="236" fill="url(#sun)"/>
+    <g fill="none" stroke="#FFF6D6" stroke-linecap="round" filter="url(#soft)" opacity="0.4">
+      <path d="M-9 384 C71 375 126 389 201 401 C293 415 362 409 439 398 C528 386 602 381 677 379 C787 376 882 359 969 368" stroke-width="4"/>
+      <path d="M-9 422 C73 409 155 420 224 437 C303 458 355 463 429 454 C507 444 577 449 653 436 C759 418 863 402 969 414" stroke-width="3"/>
+      <path d="M-9 460 C114 442 219 461 328 481 C413 495 489 490 580 478 C706 463 820 438 969 448" stroke-width="4"/>
+      <path d="M-9 361 C69 353 127 363 205 359 C294 353 346 368 427 363 C517 356 576 369 655 358 C754 345 844 357 969 348" stroke-width="2.5"/>
+    </g>
+    <g fill="#FFFFFF"><ellipse cx="228.6" cy="467.1" rx="2.9" ry="0.7" opacity="0.63"/><ellipse cx="98.4" cy="411.3" rx="6.0" ry="0.7" opacity="0.43"/><ellipse cx="610.5" cy="427.8" rx="4.1" ry="0.7" opacity="0.55"/><ellipse cx="196.9" cy="456.8" rx="2.8" ry="0.7" opacity="0.44"/><ellipse cx="38.4" cy="412.8" rx="3.9" ry="0.7" opacity="0.71"/><ellipse cx="368.7" cy="400.9" rx="3.4" ry="0.7" opacity="0.75"/><ellipse cx="78.0" cy="440.4" rx="3.8" ry="0.7" opacity="0.61"/><ellipse cx="331.4" cy="445.9" rx="4.2" ry="0.7" opacity="0.61"/><ellipse cx="849.3" cy="437.4" rx="3.0" ry="0.7" opacity="0.38"/><ellipse cx="890.4" cy="430.1" rx="3.2" ry="0.7" opacity="0.73"/><ellipse cx="552.6" cy="448.9" rx="5.6" ry="0.7" opacity="0.46"/><ellipse cx="348.2" cy="460.5" rx="3.0" ry="0.7" opacity="0.66"/><ellipse cx="109.8" cy="445.8" rx="5.0" ry="0.7" opacity="0.73"/><ellipse cx="796.0" cy="431.3" rx="3.2" ry="0.7" opacity="0.41"/><ellipse cx="506.4" cy="431.8" rx="2.7" ry="0.7" opacity="0.71"/><ellipse cx="486.8" cy="446.7" rx="3.3" ry="0.7" opacity="0.45"/><ellipse cx="31.0" cy="418.8" rx="3.4" ry="0.7" opacity="0.52"/><ellipse cx="366.8" cy="457.1" rx="5.6" ry="0.7" opacity="0.42"/><ellipse cx="384.6" cy="405.0" rx="4.8" ry="0.7" opacity="0.74"/><ellipse cx="205.7" cy="451.8" rx="3.6" ry="0.7" opacity="0.36"/><ellipse cx="723.2" cy="418.7" rx="3.1" ry="0.7" opacity="0.52"/><ellipse cx="233.2" cy="424.0" rx="4.1" ry="0.7" opacity="0.52"/><ellipse cx="561.4" cy="414.5" rx="2.8" ry="0.7" opacity="0.38"/><ellipse cx="118.0" cy="432.6" rx="3.8" ry="0.7" opacity="0.67"/><ellipse cx="484.5" cy="447.2" rx="5.9" ry="0.7" opacity="0.38"/><ellipse cx="35.6" cy="403.0" rx="3.9" ry="0.7" opacity="0.58"/></g>
+  </g>
+</svg>

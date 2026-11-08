@@ -4,7 +4,9 @@
   "name": "Sunlit Valley",
   "author": "Hearth",
   "description": "Blue skies over a bright green valley",
-  "dayparts": ["day"],
+  "dayparts": [
+    "day"
+  ],
   "palette": {
     "ink": "#FFF6FAF2",
     "inkMuted": "#B8F6FAF2",
@@ -15,13 +17,380 @@
     "window": "#FF082530"
   },
   "preview": "preview.webp",
-  "motion": { "sway": { "amplitude": 4, "period": 160 } },
+  "motion": {
+    "sway": {
+      "amplitude": 4,
+      "period": 160
+    }
+  },
   "layers": [
-    { "image": "sky.webp" },
-    { "image": "clouds.webp", "y": 52, "parallax": 0.1, "wrap": true,
-      "drift": { "x": 80, "period": 210 } },
-    { "image": "mountains.webp", "y": 178, "parallax": 0.25 },
-    { "image": "valley.webp", "y": 282, "parallax": 0.58 },
-    { "image": "forest.webp", "y": 326, "parallax": 1.0 }
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "clouds.webp",
+      "y": 52,
+      "parallax": 0.1,
+      "wrap": true,
+      "drift": {
+        "x": 80,
+        "period": 210
+      }
+    },
+    {
+      "image": "mountains.webp",
+      "y": 178,
+      "parallax": 0.25
+    },
+    {
+      "image": "valley.webp",
+      "y": 282,
+      "parallax": 0.58
+    },
+    {
+      "image": "forest.webp",
+      "y": 326,
+      "parallax": 1.0
+    }
+  ],
+  "weather": [
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-heavy.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "snow-mountains.webp",
+          "y": 178,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        },
+        {
+          "image": "snow-valley.webp",
+          "y": 282,
+          "parallax": 0.58,
+          "after": "valley.webp"
+        },
+        {
+          "image": "snow-forest.webp",
+          "y": 326,
+          "parallax": 1.0,
+          "after": "forest.webp"
+        },
+        {
+          "image": "snowfall.webp",
+          "wrap": true,
+          "fall": {
+            "y": 40,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-pearl.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "haze-pearl.webp",
+          "y": 220,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        },
+        {
+          "image": "wet-valley.webp",
+          "y": 282,
+          "parallax": 0.58,
+          "after": "valley.webp"
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 90,
+            "period": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "hide": [
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "sun-veiled.webp",
+          "y": 0,
+          "after": "sky.webp"
+        },
+        {
+          "image": "fog-far.webp",
+          "y": 200,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        },
+        {
+          "image": "fog-low.webp",
+          "y": 320,
+          "parallax": 0.58,
+          "wrap": true,
+          "drift": {
+            "x": 40,
+            "period": 240
+          },
+          "opacity": {
+            "min": 0.8,
+            "max": 1.0,
+            "period": 50
+          },
+          "after": "valley.webp"
+        }
+      ]
+    },
+    {
+      "id": "snow-coming-freezing",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "temp": [
+          "freezing"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-heavy.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "sun-veiled.webp",
+          "y": 0,
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.7,
+            "max": 0.7,
+            "period": 60
+          }
+        },
+        {
+          "image": "haze-pearl.webp",
+          "y": 220,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        },
+        {
+          "image": "frost-valley.webp",
+          "y": 282,
+          "parallax": 0.58,
+          "after": "valley.webp"
+        },
+        {
+          "image": "frost-forest.webp",
+          "y": 326,
+          "parallax": 1.0,
+          "after": "forest.webp"
+        }
+      ]
+    },
+    {
+      "id": "snow-coming",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-heavy.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "sun-veiled.webp",
+          "y": 0,
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.7,
+            "max": 0.7,
+            "period": 60
+          }
+        },
+        {
+          "image": "haze-pearl.webp",
+          "y": 220,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        },
+        {
+          "image": "frost-valley.webp",
+          "y": 282,
+          "parallax": 0.58,
+          "opacity": {
+            "min": 0.3,
+            "max": 0.3,
+            "period": 60
+          },
+          "after": "valley.webp"
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-pearl.webp"
+      },
+      "add": [
+        {
+          "image": "sky-pearl.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "haze-pearl.webp",
+          "y": 220,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        }
+      ]
+    },
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze-pearl.webp",
+          "y": 220,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        },
+        {
+          "image": "frost-valley.webp",
+          "y": 282,
+          "parallax": 0.58,
+          "after": "valley.webp"
+        },
+        {
+          "image": "frost-forest.webp",
+          "y": 326,
+          "parallax": 1.0,
+          "after": "forest.webp"
+        }
+      ]
+    },
+    {
+      "id": "cold-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "cold"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze-pearl.webp",
+          "y": 220,
+          "parallax": 0.25,
+          "after": "mountains.webp",
+          "opacity": {
+            "min": 0.6,
+            "max": 0.6,
+            "period": 60
+          }
+        },
+        {
+          "image": "frost-valley.webp",
+          "y": 282,
+          "parallax": 0.58,
+          "after": "valley.webp",
+          "opacity": {
+            "min": 0.4,
+            "max": 0.4,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "hot-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "hot"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze-gold.webp",
+          "y": 150,
+          "parallax": 0.25,
+          "after": "mountains.webp"
+        },
+        {
+          "image": "land-gold.webp",
+          "y": 282,
+          "parallax": 0.58,
+          "after": "valley.webp"
+        }
+      ]
+    }
   ]
 }

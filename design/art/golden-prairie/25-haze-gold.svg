@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="-4 200 968 200" data-scale="1">
+  <!-- High summer: golden heat haze over the mesas and the far prairie, a shimmer of light along the horizon. -->
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFEFC0" stop-opacity="0"/>
+      <stop offset="0.4" stop-color="#FDE5A6" stop-opacity="0.46"/>
+      <stop offset="0.7" stop-color="#F8DD98" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#F0D690" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="m"><rect x="-4" y="200" width="968" height="200" fill="url(#side)"/></mask>
+    <filter id="soft" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="1.2"/></filter>
+  </defs>
+  <rect x="-4" y="200" width="968" height="200" fill="url(#gold)" mask="url(#m)"/>
+  <g fill="none" stroke="#FFF4CF" stroke-linecap="round" opacity="0.4" filter="url(#soft)" mask="url(#m)">
+    <path d="M20 344 C80 342 140 346 200 343 M300 347 C360 345 430 349 500 346 M560 342 C640 340 700 344 780 341 M820 346 C870 344 920 347 960 345" stroke-width="1.4"/>
+    <path d="M90 352 C150 350 210 353 260 351 M420 354 C480 352 540 355 600 353 M680 351 C740 349 800 352 860 350" stroke-width="1"/>
+  </g>
+</svg>

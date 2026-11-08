@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="-4 150 968 240" data-scale="1">
+  <!-- High summer: golden haze in the low sky and over the far range, warmest toward the sun. -->
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF1C4" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#FCE3A0" stop-opacity="0.5"/>
+      <stop offset="0.72" stop-color="#F6DC98" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#EBD99A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.3"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="730" cy="200" r="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF4CC" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#FFF6D2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topG" x1="0" y1="150" x2="0" y2="230" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="1"/></linearGradient>
+    <mask id="top"><rect x="-4" y="150" width="968" height="240" fill="url(#topG)"/></mask>
+    <mask id="m"><rect x="-4" y="150" width="968" height="240" fill="url(#side)"/></mask>
+  </defs>
+  <rect x="-4" y="150" width="968" height="240" fill="url(#gold)" mask="url(#m)"/>
+  <circle cx="730" cy="200" r="150" fill="url(#sun)" mask="url(#top)"/>
+</svg>

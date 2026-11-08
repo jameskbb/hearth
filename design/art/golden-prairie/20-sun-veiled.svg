@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="330" viewBox="0 0 960 330" data-scale="1">
+  <!-- The low sun as a pale disc through cloud or fog, with a wide warm halo. -->
+  <defs>
+    <radialGradient id="halo" cx="800" cy="170" r="155" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF6DE" stop-opacity="0.62"/>
+      <stop offset="0.3" stop-color="#FCEFD4" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#F6ECD8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.6"/></filter>
+  </defs>
+  <circle cx="800" cy="170" r="155" fill="url(#halo)"/>
+  <circle cx="800" cy="170" r="16" fill="#FFFBEE" opacity="0.82" filter="url(#blur)"/>
+</svg>
