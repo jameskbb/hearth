@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="150" viewBox="0 360 960 150" data-scale="1">
+  <!-- Bright ground fog drifting across the swells of the prairie. Repeats left to right. -->
+  <defs>
+    <linearGradient id="bank" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFBF0" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#FCF8EE" stop-opacity="0.78"/>
+      <stop offset="0.7" stop-color="#F4F2EA" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#ECEDE6" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+    <g id="banks">
+      <ellipse cx="140" cy="404" rx="220" ry="18"/>
+      <ellipse cx="520" cy="420" rx="250" ry="18"/>
+      <ellipse cx="840" cy="398" rx="210" ry="20"/>
+      <ellipse cx="330" cy="452" rx="200" ry="12"/>
+      <ellipse cx="720" cy="458" rx="190" ry="12"/>
+    </g>
+  </defs>
+  <g fill="url(#bank)" filter="url(#soft)">
+    <use href="#banks"/><use href="#banks" x="-960"/><use href="#banks" x="960"/>
+  </g>
+</svg>

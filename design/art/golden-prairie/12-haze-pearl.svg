@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="130" viewBox="-4 250 968 130" data-scale="1">
+  <!-- Pearl air over the far mesas, warmest toward the low sun on the right. -->
+  <defs>
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6F1E2" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#F6F1E2" stop-opacity="0.5"/>
+      <stop offset="0.75" stop-color="#EEEAD8" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#E8E4D2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="0.8" stop-color="#FFFFFF" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="m"><rect x="-4" y="250" width="968" height="130" fill="url(#side)"/></mask>
+  </defs>
+  <rect x="-4" y="250" width="968" height="130" fill="url(#haze)" mask="url(#m)"/>
+</svg>
