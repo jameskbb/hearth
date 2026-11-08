@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="140" viewBox="0 220 960 140" data-scale="0.5">
+  <!-- Luminous fog pooled in the far valley, lit gold by the low sun. It sits
+       behind the orchard, so the near fields keep their copper, and thins on
+       the left where the focused app name sits. Quarter size:
+       soft gradient only. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EBD3B6" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#EBD3B6" stop-opacity="0.4"/>
+      <stop offset="0.55" stop-color="#F1D9B9" stop-opacity="0.6"/>
+      <stop offset="0.75" stop-color="#E9D4B8" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#E4CFB4" stop-opacity="0.14"/>
+    </linearGradient>
+    <radialGradient id="sunfog" cx="73%" cy="48%" r="34%">
+      <stop offset="0" stop-color="#FBDDA6" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FBDDA6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.3"/>
+      <stop offset="0.42" stop-color="#fff" stop-opacity="0.38"/>
+      <stop offset="0.7" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="m"><rect x="0" y="220" width="960" height="140" fill="url(#side)"/></mask>
+  </defs>
+  <g mask="url(#m)">
+  <rect x="0" y="220" width="960" height="140" fill="url(#band)"/>
+  <rect x="0" y="220" width="960" height="140" fill="url(#sunfog)"/>
+  </g>
+</svg>

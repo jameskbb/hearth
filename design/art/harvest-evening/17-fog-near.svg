@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="150" viewBox="0 300 960 150" data-scale="0.5">
+  <!-- Quarter size: soft gradient only. Low fog lying over the near fields. It thins gradually toward the
+       pumpkins and the orchard tree so the harvest stays clear and warm. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6D6C2" stop-opacity="0"/>
+      <stop offset="0.3" stop-color="#E6D6C2" stop-opacity="0.16"/>
+      <stop offset="0.6" stop-color="#DCCFC0" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#C9C3BA" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="clear" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.4" stop-color="#fff" stop-opacity="0.6"/>
+      <stop offset="0.58" stop-color="#fff"/>
+      <stop offset="0.82" stop-color="#fff" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.4"/>
+    </linearGradient>
+    <mask id="m"><rect x="0" y="300" width="960" height="150" fill="url(#clear)"/></mask>
+    <filter id="soft" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="14 5"/></filter>
+  </defs>
+  <g mask="url(#m)">
+    <rect x="0" y="300" width="960" height="150" fill="url(#band)"/>
+    <g fill="#EEE0CD" filter="url(#soft)">
+      <path d="M-40 352 C80 340 160 350 260 344 C360 338 440 352 540 346 C620 342 690 350 780 346 L780 366 C680 372 600 366 520 370 C420 376 340 366 240 372 C140 378 60 370 -40 374Z" opacity="0.2"/>
+    </g>
+  </g>
+</svg>

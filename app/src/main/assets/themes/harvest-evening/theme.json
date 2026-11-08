@@ -17,9 +17,112 @@
   },
   "preview": "preview.webp",
   "layers": [
-    { "image": "sky.webp" },
-    { "image": "clouds.webp", "y": 124, "wrap": true,
-      "drift": { "x": 64, "period": 180 } },
-    { "image": "orchard.webp", "y": 202 }
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "clouds.webp",
+      "y": 124,
+      "wrap": true,
+      "drift": {
+        "x": 64,
+        "period": 180
+      }
+    },
+    {
+      "image": "orchard.webp",
+      "y": 202
+    }
+  ],
+  "weather": [
+    {
+      "id": "frost",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "sky-crisp.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "frost.webp",
+          "y": 300
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-overcast.webp"
+      },
+      "add": [
+        {
+          "image": "fog-far.webp",
+          "y": 220,
+          "after": "clouds.webp"
+        },
+        {
+          "image": "fog-near.webp",
+          "y": 300
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-overcast.webp"
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "wet.webp",
+          "y": 300
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 120,
+            "period": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "replace": {
+        "clouds.webp": "clouds-overcast.webp"
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        }
+      ]
+    }
   ]
 }

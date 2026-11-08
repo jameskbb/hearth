@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" data-scale="0.5">
+  <!-- Freezing clear air, at quarter size because it is one soft gradient:
+       the upper sky opens to a crisper blue, the copper horizon untouched. -->
+  <defs>
+    <linearGradient id="air" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#557BA8" stop-opacity="0.36"/>
+      <stop offset="0.5" stop-color="#7590B8" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#A7B4CC" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="240" fill="url(#air)"/>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="110" viewBox="0 310 960 110" data-scale="1">
+  <!-- Rain-washed glints: soft highlights along the field folds that come and
+       go across the land, and wet sheen catching the low light near the
+       pumpkins. -->
+  <defs>
+    <filter id="soft" x="-10%" y="-300%" width="120%" height="700%"><feGaussianBlur stdDeviation="2.4 1.1"/></filter>
+    <linearGradient id="vary" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="960" y2="0">
+      <stop offset="0" stop-color="#F4DDB8" stop-opacity="0.08"/>
+      <stop offset="0.18" stop-color="#F4DDB8" stop-opacity="0.34"/>
+      <stop offset="0.33" stop-color="#F4DDB8" stop-opacity="0.1"/>
+      <stop offset="0.52" stop-color="#F4DDB8" stop-opacity="0.32"/>
+      <stop offset="0.66" stop-color="#F4DDB8" stop-opacity="0.16"/>
+      <stop offset="0.84" stop-color="#F7E0B4" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#F4DDB8" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <mask id="harvest" maskUnits="userSpaceOnUse" x="0" y="300" width="960" height="240">
+      <rect x="0" y="300" width="960" height="240" fill="#fff"/>
+      <g fill="#000" filter="url(#feather)">
+        <ellipse cx="818" cy="333" rx="58" ry="22"/>
+        <rect x="898" y="240" width="26" height="112" rx="10"/>
+      </g>
+    </mask>
+  </defs>
+  <g mask="url(#harvest)">
+  <g fill="none" stroke="url(#vary)" stroke-linecap="round" filter="url(#soft)">
+    <path d="M0 336 C86 321 140 333 211 328 C284 323 341 334 402 327 C473 320 523 327 589 320 C670 311 740 322 807 316" stroke-width="1.8"/>
+    <path d="M0 358 C71 341 146 351 219 364 C295 376 342 369 411 357 C488 343 549 347 621 340 C711 332 773 341 846 329" stroke-width="1.6" opacity="0.8"/>
+    <path d="M0 384 C99 368 163 381 233 390 C312 400 368 393 439 385 C521 376 582 381 652 368 C747 352 838 360 960 350" stroke-width="1.6" opacity="0.7"/>
+  </g>
+  <g fill="#F7E2BF" filter="url(#soft)">
+    <ellipse cx="640" cy="372" rx="30" ry="1.8" opacity="0.36"/>
+    <ellipse cx="722" cy="360" rx="24" ry="1.6" opacity="0.4"/>
+    <ellipse cx="760" cy="359" rx="36" ry="1.8" opacity="0.42"/>
+    <ellipse cx="884" cy="357" rx="22" ry="1.6" opacity="0.4"/>
+    <ellipse cx="300" cy="398" rx="28" ry="1.6" opacity="0.24"/>
+    <ellipse cx="120" cy="380" rx="20" ry="1.4" opacity="0.22"/>
+  </g>
+
+  </g>
+</svg>

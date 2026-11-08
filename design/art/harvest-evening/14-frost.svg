@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="0 300 960 200" data-scale="1">
+  <!-- Freezing clear: soft rime along the crests of the field folds,
+       stronger in some places than others, frosted stems and a light scatter
+       of ice sparkle where the low sun catches it. -->
+  <defs>
+    <filter id="soft" x="-10%" y="-300%" width="120%" height="700%"><feGaussianBlur stdDeviation="2.2 1.2"/></filter>
+    <filter id="glint" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="0.45"/></filter>
+    <linearGradient id="vary" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="960" y2="0">
+      <stop offset="0" stop-color="#E4F0FA" stop-opacity="0.5"/>
+      <stop offset="0.14" stop-color="#E4F0FA" stop-opacity="0.22"/>
+      <stop offset="0.3" stop-color="#E4F0FA" stop-opacity="0.5"/>
+      <stop offset="0.47" stop-color="#E4F0FA" stop-opacity="0.2"/>
+      <stop offset="0.63" stop-color="#E4F0FA" stop-opacity="0.48"/>
+      <stop offset="0.8" stop-color="#E4F0FA" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#E4F0FA" stop-opacity="0.5"/>
+    </linearGradient>
+    <g id="spark"><path d="M0 -2.6 L0.4 -0.4 L2.6 0 L0.4 0.4 L0 2.6 L-0.4 0.4 L-2.6 0 L-0.4 -0.4Z"/></g>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <mask id="harvest" maskUnits="userSpaceOnUse" x="0" y="300" width="960" height="240">
+      <rect x="0" y="300" width="960" height="240" fill="#fff"/>
+      <g fill="#000" filter="url(#feather)">
+        <ellipse cx="818" cy="333" rx="58" ry="22"/>
+        <rect x="898" y="240" width="26" height="112" rx="10"/>
+      </g>
+    </mask>
+  </defs>
+  <g mask="url(#harvest)">
+  <g fill="none" stroke="url(#vary)" stroke-linecap="round" filter="url(#soft)">
+    <path d="M0 336 C86 321 140 333 211 328 C284 323 341 334 402 327 C473 320 523 327 589 320 C670 311 740 322 807 316 C875 311 915 316 960 309" stroke-width="2"/>
+    <path d="M0 358 C71 341 146 351 219 364 C295 376 342 369 411 357 C488 343 549 347 621 340 C711 332 773 341 846 329 C893 322 931 323 960 327" stroke-width="2" opacity="0.9"/>
+    <path d="M0 385 C99 369 163 382 233 391 C312 401 368 394 439 386 C521 377 582 382 652 369 C747 353 838 361 960 351" stroke-width="2.8"/>
+  </g>
+  <g fill="none" stroke="#E4F0FA" stroke-linecap="round" filter="url(#soft)" opacity="0.5">
+    <path d="M7 476 C11 459 8 441 4 432 M8 463 L17 448 M6 453 L1 445 M943 480 C939 462 942 444 948 432 M942 454 L935 441 M944 449 L955 439 M928 497 C925 484 925 472 929 464" stroke-width="1.2"/>
+  </g>
+  <g fill="#F4FAFF" filter="url(#glint)">
+    <use href="#spark" transform="translate(64 347)" opacity="0.7"/>
+    <use href="#spark" transform="translate(150 344) scale(0.8)" opacity="0.6"/>
+    <use href="#spark" transform="translate(262 369) scale(0.7)" opacity="0.5"/>
+    <use href="#spark" transform="translate(348 368)" opacity="0.65"/>
+    <use href="#spark" transform="translate(470 351) scale(0.8)" opacity="0.6"/>
+    <use href="#spark" transform="translate(560 345)" opacity="0.7"/>
+    <use href="#spark" transform="translate(690 336) scale(0.9)" opacity="0.7"/>
+    <use href="#spark" transform="translate(760 334) scale(0.7)" opacity="0.55"/>
+    <use href="#spark" transform="translate(604 378)" opacity="0.6"/>
+    <use href="#spark" transform="translate(880 356) scale(0.9)" opacity="0.65"/>
+    <use href="#spark" transform="translate(212 336) scale(0.6)" opacity="0.5"/>
+    <use href="#spark" transform="translate(520 323) scale(0.6)" opacity="0.5"/>
+    <use href="#spark" transform="translate(300 391) scale(0.7)" opacity="0.5"/>
+    <use href="#spark" transform="translate(840 362) scale(0.6)" opacity="0.5"/>
+  </g>
+
+  </g>
+</svg>

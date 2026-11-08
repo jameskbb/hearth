@@ -22,3 +22,26 @@ alpha. Source SVGs and theme.json are the reproducible source of every image.
 This seasonal pack opts out of implicit automatic rotation and offers no
 default daypart recommendations. Choose it in Single Theme or intentionally
 add it to a custom schedule or Surprise Me pool.
+
+Weather variants
+
+Original work drawn for Hearth from this pack's own SVG sources (10-17),
+on the same horizon and in the same palette. No third-party material. Soft
+gradient layers (veil-overcast, sky-crisp, fog-far, fog-near) are authored at
+quarter size because they hold no detail; the rest are half size.
+
+- frost (clear, freezing): a crisper blue upper sky over the unchanged copper
+  sunset, soft rime along the field crests, frosted stems and ice sparkle.
+- fog (fog): luminous gold fog pooled in the far valley behind the orchard,
+  and a thin low fog over the near fields that clears around the pumpkins,
+  gourd and tree. Both thin on the left behind the focused app name.
+- rain (rain, and storm by widening): the pearl overcast sky, soft falling
+  rain (fall: 120 dp per 30 s) and rain-washed glints on the field folds and
+  beside the pumpkins.
+- overcast (cloudy, and snow skies by widening): a
+  pearl cloud deck that stays slate behind the clock and lets the low sun
+  glow through, with fuller cloud bands replacing clouds.webp.
+
+Left out: snow and snow-coming (a harvest evening is before the snow),
+hot-clear (not true to the season) and cold-clear (frost covers freezing;
+a cold clear evening shows the plain scene, which already reads as one).

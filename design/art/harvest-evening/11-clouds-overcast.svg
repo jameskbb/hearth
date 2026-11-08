@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="122" viewBox="0 124 960 122" data-scale="1">
+  <!-- Fuller, pearl-lit versions of the base cloud strip, replacing clouds.webp
+       in overcast, rain and fog. Edges stay transparent so the wrap is quiet. -->
+  <defs>
+    <linearGradient id="light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9C2C6" stop-opacity="0.1"/>
+      <stop offset="0.5" stop-color="#D8C6BE" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#EDC59E" stop-opacity="0.58"/>
+    </linearGradient>
+    <filter id="soft" x="-15%" y="-100%" width="130%" height="300%"><feGaussianBlur stdDeviation="4 2.6"/></filter>
+  </defs>
+  <g fill="url(#light)" filter="url(#soft)">
+    <path d="M40 176 C96 164 159 174 215 166 C271 158 318 170 371 165 C412 161 444 168 486 176 C444 186 398 182 352 188 C296 195 251 185 203 191 C146 194 96 187 40 188Z" opacity="0.8"/>
+    <path d="M450 220 C505 203 557 214 600 206 C650 196 703 211 749 203 C800 195 846 206 905 212 C862 224 806 216 758 226 C702 233 655 223 608 230 C560 236 510 228 450 228Z" opacity="0.9"/>
+    <path d="M540 144 C584 132 620 140 652 135 C686 129 721 139 748 136 C776 133 805 137 838 146 C792 151 760 147 729 152 C692 156 661 151 630 155 C598 158 570 153 540 152Z" opacity="0.6"/>
+    <path d="M120 222 C160 214 200 219 240 215 C282 211 318 218 352 224 C314 230 276 226 236 230 C196 233 160 229 120 230Z" opacity="0.5"/>
+  </g>
+</svg>

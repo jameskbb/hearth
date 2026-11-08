@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" data-scale="0.5">
+  <!-- A pearl cloud deck for overcast and rain, authored at quarter size
+       because it is all soft gradient. It brightens the sky, stays slate
+       behind the clock, and thins toward the horizon so the low sun glows. -->
+  <defs>
+    <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#56607A" stop-opacity="0.56"/>
+      <stop offset="0.3" stop-color="#85879A" stop-opacity="0.46"/>
+      <stop offset="0.62" stop-color="#C7AFA6" stop-opacity="0.34"/>
+      <stop offset="0.86" stop-color="#E2BC98" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#E9C49A" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sunlit" cx="74%" cy="100%" r="48%">
+      <stop offset="0" stop-color="#F6CF9C" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#F6CF9C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B8B2BC" stop-opacity="0"/>
+      <stop offset="1" stop-color="#E7CDB8" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="8 5"/></filter>
+  </defs>
+  <rect width="960" height="300" fill="url(#deck)"/>
+  <g fill="url(#belly)" filter="url(#soft)">
+    <path d="M470 92 C520 78 560 86 600 80 C650 72 700 84 760 78 C820 72 880 82 960 76 L960 112 C900 118 850 110 790 116 C730 122 670 112 610 118 C560 122 510 114 470 112Z" opacity="0.55"/>
+    <path d="M-10 128 C40 118 90 126 140 120 C200 112 250 124 300 120 C340 117 370 122 400 128 C360 138 320 134 280 140 C230 146 180 138 130 144 C80 150 30 142 -10 146Z" opacity="0.5"/>
+    <path d="M240 178 C300 166 360 176 420 170 C490 162 560 176 630 168 C700 160 780 172 860 166 C900 163 930 166 960 170 L960 194 C900 200 840 192 770 198 C700 204 630 194 560 200 C490 206 420 196 350 202 C300 206 260 200 240 196Z" opacity="0.65"/>
+  </g>
+  <rect width="960" height="300" fill="url(#sunlit)"/>
+</svg>
