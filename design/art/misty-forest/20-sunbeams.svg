@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 160 960 380" data-scale="1">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="190" viewBox="0 160 960 380" data-scale="1">
   <!-- Misty Forest weather layer: soft shafts of morning sun through the fog, fanning down from the low sun
-       behind the ranges. Drawn at half size (data-scale 1); faint, warm, never sharp. -->
+       behind the ranges. Drawn at quarter size (480 px wide); faint, warm, never sharp. -->
   <defs>
     <radialGradient id="beam" cx="640" cy="226" r="430" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FFF6E0" stop-opacity=".95"/>

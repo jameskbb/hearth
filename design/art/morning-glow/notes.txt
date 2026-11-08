@@ -9,12 +9,12 @@ Layers:
 - 11-sky-snow: an opaque half-size snow sky, lavender pearl overhead and rose-gold where the sun glows through. Shared by snow and both snow-on-the-way looks.
 - 12-sky-crisp: an opaque half-size clear sky in sharper air: clean blue, a pale clear band and a tight bright sun. Shared by cold and freezing clear.
 - 13-sky-golden: an opaque half-size sky in warm golden haze with a large blooming sun, for hot clear.
-- 14-hills-snow: replaces hills.webp on snow mornings (the variant's one full-size replacement). Sunlit snow on the far slopes with the sunrise's band across it; the near hill lies in cool blue shade so the dock still reads.
-- 15-peaks-snow: half-size overlay on the ranges: snow on the summits and on the ridge in front. At reduced opacity it is the light dusting before freezing snow.
+- 14-hills-snow: replaces hills.webp on snow mornings (the variant's one full-size replacement). The snow is modelled: rose-gold light on the slopes facing the sunrise, cool lavender-blue in the hollows and on the shaded left, and a periwinkle near hill in shade so the dock still reads.
+- 15-peaks-snow: half-size overlay on the ranges: snow on the summits and on the ridge in front, its left side in cool shade so the art behind the focused app name stays mid-toned. At reduced opacity it is the light dusting before freezing snow.
 - 16-snowfall, 17-rainfall: sparse, soft, seamless 960x540 tiles for the fall motion. They read as a quiet still texture with Reduce motion. No flashes.
 - 18-rain-glints: wet light along the hill crests, brightest toward the sun.
-- 19-frost: hoarfrost on the hills, pale rime along the crests and fine ice sparkles, gold near the sun. Full strength for freezing, about a third for cold.
-- 20-fog-veil: luminous pearl fog, wrapping and drifting. Used twice in the fog look: a deep bank over the ranges and a fainter drift in the hollows of the hills.
+- 19-frost: hoarfrost silvering the grass: a pale blue-green frost settles over the shaded faces and hollows below each crest, strongest away from the sun, while the sun-facing crests keep their green and gold; a few sparkles inside the frosted areas. Full strength for freezing, about a third for cold.
+- 20-fog-veil: luminous pearl fog, held still. It thins to under a third over the left of the frame where the focused app name and hint sit. Used three times in the fog look: high in the sky so the overcast turns luminous (its thin part then sits behind the clock), a deep bank over the ranges, and a fainter drift in the hollows of the hills.
 - 21-haze-golden: replaces haze.webp on hot clear mornings with a warm golden shimmer, same shapes and motion.
 
 Variants, in match order: snow, rain, fog, snow-coming-freezing (light dusting and frost), snow-coming, freezing-clear, cold-clear, hot-clear, overcast. Every look keeps the sunrise warmth on the right. Overcast also covers storm (widened through rain) and cloudy skies at any temperature. No pairing was left out.

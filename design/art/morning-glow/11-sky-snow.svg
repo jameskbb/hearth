@@ -2,8 +2,8 @@
   <!-- Morning Glow weather sky: the bright, even snow sky for snow and snow on the way. An opaque sky drawn at half size over the base sky (data-scale 1). Lavender pearl overhead, luminous white in the middle sky, and a rose-gold sunrise glowing through low on the right. -->
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#34476C"/>
-      <stop offset="0.28" stop-color="#717F9D"/>
+      <stop offset="0" stop-color="#3E5277"/>
+      <stop offset="0.28" stop-color="#7B88A6"/>
       <stop offset="0.46" stop-color="#CFCFD8"/>
       <stop offset="0.58" stop-color="#F1D9C6"/>
       <stop offset="1" stop-color="#E9C3A2"/>

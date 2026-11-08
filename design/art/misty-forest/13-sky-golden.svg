@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" data-scale="1">
-  <!-- Misty Forest weather sky: hot clear mornings. An opaque sky drawn at half size (data-scale 1) over the base sky, from 00-sky.svg: the dawn in warm golden haze, softer blue overhead, honey light low down and a large blooming sun. The farthest ridge is painted here as on the base, warmed. -->
+  <!-- Misty Forest weather sky: hot clear mornings. An opaque sky drawn at half size (data-scale 1) over the base sky, from 00-sky.svg: the dawn in warm golden haze, routed from slate blue through dusty rose and apricot to honey light around a large blooming sun. The farthest ridge is painted here as on the base, warmed. -->
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#283A4C"/>
-      <stop offset="0.2" stop-color="#445A68"/>
-      <stop offset="0.34" stop-color="#7E8A82"/>
-      <stop offset="0.44" stop-color="#BDB28C"/>
-      <stop offset="0.51" stop-color="#E0CA98"/>
-      <stop offset="0.58" stop-color="#EAD4A4"/>
-      <stop offset="1" stop-color="#C4BC98"/>
+      <stop offset="0" stop-color="#3C4A66"/>
+      <stop offset="0.2" stop-color="#6E6A88"/>
+      <stop offset="0.34" stop-color="#A99BB0"/>
+      <stop offset="0.44" stop-color="#E9B98A"/>
+      <stop offset="0.51" stop-color="#F3DCA0"/>
+      <stop offset="0.58" stop-color="#F2D8AA"/>
+      <stop offset="1" stop-color="#DCC4A8"/>
     </linearGradient>
     <radialGradient id="sun" cx="640" cy="236" r="420" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FFF4CC" stop-opacity="1"/>
@@ -18,12 +18,12 @@
       <stop offset="1" stop-color="#DCC08C" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="cool" cx="120" cy="40" r="520" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#18222E" stop-opacity="0.4"/>
-      <stop offset="1" stop-color="#18222E" stop-opacity="0"/>
+      <stop offset="0" stop-color="#2A3050" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#2A3050" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#B4AE98"/>
-      <stop offset="1" stop-color="#D2C8AA"/>
+      <stop offset="0" stop-color="#C8B2AC"/>
+      <stop offset="1" stop-color="#DECAB2"/>
     </linearGradient>
     <filter id="soft" x="-5%" y="-30%" width="110%" height="160%">
       <feTurbulence type="fractalNoise" baseFrequency=".018 .05" numOctaves="4" seed="9" result="t"/>

@@ -2,8 +2,8 @@
   <!-- Misty Forest weather sky: snow and snow on the way. An opaque sky drawn at half size (data-scale 1) over the base sky, from 00-sky.svg: a high, bright snow sky, lavender pearl overhead and luminous white low down, with a rose-gold glow where the sun is. The farthest ridge is painted here as on the base. -->
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#323C54"/>
-      <stop offset="0.2" stop-color="#4E5872"/>
+      <stop offset="0" stop-color="#3C4760"/>
+      <stop offset="0.2" stop-color="#5A647E"/>
       <stop offset="0.34" stop-color="#8C94A8"/>
       <stop offset="0.44" stop-color="#BCC0CA"/>
       <stop offset="0.51" stop-color="#DADAD8"/>

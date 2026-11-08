@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 180 960 300" data-scale="1">
   <!-- Misty Forest weather layer: a deep bank of luminous fog for fog mornings, drawn at half size
-       (data-scale 1) and wrapping: the band is uniform left to right and its texture is stitched noise, so
-       the edges match. Pearl white lit by the low sun, veiling the far treeline so the forest glows. -->
+       (data-scale 1), held still. Pearl white lit by the low sun, veiling the far treeline so the forest
+       glows. It thins to under a third over the left where the focused app name sits (and, in the high
+       use, behind the clock). Used three times: high in the sky, over the ranges and across the treeline. -->
   <defs>
     <linearGradient id="band" x1="0" y1="180" x2="0" y2="480" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FBF6EC" stop-opacity="0"/>
@@ -15,6 +16,14 @@
       <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.6 0 0 0 -0.1" result="m"/>
       <feComposite in="SourceGraphic" in2="m" operator="in"/>
     </filter>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter>
+    <!-- Keepout: the fog thins to under a third where it lands on the focused app name and hint. -->
+    <mask id="keepout" maskUnits="userSpaceOnUse" x="-100" y="80" width="1160" height="500">
+      <rect x="-100" y="80" width="1160" height="500" fill="#fff"/>
+      <rect x="-100" y="190" width="545" height="190" fill="#000" opacity="0.92" filter="url(#feather)"/>
+    </mask>
   </defs>
-  <rect x="0" y="180" width="960" height="300" fill="url(#band)" filter="url(#mist)"/>
+  <g mask="url(#keepout)">
+    <rect x="0" y="180" width="960" height="300" fill="url(#band)" filter="url(#mist)"/>
+  </g>
 </svg>

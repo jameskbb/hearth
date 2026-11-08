@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="170" viewBox="0 210 960 170" data-scale="1">
   <!-- Misty Forest weather layer: replaces fog-far.webp on fog mornings, with the same shapes, motion and
-       stitched texture: the valley mist thickened and lit from within, pearl white warming toward the sun. -->
+       stitched texture: the valley mist thickened and lit from within, pearl white warming toward the sun.
+       Held still in the fog look, and thinned over the left where the focused app name sits. -->
   <defs>
     <linearGradient id="band" x1="0" y1="210" x2="0" y2="380" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FFF8EA" stop-opacity="0"/>
@@ -14,7 +15,15 @@
       <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  2.2 0 0 0 -0.35" result="m"/>
       <feComposite in="SourceGraphic" in2="m" operator="in"/>
     </filter>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter>
+    <!-- Keepout: the fog thins to under a third where it lands on the focused app name and hint. -->
+    <mask id="keepout" maskUnits="userSpaceOnUse" x="-100" y="110" width="1160" height="370">
+      <rect x="-100" y="110" width="1160" height="370" fill="#fff"/>
+      <rect x="-100" y="262" width="545" height="116" fill="#000" opacity="0.92" filter="url(#feather)"/>
+    </mask>
   </defs>
 
-  <rect x="0" y="210" width="960" height="170" fill="url(#band)" filter="url(#mist)"/>
+  <g mask="url(#keepout)">
+    <rect x="0" y="210" width="960" height="170" fill="url(#band)" filter="url(#mist)"/>
+  </g>
 </svg>

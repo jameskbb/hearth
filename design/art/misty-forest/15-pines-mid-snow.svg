@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="258" viewBox="-5 280 970 260.6875" data-scale="1">
   <!-- Misty Forest weather layer: snow on the far treeline, over pines-mid.webp with the same placement.
        Drawn at half size (data-scale 1). Snow along the upward edges of the far pines and a soft pale
-       dusting on the ground at their feet. -->
+       dusting on the ground at their feet, kept light behind the hint under the app name. -->
   <defs>
     <linearGradient id="snow" x1="0" y1="300" x2="0" y2="420" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#F0F3F6"/>
@@ -30,9 +30,15 @@
       <feDisplacementMap in="SourceGraphic" in2="t" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="d"/>
       <feGaussianBlur in="d" stdDeviation=".55"/>
     </filter>
+    <filter id="feather" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+    <!-- Lighter snow behind the hint under the focused app name. -->
+    <mask id="keepout" maskUnits="userSpaceOnUse" x="-130" y="180" width="1230" height="490">
+      <rect x="-130" y="180" width="1230" height="490" fill="#fff"/>
+      <rect x="-100" y="326" width="520" height="34" fill="#000" opacity="0.6" filter="url(#feather)"/>
+    </mask>
   </defs>
 
-  <g filter="url(#soft)">
+  <g filter="url(#soft)" mask="url(#keepout)">
     <rect x="-30" y="280" width="1030" height="290" fill="url(#ground)" mask="url(#clearing)"/>
     <rect x="-30" y="280" width="1030" height="290" fill="url(#snow)" opacity=".9" mask="url(#tops)"/>
   </g>
