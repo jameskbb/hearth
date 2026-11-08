@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" data-scale="0.5">
+  <!-- Freezing clear air, at quarter size because it is soft gradient only:
+       the night sky opens to a clearer, brighter blue and the moonlight
+       widens. -->
+  <defs>
+    <linearGradient id="air" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E5C86" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#4C7E9A" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#7FA6AE" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo" gradientUnits="userSpaceOnUse" cx="641" cy="158" r="170">
+      <stop offset="0" stop-color="#E2EEEA" stop-opacity="0.3"/>
+      <stop offset="0.3" stop-color="#BCD4D0" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#BCD4D0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="300" fill="url(#air)"/>
+  <rect width="960" height="300" fill="url(#halo)"/>
+</svg>

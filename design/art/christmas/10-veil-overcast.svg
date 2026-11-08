@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 0 960 320" data-scale="0.5">
+  <!-- A pearl winter cloud deck for overcast and snow, at quarter size
+       because it is all soft gradient. The moon glows through a thinner
+       patch; the deck stays slate behind the clock and weather. -->
+  <defs>
+    <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34505F" stop-opacity="0.52"/>
+      <stop offset="0.35" stop-color="#63808A" stop-opacity="0.4"/>
+      <stop offset="0.72" stop-color="#9DB6B4" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#9DB6B4" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo" gradientUnits="userSpaceOnUse" cx="641" cy="158" r="240">
+      <stop offset="0" stop-color="#E9EEE4" stop-opacity="0.46"/>
+      <stop offset="0.25" stop-color="#CADAD5" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#A9C0BE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="window" gradientUnits="userSpaceOnUse" cx="641" cy="158" r="60">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="0.4" stop-color="#000" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B4C6C4" stop-opacity="0"/>
+      <stop offset="1" stop-color="#D6E2DE" stop-opacity="0.55"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="8 5"/></filter>
+    <mask id="thin"><rect width="960" height="320" fill="#fff"/><rect width="960" height="320" fill="url(#window)"/></mask>
+  </defs>
+  <g mask="url(#thin)">
+    <rect width="960" height="320" fill="url(#deck)"/>
+    <g fill="url(#belly)" filter="url(#soft)">
+      <path d="M420 90 C480 76 540 86 600 80 C660 72 720 86 780 78 C840 70 900 82 980 76 L980 110 C900 118 840 108 780 114 C720 120 660 110 600 116 C540 122 480 114 420 112Z" opacity="0.4"/>
+      <path d="M-20 150 C40 138 100 148 160 140 C220 132 280 146 340 140 C380 136 410 140 440 148 C400 158 350 154 300 160 C240 166 180 158 120 164 C60 170 20 162 -20 166Z" opacity="0.3"/>
+      <path d="M260 222 C330 210 400 220 470 214 C550 206 630 220 710 212 C790 204 870 216 980 208 L980 234 C870 242 790 232 710 238 C630 244 550 236 470 242 C400 248 330 240 260 238Z" opacity="0.5"/>
+    </g>
+  </g>
+  <rect width="960" height="320" fill="url(#halo)"/>
+</svg>

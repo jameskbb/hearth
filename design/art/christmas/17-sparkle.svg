@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="0 300 960 200" data-scale="1">
+  <!-- Freezing clear: ice sparkle across the moonlit snow field and the
+       crests of the near banks. -->
+  <defs><filter id="glint" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="0.4"/></filter>
+    <g id="spark"><path d="M0 -2.6 L0.4 -0.4 L2.6 0 L0.4 0.4 L0 2.6 L-0.4 0.4 L-2.6 0 L-0.4 -0.4Z"/></g></defs>
+  <g fill="#F2FAFA" filter="url(#glint)">
+    <use href="#spark" transform="translate(445.2 318.1) scale(0.72)" opacity="0.83"/>
+    <use href="#spark" transform="translate(824.6 351.6) scale(0.74)" opacity="0.83"/>
+    <use href="#spark" transform="translate(854.4 354.6) scale(0.47)" opacity="0.85"/>
+    <use href="#spark" transform="translate(589.7 337.0) scale(0.94)" opacity="0.67"/>
+    <use href="#spark" transform="translate(671.3 354.5) scale(0.74)" opacity="0.66"/>
+    <use href="#spark" transform="translate(157.7 316.1) scale(0.95)" opacity="0.48"/>
+    <use href="#spark" transform="translate(485.9 452.0) scale(0.80)" opacity="0.67"/>
+    <use href="#spark" transform="translate(105.6 359.8) scale(0.62)" opacity="0.74"/>
+    <use href="#spark" transform="translate(692.2 315.9) scale(0.85)" opacity="0.49"/>
+    <use href="#spark" transform="translate(260.7 334.2) scale(0.83)" opacity="0.63"/>
+    <use href="#spark" transform="translate(770.9 365.4) scale(0.72)" opacity="0.70"/>
+    <use href="#spark" transform="translate(836.6 345.8) scale(0.48)" opacity="0.69"/>
+    <use href="#spark" transform="translate(472.2 345.1) scale(0.66)" opacity="0.80"/>
+    <use href="#spark" transform="translate(862.0 356.8) scale(0.58)" opacity="0.78"/>
+    <use href="#spark" transform="translate(124.0 394.3) scale(0.85)" opacity="0.70"/>
+    <use href="#spark" transform="translate(200.9 315.3) scale(0.93)" opacity="0.46"/>
+    <use href="#spark" transform="translate(517.4 315.2) scale(0.78)" opacity="0.70"/>
+    <use href="#spark" transform="translate(476.9 451.1) scale(0.82)" opacity="0.61"/>
+    <use href="#spark" transform="translate(384.2 405.7) scale(0.49)" opacity="0.53"/>
+    <use href="#spark" transform="translate(555.0 357.2) scale(0.78)" opacity="0.52"/>
+    <use href="#spark" transform="translate(910.8 356.4) scale(0.49)" opacity="0.59"/>
+    <use href="#spark" transform="translate(580.0 330.0) scale(0.71)" opacity="0.66"/>
+    <use href="#spark" transform="translate(945.2 427.5) scale(0.46)" opacity="0.76"/>
+    <use href="#spark" transform="translate(673.1 433.1) scale(0.63)" opacity="0.76"/>
+    <use href="#spark" transform="translate(584.5 336.6) scale(0.45)" opacity="0.83"/>
+    <use href="#spark" transform="translate(643.7 384.2) scale(0.77)" opacity="0.84"/>
+    <use href="#spark" transform="translate(91.5 375.4) scale(0.99)" opacity="0.78"/>
+    <use href="#spark" transform="translate(559.1 341.6) scale(0.51)" opacity="0.59"/>
+    <use href="#spark" transform="translate(936.9 391.0) scale(0.58)" opacity="0.76"/>
+    <use href="#spark" transform="translate(210.6 333.2) scale(0.56)" opacity="0.54"/>
+    <use href="#spark" transform="translate(93.5 391.7) scale(0.51)" opacity="0.50"/>
+    <use href="#spark" transform="translate(243.4 391.8) scale(0.97)" opacity="0.84"/>
+    <use href="#spark" transform="translate(227.1 431.2) scale(0.65)" opacity="0.75"/>
+    <use href="#spark" transform="translate(360.6 444.4) scale(0.71)" opacity="0.66"/>
+    <use href="#spark" transform="translate(637.5 364.1) scale(0.65)" opacity="0.70"/>
+    <use href="#spark" transform="translate(253.4 382.6) scale(0.58)" opacity="0.55"/>
+    <use href="#spark" transform="translate(172.4 433.5) scale(0.73)" opacity="0.53"/>
+    <use href="#spark" transform="translate(580.2 315.3) scale(0.69)" opacity="0.83"/>
+    <use href="#spark" transform="translate(206.1 353.6) scale(0.46)" opacity="0.49"/>
+    <use href="#spark" transform="translate(918.4 333.4) scale(0.89)" opacity="0.47"/>
+    <use href="#spark" transform="translate(538.2 316.6) scale(0.59)" opacity="0.79"/>
+    <use href="#spark" transform="translate(532.6 396.9) scale(0.78)" opacity="0.54"/>
+    <use href="#spark" transform="translate(434.3 411.0) scale(0.48)" opacity="0.56"/>
+    <use href="#spark" transform="translate(370.0 444.2) scale(0.62)" opacity="0.77"/>
+    <use href="#spark" transform="translate(682.5 382.0) scale(0.99)" opacity="0.76"/>
+    <use href="#spark" transform="translate(474.8 310.1) scale(0.95)" opacity="0.82"/>
+    <use href="#spark" transform="translate(507.1 362.4) scale(0.93)" opacity="0.82"/>
+    <use href="#spark" transform="translate(89.2 392.9) scale(0.98)" opacity="0.49"/>
+    <use href="#spark" transform="translate(22.2 351.8) scale(0.62)" opacity="0.55"/>
+    <use href="#spark" transform="translate(535.7 323.5) scale(0.78)" opacity="0.65"/>
+  </g>
+</svg>

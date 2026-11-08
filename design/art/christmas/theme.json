@@ -47,5 +47,89 @@
         "period": 90
       }
     }
+  ],
+  "weather": [
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "sky-crisp.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "stars.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "sparkle.webp",
+          "y": 300
+        }
+      ]
+    },
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "hide": [
+        "clouds.webp"
+      ],
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "snow-trees.webp",
+          "y": 200,
+          "after": "grove.webp"
+        },
+        {
+          "image": "banks-fresh.webp",
+          "y": 360,
+          "after": "grove.webp"
+        },
+        {
+          "image": "snowfall-far.webp",
+          "wrap": true,
+          "fall": {
+            "y": 60,
+            "period": 60
+          }
+        },
+        {
+          "image": "snowfall-near.webp",
+          "wrap": true,
+          "fall": {
+            "y": 100,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "sky.webp"
+        }
+      ]
+    }
   ]
 }

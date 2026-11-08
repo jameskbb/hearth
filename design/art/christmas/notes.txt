@@ -17,3 +17,27 @@ recommended day periods. It can be explicitly assigned through Appearance.
 Regenerate offline with scripts/render-theme.sh christmas. The source layer
 names establish composition order; source and bundled manifests match.
 
+
+Weather variants
+
+Original work drawn for Hearth from this pack's own SVG sources (10-17),
+on the same horizon and in the same palette. No third-party material.
+13-snow-trees.svg reuses the grove's own evergreen outlines. Soft gradient
+layers are authored at quarter size. The lit Christmas tree and its star
+are never covered.
+
+- freezing-clear (clear, freezing): a clearer, brighter night blue with a
+  wider moon glow, crisp still stars away from the clock, and ice sparkle on
+  the snow field and bank crests.
+- snow (snow): falling snow on the existing silver banks. A pearl cloud deck
+  lit by the moon, fresh snow resting on every tier of the evergreens and
+  along the near bank crests, and two falling layers: many small distant
+  flakes (fall: 60 dp per 60 s) and fewer larger near ones (100 dp per
+  60 s). Flakes are lighter behind the clock, weather and app name; still,
+  under Reduce motion, they read as a quiet snowy texture. The base cloud
+  strip is hidden behind the deck.
+- overcast (cloudy, and fog skies by widening): the pearl deck alone, with
+  the moon glowing through a thinner patch.
+
+Left out: rain (snow and overcast suit the scene better; rain falls back to
+overcast) and hot-clear (not true to the season).
