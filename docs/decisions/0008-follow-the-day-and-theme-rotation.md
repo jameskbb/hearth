@@ -1,6 +1,9 @@
 # 0008: Follow the Day and stable theme rotation
 
-**Status:** Accepted, 2026-10-23
+**Status:** Accepted, 2026-10-23. Amended by
+[decision 0013](0013-weather-scenes.md): while the user has weather on, a new
+shuffled pick may read the weather; with weather off, this record holds as
+written.
 
 ## Context
 
@@ -42,7 +45,11 @@ stale.
 - Scheduling reads the device's local clock and zone through `java.time`.
   Hearth evaluates on launch, resume, clock or timezone broadcasts, and one
   delay to the next boundary while it is in front. It does not poll and uses
-  no location, weather, or network data.
+  no location, weather, or network data. (Amended by decision 0013: this
+  holds while weather is off. With weather on, only the moment of a new
+  shuffled pick reads the scene mood, preferring packs in the eligible pool
+  with a matching weather variant; persistence and occurrence keys are
+  unchanged, and a pick is never rerolled because the weather changed.)
 - Manifest `dayparts` remain recommendations for defaults and discovery.
   They never prevent a user from assigning any theme to any period.
 - Installed pack discovery computes a content revision from the manifest,

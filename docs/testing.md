@@ -251,6 +251,13 @@ your own notes; only the status belongs here.
 | Input switch failure | If a switch fails (for example the Live TV player is disabled), the inline "HDMI n didn't open" message appears and Hearth stays responsive. | untested |
 | No inputs on a stick | On a Fire TV stick or cube: no "System inputs" section, no Inputs in Settings, nothing else changed. | untested |
 | Weather in the background | Launch an app and leave it for an hour: Hearth makes no requests until it is in front again, then refreshes at once if the result is 30 minutes old. | untested |
+| Weather in scenes row | Settings, Weather: "Weather in scenes" appears only while weather is on, reads On after turning weather on, and toggles with Select. Off returns Home to the plain scene at once; On brings the weather look back without a new request. | untested |
+| Weather variant on Home | With weather on and a pack that has variants, the scene shows the variant for the current weather once a report arrives. Compare with `scripts/theme-compose.py --all-weather` previews: same art, palette and text readability from the sofa. | untested |
+| Weather crossfade | While Home is visible, a variant change crossfades over about 4 seconds with no black or white flash; with Reduce motion on it switches at once. Nothing else moves because of weather. | untested |
+| Falling layers | A snow or rain variant's falling layer moves down smoothly with no visible seam where tiles meet, holds still under Reduce motion and in the background, and still reads as a gentle texture when still. | untested |
+| Weather hold and stale return | The look changes at most every 45 minutes while Hearth stays in front. Disconnecting the network until the report is over three hours old, or turning weather off, returns to the plain scene at once. | untested |
+| Weather-aware picks | With weather on and a shuffled Evening pool where only one pack has a variant for the current weather, the next Evening occurrence picks that pack. A weather change during the occurrence changes only the look, never the pack; restarting Hearth keeps the pick. | untested |
+| Variant memory | `adb shell dumpsys meminfo io.github.jameskbb.hearth` across several variant changes of one pack: graphics memory stays near one variant set's decoded size and does not grow with each change. | untested |
 
 Emulator status (API 28 Android TV, not a device): the smoke test passed 15 of
 15 steps against a merged development build; fixtures resolve as intended.

@@ -171,7 +171,8 @@ Small and honest; every row does something.
   "Follow the Day, Morning Glow now", or "Surprise Me, Aurora today"). Select
   opens Appearance (see Themes).
 - Reduce motion: on / off.
-- Weather: Show on Home, City, Units, and a status line (see Weather).
+- Weather: Show on Home, City, Units, Weather in scenes, and a status line
+  (see Weather).
 - Inputs (only on TVs with HDMI inputs): one row per input, its name and
   "Rename" (see Renaming an input).
 - Hidden apps: list with "Show" to restore each.
@@ -249,6 +250,11 @@ the rest of Settings:
   "Choose a city". Select opens the search. Shown only while weather is on.
 - **Units**: Fahrenheit / Celsius, defaulting from the locale; Select
   switches. Shown only while weather is on.
+- **Weather in scenes**: On / Off, on by default. While on, the scene on Home
+  follows the weather: the chosen pack shows its weather variant, and a new
+  shuffled pick prefers packs that have one for the current weather (see
+  The art on screen, and [decision 0013](decisions/0013-weather-scenes.md)).
+  Shown only while weather is on; with weather off, scenes are always plain.
 - **Status**, plain text under the rows (Instrument Sans 12, never
   focusable). Off: "Weather is off. Turning it on sends your chosen city's
   location to Open-Meteo." On: "Choose a city to show the weather on Home.", "Getting the weather from Open-Meteo…", or "Updated at
@@ -301,6 +307,17 @@ where packs live, validation and Auto are specified in
 - Switching themes keeps the old one on screen until the new one is decoded,
   then crossfades over 160 ms (at once under Reduce motion). Until the first
   theme decodes, the window color shows; never a wrong image.
+- Weather scenes ([decision 0013](decisions/0013-weather-scenes.md)): with
+  weather and Weather in scenes on, the pack on screen shows its variant for
+  the current weather (sky, temperature band, snow or rain on the way), or
+  its plain scene when it has none. A change of variant uses the same
+  crossfade, slowed to 4 seconds (at once under Reduce motion), and the new
+  variant's palette takes over with it. Nothing else animates because of
+  weather. The look changes at most every 45 minutes; turning weather off, or
+  the report going stale, returns to the plain scene at once. Falling snow or
+  rain layers move only while the art moves; at rest they hold still as a
+  soft texture. Every variant keeps text as readable as the base scene
+  (Text over artwork).
 - Fallback: a chosen pack that is gone or broken shows Dusk; if Dusk cannot
   load either, the window color with Dusk's palette.
 
