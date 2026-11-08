@@ -93,7 +93,7 @@
       "add": [
         {
           "image": "ground-fog.webp",
-          "y": 300
+          "y": 285
         }
       ]
     },
@@ -113,8 +113,7 @@
           "after": "sky.webp"
         },
         {
-          "image": "horizon-clear.webp",
-          "y": 330,
+          "image": "clear-air.webp",
           "after": "sky.webp"
         },
         {
@@ -136,12 +135,21 @@
       "add": [
         {
           "image": "stars-crisp.webp",
-          "after": "sky.webp"
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.7,
+            "max": 0.7,
+            "period": 60
+          }
         },
         {
-          "image": "horizon-clear.webp",
-          "y": 330,
-          "after": "sky.webp"
+          "image": "clear-air.webp",
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.7,
+            "max": 0.7,
+            "period": 60
+          }
         }
       ]
     },

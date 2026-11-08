@@ -1,20 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="144" viewBox="0 396 960 144">
-  <!-- Hearth theme "Aurora", weather layer: snow resting on the treeline and a moonlit snowfield in front of
-       the forest, on transparent. The treeline is the same path and displacement as layer 00, so the snow sits
-       exactly on the tree tops. Placed at y 396. -->
+  <!-- Hearth theme "Aurora", weather layer: snow resting on the crowns of the treeline and a moonlit snowfield
+       in front of the forest, on transparent. The treeline is the same path and displacement as layer 00, so the
+       snow registers on the tree tops; it is drawn as broken caps of varied depth on the upward edges only,
+       brightest under the curtain. The forest takes a soft vertical gradient and a scatter of snowy crowns.
+       Placed at y 396. -->
   <defs>
     <filter id="tree" x="-5%" y="-50%" width="110%" height="200%">
       <feTurbulence type="fractalNoise" baseFrequency=".09 .02" numOctaves="3" seed="2" result="t"/>
       <feDisplacementMap in="SourceGraphic" in2="t" scale="14" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
     <filter id="cap" x="-5%" y="-20%" width="110%" height="140%" color-interpolation-filters="sRGB">
-      <feOffset in="SourceAlpha" dy="2.6" result="lo"/>
-      <feComposite in="SourceGraphic" in2="lo" operator="out" result="rim"/>
-      <feTurbulence type="fractalNoise" baseFrequency=".22 .5" numOctaves="2" seed="9" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.2 0 0 0 -.75" result="na"/>
-      <feComposite in="rim" in2="na" operator="in" result="patchy"/>
-      <feGaussianBlur in="patchy" stdDeviation=".45"/>
+      <!-- Deep caps where a slow noise allows, thin dustings elsewhere, with breaks between. -->
+      <feOffset in="SourceAlpha" dy="5" result="lo5"/>
+      <feComposite in="SourceGraphic" in2="lo5" operator="out" result="deep"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".045 .2" numOctaves="2" seed="21" result="slow"/>
+      <feColorMatrix in="slow" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4 0 0 0 -2.05" result="slowa"/>
+      <feComposite in="deep" in2="slowa" operator="in" result="deepcaps"/>
+      <feOffset in="SourceAlpha" dy="1.8" result="lo2"/>
+      <feComposite in="SourceGraphic" in2="lo2" operator="out" result="thin"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".16 .4" numOctaves="2" seed="9" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.2 0 0 0 -1.45" result="na"/>
+      <feComposite in="thin" in2="na" operator="in" result="thincaps"/>
+      <feMerge result="caps"><feMergeNode in="thincaps"/><feMergeNode in="deepcaps"/></feMerge>
+      <feGaussianBlur in="caps" stdDeviation=".7" result="soft"/>
+      <feComponentTransfer in="soft"><feFuncA type="linear" slope="1.5"/></feComponentTransfer>
     </filter>
+    <linearGradient id="capcol" x1="0" y1="0" x2="960" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D2EEE6"/>
+      <stop offset=".55" stop-color="#C6DDEB"/>
+      <stop offset="1" stop-color="#A8B8D8"/>
+    </linearGradient>
+    <linearGradient id="forest" x1="0" y1="414" x2="0" y2="462" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A5072" stop-opacity=".7"/>
+      <stop offset=".5" stop-color="#2C3E60" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#22304E" stop-opacity=".35"/>
+    </linearGradient>
+    <filter id="crown" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="1.1 .7"/></filter>
     <linearGradient id="field" x1="0" y1="448" x2="0" y2="540" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#4E6288" stop-opacity="0"/>
       <stop offset=".1" stop-color="#4E6288"/>
@@ -32,14 +53,16 @@
       <feGaussianBlur in="d" stdDeviation="1.4"/>
     </filter>
   </defs>
-  <!-- Snow-laden forest reads a little lighter than bare trees. -->
-  <g filter="url(#tree)" fill="#2A3858" opacity=".55"><path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/></g>
+  <!-- Snow-laden forest: lighter than bare trees, lightest at the crowns, with a few snowy crowns. -->
+  <g filter="url(#tree)" fill="url(#forest)"><path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/></g>
+  <g fill="#6F86AC" filter="url(#crown)" opacity=".6">
+    <ellipse cx="188.6" cy="434.2" rx="2.5" ry="2.0" opacity="0.23"/><ellipse cx="199.4" cy="442.9" rx="4.3" ry="2.0" opacity="0.22"/><ellipse cx="103.5" cy="436.9" rx="2.6" ry="1.5" opacity="0.23"/><ellipse cx="200.8" cy="439.0" rx="5.8" ry="1.8" opacity="0.29"/><ellipse cx="206.9" cy="438.8" rx="4.1" ry="2.3" opacity="0.31"/><ellipse cx="142.5" cy="433.0" rx="4.3" ry="1.9" opacity="0.29"/><ellipse cx="926.0" cy="442.8" rx="2.7" ry="1.3" opacity="0.21"/><ellipse cx="650.3" cy="441.7" rx="2.9" ry="1.3" opacity="0.18"/><ellipse cx="600.0" cy="440.0" rx="3.9" ry="1.9" opacity="0.26"/><ellipse cx="268.1" cy="433.0" rx="3.4" ry="1.4" opacity="0.18"/><ellipse cx="421.8" cy="438.0" rx="3.8" ry="1.2" opacity="0.19"/><ellipse cx="847.9" cy="445.1" rx="3.6" ry="1.6" opacity="0.20"/><ellipse cx="239.4" cy="447.4" rx="3.9" ry="1.7" opacity="0.24"/><ellipse cx="4.1" cy="438.3" rx="3.2" ry="2.2" opacity="0.37"/><ellipse cx="367.8" cy="439.0" rx="2.8" ry="1.5" opacity="0.32"/><ellipse cx="228.8" cy="443.8" rx="3.5" ry="1.2" opacity="0.28"/><ellipse cx="605.3" cy="440.3" rx="3.8" ry="1.8" opacity="0.17"/><ellipse cx="636.5" cy="448.5" rx="2.6" ry="1.3" opacity="0.28"/><ellipse cx="737.3" cy="435.9" rx="4.7" ry="1.6" opacity="0.22"/><ellipse cx="214.7" cy="449.3" rx="5.8" ry="2.2" opacity="0.22"/><ellipse cx="764.4" cy="433.2" rx="4.8" ry="1.6" opacity="0.22"/><ellipse cx="927.0" cy="448.4" rx="5.7" ry="2.2" opacity="0.22"/><ellipse cx="686.5" cy="451.5" rx="4.5" ry="1.7" opacity="0.17"/><ellipse cx="698.5" cy="452.0" rx="3.5" ry="1.8" opacity="0.20"/><ellipse cx="707.0" cy="438.4" rx="2.7" ry="2.2" opacity="0.22"/><ellipse cx="485.9" cy="446.7" rx="4.7" ry="1.6" opacity="0.24"/><ellipse cx="54.5" cy="447.0" rx="3.0" ry="1.3" opacity="0.29"/><ellipse cx="801.8" cy="436.2" rx="6.4" ry="2.0" opacity="0.19"/><ellipse cx="836.5" cy="446.4" rx="2.9" ry="1.7" opacity="0.17"/><ellipse cx="206.4" cy="432.5" rx="5.4" ry="2.0" opacity="0.29"/><ellipse cx="262.0" cy="436.3" rx="4.3" ry="1.8" opacity="0.36"/><ellipse cx="72.7" cy="432.9" rx="3.7" ry="1.7" opacity="0.32"/><ellipse cx="14.6" cy="445.6" rx="3.4" ry="2.3" opacity="0.36"/><ellipse cx="809.8" cy="445.4" rx="6.0" ry="2.2" opacity="0.25"/><ellipse cx="857.4" cy="448.9" rx="3.7" ry="1.8" opacity="0.21"/><ellipse cx="403.7" cy="446.1" rx="6.0" ry="1.3" opacity="0.19"/><ellipse cx="145.5" cy="436.7" rx="5.5" ry="1.5" opacity="0.24"/><ellipse cx="126.3" cy="441.1" rx="3.0" ry="1.7" opacity="0.18"/><ellipse cx="348.8" cy="435.8" rx="6.4" ry="1.7" opacity="0.19"/><ellipse cx="18.4" cy="451.1" rx="5.2" ry="1.5" opacity="0.32"/><ellipse cx="197.1" cy="445.3" rx="6.0" ry="1.8" opacity="0.31"/><ellipse cx="390.0" cy="433.2" rx="5.6" ry="1.5" opacity="0.20"/><ellipse cx="450.0" cy="442.4" rx="4.0" ry="2.4" opacity="0.25"/><ellipse cx="95.0" cy="432.5" rx="5.8" ry="1.5" opacity="0.21"/><ellipse cx="912.4" cy="448.8" rx="3.5" ry="1.2" opacity="0.27"/><ellipse cx="33.8" cy="446.1" rx="5.0" ry="1.7" opacity="0.30"/><ellipse cx="676.5" cy="437.9" rx="5.1" ry="2.3" opacity="0.15"/><ellipse cx="863.5" cy="444.7" rx="3.4" ry="2.2" opacity="0.19"/><ellipse cx="59.1" cy="443.8" rx="6.1" ry="1.3" opacity="0.32"/><ellipse cx="31.8" cy="439.5" rx="5.6" ry="1.4" opacity="0.30"/><ellipse cx="182.6" cy="449.0" rx="5.9" ry="1.5" opacity="0.27"/><ellipse cx="24.9" cy="440.4" rx="3.9" ry="1.3" opacity="0.26"/><ellipse cx="53.9" cy="452.0" rx="3.7" ry="1.9" opacity="0.29"/><ellipse cx="447.5" cy="445.9" rx="2.6" ry="1.5" opacity="0.36"/><ellipse cx="610.0" cy="451.8" rx="4.1" ry="1.4" opacity="0.22"/><ellipse cx="11.6" cy="449.4" rx="3.4" ry="1.3" opacity="0.24"/><ellipse cx="715.0" cy="447.7" rx="2.9" ry="1.3" opacity="0.27"/><ellipse cx="800.6" cy="451.5" rx="3.9" ry="1.8" opacity="0.22"/><ellipse cx="295.4" cy="445.7" rx="3.4" ry="2.3" opacity="0.26"/><ellipse cx="214.9" cy="435.2" rx="2.5" ry="2.2" opacity="0.37"/><ellipse cx="158.6" cy="440.2" rx="5.9" ry="1.9" opacity="0.35"/><ellipse cx="20.6" cy="447.7" rx="4.2" ry="1.9" opacity="0.36"/><ellipse cx="236.5" cy="448.4" rx="3.6" ry="1.4" opacity="0.36"/><ellipse cx="852.2" cy="451.3" rx="4.3" ry="1.8" opacity="0.24"/><ellipse cx="775.0" cy="447.4" rx="5.3" ry="1.5" opacity="0.26"/><ellipse cx="152.4" cy="448.8" rx="5.8" ry="1.3" opacity="0.31"/><ellipse cx="161.5" cy="442.5" rx="3.4" ry="1.8" opacity="0.36"/><ellipse cx="719.8" cy="439.0" rx="5.9" ry="2.2" opacity="0.27"/><ellipse cx="76.8" cy="443.1" rx="3.8" ry="1.4" opacity="0.31"/><ellipse cx="368.0" cy="447.2" rx="2.9" ry="1.5" opacity="0.26"/>
+  </g>
   <g filter="url(#cap)">
-    <g filter="url(#tree)" fill="#BCCDE8"><path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/></g>
+    <g filter="url(#tree)" fill="url(#capcol)"><path d="M-40 430 C40 424 70 420 110 424 C160 428 200 414 250 418 C310 422 350 432 410 428 C470 424 520 432 580 430 C650 428 700 418 760 422 C820 426 880 414 960 420 L1000 540 L1000 600 L-40 600 L-40 540Z"/></g>
   </g>
   <g filter="url(#drift)">
     <path d="M-20 462 C90 452 180 458 280 455 C390 451 470 461 560 457 C660 452 760 449 860 455 C910 458 950 454 980 452 L980 560 L-20 560Z" fill="url(#field)"/>
     <path d="M-20 462 C90 452 180 458 280 455 C390 451 470 461 560 457 C660 452 760 449 860 455 C910 458 950 454 980 452 L980 560 L-20 560Z" fill="url(#moonlit)"/>
   </g>
-  <path d="M-20 461 C90 451 180 457 280 454 C390 450 470 460 560 456 C660 451 760 448 860 454 C910 457 950 453 980 451" fill="none" stroke="#C6D6F2" stroke-opacity=".22" stroke-width="1.1" filter="url(#drift)"/>
 </svg>
