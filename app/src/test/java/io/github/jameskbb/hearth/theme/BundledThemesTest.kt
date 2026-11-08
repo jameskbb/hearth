@@ -127,6 +127,95 @@ class BundledThemesTest {
         }
     }
 
+    // region weather variants (decision 0013); trivially true for packs without a weather block
+
+    private val occasionPacks = setOf("harvest-evening", "halloween", "christmas", "new-year", "easter", "july-fourth")
+
+    private fun manifests() = packs().map { it to ThemeManifestCodec.parse(File(it, "theme.json").readText()) }
+
+    @Test fun everyBundledVariantResolvesAndCoversItsMotionRange() {
+        for ((dir, m) in manifests()) {
+            for (variant in m.weather) {
+                val layers = ThemeVariants.layers(m, variant)
+                assertTrue("${dir.name}/${variant.id}: ${layers.size} layers", layers.size in 1..ThemeManifestCodec.MAX_VARIANT_LAYERS)
+                for (layer in layers) {
+                    val bounds = imageBounds(File(dir, layer.image))
+                    assertTrue("${dir.name}/${variant.id}: ${layer.image} is not readable", bounds != null)
+                    for (second in 0..900 step 7) {
+                        val f = ThemeMotion.frame(layer, bounds!!.width, bounds.height, 1920f, m.sway, second.toDouble())
+                        val at = "${dir.name}/${variant.id}/${layer.image} at $second"
+                        assertTrue("$at: left edge", f.left <= 0.01f)
+                        if (f.tiled) assertTrue("$at: repeat origin", f.left > -f.width - 0.01f)
+                        else assertTrue("$at: right edge", f.left + f.width >= 1919.99f)
+                        if (f.tiledVertically) assertTrue("$at: fall origin", f.top <= 0.01f && f.top > -f.height - 0.01f)
+                    }
+                }
+            }
+        }
+    }
+
+    @Test fun everyPaletteKeepsTextReadableOverItsWindowColor() {
+        for ((dir, m) in manifests()) {
+            val palettes = listOf("base" to m.palette) + m.weather.map { it.id to ThemeVariants.palette(m, it) }
+            for ((name, p) in palettes) {
+                val ink = contrast(p.ink, p.window)
+                val muted = contrast(over(p.inkMuted, p.window), p.window)
+                assertTrue("${dir.name}/$name: ink contrast $ink", ink >= 4.5)
+                assertTrue("${dir.name}/$name: muted ink contrast $muted", muted >= 4.5)
+            }
+        }
+    }
+
+    @Test fun variantArtStaysWithinItsEncodedBudget() {
+        for ((dir, m) in manifests()) {
+            val base = m.layers.mapTo(HashSet()) { it.image } + listOfNotNull(m.preview)
+            val variantOnly = m.weather.flatMap { it.images }.toSet() - base
+            val bytes = variantOnly.sumOf { File(dir, it).length() }
+            val budget = if (dir.name in occasionPacks) OCCASION_VARIANT_BYTES else EVERYDAY_VARIANT_BYTES
+            assertTrue("${dir.name}: $bytes bytes of weather art, budget $budget", bytes <= budget)
+        }
+    }
+
+    @Test fun everyVariantHasNotes() {
+        for ((dir, m) in manifests()) {
+            if (m.weather.isEmpty()) continue
+            val notes = File(dir, "notes.txt")
+            assertTrue("${dir.name} has weather variants but no notes.txt", notes.isFile)
+            val text = notes.readText()
+            for (variant in m.weather) assertTrue("${dir.name}: notes.txt does not mention ${variant.id}", variant.id in text)
+        }
+    }
+
+    /** WCAG contrast of two opaque sRGB colors. */
+    private fun contrast(a: Int, b: Int): Double {
+        val la = luminance(a)
+        val lb = luminance(b)
+        return (maxOf(la, lb) + 0.05) / (minOf(la, lb) + 0.05)
+    }
+
+    private fun luminance(argb: Int): Double {
+        fun channel(shift: Int): Double {
+            val c = ((argb shr shift) and 0xFF) / 255.0
+            return if (c <= 0.04045) c / 12.92 else Math.pow((c + 0.055) / 1.055, 2.4)
+        }
+        return 0.2126 * channel(16) + 0.7152 * channel(8) + 0.0722 * channel(0)
+    }
+
+    /** [top] with its alpha over opaque [bottom]. */
+    private fun over(top: Int, bottom: Int): Int {
+        val a = ((top ushr 24) and 0xFF) / 255.0
+        fun mix(shift: Int) = (((top shr shift) and 0xFF) * a + ((bottom shr shift) and 0xFF) * (1 - a)).toInt().coerceIn(0, 255)
+        return (0xFF shl 24) or (mix(16) shl 16) or (mix(8) shl 8) or mix(0)
+    }
+
+    private companion object {
+        /** About 2.5 MB of encoded variant art per everyday pack and 1 MB per occasion pack (decision 0013). */
+        const val EVERYDAY_VARIANT_BYTES = 2_621_440L
+        const val OCCASION_VARIANT_BYTES = 1_048_576L
+    }
+
+    // endregion
+
     /** Width and height from a WebP (VP8, VP8L, VP8X) or PNG header; null for anything else. */
     private fun imageBounds(f: File): ImageBounds? {
         if (!f.isFile) return null

@@ -60,6 +60,12 @@ data class Breath(val min: Float, val max: Float, val periodSeconds: Float, val 
 /** A one-time opacity change, smoothstep, counted from when the theme appears. */
 data class Fade(val from: Float, val to: Float, val delaySeconds: Float, val durationSeconds: Float)
 
+/**
+ * Vertical fall: the layer tiles top to bottom and moves down [yDp] canvas dp every
+ * [periodSeconds]. Its rest state is no offset.
+ */
+data class Fall(val yDp: Float, val periodSeconds: Float)
+
 enum class LayerBlend { Normal, Screen }
 
 /** One image layer. Distances are canvas dp: 1/960 of the screen width. */
@@ -72,6 +78,7 @@ data class LayerSpec(
     val opacity: Breath? = null,
     val fade: Fade? = null,
     val blend: LayerBlend = LayerBlend.Normal,
+    val fall: Fall? = null,
 )
 
 /** The slow to-and-fro of the whole scene, which each layer follows by its parallax. */
@@ -91,7 +98,63 @@ data class ThemeManifest(
     val layers: List<LayerSpec>,
     /** Opt out of implicit automatic pools; deliberate user assignments still work. */
     val autoRotationEligible: Boolean = true,
+    /** Optional weather variants, in match order (docs/theme-packs.md, Weather). */
+    val weather: List<WeatherVariant> = emptyList(),
 )
+
+/**
+ * When a weather variant applies. A null part matches anything; a set matches a mood whose part
+ * is in it. In [forecast], null stands for "no forecast" (`none` in the manifest).
+ */
+data class MoodRule(
+    val sky: Set<SceneSky>? = null,
+    val temp: Set<SceneTemp>? = null,
+    val forecast: Set<SceneForecast?>? = null,
+) {
+    fun matches(mood: SceneMood): Boolean =
+        (sky == null || mood.sky in sky) && (temp == null || mood.temp in temp) &&
+            (forecast == null || mood.forecast in forecast)
+}
+
+/** A variant's id and when it applies: all selection and matching need, without its art. */
+data class VariantRule(val id: String, val rule: MoodRule)
+
+/** The palette colors a variant may change. `accent` and `glow` are each pack's own and stay. */
+data class PalettePatch(
+    val window: Int? = null,
+    val ink: Int? = null,
+    val inkMuted: Int? = null,
+    val shade: Int? = null,
+    val shadeMid: Int? = null,
+) {
+    fun applyTo(p: PaletteSpec) = p.copy(
+        window = window ?: p.window,
+        ink = ink ?: p.ink,
+        inkMuted = inkMuted ?: p.inkMuted,
+        shade = shade ?: p.shade,
+        shadeMid = shadeMid ?: p.shadeMid,
+    )
+}
+
+/** A layer a variant adds: drawn just after the base layer whose image is [after], else on top. */
+data class AddedLayer(val spec: LayerSpec, val after: String? = null)
+
+/** One entry of a manifest's `weather` array, parsed and value-checked. */
+data class WeatherVariant(
+    val id: String,
+    val rule: MoodRule,
+    val palette: PalettePatch = PalettePatch(),
+    /** Base layer image to the image drawn in its place. */
+    val replace: Map<String, String> = emptyMap(),
+    /** Base layer images left out. */
+    val hide: Set<String> = emptySet(),
+    val add: List<AddedLayer> = emptyList(),
+) {
+    val matchRule: VariantRule get() = VariantRule(id, rule)
+
+    /** Every image this variant draws that the base may not: replacements and added layers. */
+    val images: Set<String> get() = (replace.values + add.map { it.spec.image }).toCollection(LinkedHashSet())
+}
 
 /**
  * Why a pack is not shown. [message] is plain English for logs; Settings shows its own
@@ -124,8 +187,17 @@ sealed interface ThemeProblem {
         override val message get() = "id \"$id\" is not allowed"
     }
 
-    data class LayerCount(val count: Int) : ThemeProblem {
-        override val message get() = "$count layers, 1 to 8 allowed"
+    data class LayerCount(val count: Int, val max: Int = ThemeManifestCodec.MAX_LAYERS) : ThemeProblem {
+        override val message get() = "$count layers, 1 to $max allowed"
+    }
+
+    data class FullSizeReplacements(val count: Int) : ThemeProblem {
+        override val message get() = "$count full-size replacement images, at most 1 allowed"
+    }
+
+    /** A weather variant ([variant] is its id) fails a check of its own; [problem] says which. */
+    data class BadVariant(val variant: String, val problem: ThemeProblem) : ThemeProblem {
+        override val message get() = "weather variant $variant: ${problem.message}"
     }
 
     data class MissingImage(val path: String) : ThemeProblem {

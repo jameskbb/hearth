@@ -58,7 +58,10 @@
     <string name="theme_problem_missing_field">theme.json has no %1$s</string>
     <string name="theme_problem_bad_value">theme.json has an invalid %1$s</string>
     <string name="theme_problem_bad_id">the id %1$s isn\'t allowed</string>
-    <string name="theme_problem_layer_count">a pack has 1 to 8 layers, this one %1$d</string>
+    <string name="theme_problem_layer_count">a pack has 1 to %2$d layers, this one %1$d</string>
+    <!-- %1$s is a weather variant's id from the pack ("snow"), %2$s one of the reasons in this list. -->
+    <string name="theme_problem_variant">weather variant %1$s: %2$s</string>
+    <string name="theme_problem_full_size_replacements">a weather variant may replace only one image with a full-size one</string>
     <string name="theme_problem_missing_image">%1$s not found</string>
     <string name="theme_problem_unreadable_image">%1$s couldn\'t be read</string>
     <string name="theme_problem_base_size">the first layer, %1$s, must be 1920 x 1080 pixels, not %2$s</string>

@@ -30,7 +30,8 @@ import java.io.InputStream
  * shared storage, as folders or zips. File work runs on Dispatchers.IO.
  *
  * Memory: one decoded theme is cached ([load]); decodes run one at a time, so at most the theme
- * on screen plus the one being decoded exist at once. Gallery previews are 480x270 and live
+ * on screen plus the one being decoded exist at once. A weather variant of the theme on screen
+ * reuses its decoded images and decodes only the ones it adds. Gallery previews are 480x270 and live
  * until [releasePreviews]. [release] drops all of it (memory pressure in the background).
  */
 class AndroidThemeCatalog(context: Context, scope: CoroutineScope) : ThemeCatalog {
@@ -147,7 +148,8 @@ class AndroidThemeCatalog(context: Context, scope: CoroutineScope) : ThemeCatalo
                     add(ThemeSource.MANIFEST)
                     manifest.preview?.let(::add)
                     manifest.layers.forEach { add(it.image) }
-                }
+                    manifest.weather.forEach { addAll(it.images) }
+                }.distinct()
                 revision = src.contentRevision(files)
             }
             manifest to problem
@@ -170,18 +172,22 @@ class AndroidThemeCatalog(context: Context, scope: CoroutineScope) : ThemeCatalo
         null
     }
 
-    override suspend fun load(id: ThemeId): LoadedTheme? {
+    override suspend fun load(id: ThemeId, variant: String?): LoadedTheme? {
         firstScan.await()
         return decodeLock.withLock {
             var answer: LoadedTheme? = null
             while (true) {
                 val entry = entries[id] ?: break
+                val wanted = ThemeVariants.variant(entry.manifest, variant)
                 val cached = current
-                if (cached?.info == entry.info) {
+                if (cached?.info == entry.info && cached.variant == wanted?.id) {
                     answer = cached
                     break
                 }
-                val decoded = withContext(Dispatchers.IO) { decode(entry) }
+                // Same pack and revision: its decoded images can be drawn again as they are.
+                val reuse = cached?.takeIf { it.info == entry.info }?.layers
+                    ?.associate { it.spec.image to it.bitmap }.orEmpty()
+                val decoded = withContext(Dispatchers.IO) { decode(entry, wanted, reuse) }
                 // Reload may have replaced this pack while its old bytes were decoding. Never
                 // publish or return that stale result; decode the current revision instead.
                 if (entries[id]?.info != entry.info) continue
@@ -193,11 +199,15 @@ class AndroidThemeCatalog(context: Context, scope: CoroutineScope) : ThemeCatalo
         }
     }
 
-    /** Decodes every layer. Null on failure, which also lists the pack as not loaded. */
-    private suspend fun decode(entry: Entry): LoadedTheme? {
-        val byPath = HashMap<String, ImageBitmap>()
-        val layers = ArrayList<LoadedLayer>(entry.manifest.layers.size)
-        for (spec in entry.manifest.layers) {
+    /**
+     * Decodes every layer of [variant]'s resolved set (null: the base), taking images already
+     * decoded from [reuse]. Null on failure, which also lists the pack as not loaded.
+     */
+    private suspend fun decode(entry: Entry, variant: WeatherVariant?, reuse: Map<String, ImageBitmap>): LoadedTheme? {
+        val byPath = HashMap<String, ImageBitmap>(reuse)
+        val specs = ThemeVariants.layers(entry.manifest, variant)
+        val layers = ArrayList<LoadedLayer>(specs.size)
+        for (spec in specs) {
             coroutineContext.ensureActive()
             val image = byPath[spec.image] ?: run {
                 val bitmap = try {
@@ -217,7 +227,13 @@ class AndroidThemeCatalog(context: Context, scope: CoroutineScope) : ThemeCatalo
             }
             layers += LoadedLayer(image, spec)
         }
-        return LoadedTheme(entry.info, entry.manifest.sway, layers)
+        return LoadedTheme(
+            info = entry.info,
+            sway = entry.manifest.sway,
+            layers = layers,
+            variant = variant?.id,
+            palette = ThemeVariants.palette(entry.manifest, variant),
+        )
     }
 
     private fun decodeFull(input: InputStream): Bitmap? {

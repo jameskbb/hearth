@@ -14,6 +14,15 @@ object ThemeManifestCodec {
     const val FORMAT = 1
     const val MAX_LAYERS = 8
     const val MAX_NAME_LENGTH = 40
+    const val MAX_VARIANTS = 24
+
+    /** A variant's resolved layer list may be longer than the base's: overlays are its point. */
+    const val MAX_VARIANT_LAYERS = 10
+
+    private val VARIANT_ID = Regex("[a-z0-9-]{1,32}")
+
+    /** Palette colors a variant may change; `accent` and `glow` are rejected there. */
+    private val VARIANT_COLORS = setOf("window", "ink", "inkMuted", "shade", "shadeMid")
 
     private const val DEFAULT_INK = 0xFFF4F1EC.toInt()
     private const val ALPHA_INK_MUTED = 0xB8
@@ -40,6 +49,7 @@ object ThemeManifestCodec {
         val name = root.requiredString("name").trim()
         if (name.isEmpty() || name.length > MAX_NAME_LENGTH) bad("name")
 
+        val layers = layers(root)
         return ThemeManifest(
             format = format,
             id = ThemeId(idText),
@@ -50,10 +60,11 @@ object ThemeManifestCodec {
             palette = palette(root),
             preview = root.optionalText("preview")?.also { if (!isSafePath(it)) bad("preview") },
             sway = sway(root),
-            layers = layers(root),
+            layers = layers,
             autoRotationEligible = if (root.has("autoRotationEligible")) {
                 root.opt("autoRotationEligible") as? Boolean ?: bad("autoRotationEligible")
             } else true,
+            weather = weather(root, layers),
         )
     }
 
@@ -118,6 +129,104 @@ object ThemeManifestCodec {
         return Sway(amplitude, period)
     }
 
+    /**
+     * The optional `weather` array. Older Hearth builds ignore it. Each entry is checked here
+     * against the base layers it names; whether its images exist and fit is [ThemeValidation]'s.
+     */
+    private fun weather(root: JSONObject, base: List<LayerSpec>): List<WeatherVariant> {
+        if (!root.has("weather")) return emptyList()
+        val array = root.opt("weather") as? JSONArray ?: bad("weather")
+        if (array.length() > MAX_VARIANTS) bad("weather")
+        val baseImages = base.mapTo(HashSet()) { it.image }
+        val ids = HashSet<String>()
+        return (0 until array.length()).map { i ->
+            val o = array.opt(i) as? JSONObject ?: bad("weather[$i]")
+            if (!o.has("id")) fail(ThemeProblem.MissingField("weather[$i].id"))
+            val id = o.opt("id") as? String ?: bad("weather[$i].id")
+            if (!VARIANT_ID.matches(id)) bad("weather[$i].id")
+            if (!ids.add(id)) bad("weather[$i].id")
+            variant(o, id, "weather.$id", baseImages)
+        }
+    }
+
+    private fun variant(o: JSONObject, id: String, at: String, baseImages: Set<String>): WeatherVariant {
+        val rule = moodRule(o.child("when", at), "$at.when")
+        val palette = o.child("palette", at)?.let { p ->
+            for (key in p.keys()) {
+                if (key !in VARIANT_COLORS) bad("$at.palette.$key")
+            }
+            fun color(key: String): Int? {
+                if (!p.has(key)) return null
+                val s = p.opt(key) as? String ?: bad("$at.palette.$key")
+                return parseColor(s) ?: bad("$at.palette.$key")
+            }
+            PalettePatch(color("window"), color("ink"), color("inkMuted"), color("shade"), color("shadeMid"))
+        } ?: PalettePatch()
+        val replace = LinkedHashMap<String, String>()
+        o.child("replace", at)?.let { r ->
+            for (key in r.keys().asSequence().sorted()) {
+                if (key !in baseImages) bad("$at.replace")
+                val image = r.opt(key) as? String ?: bad("$at.replace")
+                if (!isSafePath(image)) bad("$at.replace")
+                replace[key] = image
+            }
+        }
+        val hide = LinkedHashSet<String>()
+        if (o.has("hide")) {
+            val h = o.opt("hide") as? JSONArray ?: bad("$at.hide")
+            for (j in 0 until h.length()) {
+                val image = h.opt(j) as? String ?: bad("$at.hide")
+                if (image !in baseImages || image in replace) bad("$at.hide")
+                hide += image
+            }
+        }
+        val add = ArrayList<AddedLayer>()
+        if (o.has("add")) {
+            val a = o.opt("add") as? JSONArray ?: bad("$at.add")
+            for (j in 0 until a.length()) {
+                val layerAt = "$at.add[$j]"
+                val l = a.opt(j) as? JSONObject ?: bad(layerAt)
+                val after = if (l.has("after")) {
+                    (l.opt("after") as? String)?.takeIf { it in baseImages } ?: bad("$layerAt.after")
+                } else null
+                add += AddedLayer(layer(l, layerAt), after)
+            }
+        }
+        return WeatherVariant(id, rule, palette, replace, hide, add)
+    }
+
+    /** `when`: any of `sky`, `temp`, `forecast`, each a non-empty list. Missing parts match anything. */
+    private fun moodRule(w: JSONObject?, at: String): MoodRule {
+        if (w == null) return MoodRule()
+        fun <T> part(key: String, parse: (String) -> T?): Set<T>? {
+            if (!w.has(key)) return null
+            val list = w.opt(key) as? JSONArray ?: bad("$at.$key")
+            if (list.length() == 0) bad("$at.$key")
+            return (0 until list.length()).mapTo(LinkedHashSet()) { i ->
+                val s = list.opt(i) as? String ?: bad("$at.$key")
+                parse(s) ?: bad("$at.$key")
+            }
+        }
+        val forecast: Set<SceneForecast?>? = if (!w.has("forecast")) null else {
+            val list = w.opt("forecast") as? JSONArray ?: bad("$at.forecast")
+            if (list.length() == 0) bad("$at.forecast")
+            (0 until list.length()).mapTo(LinkedHashSet()) { i ->
+                when (val s = list.opt(i) as? String ?: bad("$at.forecast")) {
+                    FORECAST_NONE -> null
+                    else -> SceneForecast.fromManifest(s) ?: bad("$at.forecast")
+                }
+            }
+        }
+        return MoodRule(
+            sky = part("sky", SceneSky::fromManifest),
+            temp = part("temp", SceneTemp::fromManifest),
+            forecast = forecast,
+        )
+    }
+
+    /** In `when.forecast`: no snow or rain on the way. */
+    const val FORECAST_NONE = "none"
+
     private fun layers(root: JSONObject): List<LayerSpec> {
         if (!root.has("layers")) fail(ThemeProblem.MissingField("layers"))
         val array = root.opt("layers") as? JSONArray ?: bad("layers")
@@ -174,6 +283,11 @@ object ThemeManifestCodec {
                 )
             },
             blend = blend,
+            fall = o.child("fall", at)?.let { f ->
+                val y = f.number("y", "$at.fall.y")
+                if (y <= 0f || y > 540f) bad("$at.fall.y")
+                Fall(yDp = y, periodSeconds = f.number("period", "$at.fall.period").positive("$at.fall.period"))
+            },
         )
     }
 
