@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="150" viewBox="0 140 960 300" data-scale="1">
+  <!-- Hearth theme "Dusk", weather layer 21: the golden haze of a hot evening, on transparent. Rendered at a quarter size
+       (480 px wide, a smooth gradient) by scripts/render-theme.sh dusk and scaled up. Warm dust in the air spreads the sun's
+       bloom wider and lays a honeyed veil over the far ridges; it stops short of the top-left corner and
+       thins before the near ridges, so the clock and the dock keep their ground. -->
+  <defs>
+    <radialGradient id="bloom" cx="652" cy="300" r="420" gradientTransform="translate(652 300) scale(1.45 .3) translate(-652 -300)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE0A0" stop-opacity=".62"/>
+      <stop offset=".25" stop-color="#FFC27A" stop-opacity=".38"/>
+      <stop offset=".6" stop-color="#F09A6A" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#E08A6A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="band" x1="0" y1="140" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7B27A" stop-opacity="0"/>
+      <stop offset=".45" stop-color="#FFC284" stop-opacity=".16"/>
+      <stop offset=".58" stop-color="#FFCB8C" stop-opacity=".26"/>
+      <stop offset=".75" stop-color="#E9A27E" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#C98A80" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="140" width="960" height="300" fill="url(#band)"/>
+  <rect x="0" y="140" width="960" height="300" fill="url(#bloom)"/>
+</svg>

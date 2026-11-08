@@ -4,7 +4,9 @@
   "name": "Dusk",
   "author": "Hearth",
   "description": "Amber light over deep blue ridges",
-  "dayparts": ["evening"],
+  "dayparts": [
+    "evening"
+  ],
   "palette": {
     "ink": "#FFFFF3E4",
     "inkMuted": "#B8FFF3E4",
@@ -15,11 +17,278 @@
     "window": "#FF0A0E24"
   },
   "preview": "preview.webp",
-  "motion": { "sway": { "amplitude": 6, "period": 90 } },
+  "motion": {
+    "sway": {
+      "amplitude": 6,
+      "period": 90
+    }
+  },
   "layers": [
-    { "image": "sky.webp" },
-    { "image": "wisps.webp", "y": 96, "parallax": 0.35,
-      "drift": { "x": 24, "period": 150 },
-      "opacity": { "min": 0.85, "max": 1.0, "period": 60 } }
+    {
+      "image": "sky.webp"
+    },
+    {
+      "image": "wisps.webp",
+      "y": 96,
+      "parallax": 0.35,
+      "drift": {
+        "x": 24,
+        "period": 150
+      },
+      "opacity": {
+        "min": 0.85,
+        "max": 1.0,
+        "period": 60
+      }
+    }
+  ],
+  "weather": [
+    {
+      "id": "snow",
+      "when": {
+        "sky": [
+          "snow"
+        ]
+      },
+      "hide": [
+        "wisps.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp"
+        },
+        {
+          "image": "snow-caps.webp",
+          "y": 286
+        },
+        {
+          "image": "snowfall-far.webp",
+          "wrap": true,
+          "drift": {
+            "x": 20,
+            "period": 120
+          },
+          "fall": {
+            "y": 36,
+            "period": 40
+          }
+        },
+        {
+          "image": "snowfall-near.webp",
+          "wrap": true,
+          "drift": {
+            "x": 30,
+            "period": 120
+          },
+          "fall": {
+            "y": 70,
+            "period": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "snow-coming-frost",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "temp": [
+          "freezing"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "hide": [
+        "wisps.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp"
+        },
+        {
+          "image": "hush.webp",
+          "y": 150
+        },
+        {
+          "image": "snow-caps.webp",
+          "y": 286,
+          "opacity": {
+            "min": 0.45,
+            "max": 0.45,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "snow-coming",
+      "when": {
+        "sky": [
+          "clear",
+          "cloudy"
+        ],
+        "forecast": [
+          "snow"
+        ]
+      },
+      "hide": [
+        "wisps.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp"
+        },
+        {
+          "image": "hush.webp",
+          "y": 150
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "hide": [
+        "wisps.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp"
+        },
+        {
+          "image": "glints.webp",
+          "y": 286
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 120,
+            "period": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "when": {
+        "sky": [
+          "fog"
+        ]
+      },
+      "hide": [
+        "wisps.webp"
+      ],
+      "add": [
+        {
+          "image": "fog.webp",
+          "y": 296
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "hide": [
+        "wisps.webp"
+      ],
+      "add": [
+        {
+          "image": "deck.webp"
+        }
+      ]
+    },
+    {
+      "id": "freezing-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "freezing"
+        ]
+      },
+      "add": [
+        {
+          "image": "clear-air.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "stars.webp",
+          "after": "sky.webp"
+        },
+        {
+          "image": "frost.webp",
+          "y": 286
+        }
+      ]
+    },
+    {
+      "id": "cold-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "cold"
+        ]
+      },
+      "add": [
+        {
+          "image": "clear-air.webp",
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.6,
+            "max": 0.6,
+            "period": 60
+          }
+        },
+        {
+          "image": "stars.webp",
+          "after": "sky.webp",
+          "opacity": {
+            "min": 0.7,
+            "max": 0.7,
+            "period": 60
+          }
+        },
+        {
+          "image": "frost.webp",
+          "y": 286,
+          "opacity": {
+            "min": 0.4,
+            "max": 0.4,
+            "period": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "hot-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "hot"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze.webp",
+          "y": 140
+        }
+      ]
+    }
   ]
 }

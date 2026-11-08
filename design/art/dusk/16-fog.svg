@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="144" viewBox="0 296 960 144">
+  <!-- Hearth theme "Dusk", weather layer 16: luminous evening fog lying in the valleys, on transparent.
+       A strip from y 296, rendered at 2x by scripts/render-theme.sh dusk so the banks meet the crests cleanly. Each bank sits in front of one
+       ridge and behind the next, using the same ridge paths and ridge filter as layer 00, thickest in the
+       valley and thinning upward, rose near the glow and lavender further down, so the hills seem to float.
+       The nearest bank is faint, and all of it thins toward the left, where the app name sits. -->
+  <defs>
+    <filter id="ridge" x="-5%" y="-30%" width="110%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency=".02 .05" numOctaves="4" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="wisp" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".008 .05" numOctaves="3" seed="91" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.4 0 0 0 .05" result="a"/>
+      <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    </filter>
+    <filter id="mist" filterUnits="userSpaceOnUse" x="-40" y="296" width="1040" height="144"><feGaussianBlur stdDeviation=".7"/></filter>
+    <radialGradient id="glowF" cx="652" cy="314" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE2C0" stop-opacity=".7"/><stop offset="1" stop-color="#FFE2C0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="v0" x1="0" y1="300" x2="0" y2="332" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F0CCD2" stop-opacity="0"/><stop offset=".6" stop-color="#F0CCD2" stop-opacity="0.43"/><stop offset="1" stop-color="#F0CCD2" stop-opacity="0.72"/>
+    </linearGradient>
+    <mask id="k0" maskUnits="userSpaceOnUse" x="-40" y="296" width="1040" height="144">
+      <path d="M-40 322 C60 310 110 300 170 306 C230 312 270 292 330 296 C400 300 440 314 520 308 C600 302 640 318 720 312 C800 306 860 296 960 304 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <linearGradient id="v1" x1="0" y1="318" x2="0" y2="368" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C8B8E0" stop-opacity="0"/><stop offset=".6" stop-color="#C8B8E0" stop-opacity="0.37"/><stop offset="1" stop-color="#C8B8E0" stop-opacity="0.62"/>
+    </linearGradient>
+    <mask id="k1" maskUnits="userSpaceOnUse" x="-40" y="296" width="1040" height="144">
+      <path d="M-40 344 C80 326 140 334 210 320 C290 304 340 330 420 326 C500 322 540 338 620 334 C700 330 760 316 840 324 C900 330 930 324 960 320 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <linearGradient id="v2" x1="0" y1="352" x2="0" y2="410" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ACA8DC" stop-opacity="0"/><stop offset=".6" stop-color="#ACA8DC" stop-opacity="0.33"/><stop offset="1" stop-color="#ACA8DC" stop-opacity="0.55"/>
+    </linearGradient>
+    <mask id="k2" maskUnits="userSpaceOnUse" x="-40" y="296" width="1040" height="144">
+      <path d="M-40 378 C90 360 170 370 250 352 C330 336 400 362 480 360 C560 358 620 372 700 366 C780 360 850 346 960 356 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#000"/>
+    </mask>
+    <linearGradient id="v3" x1="0" y1="400" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8E8EC8" stop-opacity="0"/><stop offset=".6" stop-color="#8E8EC8" stop-opacity="0.18"/><stop offset=".75" stop-color="#8E8EC8" stop-opacity="0.3"/><stop offset="1" stop-color="#8E8EC8" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="k3" maskUnits="userSpaceOnUse" x="-40" y="296" width="1040" height="144">
+      <path d="M-40 424 C110 404 200 416 300 402 C400 388 480 414 580 412 C680 410 760 420 860 408 C910 402 940 404 960 402 L1000 540 L1000 600 L-40 600 L-40 540Z" fill="#fff"/>
+    </mask>
+    <linearGradient id="side" x1="0" y1="0" x2="960" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".7" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="lean" maskUnits="userSpaceOnUse" x="-40" y="296" width="1040" height="144"><rect x="-40" y="296" width="1040" height="144" fill="url(#side)"/></mask>
+  </defs>
+
+  <g mask="url(#lean)" filter="url(#mist)"><g filter="url(#ridge)">
+    <g mask="url(#k0)"><rect x="-40" y="296" width="1040" height="144" fill="url(#v0)" filter="url(#wisp)"/></g>
+    <g mask="url(#k1)"><rect x="-40" y="296" width="1040" height="144" fill="url(#v1)" filter="url(#wisp)"/></g>
+    <g mask="url(#k2)"><rect x="-40" y="296" width="1040" height="144" fill="url(#v2)" filter="url(#wisp)"/></g>
+    <g mask="url(#k3)"><rect x="-40" y="296" width="1040" height="144" fill="url(#v3)" filter="url(#wisp)"/></g>
+    <g mask="url(#k0)"><rect x="-40" y="296" width="1040" height="144" fill="url(#glowF)"/></g>
+  </g></g>
+</svg>

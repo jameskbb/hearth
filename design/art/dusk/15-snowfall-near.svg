@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Hearth theme "Dusk", weather layer 15: nearer falling snow, fewer and larger flakes, on transparent.
+       Rendered at 1x (960 px wide) by scripts/render-theme.sh and scaled up. It tiles both ways (every flake
+       near an edge is repeated across it), so it can fall and drift without a seam. Sparse and soft, so
+       with Reduce motion it holds still as a gentle texture. -->
+  <defs><filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0.8"/></filter></defs>
+  <g fill="#FFF6F4" filter="url(#soft)">
+    <circle cx="268.6" cy="271.2" r="1.86" opacity="0.66"/>
+    <circle cx="563.3" cy="263.1" r="1.82" opacity="0.57"/>
+    <circle cx="106.0" cy="137.8" r="2.08" opacity="0.51"/>
+    <circle cx="338.1" cy="228.1" r="1.85" opacity="0.65"/>
+    <circle cx="821.2" cy="506.1" r="1.87" opacity="0.57"/>
+    <circle cx="840.0" cy="462.1" r="1.76" opacity="0.78"/>
+    <circle cx="849.0" cy="513.5" r="1.53" opacity="0.58"/>
+    <circle cx="770.6" cy="146.3" r="1.57" opacity="0.52"/>
+    <circle cx="731.7" cy="127.9" r="1.47" opacity="0.71"/>
+    <circle cx="80.9" cy="423.6" r="1.38" opacity="0.84"/>
+    <circle cx="126.6" cy="77.0" r="1.76" opacity="0.77"/>
+    <circle cx="467.6" cy="382.7" r="1.54" opacity="0.80"/>
+    <circle cx="194.8" cy="221.4" r="2.10" opacity="0.64"/>
+    <circle cx="56.6" cy="388.2" r="1.39" opacity="0.64"/>
+    <circle cx="329.4" cy="264.2" r="1.44" opacity="0.82"/>
+    <circle cx="780.1" cy="296.0" r="1.60" opacity="0.64"/>
+    <circle cx="248.6" cy="220.1" r="1.79" opacity="0.76"/>
+    <circle cx="91.6" cy="503.9" r="2.20" opacity="0.69"/>
+    <circle cx="525.7" cy="48.8" r="1.52" opacity="0.52"/>
+    <circle cx="105.0" cy="390.2" r="1.50" opacity="0.74"/>
+    <circle cx="747.3" cy="224.2" r="1.98" opacity="0.71"/>
+    <circle cx="594.2" cy="319.0" r="1.94" opacity="0.55"/>
+    <circle cx="-4.7" cy="111.0" r="1.43" opacity="0.58"/>
+    <circle cx="955.3" cy="111.0" r="1.43" opacity="0.58"/>
+    <circle cx="785.0" cy="528.0" r="2.29" opacity="0.55"/>
+    <circle cx="368.3" cy="406.8" r="1.41" opacity="0.64"/>
+    <circle cx="543.5" cy="147.2" r="1.60" opacity="0.67"/>
+    <circle cx="129.0" cy="482.5" r="1.77" opacity="0.56"/>
+    <circle cx="475.8" cy="196.5" r="1.94" opacity="0.52"/>
+    <circle cx="352.6" cy="37.6" r="1.90" opacity="0.67"/>
+    <circle cx="761.6" cy="341.4" r="1.82" opacity="0.72"/>
+    <circle cx="306.7" cy="284.5" r="1.69" opacity="0.66"/>
+    <circle cx="396.2" cy="0.4" r="1.50" opacity="0.70"/>
+    <circle cx="396.2" cy="540.4" r="1.50" opacity="0.70"/>
+    <circle cx="116.5" cy="200.2" r="2.11" opacity="0.67"/>
+    <circle cx="742.7" cy="177.1" r="1.30" opacity="0.66"/>
+    <circle cx="727.6" cy="260.8" r="1.66" opacity="0.80"/>
+    <circle cx="352.1" cy="503.9" r="2.03" opacity="0.57"/>
+    <circle cx="611.9" cy="350.4" r="1.89" opacity="0.74"/>
+    <circle cx="378.3" cy="402.3" r="1.90" opacity="0.77"/>
+    <circle cx="730.9" cy="325.9" r="1.83" opacity="0.58"/>
+    <circle cx="90.4" cy="264.2" r="1.80" opacity="0.63"/>
+    <circle cx="476.7" cy="464.8" r="2.16" opacity="0.81"/>
+    <circle cx="128.5" cy="114.6" r="2.16" opacity="0.79"/>
+    <circle cx="199.3" cy="420.7" r="1.33" opacity="0.64"/>
+    <circle cx="603.9" cy="214.1" r="2.15" opacity="0.58"/>
+    <circle cx="145.7" cy="236.2" r="1.57" opacity="0.76"/>
+    <circle cx="659.4" cy="60.7" r="1.47" opacity="0.52"/>
+    <circle cx="919.8" cy="131.3" r="1.48" opacity="0.60"/>
+    <circle cx="415.8" cy="85.9" r="2.01" opacity="0.68"/>
+    <circle cx="329.3" cy="520.3" r="1.85" opacity="0.75"/>
+    <circle cx="310.9" cy="222.1" r="2.22" opacity="0.56"/>
+    <circle cx="923.6" cy="154.7" r="1.31" opacity="0.64"/>
+    <circle cx="802.8" cy="326.8" r="1.76" opacity="0.51"/>
+    <circle cx="510.2" cy="-0.8" r="2.13" opacity="0.79"/>
+    <circle cx="510.2" cy="539.2" r="2.13" opacity="0.79"/>
+    <circle cx="52.2" cy="92.6" r="1.61" opacity="0.77"/>
+    <circle cx="546.1" cy="166.9" r="1.37" opacity="0.61"/>
+    <circle cx="621.7" cy="331.2" r="2.22" opacity="0.71"/>
+    <circle cx="671.8" cy="0.8" r="1.61" opacity="0.54"/>
+    <circle cx="671.8" cy="540.8" r="1.61" opacity="0.54"/>
+    <circle cx="276.7" cy="418.9" r="1.83" opacity="0.76"/>
+    <circle cx="858.0" cy="208.3" r="1.71" opacity="0.51"/>
+    <circle cx="550.1" cy="343.8" r="2.28" opacity="0.61"/>
+    <circle cx="243.9" cy="-1.1" r="1.34" opacity="0.59"/>
+    <circle cx="243.9" cy="538.9" r="1.34" opacity="0.59"/>
+    <circle cx="601.9" cy="518.4" r="1.55" opacity="0.65"/>
+    <circle cx="746.1" cy="76.1" r="1.34" opacity="0.59"/>
+    <circle cx="718.1" cy="272.8" r="2.17" opacity="0.59"/>
+    <circle cx="720.1" cy="326.6" r="2.28" opacity="0.76"/>
+    <circle cx="585.8" cy="125.6" r="1.73" opacity="0.53"/>
+    <circle cx="100.8" cy="343.7" r="2.26" opacity="0.69"/>
+    <circle cx="272.7" cy="397.1" r="2.10" opacity="0.84"/>
+    <circle cx="887.3" cy="60.9" r="1.68" opacity="0.58"/>
+    <circle cx="909.4" cy="10.8" r="1.52" opacity="0.68"/>
+  </g>
+</svg>
