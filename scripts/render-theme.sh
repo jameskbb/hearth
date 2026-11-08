@@ -14,6 +14,11 @@
 # theme.json, any notes.txt, and preview.webp from scripts/theme-compose.py,
 # and the base layer goes through scripts/banding-check.py.
 #
+# Weather variant art (docs/theme-packs.md, Weather) is rendered the same way:
+# variant sources use numbers from 10 up, so 10-sky-snow.svg gives
+# sky-snow.webp, and they never become the base. A full-size opaque variant
+# image (a replacement sky, say) also goes through scripts/banding-check.py.
+#
 # If design/art/<id>.svg exists (the single-file Dusk and Aurora art the packs
 # were split from), it is rendered too and the pack's rest state is compared
 # with it.
@@ -22,7 +27,8 @@
 # interpreter with Pillow and numpy; default python3), OUT_PNG (intermediate
 # PNGs; default build/art, not committed), REVIEW_DIR (when set, the rest
 # state and a contact sheet of 8 frames over 240 seconds are written to
-# REVIEW_DIR/<id>/ for review).
+# REVIEW_DIR/<id>/ for review, with each weather variant's rest state as
+# REVIEW_DIR/<id>/weather-<variant>.webp).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 # shellcheck source=scripts/lib/chrome.sh
@@ -45,6 +51,18 @@ print(attr("width"), attr("height"), attr("data-scale", "2"))
 PY
 }
 
+# True when an encoded image is 1920x1080 with no transparency: a variant's replacement base.
+opaque_full_size() {
+  "$PYTHON" - "$1" <<'PY'
+import sys
+from PIL import Image
+im = Image.open(sys.argv[1])
+full = im.size == (1920, 1080)
+opaque = im.mode == "RGB" or (im.mode == "RGBA" and im.getchannel("A").getextrema()[0] == 255)
+sys.exit(0 if full and opaque else 1)
+PY
+}
+
 for id in "$@"; do
   src="design/art/$id"
   dst="app/src/main/assets/themes/$id"
@@ -53,16 +71,21 @@ for id in "$@"; do
   mkdir -p "$dst" "$png"
   rm -f "$dst"/*.webp "$dst"/*.png
   base=""
+  banding=()
   for svg in "$src"/[0-9][0-9]-*.svg; do
     file=$(basename "$svg" .svg)
     name="${file#[0-9][0-9]-}"
     read -r w h scale < <(svg_size "$svg")
     chrome_shot "$svg" "$png/$file.png" "$w" "$h" "$scale"
     if [ -z "$base" ]; then
+      case "$file" in [1-9][0-9]-*) echo "$src: the first layer source must be numbered below 10" >&2; exit 1 ;; esac
       base="$dst/$name.webp"
       "$PYTHON" scripts/encode-art.py "$png/$file.png" "$base"
     else
       "$PYTHON" scripts/encode-art.py --overlay "$png/$file.png" "$dst/$name.webp"
+      case "$file" in
+        [1-9][0-9]-*) if opaque_full_size "$dst/$name.webp"; then banding+=("$dst/$name.webp"); fi ;;
+      esac
     fi
   done
   [ -n "$base" ] || { echo "no layer sources in $src" >&2; exit 1; }
@@ -78,8 +101,9 @@ for id in "$@"; do
   if [ -n "${REVIEW_DIR:-}" ]; then
     mkdir -p "$REVIEW_DIR/$id"
     compose+=(--rest "$REVIEW_DIR/$id/rest.png" --frames 8 --seconds 240
-      --contact-sheet "$REVIEW_DIR/$id/contact-sheet.png")
+      --contact-sheet "$REVIEW_DIR/$id/contact-sheet.png"
+      --all-weather --review-dir "$REVIEW_DIR/$id")
   fi
   "$PYTHON" "${compose[@]}"
-  "$PYTHON" scripts/banding-check.py "$base"
+  "$PYTHON" scripts/banding-check.py "$base" ${banding[@]+"${banding[@]}"}
 done

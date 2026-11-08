@@ -19,6 +19,14 @@ Options:
   --out DIR             where the frames go (frame-000.png, ...)
   --contact-sheet PATH  one PNG grid of the frames, each labelled with its time
   --columns C           columns in the contact sheet (default 2)
+  --weather ID          compose weather variant ID instead of the plain scene
+                        (--rest, --compare and --frames then show the variant;
+                        no preview is written unless --preview is given)
+  --all-weather         check every weather variant and write each one's rest
+                        state to REVIEW/weather-<id>.webp (1920x1080, for
+                        review only, never shipped)
+  --review-dir REVIEW   where --all-weather writes (default
+                        build/weather-review/<pack id>)
 
 This file is the reference implementation of the placement and motion rules
 in docs/theme-packs.md:
@@ -36,7 +44,17 @@ in docs/theme-packs.md:
   starts at the midpoint (the rest state) with phase 0 and at max with 0.25.
 - Fade: from + (to - from) x smoothstep((t - delay) / duration), clamped.
   The layer's alpha is opacity x fade.
-- Rest state: no sway, no drift, opacity at its midpoint, fade at `to`.
+- Fall: a layer with `fall` repeats top to bottom; its tiles start at
+  (y + fall.y x t / fall.period) dp, reduced to one drawn image height, so
+  it moves down continuously and always covers the canvas height.
+- Rest state: no sway, no drift, no fall, opacity at its midpoint, fade at
+  `to`.
+- Weather variants (`weather`): the variant's layers are the base layers with
+  `replace` swapping an image in place (keeping placement and motion, unless
+  an `add` entry names the new image, whose fields are then used there),
+  `hide` leaving layers out, and each other `add` entry inserted just after
+  the base layer its `after` names (on top without one). Its palette changes
+  only the colors it lists.
 - Blending is source-over (normal) or screen, in sRGB values, as Android's
   Canvas does it.
 
@@ -61,6 +79,13 @@ DECODED_LIMIT = 32_000_000
 ID_RE = re.compile(r"^[a-z0-9-]{2,40}$")
 COLOR_RE = re.compile(r"^#([0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$")
 DAYPARTS = {"morning", "day", "evening", "night"}
+VARIANT_ID_RE = re.compile(r"^[a-z0-9-]{1,32}$")
+SKIES = {"clear", "cloudy", "fog", "rain", "snow", "storm"}
+TEMPS = {"freezing", "cold", "mild", "warm", "hot"}
+FORECASTS = {"snow", "rain", "none"}
+VARIANT_COLORS = {"window", "ink", "inkMuted", "shade", "shadeMid"}
+MAX_VARIANTS = 24
+MAX_VARIANT_LAYERS = 10
 
 
 class PackError(Exception):
@@ -120,31 +145,135 @@ def load_manifest(pack):
     if not isinstance(layers, list) or not 1 <= len(layers) <= 8:
         raise PackError("layers must hold 1 to 8 layers")
     for i, L in enumerate(layers):
-        w = f"layers[{i}]."
-        if not isinstance(L.get("image"), str):
-            raise PackError(f"{w}image is required")
-        _num(L, "y", 0.0, where=w)
-        _num(L, "parallax", 0.0, lo=0, hi=1, where=w)
-        if L.get("blend", "normal") not in ("normal", "screen"):
-            raise PackError(f"{w}blend must be normal or screen")
-        if "drift" in L:
-            _num(L["drift"], "x", None, where=w + "drift.")
-            _num(L["drift"], "period", None, positive=True, where=w + "drift.")
-        if "opacity" in L:
-            o = L["opacity"]
-            lo_ = _num(o, "min", None, lo=0, hi=1, where=w + "opacity.")
-            hi_ = _num(o, "max", None, lo=0, hi=1, where=w + "opacity.")
-            _num(o, "period", None, positive=True, where=w + "opacity.")
-            _num(o, "phase", 0.0, lo=0, hi=1, where=w + "opacity.")
-            if lo_ is None or hi_ is None or lo_ > hi_:
-                raise PackError(f"{w}opacity needs min <= max")
-        if "fade" in L:
-            fd = L["fade"]
-            _num(fd, "from", None, lo=0, hi=1, where=w + "fade.")
-            _num(fd, "to", None, lo=0, hi=1, where=w + "fade.")
-            _num(fd, "delay", None, lo=0, where=w + "fade.")
-            _num(fd, "duration", None, positive=True, where=w + "fade.")
+        check_layer(L, f"layers[{i}].")
+    m["_weather"] = check_weather(m)
     return m
+
+
+def check_layer(L, w):
+    if not isinstance(L, dict) or not isinstance(L.get("image"), str):
+        raise PackError(f"{w}image is required")
+    _num(L, "y", 0.0, lo=-540, hi=540, where=w)
+    _num(L, "parallax", 0.0, lo=0, hi=1, where=w)
+    if L.get("blend", "normal") not in ("normal", "screen"):
+        raise PackError(f"{w}blend must be normal or screen")
+    if "drift" in L:
+        _num(L["drift"], "x", None, where=w + "drift.")
+        _num(L["drift"], "period", None, positive=True, where=w + "drift.")
+    if "opacity" in L:
+        o = L["opacity"]
+        lo_ = _num(o, "min", None, lo=0, hi=1, where=w + "opacity.")
+        hi_ = _num(o, "max", None, lo=0, hi=1, where=w + "opacity.")
+        _num(o, "period", None, positive=True, where=w + "opacity.")
+        _num(o, "phase", 0.0, lo=0, hi=1, where=w + "opacity.")
+        if lo_ is None or hi_ is None or lo_ > hi_:
+            raise PackError(f"{w}opacity needs min <= max")
+    if "fade" in L:
+        fd = L["fade"]
+        _num(fd, "from", None, lo=0, hi=1, where=w + "fade.")
+        _num(fd, "to", None, lo=0, hi=1, where=w + "fade.")
+        _num(fd, "delay", None, lo=0, where=w + "fade.")
+        _num(fd, "duration", None, positive=True, where=w + "fade.")
+    if "fall" in L:
+        f = L["fall"]
+        if not isinstance(f, dict):
+            raise PackError(f"{w}fall must be an object")
+        y = _num(f, "y", None, lo=0, hi=540, where=w + "fall.")
+        if y is None or y <= 0:
+            raise PackError(f"{w}fall.y must be more than 0")
+        if _num(f, "period", None, positive=True, where=w + "fall.") is None:
+            raise PackError(f"{w}fall.period is required")
+
+
+def check_weather(m):
+    """The optional weather array, checked as ThemeManifestCodec checks it. Returns it."""
+    weather = m.get("weather", [])
+    if not isinstance(weather, list) or len(weather) > MAX_VARIANTS:
+        raise PackError(f"weather must be a list of at most {MAX_VARIANTS} variants")
+    base = {L["image"] for L in m["layers"]}
+    ids = set()
+    for i, v in enumerate(weather):
+        if not isinstance(v, dict):
+            raise PackError(f"weather[{i}] must be an object")
+        vid = v.get("id")
+        if not isinstance(vid, str) or not VARIANT_ID_RE.match(vid) or vid in ids:
+            raise PackError(f"weather[{i}].id {vid!r} must be 1 to 32 of a-z, 0-9 and -, unique in the pack")
+        ids.add(vid)
+        w = f"weather.{vid}."
+        when = v.get("when", {})
+        if not isinstance(when, dict):
+            raise PackError(f"{w}when must be an object")
+        for key, allowed in (("sky", SKIES), ("temp", TEMPS), ("forecast", FORECASTS)):
+            if key in when:
+                vals = when[key]
+                if not isinstance(vals, list) or not vals or any(x not in allowed for x in vals):
+                    raise PackError(f"{w}when.{key} must be a non-empty list of {', '.join(sorted(allowed))}")
+        pal = v.get("palette", {})
+        if not isinstance(pal, dict):
+            raise PackError(f"{w}palette must be an object")
+        for k, c in pal.items():
+            if k not in VARIANT_COLORS:
+                raise PackError(f"{w}palette.{k} cannot change in a variant (only {', '.join(sorted(VARIANT_COLORS))})")
+            if not isinstance(c, str) or not COLOR_RE.match(c):
+                raise PackError(f"{w}palette.{k} {c!r} is not #AARRGGBB or #RRGGBB")
+        rep = v.get("replace", {})
+        if not isinstance(rep, dict):
+            raise PackError(f"{w}replace must be an object")
+        for k, img in rep.items():
+            if k not in base or not isinstance(img, str):
+                raise PackError(f"{w}replace {k!r} must name a base layer image and give an image")
+        hide = v.get("hide", [])
+        if not isinstance(hide, list) or any(h not in base or h in rep for h in hide):
+            raise PackError(f"{w}hide must list base layer images that are not replaced")
+        add = v.get("add", [])
+        if not isinstance(add, list):
+            raise PackError(f"{w}add must be a list")
+        for j, L in enumerate(add):
+            check_layer(L, f"{w}add[{j}].")
+            if "after" in L and L["after"] not in base:
+                raise PackError(f"{w}add[{j}].after must name a base layer image")
+    return weather
+
+
+def find_variant(m, vid):
+    for v in m["_weather"]:
+        if v["id"] == vid:
+            return v
+    raise PackError(f"no weather variant {vid!r} (has: {', '.join(v['id'] for v in m['_weather']) or 'none'})")
+
+
+def resolve_layers(m, v):
+    """The layer list drawn for variant v (None: the base), as ThemeVariants.layers resolves it."""
+    if v is None:
+        return list(m["layers"])
+    rep = v.get("replace", {})
+    hide = set(v.get("hide", []))
+    add = v.get("add", [])
+    full = {L["image"]: L for L in add if L["image"] in rep.values()}
+    out = []
+    for L in m["layers"]:
+        if L["image"] not in hide:
+            new = rep.get(L["image"])
+            if new is None:
+                out.append(L)
+            elif new in full:
+                out.append({k: x for k, x in full[new].items() if k != "after"})
+            else:
+                out.append(dict(L, image=new))
+        out.extend(a for a in add if a.get("after") == L["image"] and a["image"] not in full)
+    out.extend(a for a in add if "after" not in a and a["image"] not in full)
+    return out
+
+
+def variant_view(m, v):
+    """A manifest-shaped dict for variant v: its resolved layers and palette."""
+    if v is None:
+        return m
+    view = dict(m)
+    view["layers"] = resolve_layers(m, v)
+    view["palette"] = dict(m["palette"], **v.get("palette", {}))
+    view["_variant"] = v["id"]
+    return view
 
 
 def warnings_for(m):
@@ -162,26 +291,58 @@ def warnings_for(m):
     return out
 
 
-def load_images(pack, m):
+def load_images(pack, m, cache=None):
+    """The images of m's layers (a variant view works too), checked like ThemeValidation."""
+    cache = {} if cache is None else cache
+    where = f"weather variant {m['_variant']}: " if "_variant" in m else ""
+    n = len(m["layers"])
+    if "_variant" in m and not 1 <= n <= MAX_VARIANT_LAYERS:
+        raise PackError(f"{where}{n} layers, 1 to {MAX_VARIANT_LAYERS} allowed")
     imgs = []
     for i, L in enumerate(m["layers"]):
-        p = os.path.join(pack, L["image"])
-        if not os.path.isfile(p):
-            raise PackError(f"layer {L['image']} not found")
-        im = Image.open(p)
-        if im.width > MAX_WIDTH:
-            raise PackError(f"layer {L['image']} is wider than {MAX_WIDTH} px")
-        im = im.convert("RGBA")
+        name = L["image"]
+        if name not in cache:
+            p = os.path.join(pack, name)
+            if not os.path.isfile(p):
+                raise PackError(f"{where}layer {name} not found")
+            im = Image.open(p)
+            if im.width > MAX_WIDTH:
+                raise PackError(f"{where}layer {name} is wider than {MAX_WIDTH} px")
+            cache[name] = im.convert("RGBA")
+        im = cache[name]
         if i == 0:
             if im.size != BASE_SIZE:
-                raise PackError(f"base layer {L['image']} must be 1920x1080, not {im.width}x{im.height}")
+                raise PackError(f"{where}base layer {name} must be 1920x1080, not {im.width}x{im.height}")
             if np.asarray(im)[..., 3].min() < 255:
-                raise PackError(f"base layer {L['image']} must be opaque")
+                raise PackError(f"{where}base layer {name} must be opaque")
         imgs.append(im)
-    decoded = sum(im.width * im.height * 4 for im in imgs)
+    # An image used by two layers is decoded once.
+    unique = {L["image"]: im for L, im in zip(m["layers"], imgs)}
+    decoded = sum(im.width * im.height * 4 for im in unique.values())
     if decoded >= DECODED_LIMIT:
-        raise PackError(f"decoded layers exceed 32 MB ({decoded} bytes)")
+        raise PackError(f"{where}decoded layers exceed 32 MB ({decoded} bytes)")
     return imgs
+
+
+def check_variant_images(pack, m, v, cache):
+    """Every image v names exists and fits, and at most one replacement is full size."""
+    names = list(v.get("replace", {}).values()) + [L["image"] for L in v.get("add", [])]
+    full = 0
+    for name in dict.fromkeys(names):
+        if name not in cache:
+            p = os.path.join(pack, name)
+            if not os.path.isfile(p):
+                raise PackError(f"weather variant {v['id']}: image {name} not found")
+            im = Image.open(p)
+            if im.width > MAX_WIDTH:
+                raise PackError(f"weather variant {v['id']}: image {name} is wider than {MAX_WIDTH} px")
+            cache[name] = im.convert("RGBA")
+    for name in set(v.get("replace", {}).values()):
+        if cache[name].width == MAX_WIDTH:
+            full += 1
+    if full > 1:
+        raise PackError(f"weather variant {v['id']}: {full} full-size replacements, at most 1 allowed")
+    return load_images(pack, variant_view(m, v), cache)
 
 
 # ---------------------------------------------------------------- motion
@@ -194,6 +355,19 @@ def travel(L, sway):
     if L.get("drift"):
         t += abs(L["drift"]["x"])
     return t
+
+
+def fall_offset(L, t, rest):
+    """Downward travel in dp of a falling layer at t (0 at rest or without fall)."""
+    f = L.get("fall")
+    if not f or rest:
+        return 0.0
+    return f["y"] * t / f["period"]
+
+
+def _shift_down(arr, dy_px):
+    """Roll an image down by a fractional number of pixels, wrapping (linear filter)."""
+    return _shift(arr.swapaxes(0, 1), dy_px, True).swapaxes(0, 1)
 
 
 def x_offset(L, sway, t, rest):
@@ -311,6 +485,16 @@ def composite(layers, sway, t, out_w, out_h, rest):
             fa = _shift(fa[..., None], dx, False)[..., 0]
             rgb = full[:, pad:pad + out_w]
             a = fa[:, pad:pad + out_w]
+        if s.get("fall"):
+            # Repeat top to bottom from (y + fall) reduced to one image height.
+            h = rgb.shape[0]
+            dy = ((s.get("y", 0.0) + fall_offset(s, t, rest)) * scale) % h
+            rgb = _shift_down(rgb, dy)
+            a = _shift_down(a[..., None], dy)[..., 0]
+            reps = math.ceil(out_h / h)
+            rgb = np.tile(rgb, (reps, 1, 1))[:out_h]
+            a = np.tile(a, (reps, 1))[:out_h]
+            ty = 0
         # Vertical placement and clipping.
         y0, y1 = max(0, ty), min(out_h, ty + rgb.shape[0])
         if y1 <= y0:
@@ -356,24 +540,51 @@ def main() -> int:
     ap.add_argument("--out")
     ap.add_argument("--contact-sheet")
     ap.add_argument("--columns", type=int, default=2)
+    ap.add_argument("--weather")
+    ap.add_argument("--all-weather", action="store_true")
+    ap.add_argument("--review-dir")
     args = ap.parse_args()
     if args.frames < 0 or args.start_seconds < 0 or args.seconds < 0:
         ap.error("frame count and sample times must be nonnegative")
 
+    cache = {}
     try:
-        m = load_manifest(args.pack)
-        imgs = load_images(args.pack, m)
+        base = load_manifest(args.pack)
+        load_images(args.pack, base, cache)
+        variants = {}
+        for v in base["_weather"]:
+            variants[v["id"]] = check_variant_images(args.pack, base, v, cache)
+        m = variant_view(base, find_variant(base, args.weather)) if args.weather else base
+        imgs = load_images(args.pack, m, cache)
     except PackError as e:
         print(f"{args.pack}: {e}", file=sys.stderr)
         return 1
+    if args.weather and not args.preview:
+        args.no_preview = True
+
+    if base["_weather"]:
+        print(f"{base['id']}: weather variants {', '.join(variants)}")
+    if args.all_weather:
+        review = args.review_dir or os.path.join("build", "weather-review", base["id"])
+        os.makedirs(review, exist_ok=True)
+        for v in base["_weather"]:
+            view = variant_view(base, v)
+            rest = composite(build_layers(view, variants[v["id"]], 1920), view["_sway"], 0.0, 1920, 1080, rest=True)
+            dst = os.path.join(review, f"weather-{v['id']}.webp")
+            rest.save(dst, "WEBP", quality=90, method=6)
+            print(f"  weather {v['id']}: {len(view['layers'])} layers, rest state {dst}")
 
     decoded = encoded = 0
-    print(f"{m['id']}: {len(imgs)} layers")
+    label = f"{m['id']} weather {args.weather}" if args.weather else m["id"]
+    print(f"{label}: {len(imgs)} layers")
+    seen = set()
     for s, im in zip(m["layers"], imgs):
         p = os.path.join(args.pack, s["image"])
         n = im.width * im.height * 4
-        decoded += n
-        encoded += os.path.getsize(p)
+        if s["image"] not in seen:
+            decoded += n
+            encoded += os.path.getsize(p)
+            seen.add(s["image"])
         print(f"  {s['image']:24} {im.width:5d}x{im.height:<5d} decoded {n:>10,d}  file {os.path.getsize(p):>10,d}")
     print(f"  total decoded {decoded:,d} bytes ({decoded / 2**20:.1f} MiB), files {encoded:,d} bytes")
     for w in warnings_for(m):
