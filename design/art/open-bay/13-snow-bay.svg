@@ -4,6 +4,12 @@
        hang in the doorway, and a little has drifted onto the threshold. Half resolution. -->
   <defs>
     <clipPath id="bay"><rect x="517.5" y="145" width="265" height="178"/></clipPath>
+    <!-- The doorway, feathered about 10 dp into the jambs and over the threshold so no clip edge shows. -->
+    <filter id="feath" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
+    <mask id="baym" maskUnits="userSpaceOnUse" x="480" y="110" width="340" height="250">
+      <rect x="517.5" y="145" width="265" height="178" fill="#fff" filter="url(#feath)"/>
+      <rect x="523" y="150" width="254" height="168" fill="#fff"/>
+    </mask>
     <!-- Top-lit foliage and stone: bright, warm pixels in the painting take the snow. -->
     <filter id="rest" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
       <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .5 .9 -.4 0 -.5"/>
@@ -29,7 +35,7 @@
     </linearGradient>
     <filter id="s"><feGaussianBlur stdDeviation=".45"/></filter>
   </defs>
-  <g clip-path="url(#bay)">
+  <g mask="url(#baym)">
     <image width="960" height="540" href="00-workshop.svg" filter="url(#rest)" opacity=".7"/>
     <path d="M517 290 C560 286 640 284 700 286 C740 287 770 289 783 290 L783 323 L517 323Z" fill="url(#drive)" filter="url(#drift)"/>
     <g fill="#F6F8FC" filter="url(#s)">

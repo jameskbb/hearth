@@ -1,17 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
-  <!-- Hearth theme "Open Bay", weather layer: a soft bright overcast. Pearl light fills the open bay, and the
-       daylight it throws across the floor and bench turns from amber sun to silver. Both are keyed from the
-       painting itself (00-workshop.svg), so the wash follows its trees, hills and floor sheen. Half resolution. -->
+  <!-- Hearth theme "Open Bay", weather layer: a soft bright overcast. The sky and far hills in the open bay turn
+       pearl silver at full strength, the garden keeps its form under a light wash, and the sun streak across the
+       floor turns from amber to silver. Keyed from the painting itself (00-workshop.svg): the sky by its blue
+       channel, the floor by its warmth. Half resolution. -->
   <defs>
     <clipPath id="bay"><rect x="517.5" y="145" width="265" height="178"/></clipPath>
-    <!-- Painting luminance as alpha, lifted toward the highlights. -->
+    <!-- The doorway, feathered about 10 dp into the jambs and over the threshold so no clip edge shows. -->
+    <filter id="feath" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
+    <mask id="baym" maskUnits="userSpaceOnUse" x="480" y="110" width="340" height="250">
+      <rect x="517.5" y="145" width="265" height="178" fill="#fff" filter="url(#feath)"/>
+      <rect x="523" y="150" width="254" height="168" fill="#fff"/>
+    </mask>
+    <!-- The sky and hazy hills: the painting's palest pixels with the most blue in them; leaves carry little. -->
     <filter id="key" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
-      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .2126 .7152 .0722 0 0"/>
-      <feComponentTransfer><feFuncA type="gamma" amplitude="1" exponent=".75" offset="0"/></feComponentTransfer>
-      <feGaussianBlur stdDeviation="1.2" result="a"/>
-      <feFlood flood-color="#D9DEE6"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.44 0 4.32 0 -3.15"/>
+      <feGaussianBlur stdDeviation=".8" result="a"/>
+      <feFlood flood-color="#DCE1E8"/>
       <feComposite in2="a" operator="in"/>
     </filter>
+    <linearGradient id="above" x1="0" y1="250" x2="0" y2="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <mask id="abovem" maskUnits="userSpaceOnUse" x="480" y="110" width="340" height="250">
+      <rect x="480" y="110" width="340" height="250" fill="url(#above)"/>
+    </mask>
     <!-- The floor and bench take the sun; key them by warmth (red over blue) so only the sunlit parts turn silver. -->
     <filter id="spill" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
       <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.6 .3 -2.8 0 -.05"/>
@@ -31,17 +43,15 @@
     <mask id="nearm" maskUnits="userSpaceOnUse" x="0" y="0" width="960" height="540">
       <rect width="960" height="540" fill="url(#near)" mask="url(#floorm)"/>
     </mask>
-    <linearGradient id="sky" x1="0" y1="145" x2="0" y2="323" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#E4E8EE" stop-opacity=".55"/>
-      <stop offset=".45" stop-color="#DCE2E8" stop-opacity=".28"/>
-      <stop offset="1" stop-color="#D2D9E0" stop-opacity=".12"/>
-    </linearGradient>
+    
   </defs>
   <g mask="url(#nearm)" opacity=".8">
     <image width="960" height="540" href="00-workshop.svg" filter="url(#spill)"/>
   </g>
-  <g clip-path="url(#bay)">
-    <image width="960" height="540" href="00-workshop.svg" filter="url(#key)" opacity=".62"/>
-    <rect x="517" y="145" width="266" height="178" fill="url(#sky)"/>
+  <g mask="url(#baym)">
+    <rect x="500" y="130" width="300" height="210" fill="#D8DEE6" opacity=".22"/>
+    <g mask="url(#abovem)">
+      <image width="960" height="540" href="00-workshop.svg" filter="url(#key)"/>
+    </g>
   </g>
 </svg>
