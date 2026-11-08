@@ -17,11 +17,94 @@
   },
   "preview": "preview.webp",
   "layers": [
-    { "image": "lakeshore.webp" },
-    { "image": "clouds.webp", "y": 128, "wrap": true,
-      "drift": { "x": 66, "period": 195 } },
-    { "image": "ripples.webp", "y": 314,
-      "drift": { "x": 3, "period": 72 },
-      "opacity": { "min": 0.60, "max": 0.86, "period": 100 } }
+    {
+      "image": "lakeshore.webp"
+    },
+    {
+      "image": "clouds.webp",
+      "y": 128,
+      "wrap": true,
+      "drift": {
+        "x": 66,
+        "period": 195
+      }
+    },
+    {
+      "image": "ripples.webp",
+      "y": 314,
+      "drift": {
+        "x": 3,
+        "period": 72
+      },
+      "opacity": {
+        "min": 0.6,
+        "max": 0.86,
+        "period": 100
+      }
+    }
+  ],
+  "weather": [
+    {
+      "id": "hot-clear",
+      "when": {
+        "sky": [
+          "clear"
+        ],
+        "temp": [
+          "hot"
+        ]
+      },
+      "add": [
+        {
+          "image": "haze-gold.webp",
+          "after": "lakeshore.webp"
+        },
+        {
+          "image": "shimmer.webp",
+          "y": 300,
+          "after": "clouds.webp"
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "when": {
+        "sky": [
+          "rain"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "lakeshore.webp"
+        },
+        {
+          "image": "rings.webp",
+          "y": 300
+        },
+        {
+          "image": "rain.webp",
+          "wrap": true,
+          "fall": {
+            "y": 120,
+            "period": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "overcast",
+      "when": {
+        "sky": [
+          "cloudy"
+        ]
+      },
+      "add": [
+        {
+          "image": "veil-overcast.webp",
+          "after": "lakeshore.webp"
+        }
+      ]
+    }
   ]
 }

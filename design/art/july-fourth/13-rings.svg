@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="160" viewBox="0 300 960 160" data-scale="1">
+  <!-- The shower on the lake: soft rings where drops land, wider and
+       fainter toward the near water, and warm lamp light glinting from
+       the wet pier boards. -->
+  <defs><filter id="soft" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="0.5"/></filter>
+    <radialGradient id="lamp"><stop offset="0" stop-color="#F4CD8E" stop-opacity="0.5"/><stop offset="1" stop-color="#F4CD8E" stop-opacity="0"/></radialGradient></defs>
+  <g fill="none" stroke="#DCE6EC" filter="url(#soft)">
+    <ellipse cx="268.6" cy="379.8" rx="9.0" ry="1.45" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="497.2" cy="340.5" rx="5.2" ry="0.83" stroke-width="0.6" opacity="0.31"/>
+    <ellipse cx="338.1" cy="369.3" rx="8.3" ry="1.34" stroke-width="0.6" opacity="0.27"/>
+    <ellipse cx="546.0" cy="340.5" rx="7.5" ry="1.19" stroke-width="0.6" opacity="0.31"/>
+    <ellipse cx="263.4" cy="320.4" rx="5.8" ry="0.93" stroke-width="0.6" opacity="0.33"/>
+    <ellipse cx="227.4" cy="336.3" rx="6.4" ry="1.02" stroke-width="0.6" opacity="0.31"/>
+    <ellipse cx="194.8" cy="367.7" rx="9.0" ry="1.44" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="377.0" cy="321.7" rx="5.8" ry="0.93" stroke-width="0.6" opacity="0.33"/>
+    <ellipse cx="86.2" cy="367.8" rx="7.6" ry="1.22" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="469.8" cy="331.9" rx="7.1" ry="1.13" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="370.5" cy="347.9" rx="6.5" ry="1.05" stroke-width="0.6" opacity="0.30"/>
+    <ellipse cx="525.7" cy="325.8" rx="4.5" ry="0.73" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="43.2" cy="328.3" rx="6.2" ry="0.99" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="128.6" cy="345.3" rx="7.6" ry="1.21" stroke-width="0.6" opacity="0.30"/>
+    <ellipse cx="287.4" cy="376.2" rx="7.5" ry="1.20" stroke-width="0.6" opacity="0.27"/>
+    <ellipse cx="475.8" cy="361.7" rx="8.1" ry="1.30" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="64.2" cy="362.1" rx="6.4" ry="1.03" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="306.7" cy="383.0" rx="8.7" ry="1.40" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="435.4" cy="368.1" rx="6.6" ry="1.06" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="192.8" cy="389.4" rx="8.3" ry="1.33" stroke-width="0.6" opacity="0.25"/>
+    <ellipse cx="90.4" cy="378.1" rx="8.7" ry="1.40" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="357.1" cy="379.1" rx="9.9" ry="1.58" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="419.8" cy="349.4" rx="7.6" ry="1.22" stroke-width="0.6" opacity="0.30"/>
+    <ellipse cx="168.3" cy="352.4" rx="6.9" ry="1.10" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="152.7" cy="406.4" rx="10.6" ry="1.69" stroke-width="0.6" opacity="0.23"/>
+    <ellipse cx="274.9" cy="315.7" rx="4.4" ry="0.71" stroke-width="0.6" opacity="0.34"/>
+    <ellipse cx="30.6" cy="383.6" rx="10.6" ry="1.70" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="164.5" cy="354.2" rx="8.0" ry="1.28" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="546.1" cy="354.5" rx="5.9" ry="0.95" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="1.4" cy="355.2" rx="6.1" ry="0.98" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="395.8" cy="316.9" rx="5.0" ry="0.81" stroke-width="0.6" opacity="0.33"/>
+    <ellipse cx="238.2" cy="369.4" rx="9.0" ry="1.44" stroke-width="0.6" opacity="0.27"/>
+    <ellipse cx="135.3" cy="318.8" rx="4.2" ry="0.68" stroke-width="0.6" opacity="0.33"/>
+    <ellipse cx="223.2" cy="370.7" rx="7.1" ry="1.13" stroke-width="0.6" opacity="0.27"/>
+    <ellipse cx="100.8" cy="397.4" rx="11.4" ry="1.82" stroke-width="0.6" opacity="0.24"/>
+    <ellipse cx="528.4" cy="351.2" rx="7.7" ry="1.24" stroke-width="0.6" opacity="0.30"/>
+    <ellipse cx="108.3" cy="363.9" rx="7.1" ry="1.13" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="495.7" cy="357.3" rx="8.6" ry="1.37" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="122.8" cy="382.9" rx="10.2" ry="1.64" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="365.9" cy="365.2" rx="8.8" ry="1.41" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="164.5" cy="381.7" rx="9.9" ry="1.59" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="131.6" cy="376.6" rx="9.5" ry="1.52" stroke-width="0.6" opacity="0.27"/>
+    <ellipse cx="76.8" cy="381.9" rx="8.3" ry="1.33" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="160.2" cy="361.6" rx="8.4" ry="1.34" stroke-width="0.6" opacity="0.28"/>
+    <ellipse cx="136.8" cy="398.0" rx="10.6" ry="1.69" stroke-width="0.6" opacity="0.24"/>
+    <ellipse cx="339.2" cy="327.4" rx="5.6" ry="0.90" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="602.1" cy="328.3" rx="6.8" ry="1.08" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="84.8" cy="357.3" rx="6.1" ry="0.98" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="257.9" cy="358.2" rx="6.4" ry="1.02" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="263.1" cy="326.1" rx="6.0" ry="0.95" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="254.1" cy="327.0" rx="4.0" ry="0.64" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="256.0" cy="378.9" rx="8.7" ry="1.39" stroke-width="0.6" opacity="0.26"/>
+    <ellipse cx="490.7" cy="356.9" rx="8.0" ry="1.27" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="194.0" cy="317.5" rx="6.2" ry="0.99" stroke-width="0.6" opacity="0.33"/>
+    <ellipse cx="154.6" cy="403.2" rx="10.9" ry="1.75" stroke-width="0.6" opacity="0.24"/>
+    <ellipse cx="413.4" cy="344.8" rx="5.7" ry="0.91" stroke-width="0.6" opacity="0.30"/>
+    <ellipse cx="396.0" cy="357.9" rx="6.0" ry="0.96" stroke-width="0.6" opacity="0.29"/>
+    <ellipse cx="50.0" cy="348.8" rx="7.7" ry="1.23" stroke-width="0.6" opacity="0.30"/>
+    <ellipse cx="550.4" cy="330.1" rx="6.6" ry="1.06" stroke-width="0.6" opacity="0.32"/>
+    <ellipse cx="21.3" cy="370.9" rx="8.0" ry="1.28" stroke-width="0.6" opacity="0.27"/>
+  </g>
+  <g fill="url(#lamp)">
+    <ellipse cx="651" cy="318.0" rx="16" ry="2.4"/>
+    <ellipse cx="758" cy="315.9" rx="16" ry="2.4"/>
+    <ellipse cx="865" cy="313.7" rx="16" ry="2.4"/>
+  </g>
+</svg>

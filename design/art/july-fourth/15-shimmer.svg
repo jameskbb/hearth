@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="60" viewBox="0 300 960 60" data-scale="1">
+  <!-- Heat shimmer on the far water: a few long, soft gold glints near the
+       horizon. Kept still; the base reflections carry the motion. -->
+  <defs><filter id="soft" x="-10%" y="-200%" width="120%" height="500%"><feGaussianBlur stdDeviation="2 0.6"/></filter></defs>
+  <g fill="#F6D39C" filter="url(#soft)">
+    <ellipse cx="470" cy="312" rx="60" ry="1" opacity="0.4"/>
+    <ellipse cx="580" cy="309" rx="64" ry="1.2" opacity="0.5"/>
+    <ellipse cx="560" cy="318" rx="44" ry="0.9" opacity="0.4"/>
+    <ellipse cx="520" cy="315" rx="46" ry="1" opacity="0.35"/>
+    <ellipse cx="380" cy="320" rx="34" ry="0.8" opacity="0.3"/>
+    <ellipse cx="450" cy="326" rx="56" ry="1" opacity="0.3"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="290" viewBox="0 0 960 290" data-scale="0.5">
+  <!-- A soft pearl summer cloud deck for overcast and the shower, at quarter
+       size because it is all soft gradient. It lifts the high sky to silver,
+       stays slate behind the clock and lets the warm dusk glow through low
+       over the pier. -->
+  <defs>
+    <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3D4F6A" stop-opacity="0.5"/>
+      <stop offset="0.38" stop-color="#76849A" stop-opacity="0.4"/>
+      <stop offset="0.72" stop-color="#C2AEAA" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#DDB9A2" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" gradientUnits="userSpaceOnUse" cx="680" cy="290" r="320">
+      <stop offset="0" stop-color="#F1C9A0" stop-opacity="0.34"/>
+      <stop offset="0.45" stop-color="#DDB0A0" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#DDB0A0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B9BCC8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#E4D2CC" stop-opacity="0.5"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="8 5"/></filter>
+  </defs>
+  <rect width="960" height="290" fill="url(#deck)"/>
+  <g fill="url(#belly)" filter="url(#soft)">
+    <path d="M540 92 C600 80 660 88 720 82 C780 76 860 86 980 80 L980 112 C880 118 800 110 740 116 C680 120 620 114 540 112Z" opacity="0.3"/>
+    <path d="M260 212 C330 200 400 210 470 204 C550 196 630 210 710 202 C790 194 870 206 980 198 L980 224 C870 232 790 222 710 228 C630 234 550 226 470 232 C400 238 330 230 260 228Z" opacity="0.45"/>
+  </g>
+  <rect width="960" height="290" fill="url(#glow)"/>
+</svg>

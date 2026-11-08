@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" data-scale="0.5">
+  <!-- Hot clear: a warm golden haze that pools low over the far shore and
+       the lake, the sky above it a little warmer and brighter. Quarter size:
+       soft gradient only. -->
+  <defs>
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3B4E78" stop-opacity="0.24"/>
+      <stop offset="0.45" stop-color="#C79A7E" stop-opacity="0.18"/>
+      <stop offset="0.7" stop-color="#F0C48C" stop-opacity="0.34"/>
+      <stop offset="0.8" stop-color="#F3CC92" stop-opacity="0.2"/>
+      <stop offset="0.9" stop-color="#F3CC92" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#F3CC92" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sun" gradientUnits="userSpaceOnUse" cx="680" cy="290" r="300">
+      <stop offset="0" stop-color="#FFD9A0" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#FFD9A0" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fadeout" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.72" stop-color="#fff"/>
+      <stop offset="0.95" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="m"><rect width="960" height="360" fill="url(#fadeout)"/></mask>
+  </defs>
+  <rect width="960" height="360" fill="url(#haze)"/>
+  <rect width="960" height="360" fill="url(#sun)" mask="url(#m)"/>
+</svg>

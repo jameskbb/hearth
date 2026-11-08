@@ -1,3 +1,22 @@
 July Fourth is original SVG artwork authored for Hearth. No third-party imagery, logos, or generated raster material is embedded. The summer lakeshore follows Hearth's layered landscape language: a warm dusk horizon against navy blue, with a small pier dressed in muted red, cream and blue bunting. The pier, pennants, fan decorations and warm lamps stay still. There are no flashing fireworks, painted text or year numbers.
 
 Render with scripts/render-theme.sh july-fourth. The opaque base uses the shared lossless WebP encoding with fine anti-banding grain. Two small half-resolution overlays carry all motion: seamlessly wrapping warm clouds travel 20.3 dp per minute, while broken lake reflections glide 3 dp each way over 72 seconds and breathe gently over 100 seconds. Reduce motion uses the shared renderer's static rest state. The scene is opt-in, with no default daypart recommendations or implicit automatic rotation.
+
+Weather variants
+
+Original work drawn for Hearth from this pack's own SVG sources (10-15),
+on the same horizon and in the same palette. No third-party material. Soft
+gradient layers are authored at quarter size. The pier, bunting, fans and
+lamps are never covered.
+
+- hot-clear (clear, hot): a warm golden haze pooling over the far shore
+  and the lake, the sky above warmer and brighter, and a few still gold
+  shimmer glints on the far water.
+- rain (rain, and storm by widening): a summer shower. The pearl deck,
+  light falling rain (fall: 120 dp per 30 s), soft rings where drops land on
+  the lake (water only) and warm lamp light glinting on the wet pier boards.
+- overcast (cloudy, and fog or snow skies by widening): a pearl summer deck that
+  stays slate behind the clock and lets the dusk glow through over the pier.
+
+Left out: snow, freezing and cold clear (a July scene; snow falls back to
+overcast).
