@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="-10 300 980 240" data-scale="1">
+  <!-- Morning Glow weather layer: rain-washed hills, over hills.webp with the same placement. Drawn at half
+       size (data-scale 1). Wet grass catches the low light along each crest, brightest toward the sun,
+       with a cool fresh sheen on the far slope. -->
+  <defs>
+    <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E4F2EC" stop-opacity="0.25"/>
+      <stop offset="0.68" stop-color="#FFF1C8" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#E4F2EC" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="fresh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D9F0E6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#D9F0E6" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="backHill">
+      <path d="M-12 366 C57 358 106 383 165 398 C237 417 293 421 349 432 C420 443 475 442 530 425 C609 400 647 386 708 383 C792 380 851 348 909 349 C936 350 954 359 972 356 L972 540 L-12 540Z"/>
+    </clipPath>
+    <filter id="wet" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="1.6"/></filter>
+    <filter id="wide" x="-5%" y="-100%" width="110%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+  <g clip-path="url(#backHill)">
+    <rect x="-12" y="345" width="984" height="60" fill="url(#fresh)" filter="url(#wide)"/>
+  </g>
+  <g fill="none" stroke="url(#sheen)" stroke-linecap="round" filter="url(#wet)">
+    <path d="M-12 367 C57 359 106 384 165 399 C237 418 293 422 349 433 C420 444 475 443 530 426 C609 401 647 387 708 384 C792 381 851 349 909 350 C936 351 954 360 972 357" stroke-width="2.4" opacity="0.7"/>
+    <path d="M-12 380 C64 374 121 400 183 415 C256 433 304 430 362 443 C421 456 485 447 538 432 C643 399 687 400 748 394 C831 385 903 356 972 366" stroke-width="1.8" opacity="0.55"/>
+    <path d="M-12 446 C55 428 104 442 151 447 C232 457 282 477 345 484 C437 493 514 475 588 467 C673 457 722 453 788 430 C852 409 911 409 972 419" stroke-width="1.6" opacity="0.6"/>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" data-scale="1">
+  <!-- Morning Glow weather sky: hot clear mornings. An opaque sky drawn at half size over the base sky (data-scale 1). The base dawn in warm, golden haze: softer blue overhead, a broad amber glow and a large blooming sun. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#285281"/>
+      <stop offset="0.3" stop-color="#7A9EAA"/>
+      <stop offset="0.45" stop-color="#E2C58F"/>
+      <stop offset="0.58" stop-color="#FBC06C"/>
+      <stop offset="1" stop-color="#EDA858"/>
+    </linearGradient>
+    <radialGradient id="sunwash" cx="69%" cy="53%" r="46%">
+      <stop offset="0" stop-color="#FFF6CF" stop-opacity="1"/>
+      <stop offset="0.14" stop-color="#FFE08C" stop-opacity="0.8"/>
+      <stop offset="0.5" stop-color="#FFCF78" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#FFCF78" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B9C5D0"/>
+      <stop offset="0.6" stop-color="#9DAEBF"/>
+      <stop offset="1" stop-color="#8496AB"/>
+    </linearGradient>
+    <linearGradient id="pearl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F4F1EA"/>
+      <stop offset="0.6" stop-color="#DCD8D2"/>
+      <stop offset="1" stop-color="#E8C9A6"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF6E4"/>
+      <stop offset="0.55" stop-color="#F6E0C2"/>
+      <stop offset="1" stop-color="#F2C08A"/>
+    </linearGradient>
+    <linearGradient id="snowdeck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9EDF2"/>
+      <stop offset="0.6" stop-color="#CBD3DD"/>
+      <stop offset="1" stop-color="#C2C8D3"/>
+    </linearGradient>
+    <radialGradient id="calm" cx="150" cy="70" r="330" gradientUnits="userSpaceOnUse" gradientTransform="translate(150 70) scale(1.5 1) translate(-150 -70)">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.55" stop-color="#fff" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#fff"/>
+    </radialGradient>
+    <!-- Clouds thin a little behind the clock so it reads as it does on the base. -->
+    <mask id="clock" maskUnits="userSpaceOnUse" x="0" y="0" width="960" height="540">
+      <rect width="960" height="540" fill="url(#calm)"/>
+    </mask>
+    <filter id="disc" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <rect width="960" height="540" fill="url(#sunwash)"/>
+  <ellipse cx="666" cy="285" rx="70" ry="52" fill="#FFEBA8" opacity="0.8" filter="url(#disc)"/>
+  <circle cx="666" cy="285" r="13" fill="#FFF6D2"/>
+  <g mask="url(#clock)">
+
+  </g>
+</svg>

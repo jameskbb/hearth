@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 150 960 320" data-scale="1">
+  <!-- Morning Glow weather layer: luminous fog for fog mornings, drawn at half size (data-scale 1) and
+       wrapping: the band is uniform left to right and its texture is stitched noise, so the edges match.
+       Bright pearl, warmest where the sun shines into it. Used twice: a deep bank veiling the ranges and,
+       fainter, a low drift across the hills. -->
+  <defs>
+    <linearGradient id="band" x1="0" y1="150" x2="0" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7F2EA" stop-opacity="0"/>
+      <stop offset="0.22" stop-color="#F7F2EA" stop-opacity="0.6"/>
+      <stop offset="0.48" stop-color="#FBF3E4" stop-opacity="0.92"/>
+      <stop offset="0.72" stop-color="#F7F2EA" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#F7F2EA" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sunfog" cx="666" cy="290" r="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE6B8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FFE6B8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="mist" filterUnits="userSpaceOnUse" x="0" y="150" width="960" height="320">
+      <feTurbulence type="fractalNoise" baseFrequency=".004 .02" numOctaves="3" seed="44" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.6 0 0 0 -0.15" result="m"/>
+      <feComposite in="SourceGraphic" in2="m" operator="in"/>
+    </filter>
+  </defs>
+  <g filter="url(#mist)">
+    <rect x="0" y="150" width="960" height="320" fill="url(#band)"/>
+  </g>
+</svg>

@@ -25,5 +25,62 @@
       "drift": { "x": 36, "period": 210 },
       "opacity": { "min": 0.52, "max": 0.64, "period": 100, "phase": 0.25 } },
     { "image": "hills.webp", "y": 300, "parallax": 1.0 }
+  ],
+  "weather": [
+    { "id": "snow", "when": {"sky": ["snow"]},
+      "replace": {"hills.webp": "hills-snow.webp"},
+      "hide": ["clouds.webp"],
+      "add": [
+        {"image": "sky-snow.webp", "after": "sky.webp"},
+        {"image": "peaks-snow.webp", "y": 170, "parallax": 0.24, "after": "mountains.webp"},
+        {"image": "snowfall.webp", "wrap": true, "fall": {"y": 90, "period": 45}}
+      ] },
+    { "id": "rain", "when": {"sky": ["rain"]},
+      "hide": ["clouds.webp"],
+      "add": [
+        {"image": "sky-pearl.webp", "after": "sky.webp"},
+        {"image": "rain-glints.webp", "y": 300, "parallax": 1.0, "after": "hills.webp"},
+        {"image": "rainfall.webp", "wrap": true, "fall": {"y": 240, "period": 40}}
+      ] },
+    { "id": "fog", "when": {"sky": ["fog"]},
+      "hide": ["clouds.webp"],
+      "add": [
+        {"image": "sky-pearl.webp", "after": "sky.webp"},
+        {"image": "fog-veil.webp", "y": 150, "parallax": 0.2, "wrap": true, "drift": {"x": 40, "period": 240}, "after": "mountains.webp"},
+        {"image": "fog-veil.webp", "y": 240, "parallax": 0.6, "wrap": true, "drift": {"x": 60, "period": 200}, "opacity": {"min": 0.3, "max": 0.4, "period": 70}, "after": "hills.webp"}
+      ] },
+    { "id": "snow-coming-freezing", "when": {"sky": ["clear", "cloudy"], "temp": ["freezing"], "forecast": ["snow"]},
+      "hide": ["clouds.webp"],
+      "add": [
+        {"image": "sky-snow.webp", "after": "sky.webp"},
+        {"image": "peaks-snow.webp", "y": 170, "parallax": 0.24, "after": "mountains.webp", "opacity": {"min": 0.4, "max": 0.5, "period": 80}},
+        {"image": "frost.webp", "y": 300, "parallax": 1.0, "after": "hills.webp"}
+      ] },
+    { "id": "snow-coming", "when": {"sky": ["clear", "cloudy"], "forecast": ["snow"]},
+      "hide": ["clouds.webp"],
+      "add": [
+        {"image": "sky-snow.webp", "after": "sky.webp"}
+      ] },
+    { "id": "freezing-clear", "when": {"sky": ["clear"], "temp": ["freezing"]},
+      "hide": ["haze.webp"],
+      "add": [
+        {"image": "sky-crisp.webp", "after": "sky.webp"},
+        {"image": "frost.webp", "y": 300, "parallax": 1.0, "after": "hills.webp"}
+      ] },
+    { "id": "cold-clear", "when": {"sky": ["clear"], "temp": ["cold"]},
+      "add": [
+        {"image": "sky-crisp.webp", "after": "sky.webp"},
+        {"image": "frost.webp", "y": 300, "parallax": 1.0, "after": "hills.webp", "opacity": {"min": 0.3, "max": 0.4, "period": 60}}
+      ] },
+    { "id": "hot-clear", "when": {"sky": ["clear"], "temp": ["hot"]},
+      "replace": {"haze.webp": "haze-golden.webp"},
+      "add": [
+        {"image": "sky-golden.webp", "after": "sky.webp"}
+      ] },
+    { "id": "overcast", "when": {"sky": ["cloudy"]},
+      "hide": ["clouds.webp"],
+      "add": [
+        {"image": "sky-pearl.webp", "after": "sky.webp"}
+      ] }
   ]
 }
