@@ -5,7 +5,7 @@ Weather variants
 All weather art is original work drawn for Hearth from this pack's own SVG layers (same mesas, prairie swells and grass tufts); no third-party material. Sources are 10-27 in this folder; each renders at half resolution (data-scale="1").
 
 - rain: pearl sky and silver cloud banks, soft shower veils trailing from the clouds and a faint partial rainbow rising from the left mesas, opposite the low sun, sun on the wet prairie with sheen along each swell and glints of standing water, and sparse soft rain streaks (fall).
-- snow: pearl sky under a low deck of cream cloud rolls, the far mesas blue-gray rock with snow on their tops and ledges, fresh snow along the rims of the red rock, each prairie swell under snow with a lit cream top and a lavender lee, dry gold stalks in clusters, the near ground snowy in shade with drifts at the feet of the gold tufts, and soft falling flakes (fall).
+- snow: pearl sky under a low deck of cream cloud rolls, the far mesas blue-gray rock with snow on their tops and ledges, fresh snow along the rims of the red rock, swells under snow growing taller toward the viewer, each a lit cream top fading into a lavender lee, dry gold stalks in clusters, the nearest swell in cool shadow with a lit crest and low drifts and the gold tufts rising straight out of it, and soft falling flakes (fall).
 - fog: pearl sky with the low sun as a pale disc, luminous fog over the far mesas, and bright tapered ground fog pooled in the troughs between the swells.
 - snow-coming-freezing: forecast snow at freezing: the snow-sky deck and veiled sun, pearl haze, silver frost in the lee of each swell and rime on every near tuft.
 - snow-coming: forecast snow: the same hushed sky with a light frost tint on the prairie; no flakes.
